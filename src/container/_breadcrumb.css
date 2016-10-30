@@ -1,0 +1,24 @@
+ /* #breadcrumb
+   -------------------------------------------------------------------------- */
+.c-breadcrumb {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  @apply --listUnstyled;
+}
+
+.c-breadcrumb__item {
+  display: inline-block;
+  &:last-child {
+    display: inline;
+  }
+}
+
+.c-breadcrumb__link {
+  display: inline-block;
+}
+
+.c-breadcrumb__item:not(:first-of-type):before {
+  content: "\003E";
+  margin: 0 0.5em;
+}

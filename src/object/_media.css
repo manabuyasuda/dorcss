@@ -1,0 +1,27 @@
+ /* #media
+   -------------------------------------------------------------------------- */
+.o-media {
+  display: block;
+  @apply --clearfix;
+}
+
+.o-media__image,
+.o-media__body {
+  display: block;
+  float: left;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.o-media__image {
+  margin-right: 1rem;
+}
+
+.o-media__image > img {
+  display: block;
+}
+
+.o-media__body {
+  overflow: hidden;
+}

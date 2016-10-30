@@ -1,0 +1,13 @@
+:root {
+  --max-width: 960px;
+  --color: #000;
+  --color--link: #2b70ba;
+  --background-color: #fff;
+  --border-radius: 3px;
+}
+
+@custom-media --md-up screen and (min-width: 768px);
+@custom-media --lg-up screen and (min-width: 1000px);
+@custom-media --md-down screen and (max-width: 767px);
+@custom-media --lg-down screen and (max-width: 999px);
+

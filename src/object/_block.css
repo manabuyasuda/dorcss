@@ -1,0 +1,29 @@
+ /* #block
+   -------------------------------------------------------------------------- */
+.o-block {
+  display: block;
+}
+
+.o-block__image {
+  display: block;
+}
+
+.o-block__image--full {
+  & > img {
+    display: block;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.o-block__body {
+  display: block;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.o-block__image + .o-block__body,
+.o-block__body + .o-block__image {
+  margin-top: 0.25em;
+}

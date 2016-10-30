@@ -1,0 +1,23 @@
+ /* #listOrdered
+   -------------------------------------------------------------------------- */
+.o-listOrdered {
+  display: table;
+  @apply --listUnstyled;
+}
+
+.o-listOrdered__item {
+  display: table-row;
+  counter-increment: ordered;
+}
+
+.o-listOrdered__item:before {
+  content: counters(ordered, ".") " ";
+  display: table-cell;
+  padding-right: 0.5em;
+  text-align: right;
+}
+
+.o-listOrdered__items {
+  counter-reset: ordered;
+  @apply --listUnstyled;
+}

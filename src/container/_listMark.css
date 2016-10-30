@@ -1,0 +1,18 @@
+ /* #listMark
+   -------------------------------------------------------------------------- */
+.c-listMark {
+  display: table;
+  @apply --listUnstyled;
+}
+
+.c-listMark__item {
+  display: table-row;
+}
+
+.c-listMark__icon() {
+  display: table-cell;
+}
+
+.c-listMark__items() {
+  @apply --listUnstyled;
+}

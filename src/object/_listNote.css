@@ -1,0 +1,24 @@
+ /* #listNote
+   -------------------------------------------------------------------------- */
+.o-listNote {
+  display: table;
+  @apply --listUnstyled;
+}
+
+.o-listNote__item {
+  display: table-row;
+  &:before {
+    display: table-cell;
+  }
+  [lang="ja"] &:before {
+    content: "※";
+  }
+  [lang="en_US"] &:before {
+    content: "*";
+  }
+}
+
+.o-listNote__items {
+  margin-left: 1em;
+  @apply --listUnstyled;
+}

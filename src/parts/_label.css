@@ -1,0 +1,19 @@
+ /* #label
+   -------------------------------------------------------------------------- */
+.p-label {
+  display: inline-block;
+  padding: 0.5em;
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  background-color: var(--color--link);
+  &:hover,
+  &:active,
+  &:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "dorcss",
+  "version": "0.0.0",
+  "description": "DORCSS（ドールシーエスエス）はRole（役割）を分担・分割（Division）することで影響範囲を管理する、CSS設計の構成案です。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "postcss"
+  ],
+  "author": "Manabu Yasuda",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.2.0",
+    "gulp-sourcemaps": "^2.2.0",
+    "postcss-apply": "^0.4.0",
+    "postcss-cssnext": "^2.8.0",
+    "postcss-import": "^8.1.2",
+    "postcss-nested": "^1.0.0",
+    "stylefmt": "^4.3.1"
+  }
+}

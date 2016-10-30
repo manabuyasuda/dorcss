@@ -1,0 +1,27 @@
+ /* #embed
+   -------------------------------------------------------------------------- */
+.o-embed {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  height: 0;
+  padding-bottom: calc((9 / 16) * 100%);
+}
+
+.o-embed__item,
+.o-embed iframe,
+.o-embed embed,
+.o-embed object,
+.o-embed video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.o-embed--4to3 {
+  padding-bottom: calc((3 / 4) * 100%);
+}
