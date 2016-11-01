@@ -25,7 +25,7 @@ DORCSSでは以下のような用語を使います。
 
 ## 命名規則
 クラス名の命名規則はBEM（[MindBEMding](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)）をベースにします。  
-BEMはBlock、Element、Modifierという関係性を示すことでコードを理解しやすくします。
+BEMはBlock、Element、Modifierという関係性を示すことでコードを理解しやすくします。コンポーネントもBEMベースに作っていきます。
 
 DORCSSでは単語をローワーキャメルケースにすることで、BEMを構成する要素を把握しやすくします（一貫性を保持できるのであれば他の命名規則を使うこともできます）。
 
@@ -105,10 +105,10 @@ CSSプリプロセッサではネストを使った省略記法が使えます�
 ```
 
 ## モジュール化
-BEMで表現したコンポーネントはモジュールとして1つのファイルにまとめます。Block名とファイル名を同じにすることで、コンポーネントを把握・管理しやすくします（下記はSassを使った場合）。
+BEMで表現したコンポーネントはモジュールとして1つのファイルにまとめます。Block名とファイル名を同じにすることで、コンポーネントを把握・管理しやすくします。PostCSSではpostcss-importを、Sassでは標準機能の`@import`を使います。
 
-- `.button` => `_button.scss`
-- `.listInline` => `_listInline.scss`
+- `.button` => `_button.css`
+- `.listInline` => `_listInline.css`
 
 Stateクラスやメディアクエリなど、Blockに関わるスタイルは同じファイル内に保存します。
 
@@ -125,7 +125,6 @@ css
 │   ├── Setting
 │   ├── Tool
 │   └── Base
-├── Object
 ├── Parts
 ├── Container
 ├── Layout
@@ -133,209 +132,272 @@ css
 └── Utility
 ```
 
-ページ特有のスタイルを多く含む場合は、ページ専用のCSSファイルを作ることもできます（下記はSassを使った場合）。
+ページ特有のスタイルを多く含む場合は、ページ専用のCSSファイルを作ることもできます。
 
 ```
-root		
-├── assets/		
-│   └── css/		
-│       ├── common.scss		
-│       ├── foundation/		
-│       │   ├── Setting/		
-│       │   ├── Tool/		
-│       │   └── Base/		
-│       ├── Object/		
-│       ├── Parts/		
-│       ├── Container/		
-│       ├── layout/		
-│       ├── Scope/		
-│       └── Utility/		
-├── css/		
-│   └── index.scss		
-├── index.html		
-└── page/		
-    ├── css/		
-    │   └── index.scss		
-    └── index.html		
+root
+├── assets/
+│   └── css/
+│       ├── common.css
+│       ├── foundation/
+│       │   ├── Setting/
+│       │   ├── Tool/
+│       │   └── Base/
+│       ├── Parts/
+│       ├── Container/
+│       ├── layout/
+│       ├── Scope/
+│       └── Utility/
+├── css/
+│   └── index.css
+├── index.html
+└── page/
+    ├── css/
+    │   └── index.css
+    └── index.html
 ```
 
 無理に1つのCSSとして管理するよりスタイルの追加や削除がしやすくなり、common.cssの肥大化・複雑化を防ぐことができます。
 
 ### 1. Foundation
-FoundationレイヤーではNormalize.cssやリセットCSS、要素セレクタや属性セレクタのようなコンポーネントのベースとなるスタイルを定義します。変数やCSSプリプロセッサを使う場合は関数を定義することもできます。
+FoundationレイヤーではNormalize.cssやリセットCSS、要素セレクタや属性セレクタのようなコンポーネントのベースとなるスタイルを定義します。
+
+SettingレイヤーとToolレイヤーでは、Custom Propertiesや@apply Rule、Sassの変数や@mixinなどで変数と関数を管理します。
 
 ### 1-1. Setting
 Settingレイヤーではグローバルに使用される変数を定義します。例えば、サイトの`max-width`やフォントのサイズ、余白や色に関するものです。
 
-```css		
-:root {		
-  --max-width: 960px;		
-  --brand-color: gold;		
-}		
-```		
-		
-```scss		
-// scss		
-$max-width: 960px !default;		
-$brand-color: gold !default;		
-}		
+```css
+:root {
+  --max-width: 960px;
+  --color: #000;
+  --color--link: #2b70ba;
+  --background-color: #fff;
+  --border-radius: 3px;
+}
 ```
 
 ### 1-2. Tool
-ToolレイヤーではSassの@mixinや@function、[Defining Custom Sets of Properties](https://tabatkins.github.io/specs/css-apply-rule/#defining)などを使った関数やカスタムプロパティなどを定義します。
+ToolレイヤーではCustom SelectorsやCustom Media Queries、@apply Ruleなどを使ったルールを定義します。Sassでは@functionや@mixinで定義します。
+
+```css
+@custom-selector :--onEvent :hover, :active, :focus;
+
+@custom-media --md-up screen and (min-width: 768px);
+@custom-media --lg-up screen and (min-width: 1000px);
+@custom-media --md-down screen and (max-width: 767px);
+@custom-media --lg-down screen and (max-width: 999px);
+
+:root {
+  --clearfix: {
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+  --listUnstyled: {
+    padding-left: 0;
+    list-style-type: none;
+  }
+}
+```
 
 ### 1-3. Base
-Normalize.cssやリセットCSS、要素セレクタや属性セレクタのようなコンポーネントのベースとなるスタイルを定義します
+BaseレイヤーではNormalize.cssやリセットCSS、要素セレクタや属性セレクタのようなコンポーネントのベースとなるスタイルを定義します
 
-詳細度はクラスセレクタと同じ0,0,1,0以下になるように極力低くします。メディアクエリや擬似クラスのような、ある状況やある状態に対するスタイルを持つべきではありません。
+詳細度はクラスセレクタと同じ0,0,1,0以下になるように極力低くします。メディアクエリや擬似クラスのような、ある状況やある状態に対するスタイルは極力持つべきではありません。
 
 自分自身の構造を持つことはできますが、装飾と配置、コンポーネントを内包することはできません。
 
 リセットをするよりも継承を利用するようにします。コンポーネント間の余白を管理しやすくするために、上下方向の`margin`は`0`にリセットしておくのを推奨します。
 
-```css		
-html {		
-  box-sizing: border-box;		
-}		
-		
-*,		
-*:before,		
-*:after {		
-  box-sizing: inherit;		
-		
-html {		
-  font-size: 15px;		
-  line-height: 1.6;		
-}		
-		
-body {		
-  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; 		
-}		
-		
-h1, h2, h3, h4, h5, h6,		
-ul, ol, dl,		
-blockquote, p, address,		
-hr,		
-table,		
-fieldset, figure,		
-pre {		
-  margin-top: 0;		
-  margin-bottom: 0;		
-}		
+```css
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 15px;
+  line-height: 1.6;
+  @media (--md-up) {
+    font-size: 16px;
+  }
+}
+
+body {
+  color: var(--color);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-weight: 400;
+  background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+blockquote, p, address,
+hr,
+table,
+fieldset, figure,
+pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 ```
 
-### 2. Object
-プロジェクトを問わず、横断的に再利用できるようなコンポーネントを定義します。OOCSSにおける構造の役割を担当し、装飾的なスタイルを持つことはできません。コンポーネントを内包することもできますが、配置に関する情報だけを持つことができます。
+### 2. Parts
+Partsレイヤーは装飾的なスタイルを持つことができる、再利用可能で小さなコンポーネントを定義します。
 
-例えば、グリッドシステムやOOCSSのMedia Objectなどが該当します。
+目安としては、見出しやリスト、ボタンやラベルのような他のコンポーネントを内包できない小さなコンポーネントです。内包されるコンポーネントなので配置に関する情報を持つことはできません。
 
-Objectコンポーネントをそのまま使うこともできますし、Objectコンポーネントの構造を使って別のコンポーネントを拡張することもできます。ただし、Objectコンポーネントをセレクタにすることは極力避けます。
+プレフィックス（接頭辞）として`.p-`をつけます。
 
-```html		
-<a class="o-button p-buttonPrimary" href="#">ボタン</a>		
-```		
-		
-```css		
-/* Good */		
-.o-button {}		
-.p-buttonPrimary {}		
-		
-/* Allow */		
-.p-buttonPrimary.o-button {}		
+```css
+@import "parts/_label.css";
+@import "parts/_button.css";
+@import "parts/_embed.css";
+@import "parts/_listNote.css";
+@import "parts/_listOrdered.css";
+@import "parts/_headingH2.css";
+@import "parts/_headingH3.css";
 ```
 
-### 3. Parts
-装飾的なスタイルを持つ、再利用できる小さなコンポーネントを定義します。目安としては、見出しやリスト、ボタンやラベルのような他のコンポーネントを内包できない小さなコンポーネントです。内包されるコンポーネントなので配置に関する情報を持つことはできません。
+### 3. Container
+ContainerレイヤーはPartsレイヤーを内包できる比較的大きなコンポーネントを定義します。
 
-```css		
-.p-icon {}		
-.p-label {}		
-.p-headingH2 {}		
-.p-headingH3 {}		
+```css
+@import "container/_listInline.css";
+@import "container/_listMark.css";
+@import "container/_breadcrumb.css";
+@import "container/_ratio.css";
+@import "container/_block.css";
+@import "container/_table.css";
+@import "container/_media.css";
+@import "container/_flag.css";
 ```
 
-### 4. Container
-ContainerレイヤーではObjectレイヤーやPartsレイヤーを内包できる比較的大きなコンポーネントを定義します。Containerコンポーネントがユーザーインターフェイスの見た目と構造を確定するので、自分自身と内包するコンポーネントに対して具体的な情報を持つべきです。
+Containerコンポーネントがユーザーインターフェイスの見た目と構造を確定するので、自分自身と内包するコンポーネントに対して具体的な情報を持つべきです。
 
-```html		
-<div class="c-blockGrid">		
+```html
+<div class="c-blockGrid">
   <div class="c-blockGrid__item"></div>
   <div class="c-blockGrid__item">
     <h2 class="p-headingH2"></h2>	
-    <p></p>		
-  </div>		
-</div>		
-```		
-		
-```css		
+    <p></p>
+  </div>
+</div>
+```
+
+```css
 .c-blockGrid__item > .p-headingH2 {}
-```		
-		
-ただし、内包するコンポーネントに直接指定するのではなく、自身のElementに対して指定することを推奨します。役割がより明確になり詳細度を低く保てるからです。		
-		
-```html		
-<div class="c-blockGrid">		
+```
+
+ただし、役割がより明確になり詳細度を低く保てるように、内包するコンポーネントに直接指定するのではなく、自身のElementに対して指定することを推奨します。
+
+```html
+<div class="c-blockGrid">
   <div class="c-blockGrid__item"></div>
   <div class="c-blockGrid__item">	
     <h2 class="c-blockGrid__heading p-headingH2"></h2>
-    <p></p>		
-  </div>		
-</div>		
-```		
-		
-```css		
-.c-blockGrid__heading {}		
-```		
-		
-基本的にはContainerコンポーネント自身の配置を指定することはできませんが、JavaScriptで動的に表示や配置の変更がされるUIの場合は許容されます。例えば、ModalやSticky headerです。
+    <p></p>
+  </div>
+</div>
+```
 
-### 5. Layout
-Layoutレイヤーはワイヤーフレームに出てくるような大枠のレイアウトを担当するコンポーネントを定義します。Layoutコンポーネントによってページ内のレイアウトが確定します。
+```css
+.c-blockGrid__heading {}
+```
+
+基本的にはContainerコンポーネント自身の配置を指定することはできませんが、JavaScriptで動的に表示や配置の変更がされるUIの場合は許容されます。
+
+プレフィックス（接頭辞）として`.c-`をつけます。
+
+### 4. Layout
+Layoutレイヤーはワイヤーフレームに出てくるような大枠のレイアウトを担当するコンポーネントを定義します。Layoutコンポーネントによってページ内のレイアウトが確定します。  
+グリッドのようなレイアウト専用のコンポーネントもこのレイヤーに含みます。
+
+```css
+@import "layout/_grid.css";
+@import "layout/_wrapper.css";
+@import "layout/_header.css";
+@import "layout/_footer.css";
+@import "layout/_content.css";
+```
 
 装飾的なスタイルを持つことも、内包するモジュールを上書きすることもできません。Layoutコンポーネントは完全にレイアウトに特化したコンポーネントです。
 
 内包するコンポーネントのレイアウトは自身のElementで指定します。内包するコンポーネントと同じ要素に指定することを避けて、コンポーネント同士が干渉しないようにします。
 
 ```html
-<div class="l-globalHeader">		
+<div class="l-globalHeader">
   <div class="l-globalHeader__logo">
-    <h1 class="p-logo"></h1>		
-  </div>		
+    <h1 class="p-logo"></h1>
+  </div>
   <nav class="l-globalHeader__nav">
-    <ul class="c-globalNav">		
+    <ul class="c-globalNav">
       <li class="c-globalNav__item"></li>
       <li class="c-globalNav__item"></li>
-    </ul>		
-  </nav>		
+    </ul>
+  </nav>
 </div>
 ```
 
-### 6. Scope
+プレフィックス（接頭辞）として`.l-`をつけます。
+
+### 5. Scope
 Scopeレイヤーはカテゴリやブログのような特定の範囲でのスタイルを定義します。コンポーネント単位ではなく、任意の範囲（スコープ）に対するスタイルを指定します。
 
-Scopeレイヤー自身も内包するコンポーネントにも装飾的なスタイルや配置に関する指定をすることもできる、影響範囲の大きなレイヤーです。  
-影響範囲ができるだけ小さくなるように適応する範囲や要素を限定しなければいけません。
+Scopeレイヤー自身も内包するコンポーネントにも装飾的なスタイルや配置に関する指定をすることもできる、影響範囲の大きなレイヤーです。
 
-```css		
-.s-blog h2 {}		
-.s-blog p {}		
-.s-blog img {}		
-```		
-		
-```css		
-.s-about.o-button {}		
+影響範囲ができるだけ小さくなるように適応する範囲や要素を限定しなければいけません。例えば`.s-scope .p-button`ではなく、`.s-scope__button`と`.p-button`のマルチクラスで指定します。
+
+プレフィックス（接頭辞）として`.s-`をつけます。
+
+```css
+@import "scope/_blog.css";
 ```
 
-### 7. Utility
+```css
+.s-blog {
+  & h2 {}
+  & h3 {}
+  & h4 {}
+  & h5 {}
+  & h6 {}
+  & p {}
+  & ul,
+  & ol {}
+  & blockquote {}
+  & img {}
+  & code {}
+  & pre code {}
+}
+```
+
+### 6. Utility
 Utilityレイヤーは汎用クラスを定義します。シングルクラスでも確実にスタイルを適応させるために`!important`を指定することを推奨します。
 
-コンポーネントがUtilityコンポーネントで成り立ってしまうことはできるだけできるだけ避けます。基本的にコンポーネントは自分自身で役割を果たせるように考えるべきです。  
-Utilityコンポーネントは他のレイヤーが持つよりも汎用的に使えたり、コードが冗長になってしまう場合に使います。
+コンポーネントがUtilityコンポーネントで成り立ってしまうことはできるだけできるだけ避けます。基本的にコンポーネントは自分自身で役割を果たせるように考えるべきです。
+
+Utilityコンポーネントは他のレイヤーが持つよりも汎用的に使えたり、コードが冗長になってしまう場合に使います。pxのような絶対値ではなく、remや%のような相対値を指定することを推奨します。
+
+プレフィックス（接頭辞）として`.u-`をつけます。
+
+```css
+@import "utility/_align.css";
+@import "utility/_text.css";
+@import "utility/_display.css";
+@import "utility/_width.css";
+```
 
 ## プレフィックス
 レイヤーにカテゴライズしたコンポーネントにはレイヤー名からとったプレフィックスをつけます。
 
-- Object - `.o-`
 - Parts - `.p-`
 - Container - `.c-`
 - Layout - `.l-`
@@ -350,10 +412,9 @@ Utilityコンポーネントは他のレイヤーが持つよりも汎用的に�
 ### コンポーネント自身の役割
 自分自身とはBEMでいうBlockのことです。配置するとは`margin`や`float`、`position`プロパティなどでコンポーネント間の間隔や位置関係を変更することです。
 
-| レイヤー名 	| 自分自身を装飾すること 	| 自分自身を配置すること 	|
+| レイヤー名 	| 自分自身を装飾すること  	| 自分自身を配置すること  	|
 |------------	|------------------------	|------------------------	|
 | Base       	| 禁止                   	| 禁止                   	|
-| Object     	| 禁止                   	| 禁止                   	|
 | Parts      	| 推奨                   	| 禁止                   	|
 | Container  	| 推奨                   	| 許容                   	|
 | Layout     	| 禁止                   	| 推奨                   	|
@@ -364,10 +425,9 @@ Utilityコンポーネントは他のレイヤーが持つよりも汎用的に�
 ### 内包しているコンポーネントへの影響範囲
 内包するコンポーネントとは内包しているコンポーネントとは別のコンポーネントのことです。Blockに対するElementではありません。
 
-| レイヤー名 	| 内包するコンポーネントを装飾すること 	| 内包するコンポーネントを配置すること 	|
+| レイヤー名 	| 内包するコンポーネントを装飾すること   	| 内包するコンポーネントを配置すること   	|
 |------------	|--------------------------------------	|--------------------------------------	|
 | Base       	| 禁止                                 	| 禁止                                 	|
-| Object     	| 禁止                                 	| 推奨                                 	|
 | Parts      	| 禁止                                 	| 禁止                                 	|
 | Container  	| 許容                                 	| 推奨                                 	|
 | Layout     	| 禁止                                 	| 推奨                                 	|
@@ -379,9 +439,8 @@ Utilityコンポーネントは他のレイヤーが持つよりも汎用的に�
 | レイヤー名 	| 役割                 	| 詳細度 	|
 |------------	|----------------------	|--------	|
 | Base       	| グローバル           	| 低     	|
-| Object     	| Container・Content 	| 中     	|
-| Parts      	| Content           	| 中     	|
-| Container  	| Container             	| 中     	|
-| Layout     	| Container             	| 中     	|
+| Parts      	| Content             	| 中     	|
+| Container  	| Container            	| 中     	|
+| Layout     	| Container            	| 中     	|
 | Scope      	| 任意の範囲           	| 中     	|
-| Utility    	| Content           	| 高     	|
+| Utility    	| Content             	| 高     	|
