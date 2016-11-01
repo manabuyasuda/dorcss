@@ -29,7 +29,7 @@
  * '社名' => `社　名`
  */
 .u-text-spacing-full {
-  letter-spacing: 1em;
+  letter-spacing: 1em !important;
 }
 
 /**
@@ -37,7 +37,7 @@
  * `URL` => `U R L`
  */
 .u-text-spacing-half {
-  letter-spacing: 0.5em;
+  letter-spacing: 0.5em !important;
 }
 
 /* テキストを改行させません。 */
