@@ -1,3 +1,5 @@
+@custom-selector :--onEvent :hover, :active, :focus;
+
 :root {
   --clearfix: {
     &:after {
