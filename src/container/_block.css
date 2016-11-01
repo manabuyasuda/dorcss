@@ -8,12 +8,10 @@
   display: block;
 }
 
-.c-block__image--full {
-  & > img {
-    display: block;
-    width: 100%;
-    max-width: none;
-  }
+.c-block__image--full > img {
+  display: block;
+  width: 100%;
+  max-width: none;
 }
 
 .c-block__body {

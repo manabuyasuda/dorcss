@@ -10,9 +10,7 @@
   white-space: nowrap;
   text-decoration: none;
   background-color: var(--color--link);
-  &:hover,
-  &:active,
-  &:focus {
+  &:--onEvent {
     color: #fff;
     text-decoration: none;
   }

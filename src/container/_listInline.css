@@ -2,7 +2,6 @@
    -------------------------------------------------------------------------- */
 .c-listInline {
   display: block;
-  margin: 0;
   font-size: 0;
   @apply --listUnstyled;
 }

@@ -8,8 +8,6 @@
 .c-flag__image {
   display: table-cell;
   width: 1px;
-  margin: 0;
-  padding: 0;
   padding-right: 1rem;
   vertical-align: top;
 }
@@ -21,8 +19,6 @@
 .c-flag__body {
   display: table-cell;
   width: auto;
-  margin: 0;
-  padding: 0;
   vertical-align: top;
   & > :last-child {
     margin-bottom: 0;
@@ -58,7 +54,7 @@
 }
 
 @media (--md-up) {
-  .c-flag--reverse {
+  .c-flag--reverse-md {
     text-align: left;
     direction: rtl;
     & > .c-flag__image,
@@ -74,7 +70,7 @@
 }
 
 @media (--lg-up) {
-  .c-flag--reverse {
+  .c-flag--reverse-lg {
     text-align: left;
     direction: rtl;
     & > .c-flag__image,

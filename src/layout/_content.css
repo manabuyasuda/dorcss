@@ -1,3 +1,19 @@
  /* #content
    -------------------------------------------------------------------------- */
-.l-content {}
+.l-content {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.l-content__section {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.l-content__subSection {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
