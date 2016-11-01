@@ -1,5 +1,10 @@
 @custom-selector :--onEvent :hover, :active, :focus;
 
+@custom-media --md-up screen and (min-width: 768px);
+@custom-media --lg-up screen and (min-width: 1000px);
+@custom-media --md-down screen and (max-width: 767px);
+@custom-media --lg-down screen and (max-width: 999px);
+
 :root {
   --clearfix: {
     &:after {
