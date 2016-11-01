@@ -1,11 +1,11 @@
  /* #listNote
    -------------------------------------------------------------------------- */
-.o-listNote {
+.p-listNote {
   display: table;
   @apply --listUnstyled;
 }
 
-.o-listNote__item {
+.p-listNote__item {
   display: table-row;
   &:before {
     display: table-cell;
@@ -18,7 +18,7 @@
   }
 }
 
-.o-listNote__items {
+.p-listNote__items {
   margin-left: 1em;
   @apply --listUnstyled;
 }

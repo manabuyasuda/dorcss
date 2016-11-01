@@ -1,12 +1,12 @@
  /* #media
    -------------------------------------------------------------------------- */
-.o-media {
+.c-media {
   display: block;
   @apply --clearfix;
 }
 
-.o-media__image,
-.o-media__body {
+.c-media__image,
+.c-media__body {
   display: block;
   float: left;
   & > :last-child {
@@ -14,14 +14,14 @@
   }
 }
 
-.o-media__image {
+.c-media__image {
   margin-right: 1rem;
 }
 
-.o-media__image > img {
+.c-media__image > img {
   display: block;
 }
 
-.o-media__body {
+.c-media__body {
   overflow: hidden;
 }

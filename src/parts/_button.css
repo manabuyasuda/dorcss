@@ -1,6 +1,6 @@
  /* #button
    -------------------------------------------------------------------------- */
-.o-button {
+.p-button {
   display: inline-block;
   margin: 0;
   padding: 0.75em;
@@ -27,6 +27,11 @@
   }
 }
 
-.o-button--full {
+.p-button--full {
   width: 100%;
 }
+
+.p-button--primary {}
+.p-button--secondary {}
+.p-button--tertiary {}
+.p-button--quaternary {}

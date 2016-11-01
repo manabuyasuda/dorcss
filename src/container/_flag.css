@@ -1,11 +1,11 @@
  /* #flag
    -------------------------------------------------------------------------- */
-.o-flag {
+.c-flag {
   display: table;
   width: 100%;
 }
 
-.o-flag__image {
+.c-flag__image {
   display: table-cell;
   width: 1px;
   margin: 0;
@@ -14,11 +14,11 @@
   vertical-align: top;
 }
 
-.o-flag__image > img {
+.c-flag__image > img {
   max-width: none;
 }
 
-.o-flag__body {
+.c-flag__body {
   display: table-cell;
   width: auto;
   margin: 0;
@@ -29,44 +29,44 @@
   }
 }
 
-.o-flag--middle {
-  & > .o-flag__image,
-  & > .o-flag__body {
+.c-flag--middle {
+  & > .c-flag__image,
+  & > .c-flag__body {
     vertical-align: middle;
   }
 }
 
-.o-flag--bottom {
-  & > .o-flag__image,
-  & > .o-flag__body {
+.c-flag--bottom {
+  & > .c-flag__image,
+  & > .c-flag__body {
     vertical-align: bottom;
   }
 }
 
-.o-flag--reverse {
+.c-flag--reverse {
   text-align: left;
   direction: rtl;
-  & > .o-flag__image,
-  & > .o-flag__body {
+  & > .c-flag__image,
+  & > .c-flag__body {
     text-align: left;
     direction: ltr;
   }
-  & > .o-flag__image {
+  & > .c-flag__image {
     padding-right: 0;
     padding-left: 1rem;
   }
 }
 
 @media (--md-up) {
-  .o-flag--reverse {
+  .c-flag--reverse {
     text-align: left;
     direction: rtl;
-    & > .o-flag__image,
-    & > .o-flag__body {
+    & > .c-flag__image,
+    & > .c-flag__body {
       text-align: left;
       direction: ltr;
     }
-    & > .o-flag__image {
+    & > .c-flag__image {
       padding-right: 0;
       padding-left: 1rem;
     }
@@ -74,15 +74,15 @@
 }
 
 @media (--lg-up) {
-  .o-flag--reverse {
+  .c-flag--reverse {
     text-align: left;
     direction: rtl;
-    & > .o-flag__image,
-    & > .o-flag__body {
+    & > .c-flag__image,
+    & > .c-flag__body {
       text-align: left;
       direction: ltr;
     }
-    & > .o-flag__image {
+    & > .c-flag__image {
       padding-right: 0;
       padding-left: 1rem;
     }
