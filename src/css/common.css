@@ -24,7 +24,7 @@
  * リセットをするよりも継承を利用するようにします。
  * コンポーネント間の余白を管理しやすくするために、上下方向の`margin`は`0`にリセットしておくのを推奨します。
  */
-@import "../node_modules/normalize.css/normalize.css";
+@import "../../node_modules/normalize.css/normalize.css";
 @import "foundation/base/_base.css";
 
 /* =============================================================================
@@ -36,6 +36,8 @@
  * 内包されるコンポーネントなので配置に関する情報を持つことはできません。
  * プレフィックス（接頭辞）として`.p-`をつけます。
  */
+@import "parts/_icon.css";
+@import "parts/_iconExtend.css";
 @import "parts/_label.css";
 @import "parts/_button.css";
 @import "parts/_embed.css";

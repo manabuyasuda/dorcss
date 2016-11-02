@@ -14,8 +14,12 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-consolidate": "^0.2.0",
+    "gulp-iconfont": "^8.0.1",
     "gulp-postcss": "^6.2.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.2.0",
+    "lodash": "^4.16.6",
     "postcss-apply": "^0.4.0",
     "postcss-cssnext": "^2.8.0",
     "postcss-import": "^8.1.2",
