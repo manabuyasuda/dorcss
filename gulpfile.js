@@ -21,11 +21,13 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 var src = {
-  'css': ['src/**/*.css', '!' + 'src/**/_*.css']
+  'css': ['src/**/*.css', '!' + 'src/**/_*.css'],
+  'iconfont': 'src/icon/**/*.svg'
 }
 
 var dest = {
-  'css': './dest'
+  'css': './dest',
+  'iconfont': 'dest/font/'
 }
 
 gulp.task('css', function() {
@@ -52,7 +54,7 @@ gulp.task('css', function() {
 gulp.task('iconfont', function() {
   // シンボルフォント名を指定します。
   var fontName = 'iconfont';
-  return gulp.src('src/icon/**/*.svg')
+  return gulp.src(src.iconfont)
   .pipe(iconfont({
     fontName: fontName,
     formats: ['ttf', 'eot', 'woff', 'svg'],
@@ -86,5 +88,10 @@ gulp.task('iconfont', function() {
     .pipe(gulp.dest('dest/iconfont/'))
   })
   // fontファイルを出力するパスを指定します。
-  .pipe(gulp.dest('dest/font/'));
+  .pipe(gulp.dest(dest.iconfont));
+});
+
+gulp.task('watch', ['iconfont', 'css'], function() {
+  gulp.watch(src.css, ['css']);
+  gulp.watch(src.iconfont, ['iconfont']);
 });
