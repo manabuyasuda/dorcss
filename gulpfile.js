@@ -3,8 +3,6 @@ var gulp = require('gulp');
 var postcss = require('gulp-postcss')
 var cssnext = require('postcss-cssnext')
 var atImport = require("postcss-import");
-var nested = require('postcss-nested');
-var apply = require('postcss-apply');
 var stylefmt = require('stylefmt');
 // iconfont
 var iconfont = require('gulp-iconfont');
@@ -35,8 +33,6 @@ var dest = {
 gulp.task('css', function() {
   var plugins = [
     atImport,
-    apply,
-    nested,
     cssnext({
       browsers: AUTOPREFIXER_BROWSERS
     }),
