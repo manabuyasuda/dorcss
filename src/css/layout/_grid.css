@@ -36,10 +36,46 @@
   }
 }
 
+@media (--md-up) {
+  .l-grid--center-md {
+    text-align: center;
+    & > .l-grid__item {
+      text-align: left;
+    }
+  }
+}
+
+@media (--lg-up) {
+  .l-grid--center-lg {
+    text-align: center;
+    & > .l-grid__item {
+      text-align: left;
+    }
+  }
+}
+
 .l-grid--right {
   text-align: right;
   & > .l-grid__item {
     text-align: left;
+  }
+}
+
+@media (--md-up) {
+  .l-grid--right-md {
+    text-align: right;
+    & > .l-grid__item {
+      text-align: left;
+    }
+  }
+}
+
+@media (--lg-up) {
+  .l-grid--right-lg {
+    text-align: right;
+    & > .l-grid__item {
+      text-align: left;
+    }
   }
 }
 

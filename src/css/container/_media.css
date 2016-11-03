@@ -7,7 +7,6 @@
 
 .c-media__image,
 .c-media__body {
-  display: block;
   float: left;
   & > :last-child {
     margin-bottom: 0;
@@ -23,6 +22,7 @@
 }
 
 .c-media__body {
+  display: block;
   overflow: hidden;
 }
 

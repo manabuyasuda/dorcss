@@ -5,11 +5,18 @@
   width: 100%;
 }
 
-.c-flag__image {
+.c-flag__image,
+.c-flag__body {
   display: table-cell;
+  vertical-align: top;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-flag__image {
   width: 1px;
   padding-right: 1rem;
-  vertical-align: top;
 }
 
 .c-flag__image > img {
@@ -17,12 +24,7 @@
 }
 
 .c-flag__body {
-  display: table-cell;
   width: auto;
-  vertical-align: top;
-  & > :last-child {
-    margin-bottom: 0;
-  }
 }
 
 .c-flag--middle > .c-flag__image,
