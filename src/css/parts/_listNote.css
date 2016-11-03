@@ -10,12 +10,14 @@
   &:before {
     display: table-cell;
   }
-  [lang="ja"] &:before {
-    content: "※";
-  }
-  [lang="en_US"] &:before {
-    content: "*";
-  }
+}
+
+[lang="ja"] .p-listNote__item:before {
+  content: "※";
+}
+
+[lang="en_US"] .p-listNote__item:before {
+  content: "※";
 }
 
 .p-listNote__items {

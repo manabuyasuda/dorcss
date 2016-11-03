@@ -25,18 +25,14 @@
   }
 }
 
-.c-flag--middle {
-  & > .c-flag__image,
-  & > .c-flag__body {
-    vertical-align: middle;
-  }
+.c-flag--middle > .c-flag__image,
+.c-flag--middle > .c-flag__body {
+  vertical-align: middle;
 }
 
-.c-flag--bottom {
-  & > .c-flag__image,
-  & > .c-flag__body {
-    vertical-align: bottom;
-  }
+.c-flag--bottom > .c-flag__image,
+.c-flag--bottom > .c-flag__body {
+  vertical-align: bottom;
 }
 
 .c-flag--reverse {

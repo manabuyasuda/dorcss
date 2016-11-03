@@ -15,9 +15,7 @@
   background: transparent;
   cursor: pointer;
   appearance: none;
-  &:hover,
-  &:active,
-  &:focus {
+  &:--onEvent {
     text-decoration: none;
   }
   &:disabled,

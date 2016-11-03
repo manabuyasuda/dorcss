@@ -26,11 +26,9 @@ body {
   background-color: var(--background-color);
 }
 
-li {
-  & > ul,
-  & > ol {
-    margin-bottom: 0;
-  }
+li > ul,
+li > ol {
+  margin-bottom: 0;
 }
 
 /**
@@ -51,14 +49,12 @@ a {
 /**
  * 日本語では斜体を使用しないためリセットします。
  */
-[lang="ja"] {
-  & i,
-  & cite,
-  & em,
-  & address,
-  & dfn {
-    font-style: normal;
-  }
+[lang="ja"] i,
+[lang="ja"] cite,
+[lang="ja"] em,
+[lang="ja"] address,
+[lang="ja"] dfn {
+  font-style: normal;
 }
 
 /**

@@ -9,10 +9,10 @@
   display: table-row;
 }
 
-.c-listMark__icon() {
+.c-listMark__icon {
   display: table-cell;
 }
 
-.c-listMark__items() {
+.c-listMark__items {
   @apply --listUnstyled;
 }

@@ -13,8 +13,6 @@
   vertical-align: top;
 }
 
-.c-listInline--medium {
-  & > .c-listInline__item:not(:last-child) {
-    margin-right: 1em;
-  }
+.c-listInline--medium > .c-listInline__item:not(:last-child) {
+  margin-right: 1em;
 }

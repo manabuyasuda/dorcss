@@ -24,26 +24,18 @@
   height: 100%;
 }
 
-.c-ratio--16to9 {
-  &:before {
-    padding-bottom: calc((9 / 16) * 100%);
-  }
+.c-ratio--16to9:before {
+  padding-bottom: calc((9 / 16) * 100%);
 }
 
-.c-ratio--4to3 {
-  &:before {
-    padding-bottom: calc((3 / 4) * 100%);
-  }
+.c-ratio--4to3:before {
+  padding-bottom: calc((3 / 4) * 100%);
 }
 
-.c-ratio--3to2 {
-  &:before {
-    padding-bottom: calc((2 / 3) * 100%);
-  }
+.c-ratio--3to2:before {
+  padding-bottom: calc((2 / 3) * 100%);
 }
 
-.c-ratio--2to1 {
-  &:before {
-    padding-bottom: calc((1 / 2) * 100%);
-  }
+.c-ratio--2to1:before {
+  padding-bottom: calc((1 / 2) * 100%);
 }
