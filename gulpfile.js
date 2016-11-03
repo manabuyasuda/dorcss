@@ -12,6 +12,7 @@ var consolidate = require('gulp-consolidate');
 // Utility
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
+var rimraf = require('rimraf');
 
 var AUTOPREFIXER_BROWSERS = [
   'last 2 version',
@@ -21,7 +22,8 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 var src = {
-  'css': ['src/**/*.css', '!' + 'src/**/_*.css'],
+  'css': ['src/css/**/*.css', '!src/css/**/_*.css'],
+  'cssWatch': 'src/css/**/*.css',
   'iconfont': 'src/icon/**/*.svg'
 }
 
@@ -37,7 +39,7 @@ gulp.task('css', function() {
     nested,
     cssnext({
       browsers: AUTOPREFIXER_BROWSERS
-      }),
+    }),
     stylefmt
   ];
   return gulp.src(src.css)
@@ -91,7 +93,11 @@ gulp.task('iconfont', function() {
   .pipe(gulp.dest(dest.iconfont));
 });
 
+gulp.task('cleanDest', function (cb) {
+  rimraf('dest/', cb);
+});
+
 gulp.task('watch', ['iconfont', 'css'], function() {
-  gulp.watch(src.css, ['css']);
+  gulp.watch(src.cssWatch, ['css']);
   gulp.watch(src.iconfont, ['iconfont']);
 });
