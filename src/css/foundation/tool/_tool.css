@@ -17,4 +17,19 @@
     padding-left: 0;
     list-style-type: none;
   }
+  --truncate: {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  --srOnly: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    overflow: hidden;
+    padding: 0;
+    clip: rect(0, 0, 0, 0);
+  }
 }

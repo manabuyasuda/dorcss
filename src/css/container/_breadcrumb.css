@@ -1,9 +1,7 @@
  /* #breadcrumb
    -------------------------------------------------------------------------- */
 .c-breadcrumb {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  @apply --truncate;
   @apply --listUnstyled;
 }
 
