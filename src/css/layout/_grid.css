@@ -1,9 +1,9 @@
  /* #grid
    -------------------------------------------------------------------------- */
 .l-grid {
+  @apply --listUnstyled;
   display: block;
   font-size: 0;
-  @apply --listUnstyled;
 }
 
 .l-grid__item {
@@ -16,6 +16,7 @@
 
 .l-grid--medium {
   margin-left: -1rem;
+
   & > .l-grid__item {
     padding-left: 1rem;
   }
@@ -31,6 +32,7 @@
 
 .l-grid--center {
   text-align: center;
+
   & > .l-grid__item {
     text-align: left;
   }
@@ -39,6 +41,7 @@
 @media (--md-up) {
   .l-grid--center-md {
     text-align: center;
+
     & > .l-grid__item {
       text-align: left;
     }
@@ -48,6 +51,7 @@
 @media (--lg-up) {
   .l-grid--center-lg {
     text-align: center;
+
     & > .l-grid__item {
       text-align: left;
     }
@@ -56,6 +60,7 @@
 
 .l-grid--right {
   text-align: right;
+
   & > .l-grid__item {
     text-align: left;
   }
@@ -64,6 +69,7 @@
 @media (--md-up) {
   .l-grid--right-md {
     text-align: right;
+
     & > .l-grid__item {
       text-align: left;
     }
@@ -73,6 +79,7 @@
 @media (--lg-up) {
   .l-grid--right-lg {
     text-align: right;
+
     & > .l-grid__item {
       text-align: left;
     }
@@ -82,6 +89,7 @@
 .l-grid--reverse {
   text-align: left;
   direction: rtl;
+
   & > .l-grid__item {
     text-align: left;
     direction: ltr;
@@ -92,6 +100,7 @@
   .l-grid--reverse-md {
     text-align: left;
     direction: rtl;
+
     & > .l-grid__item {
       text-align: left;
       direction: ltr;
@@ -103,6 +112,7 @@
   .l-grid--reverse-lg {
     text-align: left;
     direction: rtl;
+
     & > .l-grid__item {
       text-align: left;
       direction: ltr;

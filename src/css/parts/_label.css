@@ -10,6 +10,7 @@
   white-space: nowrap;
   text-decoration: none;
   background-color: var(--color--link);
+
   &:--onEvent {
     color: #fff;
     text-decoration: none;

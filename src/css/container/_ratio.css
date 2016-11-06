@@ -4,6 +4,7 @@
   display: block;
   overflow: hidden;
   position: relative;
+
   &:before {
     content: "";
     display: block;

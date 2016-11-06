@@ -1,13 +1,14 @@
  /* #media
    -------------------------------------------------------------------------- */
 .c-media {
-  display: block;
   @apply --clearfix;
+  display: block;
 }
 
 .c-media__image {
   float: left;
   margin-right: 1rem;
+
   & > :last-child {
     margin-bottom: 0;
   }
@@ -20,6 +21,7 @@
 .c-media__body {
   display: block;
   overflow: hidden;
+
   & > :last-child {
     margin-bottom: 0;
   }

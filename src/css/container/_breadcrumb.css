@@ -2,11 +2,13 @@
    -------------------------------------------------------------------------- */
 .c-breadcrumb {
   @apply --truncate;
+
   @apply --listUnstyled;
 }
 
 .c-breadcrumb__item {
   display: inline-block;
+
   &:last-child {
     display: inline;
   }

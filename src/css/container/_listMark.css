@@ -1,8 +1,8 @@
  /* #listMark
    -------------------------------------------------------------------------- */
 .c-listMark {
-  display: table;
   @apply --listUnstyled;
+  display: table;
 }
 
 .c-listMark__item {

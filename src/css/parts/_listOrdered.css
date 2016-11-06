@@ -1,8 +1,8 @@
  /* #listOrdered
    -------------------------------------------------------------------------- */
 .p-listOrdered {
-  display: table;
   @apply --listUnstyled;
+  display: table;
 }
 
 .p-listOrdered__item {
@@ -18,6 +18,6 @@
 }
 
 .p-listOrdered__items {
-  counter-reset: ordered;
   @apply --listUnstyled;
+  counter-reset: ordered;
 }

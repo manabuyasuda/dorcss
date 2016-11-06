@@ -1,12 +1,13 @@
  /* #listNote
    -------------------------------------------------------------------------- */
 .p-listNote {
-  display: table;
   @apply --listUnstyled;
+  display: table;
 }
 
 .p-listNote__item {
   display: table-row;
+
   &:before {
     display: table-cell;
   }
@@ -21,6 +22,6 @@
 }
 
 .p-listNote__items {
-  margin-left: 1em;
   @apply --listUnstyled;
+  margin-left: 1em;
 }

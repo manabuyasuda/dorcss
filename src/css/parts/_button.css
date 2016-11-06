@@ -15,9 +15,11 @@
   background: transparent;
   cursor: pointer;
   appearance: none;
+
   &:--onEvent {
     text-decoration: none;
   }
+
   &:disabled,
   &.is-disabled {
     opacity: 0.5;
@@ -29,7 +31,14 @@
   width: 100%;
 }
 
-.p-button--primary {}
-.p-button--secondary {}
-.p-button--tertiary {}
-.p-button--quaternary {}
+.p-button--primary {
+}
+
+.p-button--secondary {
+}
+
+.p-button--tertiary {
+}
+
+.p-button--quaternary {
+}

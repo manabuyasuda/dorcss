@@ -1,2 +1,7 @@
-.p-icon--left:before { margin-right: 0.25em; }
-.p-icon--right:before { margin-left: 0.25em; }
+.p-icon--left:before {
+  margin-right: 0.25em;
+}
+
+.p-icon--right:before {
+  margin-left: 0.25em;
+}

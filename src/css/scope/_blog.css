@@ -1,16 +1,37 @@
  /* #blog
    -------------------------------------------------------------------------- */
-.s-blog {
-  & h2 {}
-  & h3 {}
-  & h4 {}
-  & h5 {}
-  & h6 {}
-  & p {}
-  & ul,
-  & ol {}
-  & blockquote {}
-  & img {}
-  & code {}
-  & pre code {}
+.s-blog h2 {
 }
+
+.s-blog h3 {
+}
+
+.s-blog h4 {
+}
+
+.s-blog h5 {
+}
+
+.s-blog h6 {
+}
+
+.s-blog p {
+}
+
+.s-blog ul,
+.s-blog ol,
+ {
+}
+
+.s-blog blockquote {
+}
+
+.s-blog img {
+}
+
+.s-blog code {
+}
+
+.s-blog pre code {
+}
+

@@ -1,9 +1,9 @@
  /* #listInline
    -------------------------------------------------------------------------- */
 .c-listInline {
+  @apply --listUnstyled;
   display: block;
   font-size: 0;
-  @apply --listUnstyled;
 }
 
 .c-listInline__item {

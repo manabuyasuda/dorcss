@@ -7,6 +7,7 @@
 .c-block__image,
 .c-block__body {
   display: block;
+
   & > :last-child {
     margin-bottom: 0;
   }
