@@ -5,16 +5,12 @@
   @apply --clearfix;
 }
 
-.c-media__image,
-.c-media__body {
+.c-media__image {
   float: left;
+  margin-right: 1rem;
   & > :last-child {
     margin-bottom: 0;
   }
-}
-
-.c-media__image {
-  margin-right: 1rem;
 }
 
 .c-media__image > img {
@@ -24,6 +20,9 @@
 .c-media__body {
   display: block;
   overflow: hidden;
+  & > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .c-media--reverse > .c-media__image {

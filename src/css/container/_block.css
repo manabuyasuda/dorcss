@@ -4,21 +4,18 @@
   display: block;
 }
 
-.c-block__image {
+.c-block__image,
+.c-block__body {
   display: block;
+  & > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .c-block__image--full > img {
   display: block;
   width: 100%;
   max-width: none;
-}
-
-.c-block__body {
-  display: block;
-  & > :last-child {
-    margin-bottom: 0;
-  }
 }
 
 .c-block__image + .c-block__body,
