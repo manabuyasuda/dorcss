@@ -47,7 +47,7 @@
  * align...画像などを左右や中央に配置します。
  * text...テキストのスタイルに関するスタイルです。
  * display...要素の表示や改行をコントロールするスタイルです。
- * width...レスポンシブに対応した`width`プロパティを指定します。
+ * col...レスポンシブに対応した`width`プロパティを指定します。
  */
 
 /* =============================================================================
@@ -167,4 +167,4 @@
 @import "utility/_align.css";
 @import "utility/_text.css";
 @import "utility/_display.css";
-@import "utility/_width.css";
+@import "utility/_col.css";
