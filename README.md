@@ -122,10 +122,9 @@ Stateクラスやメディアクエリなど、Blockに関わるスタイルは�
 ```
 css
 ├── common.css
-├── Foundation/
-│   ├── Setting/
-│   ├── Tool/
-│   └── Base/
+├── Setting/
+├── Tool/
+├── Base/
 ├── Parts/
 ├── Container/
 ├── Layout/
@@ -140,10 +139,9 @@ root
 ├── assets/
 │   └── css/
 │       ├── common.css
-│       ├── foundation/
-│       │   ├── Setting/
-│       │   ├── Tool/
-│       │   └── Base/
+│       ├── Setting/
+│       ├── Tool/
+│       ├── Base/
 │       ├── Parts/
 │       ├── Container/
 │       ├── layout/
@@ -160,16 +158,13 @@ root
 
 無理に1つのCSSとして管理するよりスタイルの追加や削除がしやすくなり、common.cssの肥大化・複雑化を防ぐことができます。
 
-### 1. Foundation
-FoundationレイヤーではNormalize.cssやリセットCSS、要素セレクタや属性セレクタのようなコンポーネントのベースとなるスタイルを定義します。
+### 1. Setting
+Settingレイヤーではグローバルに使用される変数を定義します。Sassでは`$`変数で定義します。例えば、サイトの`max-width`やフォントのサイズ、余白や色に関するものです。
 
-SettingレイヤーとToolレイヤーでは、Custom Propertiesや@apply Rule、Sassの変数や@mixinなどで変数と関数を管理します。
-
-### 1-1. Setting
-Settingレイヤーではグローバルに使用される変数を定義します。例えば、サイトの`max-width`やフォントのサイズ、余白や色に関するものです。
+Custom Propertiesもカスケーディングの対象となるため、定数のように扱います。
 
 ```css
-@import "foundation/setting/_setting.css";
+@import "setting/_setting.css";
 ```
 
 ```css
@@ -182,11 +177,11 @@ Settingレイヤーではグローバルに使用される変数を定義しま�
 }
 ```
 
-### 1-2. Tool
-ToolレイヤーではCustom SelectorsやCustom Media Queries、@apply Ruleなどを使ったルールを定義します。Sassでは@functionや@mixinで定義します。
+### 2. Tool
+ToolレイヤーではCustom SelectorsやCustom Media Queries、@apply Ruleを使った汎用的なルールを定義します。Sassでは@functionや@mixinで定義します。
 
 ```css
-@import "foundation/tool/_tool.css";
+@import "tool/_tool.css";
 ```
 
 ```css
@@ -209,10 +204,25 @@ ToolレイヤーではCustom SelectorsやCustom Media Queries、@apply Ruleな�
     padding-left: 0;
     list-style-type: none;
   }
+  --truncate: {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  --srOnly: {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    overflow: hidden;
+    padding: 0;
+    clip: rect(0, 0, 0, 0);
+  }
 }
 ```
 
-### 1-3. Base
+### 3. Base
 BaseレイヤーではNormalize.cssやリセットCSS、要素セレクタや属性セレクタのようなコンポーネントのベースとなるスタイルを定義します
 
 詳細度はクラスセレクタと同じ0,0,1,0以下になるように極力低くします。メディアクエリや擬似クラスのような、ある状況やある状態に対するスタイルは極力持つべきではありません。
@@ -222,8 +232,8 @@ BaseレイヤーではNormalize.cssやリセットCSS、要素セレクタや属
 リセットをするよりも継承を利用するようにします。コンポーネント間の余白を管理しやすくするために、上下方向の`margin`は`0`にリセットしておくのを推奨します。
 
 ```css
-@import "../node_modules/normalize.css/normalize.css";
-@import "foundation/base/_base.css";
+@import "../../node_modules/normalize.css/normalize.css";
+@import "base/_base.css";
 ```
 
 ```css
@@ -264,7 +274,7 @@ pre {
 }
 ```
 
-### 2. Parts
+### 4. Parts
 Partsレイヤーは装飾的なスタイルを持つことができる再利用可能で小さなコンポーネントを定義します。
 
 ```css
@@ -281,7 +291,7 @@ Partsレイヤーは装飾的なスタイルを持つことができる再利用
 
 プレフィックス（接頭辞）として`.p-`をつけます。
 
-### 3. Container
+### 5. Container
 ContainerレイヤーはPartsレイヤーを内包できる比較的大きなコンポーネントを定義します。  
 Containerレイヤー同士での依存関係がうまれることもあります。内包されるコンポーネントは内包するコンポーネントよりも先に読み込むことで期待通りに適応されるようにしておきます。
 
@@ -333,7 +343,7 @@ Containerコンポーネントがユーザーインターフェイスの見た�
 
 プレフィックス（接頭辞）として`.c-`をつけます。
 
-### 4. Layout
+### 6. Layout
 Layoutレイヤーはワイヤーフレームに出てくるような大枠のレイアウトを担当するコンポーネントを定義します。Layoutコンポーネントによってページ内のレイアウトが確定します。  
 グリッドのようなレイアウト専用のコンポーネントもこのレイヤーに含みます。
 
@@ -365,7 +375,7 @@ Layoutレイヤーはワイヤーフレームに出てくるような大枠の�
 
 プレフィックス（接頭辞）として`.l-`をつけます。
 
-### 5. Scope
+### 7. Scope
 Scopeレイヤーはカテゴリやブログのような特定の範囲でのスタイルを定義します。コンポーネント単位ではなく、任意の範囲（スコープ）に対するスタイルを指定します。
 
 ```css
@@ -388,7 +398,7 @@ Scopeレイヤー自身も内包するコンポーネントにも装飾的なス
 
 プレフィックス（接頭辞）として`.s-`をつけます。
 
-### 6. Utility
+### 8. Utility
 Utilityレイヤーは汎用クラスを定義します。シングルクラスでも確実にスタイルを適応させるために`!important`を指定することを推奨します。
 
 ```css
@@ -408,7 +418,7 @@ Utilityコンポーネントは他のレイヤーが持つよりも汎用的に�
 CSSのライブラリやフレームワーク、JQueryプラグインのCSSファイルなどを追加する場合も3つの基準にもとづいてカテゴライズします。  
 外部のCSSだからといって、役割や機能が変わることはないからです。
 
-例えばnormalize.cssはFoundation/Baseレイヤー、スライダーのようなJQueryプラグインはContainerレイヤーが適切な場所になります。
+例えばnormalize.cssはBaseレイヤー、スライダーのようなJQueryプラグインはContainerレイヤーが適切な場所になります。
 
 CSSファイルは直接編集をせず、librarynameExtend.cssのようなファイルを用意して上書きをします。記述が冗長になってしまう場合は直接編集してもかまいません。
 
@@ -493,7 +503,7 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
 ```css
 /**
  * SETTING
- * setting...CSS Variablesを使ったグローバル変数です。
+ * setting...Custom Propertiesを使ったグローバル変数です。
  *
  * TOOL
  * tool...Custom SelectorsやCustom Media Queries、@apply Ruleを使ったルールです。
@@ -519,7 +529,7 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
  *
  * UTILITY
  * align...画像などを左右や中央に配置します。
- * width...レスポンシブに対応した`width`プロパティを指定する汎用クラスです。
+ * col...レスポンシブに対応した`width`プロパティを指定する汎用クラスです。
  */
 ```
 
@@ -528,31 +538,16 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
 
 ```css
 /* =============================================================================
-   #Foundation
+   #Setting
    ========================================================================== */
 /**
- * FoundationレイヤーではNormalize.cssやリセットCSS、
- * 要素セレクタや属性セレクタのようなコンポーネントのベースとなるスタイルを定義します。
- * SettingレイヤーとToolレイヤーでは、
- * CSS Variablesや@apply Rule、Sassの変数や@mixinなどで変数と関数を管理します。
+ * SettingレイヤーではCustom Propertiesを使ったグローバル変数を定義します。
+ * Sassでは`$`変数で定義します。
+ * 例えば、サイトのmax-widthやフォントのサイズ、余白や色に関するものです。
+ * Custom Propertiesもカスケーディングの対象となるため、定数のように扱います。
+ * 非対応ブラウザがある場合、変数はコード内に変換され、コメントのみが残ります。
  */
-@import "foundation/setting/_setting.css";
-@import "foundation/tool/_tool.css";
-
-/* -----------------------------------------------------------------------------
-   #Base
-   -------------------------------------------------------------------------- */
-/**
- * BaseレイヤーではNormalize.cssやリセットCSS、
- * 要素セレクタや属性セレクタのようなコンポーネントのベースとなるスタイルを定義します
- * 詳細度はクラスセレクタと同じ0,0,1,0以下になるように極力低くします。
- * メディアクエリや擬似クラスのような、ある状況やある状態に対するスタイルは極力持つべきではありません。
- * 自分自身の構造を持つことはできますが、装飾と配置、コンポーネントを内包することはできません。
- * リセットをするよりも継承を利用するようにします。
- * コンポーネント間の余白を管理しやすくするために、上下方向の`margin`は`0`にリセットしておくのを推奨します。
- */
-@import "../../node_modules/normalize.css/normalize.css";
-@import "foundation/base/_base.css";
+@import "setting/_setting.css";
 ```
 
 ### モジュールタイトル
