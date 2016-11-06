@@ -22,13 +22,24 @@ var AUTOPREFIXER_BROWSERS = [
 var src = {
   'css': ['src/css/**/*.css', '!src/css/**/_*.css'],
   'cssWatch': 'src/css/**/*.css',
+  'stylefmt': 'src/css/**/_*.css',
   'iconfont': 'src/icon/**/*.svg'
 }
 
 var dest = {
   'css': './dest',
+  'stylefmt': 'src/css/',
   'iconfont': 'dest/font/'
 }
+
+gulp.task('stylefmt', function() {
+  var plugins = [
+    stylefmt
+  ];
+  return gulp.src(src.stylefmt)
+  .pipe(postcss(plugins))
+  .pipe(gulp.dest(dest.stylefmt));
+});
 
 gulp.task('css', function() {
   var plugins = [
@@ -94,6 +105,7 @@ gulp.task('cleanDest', function (cb) {
 });
 
 gulp.task('watch', ['iconfont', 'css'], function() {
+  gulp.watch(src.stylefmt, ['stylefmt']);
   gulp.watch(src.cssWatch, ['css']);
   gulp.watch(src.iconfont, ['iconfont']);
 });
