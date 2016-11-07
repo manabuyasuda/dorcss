@@ -11,10 +11,10 @@ html {
 }
 
 html {
-  font-size: 15px;
+  font-size: calc((15 / 16) * 100%);
   line-height: 1.6;
   @media (--md-up) {
-    font-size: 16px;
+    font-size: calc((16 / 16) * 100%);
   }
 }
 
