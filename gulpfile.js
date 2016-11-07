@@ -105,7 +105,7 @@ gulp.task('cleanDest', function (cb) {
 });
 
 gulp.task('watch', ['iconfont', 'css'], function() {
-  gulp.watch(src.stylefmt, ['stylefmt']);
+  gulp.watch(src.cssWatch, ['stylefmt']);
   gulp.watch(src.cssWatch, ['css']);
   gulp.watch(src.iconfont, ['iconfont']);
 });
