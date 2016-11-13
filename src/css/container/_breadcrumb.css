@@ -18,5 +18,5 @@
 
 .c-breadcrumb__item:not(:first-of-type):before {
   content: "\003E";
-  margin: 0 0.5em;
+  margin: 0 0.5rem;
 }

@@ -14,5 +14,5 @@
 }
 
 .c-listInline--medium > .c-listInline__item:not(:last-child) {
-  margin-right: 1em;
+  margin-right: 1rem;
 }

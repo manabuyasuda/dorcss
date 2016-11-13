@@ -20,5 +20,5 @@
 
 .c-block__image + .c-block__body,
 .c-block__body + .c-block__image {
-  margin-top: 0.25em;
+  margin-top: 0.25rem;
 }
