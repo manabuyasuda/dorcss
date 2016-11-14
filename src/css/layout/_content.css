@@ -1,23 +1,79 @@
  /* #content
    -------------------------------------------------------------------------- */
+/**
+ * メインコンテンツです。
+ * `.l-footer`との下側の余白を指定します。
+ * Elementでメインコンテンツ内のレイアウトを指定します。
+ * `.l-wrapper__inner--2col`を使用することで2カラムレイアウトにすることもできます。
+ */
 .l-content {
+  margin-bottom: 3.2rem;
   & > :last-child {
     margin-bottom: 0;
   }
 }
 
-.l-content__section {
+/**
+ * メインコンテンツのコンテンツヘッダーです。
+ * `.l-content__body`に対して下側の余白を指定します。
+ */
+.l-content__head {
+  margin-bottom: 1.6rem;
   & > :last-child {
     margin-bottom: 0;
   }
 }
 
-.l-content__subSection {
+/**
+ * メインコンテンツの本文です。
+ */
+.l-content__body {
   & > :last-child {
     margin-bottom: 0;
   }
 }
 
+/**
+ * メインコンテンツのコンテンツフッターです。
+ * `.l-content__body`に対して上側の余白を指定します。
+ */
+.l-content__foot {
+  margin-top: 3.2rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* 1階層目の`<section>` */
+.l-content__firstSection {
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* 2階層目の`<section>` */
+.l-content__secondSection {
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* 3階層目の`<section>` */
+.l-content__thirdSection {
+  margin-bottom: 1.6rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* コンポーネント間のベースになる余白 */
 .l-content__item {
   margin-bottom: 1.6rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
 }

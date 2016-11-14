@@ -35,10 +35,11 @@
  *
  * LAYOUT
  * grid...汎用的なグリッドコンポーネントです。`width`の変更はUtilityレイヤーで指定します。
- * wrapper...最大幅を指定します。
  * header...グローバルヘッダーのレイアウトを指定します。
- * footer...グローバルフッターのレイアウトを指定します。
  * content...コンテンツエリアのレイアウトを指定します。
+ * sidebar...サイドバーエリアのレイアウトを指定します。
+ * footer...グローバルフッターのレイアウトを指定します。
+ * wrapper...最大幅を指定します。
  *
  * SCOPE
  * blog...ブログエリアのスタイルです。
@@ -151,10 +152,11 @@
  * プレフィックス（接頭辞）として`.l-`をつけます。
  */
 @import "layout/_grid.css";
-@import "layout/_wrapper.css";
 @import "layout/_header.css";
-@import "layout/_footer.css";
 @import "layout/_content.css";
+@import "layout/_sidebar.css";
+@import "layout/_footer.css";
+@import "layout/_wrapper.css";
 
 /* =============================================================================
    #Scope
