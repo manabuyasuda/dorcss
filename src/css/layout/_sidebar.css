@@ -1,0 +1,29 @@
+ /* #sidebar
+   -------------------------------------------------------------------------- */
+/**
+ * サイドバーです。
+ * `.l-wrapper__inner--2col`を使用することで2カラムレイアウトにします。
+ */
+.l-sidebar {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.l-sidebar__nav {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.l-sidebar__banner {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.l-sidebar__links {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
