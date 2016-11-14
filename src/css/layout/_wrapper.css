@@ -1,13 +1,48 @@
  /* #wrapper
    -------------------------------------------------------------------------- */
+/**
+ * メインコンテンツ、もしくはメインコンテンツとサイドバーをラップします。
+ * `.l-wrapper__inner--2col`を指定することで2カラムレイアウトにすることができます。
+ */
 .l-wrapper {
+  display: block;
   width: 100%;
   max-width: var(--max-width);
   margin-right: auto;
   margin-left: auto;
+  @apply --clearfix;
 }
 
-.l-wrapper--medium {
+.l-wrapper__inner {
+  display: block;
+  width: 100%;
+  @apply --clearfix;
+}
+
+/**
+ * メインコンテンツとサイドバーを2カラムレイアウトにしたいときに使用します。
+ */
+.l-wrapper__inner--2col {
+  margin-right: -1rem;
+  margin-left: -1rem;
+}
+
+.l-wrapper__inner--2col > .l-wrapper__content,
+.l-wrapper__inner--2col > .l-wrapper__sidebar {
+  display: block;
+  width: 100%;
+  min-height: 1px;
   padding-right: 1rem;
   padding-left: 1rem;
+}
+
+@media (--md-up) {
+  .l-wrapper__inner--2col > .l-wrapper__content {
+    float: left;
+    width: calc((8 / 12) * 100%);
+  }
+  .l-wrapper__inner--2col > .l-wrapper__sidebar {
+    float: left;
+    width: calc((4 / 12) * 100%);
+  }
 }
