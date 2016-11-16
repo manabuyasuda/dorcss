@@ -1,8 +1,8 @@
 var gulp = require('gulp');
 // CSS
-var postcss = require('gulp-postcss')
-var cssnext = require('postcss-cssnext')
-var atImport = require("postcss-import");
+var postcss = require('gulp-postcss');
+var cssnext = require('postcss-cssnext');
+var atImport = require('postcss-import');
 var stylefmt = require('stylefmt');
 // iconfont
 var iconfont = require('gulp-iconfont');
@@ -23,12 +23,12 @@ var src = {
   'css': ['src/css/**/*.css', '!src/css/**/_*.css'],
   'cssWatch': 'src/css/**/*.css',
   'iconfont': 'src/icon/**/*.svg'
-}
+};
 
 var dest = {
   'css': './dest',
   'iconfont': 'dest/font/'
-}
+};
 
 gulp.task('css', function() {
   var plugins = [
