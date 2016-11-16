@@ -13,4 +13,7 @@
   & img {}
   & code {}
   & pre code {}
+  & > :last-child {
+    margin-bottom: 0;
+  }
 }
