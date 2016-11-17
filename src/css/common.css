@@ -18,7 +18,6 @@
  * button...ボタンコンポーネントです。
  * embed...Youtubeなどをレスポンシブ対応させます。
  * listStyle...リストアイテムの左に記号を表示します。
- * listOrdered...番号付きリストを入れ子レベルに応じて、1, 1.1のように区切り文字を付け加えます。
  * headingH2...`<h2>`で使われるような見出しのスタイルです。
  * headingH3...`<h3>`で使われるような見出しのスタイルです。
  *
@@ -106,7 +105,6 @@
 @import "parts/_button.css";
 @import "parts/_embed.css";
 @import "parts/_listStyle.css";
-@import "parts/_listOrdered.css";
 @import "parts/_headingH2.css";
 @import "parts/_headingH3.css";
 
