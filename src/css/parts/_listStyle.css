@@ -1,0 +1,67 @@
+ /* #listStyle
+   -------------------------------------------------------------------------- */
+.p-listStyle {
+  display: table;
+  @apply --listUnstyled;
+}
+
+.p-listStyle > li {
+  display: table-row;
+  &:before {
+    display: table-cell;
+  }
+}
+
+/* ※list */
+.p-listStyle--asterisk > li:before {
+  content: "※";
+}
+
+/* ※1 list */
+.p-listStyle--asteriskOrder > li {
+  counter-increment: asteriskOrder;
+  &:before {
+    content: "※" counters(asteriskOrder, ".");
+    padding-right: 0.25em;
+  }
+}
+
+/* ・list */
+.p-listStyle--bullet > li:before {
+  content: "・";
+}
+
+/* — list */
+.p-listStyle--dash > li:before {
+  content: "\2014";
+  position: relative;
+  top: -0.1em;
+  padding-right: 0.5em;
+}
+
+/* (1) list */
+.p-listStyle--bracketsOrder > li {
+  counter-increment: bracketsOrder;
+  &:before {
+    content: "(" counter(bracketsOrder) ")";
+    padding-right: 0.25em;
+  }
+}
+
+/**
+ * 1 list
+ *   1.1 list
+ *   1.2 list
+ */
+.p-listStyle--order li {
+  counter-increment: order;
+  &:before {
+    content: counters(order, ".");
+    padding-right: 0.5em;
+    text-align: right;
+  }
+  & ol {
+    counter-reset: order;
+    @apply --listUnstyled;
+  }
+}
