@@ -1,11 +1,11 @@
- /* #listStyle
+ /* #list
    -------------------------------------------------------------------------- */
-.p-listStyle {
+.p-list {
   display: table;
   @apply --listUnstyled;
 }
 
-.p-listStyle > li {
+.p-list > li {
   display: table-row;
   &:before {
     display: table-cell;
@@ -13,12 +13,12 @@
 }
 
 /* ※list */
-.p-listStyle--asterisk > li:before {
+.p-list--asterisk > li:before {
   content: "※";
 }
 
 /* ※1 list */
-.p-listStyle--asteriskOrder > li {
+.p-list--asteriskOrder > li {
   counter-increment: asteriskOrder;
   &:before {
     content: "※" counters(asteriskOrder, ".");
@@ -27,12 +27,12 @@
 }
 
 /* ・list */
-.p-listStyle--bullet > li:before {
+.p-list--bullet > li:before {
   content: "・";
 }
 
 /* — list */
-.p-listStyle--dash > li:before {
+.p-list--dash > li:before {
   content: "\2014";
   position: relative;
   top: -0.1em;
@@ -40,7 +40,7 @@
 }
 
 /* (1) list */
-.p-listStyle--bracketsOrder > li {
+.p-list--bracketsOrder > li {
   counter-increment: bracketsOrder;
   &:before {
     content: "(" counter(bracketsOrder) ")";
@@ -53,7 +53,7 @@
  *   1.1 list
  *   1.2 list
  */
-.p-listStyle--order li {
+.p-list--order li {
   counter-increment: order;
   &:before {
     content: counters(order, ".");

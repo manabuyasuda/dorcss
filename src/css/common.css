@@ -17,7 +17,7 @@
  * label...インラインで表示するラベルコンポーネントです。
  * button...ボタンコンポーネントです。
  * embed...Youtubeなどをレスポンシブ対応させます。
- * listStyle...リストアイテムの左に記号を表示します。
+ * list...リストアイテムの左に役物などを表示します。
  * headingH2...`<h2>`で使われるような見出しのスタイルです。
  * headingH3...`<h3>`で使われるような見出しのスタイルです。
  *
@@ -104,7 +104,7 @@
 @import "parts/_label.css";
 @import "parts/_button.css";
 @import "parts/_embed.css";
-@import "parts/_listStyle.css";
+@import "parts/_list.css";
 @import "parts/_headingH2.css";
 @import "parts/_headingH3.css";
 
