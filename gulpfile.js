@@ -90,7 +90,8 @@ gulp.task('css', function() {
   .pipe(sourcemaps.init())
   .pipe(postcss(plugins))
   .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest(dest.css));
+  .pipe(gulp.dest(dest.css))
+  .pipe(browserSync.reload({stream: true}));
 });
 
 /**
