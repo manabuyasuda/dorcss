@@ -18,30 +18,20 @@
 }
 
 /* ※list */
-.p-list--asterisk > li:before {
+.p-list--note > li:before {
   content: "※";
 }
 
 /* ※1 list */
-.p-list--asteriskOrder > li {
-  counter-increment: asteriskOrder;
+.p-list--noteOrder > li {
+  counter-increment: noteOrder;
+  &:target {
+    background-color: lightgray;
+  }
   &:before {
-    content: "※" counters(asteriskOrder, ".");
+    content: "※" counter(noteOrder);
     padding-right: 0.25em;
   }
-}
-
-/* ・list */
-.p-list--bullet > li:before {
-  content: "・";
-}
-
-/* — list */
-.p-list--dash > li:before {
-  content: "\2014";
-  position: relative;
-  top: -0.1em;
-  padding-right: 0.5em;
 }
 
 /* (1) list */
