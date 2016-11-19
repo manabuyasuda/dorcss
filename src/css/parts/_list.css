@@ -5,9 +5,14 @@
   @apply --listUnstyled;
 }
 
+/**
+ * 音声ブラウザに読み上げさせたくない役物やアイコンなどは、
+ * `li:before`ではなく、`li > span:before`に表示し、`<span aria-hidden="true">`のように指定します。
+ */
 .p-list > li {
   display: table-row;
-  &:before {
+  &:before,
+  & > span:before {
     display: table-cell;
   }
 }
