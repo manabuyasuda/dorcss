@@ -6,8 +6,9 @@
 }
 
 /**
- * 音声ブラウザに読み上げさせたくない役物やアイコンなどは、
- * `li:before`ではなく、`li > span:before`に表示し、`<span aria-hidden="true">`のように指定します。
+ * 音声ブラウザに読み上げるのが適切でない役物やアイコンなどは、
+ * `background-image`で表示させるか、
+ * `li:before`ではなく`li > span:before`に表示して`<span aria-hidden="true">`のように指定します。
  */
 .p-list > li {
   display: table-row;
@@ -35,10 +36,10 @@
 }
 
 /* (1) list */
-.p-list--bracketsOrder > li {
-  counter-increment: bracketsOrder;
+.p-list--bracketOrder > li {
+  counter-increment: bracketOrder;
   &:before {
-    content: "(" counter(bracketsOrder) ")";
+    content: "(" counter(bracketOrder) ")";
     padding-right: 0.25em;
   }
 }
