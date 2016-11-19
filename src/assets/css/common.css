@@ -85,7 +85,7 @@
  * リセットをするよりも継承を利用するために、
  * ルート要素の`font-size`はパーセンテージで指定、その他の要素やコンポーネントのサイズは`rem`と`em`で指定します。
  */
-@import "../../node_modules/normalize.css/normalize.css";
+@import "../../../node_modules/normalize.css/normalize.css";
 @import "base/_base.css";
 
 /* =============================================================================

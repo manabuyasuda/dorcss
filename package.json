@@ -8,21 +8,29 @@
   },
   "keywords": [
     "gulp",
-    "postcss"
+    "postcss",
+    "cssnext",
+    "pug"
   ],
   "author": "Manabu Yasuda",
   "license": "MIT",
   "devDependencies": {
+    "browser-sync": "^2.18.1",
     "gulp": "^3.9.1",
     "gulp-consolidate": "^0.2.0",
+    "gulp-data": "^1.2.1",
     "gulp-iconfont": "^8.0.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.2.0",
+    "gulp-pug": "^3.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.2.0",
     "lodash": "^4.16.6",
     "postcss-cssnext": "^2.8.0",
     "postcss-import": "^8.1.2",
     "rimraf": "^2.5.4",
+    "run-sequence": "^1.2.2",
     "stylefmt": "^4.3.1"
   },
   "dependencies": {
