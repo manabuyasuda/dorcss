@@ -37,13 +37,13 @@
   
 }
 
-.p-icon { display: inline-block; }
+.c-icon { display: inline-block; }
 
-.p-icon:before {
+.c-icon:before {
   @apply --icon;
 }
 
-.p-icon--angle-down:before { content: "\EA01"; }
-.p-icon--angle-left:before { content: "\EA02"; }
-.p-icon--angle-right:before { content: "\EA03"; }
-.p-icon--angle-up:before { content: "\EA04"; }
+.c-icon--angle-down:before { content: "\EA01"; }
+.c-icon--angle-left:before { content: "\EA02"; }
+.c-icon--angle-right:before { content: "\EA03"; }
+.c-icon--angle-up:before { content: "\EA04"; }

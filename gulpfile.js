@@ -142,7 +142,7 @@ gulp.task('iconfont', function() {
       // 出力するCSSファイルをリネームします。
       basename: '_icon'
     }))
-    .pipe(gulp.dest('src/assets/css/parts/'));
+    .pipe(gulp.dest('src/assets/css/component/'));
     // アイコンフォントのサンプルHTMLを生成します。
     gulp.src('src/assets/icon/template/_icon.html')
     .pipe(consolidate('lodash', options))
