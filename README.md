@@ -125,8 +125,8 @@ css
 ├── Setting/
 ├── Tool/
 ├── Base/
-├── Parts/
-├── Container/
+├── Component/
+├── Project/
 ├── Layout/
 ├── Scope/
 └── Utility/
@@ -142,8 +142,8 @@ root
 │       ├── Setting/
 │       ├── Tool/
 │       ├── Base/
-│       ├── Parts/
-│       ├── Container/
+│       ├── Component/
+│       ├── Project/
 │       ├── layout/
 │       ├── Scope/
 │       └── Utility/
@@ -275,79 +275,80 @@ pre {
 }
 ```
 
-### 4. Parts
-Partsレイヤーは装飾的なスタイルを持つことができる再利用可能で小さなコンポーネントを定義します。
+### 4. Component
+Componentレイヤーは装飾的なスタイルを持つことができる再利用可能で小さなコンポーネントを定義します。
 
 ```css
-@import "parts/_label.css";
-@import "parts/_button.css";
-@import "parts/_embed.css";
-@import "parts/_listNote.css";
-@import "parts/_listOrdered.css";
-@import "parts/_headingH2.css";
-@import "parts/_headingH3.css";
+@import "component/_icon.css";
+@import "component/_iconExtend.css";
+@import "component/_label.css";
+@import "component/_button.css";
+@import "component/_embed.css";
+@import "component/_list.css";
+@import "component/_headingH2.css";
+@import "component/_headingH3.css";
 ```
 
 目安としては、見出しやリスト、ボタンやラベルのような他のコンポーネントを内包できない小さなコンポーネントです。内包されるコンポーネントなので配置に関する情報を持つことはできません。  
-後述するContainerコンポーネントのサイズ変更を継承できるようにサイズ（`font-size`, `margin`, `padding`）などは`em`で指定します。
+後述するProjectコンポーネントのサイズ変更を継承できるようにサイズ（`font-size`, `margin`, `padding`）などは`em`で指定します。
 
-プレフィックス（接頭辞）として`.p-`をつけます。
+プレフィックス（接頭辞）として`.c-`をつけます。
 
-### 5. Container
-ContainerレイヤーはPartsレイヤーを内包できる比較的大きなコンポーネントを定義します。  
-Containerレイヤー同士での依存関係がうまれることもあります。内包されるコンポーネントは内包するコンポーネントよりも先に読み込むことで期待通りに適応されるようにしておきます。
+### 5. Projet
+ProjectレイヤーはComponentレイヤーを内包できる比較的大きなコンポーネントを定義します。  
+Projectレイヤー同士での依存関係がうまれることもあります。内包されるコンポーネントは内包するコンポーネントよりも先に読み込むことで期待通りに適応されるようにしておきます。
 
 ```css
-@import "container/_listInline.css";
-@import "container/_listMark.css";
-@import "container/_breadcrumb.css";
-@import "container/_figure.css";
-@import "container/_ratio.css";
-@import "container/_block.css";
-@import "container/_table.css";
-@import "container/_media.css";
-@import "container/_flag.css";
+@import "project/_listInline.css";
+@import "project/_listMark.css";
+@import "project/_breadcrumb.css";
+@import "project/_figure.css";
+@import "project/_ratio.css";
+@import "project/_block.css";
+@import "project/_table.css";
+@import "project/_media.css";
+@import "project/_flag.css";
 ```
 
-Containerコンポーネントがユーザーインターフェイスの見た目と構造を確定するので、自分自身と内包するコンポーネントに対して具体的な情報を持つべきです。
+Projectコンポーネントがユーザーインターフェイスの見た目と構造を確定するので、自分自身と内包するコンポーネントに対して具体的な情報を持つべきです。
 
 ```html
-<div class="c-blockGrid">
-  <div class="c-blockGrid__item"></div>
-  <div class="c-blockGrid__item">
-    <h2 class="p-headingH2"></h2> 
+<div class="p-blockGrid">
+  <div class="p-blockGrid__item"></div>
+  <div class="p-blockGrid__item">
+    <h2 class="c-headingH2"></h2> 
     <p></p>
   </div>
 </div>
 ```
 
 ```css
-.c-blockGrid__item > .p-headingH2 {}
+.p-blockGrid__item > .c-headingH2 {}
 ```
 
 ただし、役割がより明確になり詳細度を低く保てるように、内包するコンポーネントに直接指定するのではなく、自身のElementに対して指定することを推奨します。これによって、内包されるコンポーネント自体のスタイルとそれを上書きした状態のスタイルを使い分けることもできます。
 
 ```html
-<div class="c-blockGrid">
-  <div class="c-blockGrid__item"></div>
-  <div class="c-blockGrid__item"> 
-    <h2 class="c-blockGrid__heading p-headingH2"></h2>
+<div class="p-blockGrid">
+  <div class="p-blockGrid__item"></div>
+  <div class="p-blockGrid__item"> 
+    <h2 class="p-blockGrid__heading c-headingH2"></h2>
     <p></p>
   </div>
 </div>
 ```
 
 ```css
-.c-blockGrid__heading {}
+.p-blockGrid__heading {}
 ```
 
-Containerコンポーネントは常にルートを基準にサイズを決めるため、`rem`を基本単位とします。  
+Projectコンポーネントは常にルートを基準にサイズを決めるため、`rem`を基本単位とします。  
 ただし、コンポーネントのBlockにフォントサイズを指定すると範囲が大きくなり過ぎるので、Blockは`1rem`を基本として、ElementやModifierでフォントサイズの変更をすることを推奨します。  
 コンポーネント内の余白をフォントサイズを基準に指定したい場合は`em`で指定してもいいでしょう。
 
-基本的にはContainerコンポーネント自身の配置を指定することはできませんが、JavaScriptで動的に表示や配置の変更がされるUIの場合は許容されます。
+基本的にはProjectコンポーネント自身の配置を指定することはできませんが、JavaScriptで動的に表示や配置の変更がされるUIの場合は許容されます。
 
-プレフィックス（接頭辞）として`.c-`をつけます。
+プレフィックス（接頭辞）として`.p-`をつけます。
 
 ### 6. Layout
 Layoutレイヤーはワイヤーフレームに出てくるような大枠のレイアウトを担当するコンポーネントを定義します。Layoutコンポーネントによってページ内のレイアウトが確定します。  
@@ -372,9 +373,9 @@ Layoutレイヤーはワイヤーフレームに出てくるような大枠の�
     <h1 class="p-logo"></h1>
   </div>
   <nav class="l-globalHeader__nav">
-    <ul class="c-globalNav">
-      <li class="c-globalNav__item"></li>
-      <li class="c-globalNav__item"></li>
+    <ul class="p-globalNav">
+      <li class="p-globalNav__item"></li>
+      <li class="p-globalNav__item"></li>
     </ul>
   </nav>
 </div>
@@ -393,16 +394,16 @@ Scopeレイヤーはカテゴリやブログのような特定の範囲でのス
 
 Scopeレイヤー自身も内包するコンポーネントにも装飾的なスタイルや配置に関する指定をすることもできる、影響範囲の大きなレイヤーです。
 
-影響範囲ができるだけ小さくなるように適応する範囲や要素を限定しなければいけません。例えば`.s-scope .p-button--prymary`ではなく、`.p-button--prymary`と`.s-scope__button`のマルチクラスで指定します。
+影響範囲ができるだけ小さくなるように適応する範囲や要素を限定しなければいけません。例えば`.s-scope .c-button--prymary`ではなく、`.c-button--prymary`と`.s-scope__button`のマルチクラスで指定します。
 
 ```html
 <!-- Allow -->
 <div class="s-scope">
-  <a class="p-button p-button--prymary" href="#"></a>
+  <a class="c-button c-button--prymary" href="#"></a>
 </div>
 
 <!-- Good -->
-<a class="p-button p-button--prymary s-scope__button" href="#"></a>
+<a class="c-button c-button--prymary s-scope__button" href="#"></a>
 ```
 
 プレフィックス（接頭辞）として`.s-`をつけます。
@@ -434,8 +435,8 @@ CSSファイルは直接編集をせず、librarynameExtend.cssのようなフ�
 ## プレフィックス
 レイヤーにカテゴライズしたコンポーネントにはレイヤー名からとったプレフィックスをつけます。
 
-- Parts - `.p-`
-- Container - `.c-`
+- Component - `.c-`
+- Project - `.p-`
 - Layout - `.l-`
 - Scope - `.s-`
 - utility - `.u-`
@@ -467,8 +468,8 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
 | レイヤー名   | 自分自身を装飾すること   | 自分自身を配置すること   |
 |------------ |------------------------ |------------------------ |
 | Base        | 禁止                    | 禁止                    |
-| Parts       | 推奨                    | 禁止                    |
-| Container   | 推奨                    | 許容                    |
+| Component   | 推奨                    | 禁止                    |
+| Project     | 推奨                    | 許容                    |
 | Layout      | 許容                    | 推奨                    |
 | Scope       | 許容                    | 許容                    |
 | Utility     | 許容                    | 禁止                    |
@@ -480,8 +481,8 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
 | レイヤー名   | 内包するコンポーネントを装飾すること    | 内包するコンポーネントを配置すること    |
 |------------ |-------------------------------------- |-------------------------------------- |
 | Base        | 禁止                                  | 禁止                                  |
-| Parts       | 禁止                                  | 禁止                                  |
-| Container   | 許容                                  | 推奨                                  |
+| Component   | 禁止                                  | 禁止                                  |
+| Project     | 許容                                  | 推奨                                  |
 | Layout      | 禁止                                  | 推奨                                  |
 | Scope       | 許容                                  | 許容                                  |
 | Utility     | 禁止                                  | 禁止                                  |
@@ -491,8 +492,8 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
 | レイヤー名   | 役割                  | 詳細度   |
 |------------ |---------------------- |-------- |
 | Base        | グローバル             | 低       |
-| Parts       | Content               | 中       |
-| Container   | Container             | 中       |
+| Component   | Content               | 中       |
+| Project     | Container             | 中       |
 | Layout      | Container             | 中       |
 | Scope       | 任意の範囲             | 中       |
 | Utility     | Content               | 高       |
@@ -521,11 +522,11 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
  * normalize...Normalize.cssをインポートしています。
  * base...タイプセレクタと属性セレクタのデフォルトスタイルです。
  *
- * PARTS
+ * Component
  * icon...アイコンフォントです。テンプレートから自動で生成されます。
  * button...ボタンコンポーネントです。
  *
- * CONTAINER
+ * Project
  * listInline...ボタンやラベル、テキストリンクなどを横並びにします。
  * listMark...リストアイテムの左にアイコンを配置します。
  *
@@ -565,7 +566,7 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
 ```css
  /* #label
    -------------------------------------------------------------------------- */
-.p-label {
+.c-label {
   display: inline-block;
   padding: 0.5em;
   color: #fff;

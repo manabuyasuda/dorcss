@@ -1,6 +1,6 @@
  /* #button
    -------------------------------------------------------------------------- */
-.p-button {
+.c-button {
   display: inline-block;
   margin: 0;
   padding: 1em 2em;
@@ -25,11 +25,11 @@
   }
 }
 
-.p-button--full {
+.c-button--full {
   width: 100%;
 }
 
-.p-button--primary {}
-.p-button--secondary {}
-.p-button--tertiary {}
-.p-button--quaternary {}
+.c-button--primary {}
+.c-button--secondary {}
+.c-button--tertiary {}
+.c-button--quaternary {}

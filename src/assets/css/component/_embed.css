@@ -1,6 +1,6 @@
  /* #embed
    -------------------------------------------------------------------------- */
-.p-embed {
+.c-embed {
   display: block;
   overflow: hidden;
   position: relative;
@@ -8,11 +8,11 @@
   padding-bottom: calc((9 / 16) * 100%);
 }
 
-.p-embed__item,
-.p-embed iframe,
-.p-embed embed,
-.p-embed object,
-.p-embed video {
+.c-embed__item,
+.c-embed iframe,
+.c-embed embed,
+.c-embed object,
+.c-embed video {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -22,6 +22,6 @@
   border: 0;
 }
 
-.p-embed--4to3 {
+.c-embed--4to3 {
   padding-bottom: calc((3 / 4) * 100%);
 }

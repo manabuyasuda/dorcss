@@ -1,26 +1,26 @@
  /* #figure
    -------------------------------------------------------------------------- */
-.c-figure {
+.p-figure {
   display: table;
   /* キャプションの最小幅。 */
   min-width: 280px;
 }
 
-.c-figure__image {
+.p-figure__image {
   display: block;
   margin: 0 auto;
 }
 
-.c-figure__captionTop,
-.c-figure__captionBottom {
+.p-figure__captionTop,
+.p-figure__captionBottom {
   display: table-caption;
   font-size: 0.8rem;
 }
 
-.c-figure__captionTop {
+.p-figure__captionTop {
   caption-side: top;
 }
 
-.c-figure__captionBottom {
+.p-figure__captionBottom {
   caption-side: bottom;
 }

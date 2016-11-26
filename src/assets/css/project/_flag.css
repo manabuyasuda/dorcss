@@ -1,12 +1,12 @@
  /* #flag
    -------------------------------------------------------------------------- */
-.c-flag {
+.p-flag {
   display: table;
   width: 100%;
 }
 
-.c-flag__image,
-.c-flag__body {
+.p-flag__image,
+.p-flag__body {
   display: table-cell;
   vertical-align: top;
   & > :last-child {
@@ -14,53 +14,53 @@
   }
 }
 
-.c-flag__image {
+.p-flag__image {
   width: 1px;
   padding-right: 1rem;
 }
 
-.c-flag__image > img {
+.p-flag__image > img {
   max-width: none;
 }
 
-.c-flag__body {
+.p-flag__body {
   width: auto;
 }
 
-.c-flag--middle > .c-flag__image,
-.c-flag--middle > .c-flag__body {
+.p-flag--middle > .p-flag__image,
+.p-flag--middle > .p-flag__body {
   vertical-align: middle;
 }
 
-.c-flag--bottom > .c-flag__image,
-.c-flag--bottom > .c-flag__body {
+.p-flag--bottom > .p-flag__image,
+.p-flag--bottom > .p-flag__body {
   vertical-align: bottom;
 }
 
-.c-flag--reverse {
+.p-flag--reverse {
   text-align: left;
   direction: rtl;
-  & > .c-flag__image,
-  & > .c-flag__body {
+  & > .p-flag__image,
+  & > .p-flag__body {
     text-align: left;
     direction: ltr;
   }
-  & > .c-flag__image {
+  & > .p-flag__image {
     padding-right: 0;
     padding-left: 1rem;
   }
 }
 
 @media (--md-up) {
-  .c-flag--reverse-md {
+  .p-flag--reverse-md {
     text-align: left;
     direction: rtl;
-    & > .c-flag__image,
-    & > .c-flag__body {
+    & > .p-flag__image,
+    & > .p-flag__body {
       text-align: left;
       direction: ltr;
     }
-    & > .c-flag__image {
+    & > .p-flag__image {
       padding-right: 0;
       padding-left: 1rem;
     }
@@ -68,15 +68,15 @@
 }
 
 @media (--lg-up) {
-  .c-flag--reverse-lg {
+  .p-flag--reverse-lg {
     text-align: left;
     direction: rtl;
-    & > .c-flag__image,
-    & > .c-flag__body {
+    & > .p-flag__image,
+    & > .p-flag__body {
       text-align: left;
       direction: ltr;
     }
-    & > .c-flag__image {
+    & > .p-flag__image {
       padding-right: 0;
       padding-left: 1rem;
     }

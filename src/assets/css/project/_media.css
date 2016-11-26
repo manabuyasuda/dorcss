@@ -1,11 +1,11 @@
  /* #media
    -------------------------------------------------------------------------- */
-.c-media {
+.p-media {
   display: block;
   @apply --clearfix;
 }
 
-.c-media__image {
+.p-media__image {
   float: left;
   margin-right: 1rem;
   & > :last-child {
@@ -13,11 +13,11 @@
   }
 }
 
-.c-media__image > img {
+.p-media__image > img {
   display: block;
 }
 
-.c-media__body {
+.p-media__body {
   display: block;
   overflow: hidden;
   & > :last-child {
@@ -25,14 +25,14 @@
   }
 }
 
-.c-media--reverse > .c-media__image {
+.p-media--reverse > .p-media__image {
   float: right;
   margin-right: 0;
   margin-left: 1rem;
 }
 
 @media (--md-up) {
-  .c-media--reverse-md > .c-media__image {
+  .p-media--reverse-md > .p-media__image {
     float: right;
     margin-right: 0;
     margin-left: 1rem;
@@ -40,7 +40,7 @@
 }
 
 @media (--lg-up) {
-  .c-media--reverse-lg > .c-media__image {
+  .p-media--reverse-lg > .p-media__image {
     float: right;
     margin-right: 0;
     margin-left: 1rem;

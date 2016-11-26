@@ -133,7 +133,7 @@ gulp.task('iconfont', function() {
       // CSSファイルからfontファイルまでの相対パスを指定します。
       fontPath: '../font/',
       // CSSのクラス名を指定します。
-      className: 'p-icon'
+      className: 'c-icon'
     };
     // CSSのテンプレートからCSSファイルを生成します。
     gulp.src('src/assets/icon/template/_icon.css')

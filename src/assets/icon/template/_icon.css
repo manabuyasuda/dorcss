@@ -36,7 +36,7 @@
 
 .<%= className %> { display: inline-block; }
 
-.p-icon:before {
+.c-icon:before {
   @apply --icon;
 }
 

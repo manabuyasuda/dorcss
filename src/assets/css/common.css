@@ -11,7 +11,7 @@
  * normalize...Normalize.cssをインポートしています。
  * base...タイプセレクタと属性セレクタのデフォルトスタイルです。
  *
- * PARTS
+ * COMPONENT
  * icon...アイコンフォントです。テンプレートから自動で生成されます。
  * iconExtend...アイコンにスタイルを追加します。
  * label...インラインで表示するラベルコンポーネントです。
@@ -21,7 +21,7 @@
  * headingH2...`<h2>`で使われるような見出しのスタイルです。
  * headingH3...`<h3>`で使われるような見出しのスタイルです。
  *
- * CONTAINER
+ * PROJECT
  * listInline...ボタンやラベル、テキストリンクなどを横並びにします。
  * listMark...リストアイテムの左にアイコンを配置します。
  * breadcrumb...パンくずリストコンポーネントです。
@@ -89,51 +89,51 @@
 @import "base/_base.css";
 
 /* =============================================================================
-   #Parts
+   #Component
    ========================================================================== */
 /**
- * Partsレイヤーは装飾的なスタイルを持つことができる、再利用可能で小さなコンポーネントを定義します。
+ * Componentレイヤーは装飾的なスタイルを持つことができる、再利用可能で小さなコンポーネントを定義します。
  * 目安としては、見出しやリスト、ボタンやラベルのような他のコンポーネントを内包できない小さなコンポーネントです。
  * 内包されるコンポーネントなので配置に関する情報を持つことはできません。
- * 後述するContainerコンポーネントのサイズ変更を継承できるように
+ * 後述するProjectコンポーネントのサイズ変更を継承できるように
  * サイズ（`font-size`, `margin`, `padding`）などは`em`で指定します。
- * プレフィックス（接頭辞）として`.p-`をつけます。
+ * プレフィックス（接頭辞）として`.c-`をつけます。
  */
-@import "parts/_icon.css";
-@import "parts/_iconExtend.css";
-@import "parts/_label.css";
-@import "parts/_button.css";
-@import "parts/_embed.css";
-@import "parts/_list.css";
-@import "parts/_headingH2.css";
-@import "parts/_headingH3.css";
+@import "component/_icon.css";
+@import "component/_iconExtend.css";
+@import "component/_label.css";
+@import "component/_button.css";
+@import "component/_embed.css";
+@import "component/_list.css";
+@import "component/_headingH2.css";
+@import "component/_headingH3.css";
 
 /* =============================================================================
-   #Container
+   #Project
    ========================================================================== */
 /**
- * ContainerレイヤーはPartsレイヤーを内包できる比較的大きなコンポーネントを定義します。
- * Containerコンポーネントがユーザーインターフェイスの見た目と構造を確定するので、
+ * ProjectレイヤーはComponentレイヤーを内包できる比較的大きなコンポーネントを定義します。
+ * Projectコンポーネントがユーザーインターフェイスの見た目と構造を確定するので、
  * 自分自身と内包するコンポーネントに対して具体的な情報を持つべきです。
  * ただし、役割がより明確になり詳細度を低く保てるように、内包するコンポーネントに直接指定するのではなく、
  * 自身のElementに対して指定することを推奨します。
- * Containerコンポーネントは常にルートを基準にサイズを決めるため、`rem`を基本単位とします。
+ * Projectコンポーネントは常にルートを基準にサイズを決めるため、`rem`を基本単位とします。
  * ただし、コンポーネントのBlockにフォントサイズを指定すると範囲が大きくなり過ぎるので、
  * Blockは`1rem`を基本として、ElementやModifierでフォントサイズの変更をすることを推奨します。
  * コンポーネント内の余白をフォントサイズを基準に指定したい場合は`em`で指定してもいいでしょう。
- * 基本的にはContainerコンポーネント自身の配置を指定することはできませんが、
+ * 基本的にはProjectコンポーネント自身の配置を指定することはできませんが、
  * JavaScriptで動的に表示や配置の変更がされるUIの場合は許容されます。
- * プレフィックス（接頭辞）として`.c-`をつけます。
+ * プレフィックス（接頭辞）として`.p-`をつけます。
  */
-@import "container/_listInline.css";
-@import "container/_listMark.css";
-@import "container/_breadcrumb.css";
-@import "container/_figure.css";
-@import "container/_ratio.css";
-@import "container/_block.css";
-@import "container/_table.css";
-@import "container/_media.css";
-@import "container/_flag.css";
+@import "project/_listInline.css";
+@import "project/_listMark.css";
+@import "project/_breadcrumb.css";
+@import "project/_figure.css";
+@import "project/_ratio.css";
+@import "project/_block.css";
+@import "project/_table.css";
+@import "project/_media.css";
+@import "project/_flag.css";
 
 /* =============================================================================
    #Layout
@@ -167,7 +167,7 @@
  * Scopeレイヤー自身も内包するコンポーネントにも装飾的なスタイルや配置に関する指定をすることもできる、
  * 影響範囲の大きなレイヤーです。
  * 影響範囲ができるだけ小さくなるように適応する範囲や要素を限定しなければいけません。
- * 例えば`.s-scope .p-button`ではなく、`.s-scope__button`と`.p-button`のマルチクラスで指定します。
+ * 例えば`.s-scope .c-button`ではなく、`.s-scope__button`と`.c-button`のマルチクラスで指定します。
  * プレフィックス（接頭辞）として`.s-`をつけます。
  */
 @import "scope/_blog.css";

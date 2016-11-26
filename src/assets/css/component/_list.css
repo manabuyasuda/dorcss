@@ -1,6 +1,6 @@
  /* #list
    -------------------------------------------------------------------------- */
-.p-list {
+.c-list {
   display: table;
   @apply --listUnstyled;
 }
@@ -10,7 +10,7 @@
  * `background-image`で表示させるか、
  * `li:before`ではなく`li > span:before`に表示して`<span aria-hidden="true">`のように指定します。
  */
-.p-list > li {
+.c-list > li {
   display: table-row;
   &:before,
   & > span:before {
@@ -19,12 +19,12 @@
 }
 
 /* ※list */
-.p-list--note > li:before {
+.c-list--note > li:before {
   content: "※";
 }
 
 /* ※1 list */
-.p-list--noteOrder > li {
+.c-list--noteOrder > li {
   counter-increment: noteOrder;
   &:target {
     background-color: lightgray;
@@ -36,7 +36,7 @@
 }
 
 /* (1) list */
-.p-list--bracketOrder > li {
+.c-list--bracketOrder > li {
   counter-increment: bracketOrder;
   &:before {
     content: "(" counter(bracketOrder) ")";
@@ -49,7 +49,7 @@
  *   1.1 list
  *   1.2 list
  */
-.p-list--order li {
+.c-list--order li {
   counter-increment: order;
   &:before {
     content: counters(order, ".");

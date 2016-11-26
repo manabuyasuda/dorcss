@@ -1,18 +1,18 @@
  /* #listMark
    -------------------------------------------------------------------------- */
-.c-listMark {
+.p-listMark {
   display: table;
   @apply --listUnstyled;
 }
 
-.c-listMark__item {
+.p-listMark__item {
   display: table-row;
 }
 
-.c-listMark__icon {
+.p-listMark__icon {
   display: table-cell;
 }
 
-.c-listMark__items {
+.p-listMark__items {
   @apply --listUnstyled;
 }
