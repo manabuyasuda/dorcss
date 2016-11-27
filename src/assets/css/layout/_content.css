@@ -4,7 +4,7 @@
  * メインコンテンツです。
  * `.l-footer`との下側の余白を指定します。
  * Elementでメインコンテンツ内のレイアウトを指定します。
- * `.l-wrapper__inner--2col`を使用することで2カラムレイアウトにすることもできます。
+ * `.l-wrapper__2culumn`を使用することで2カラムレイアウトにすることもできます。
  */
 .l-content {
   margin-bottom: 3.2rem;
@@ -70,7 +70,7 @@
   }
 }
 
-/* コンポーネント間のベースになる余白 */
+/* オブジェクトのベースになる余白 */
 .l-content__item {
   margin-bottom: 1.6rem;
   & > :last-child {
