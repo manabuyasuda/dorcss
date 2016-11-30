@@ -28,6 +28,7 @@
  * メインコンテンツの本文です。
  */
 .l-content__body {
+  padding: 2rem 1rem;
   & > :last-child {
     margin-bottom: 0;
   }
@@ -44,35 +45,84 @@
   }
 }
 
-/* 1階層目の`<section>` */
+/**
+ * 1階層目の`section`に指定します。
+ * e.g. h1 > section← > h2
+ */
 .l-content__firstSection {
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
+  margin-top: 3.2rem;
   & > :last-child {
     margin-bottom: 0;
   }
 }
 
-/* 2階層目の`<section>` */
+/**
+ * 2階層目の`section`に指定します。
+ * e.g. h1 section h2 section← > h3
+ * `.l-content__secondSection`以降にsectionをともなう見出しがない場合は`.l-content__heading2`をh2に指定します。
+ */
 .l-content__secondSection {
   margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
   & > :last-child {
     margin-bottom: 0;
   }
 }
 
-/* 3階層目の`<section>` */
+/**
+ * 3階層目の`section`に指定します。
+ * e.g. h1 section h2 section h3 section← > h4
+ * `.l-content__thirdSection`以降にsectionをともなう見出しがない場合は`.l-content__heading3`をh3に指定します。
+ */
 .l-content__thirdSection {
+  margin-top: 1.6rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * h2に直接余白を指定したいときに使います。
+ * `.l-content__heading2`直下にsectionをともなう見出しがある場合は`.l-content__secondSection`を使います。
+ */
+.l-content__heading2 {
   margin-bottom: 1.6rem;
   & > :last-child {
     margin-bottom: 0;
   }
 }
 
-/* オブジェクトのベースになる余白 */
+/**
+ * h3に直接余白を指定したいときに使います。
+ * `.l-content__heading3`直下にsectionをともなう見出しがある場合は`.l-content__thirdSection`を使います。
+ */
+.l-content__heading3 {
+  margin-bottom: 0.8rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * ページタイトルです。
+ */
+.l-content__title {
+  margin-bottom: 1.6rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* オブジェクトのベースになる余白です。 */
 .l-content__item {
   margin-bottom: 1.6rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* オブジェクトのベースより狭くなる余白です。 */
+.l-content__smallItem {
+  margin-bottom: 0.8rem;
   & > :last-child {
     margin-bottom: 0;
   }

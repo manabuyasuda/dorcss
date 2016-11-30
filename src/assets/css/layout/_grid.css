@@ -14,21 +14,33 @@
   vertical-align: top;
 }
 
+/**
+ * ガターの指定。
+ */
 .l-grid--medium {
-  margin-left: -1rem;
+  margin-left: -2rem;
   & > .l-grid__item {
-    padding-left: 1rem;
+    padding-left: 2rem;
   }
 }
 
+/**
+ * 要素の垂直位置を真ん中寄せ。
+ */
 .l-grid--middle > .l-grid__item {
   vertical-align: middle;
 }
 
+/**
+ * 要素の垂直位置を下寄せ。
+ */
 .l-grid--bottom > .l-grid__item {
   vertical-align: bottom;
 }
 
+/**
+ * 要素を中央寄せ、要素内は左寄せ。
+ */
 .l-grid--center {
   text-align: center;
   & > .l-grid__item {
@@ -54,13 +66,15 @@
   }
 }
 
+/**
+ * 要素を右寄せ、要素内は左寄せ。
+ */
 .l-grid--right {
   text-align: right;
   & > .l-grid__item {
     text-align: left;
   }
 }
-
 @media (--md-up) {
   .l-grid--right-md {
     text-align: right;
@@ -69,7 +83,6 @@
     }
   }
 }
-
 @media (--lg-up) {
   .l-grid--right-lg {
     text-align: right;
@@ -79,6 +92,9 @@
   }
 }
 
+/**
+ * 要素の反転。
+ */
 .l-grid--reverse {
   text-align: left;
   direction: rtl;
@@ -87,7 +103,6 @@
     direction: ltr;
   }
 }
-
 @media (--md-up) {
   .l-grid--reverse-md {
     text-align: left;
@@ -98,7 +113,6 @@
     }
   }
 }
-
 @media (--lg-up) {
   .l-grid--reverse-lg {
     text-align: left;
@@ -110,50 +124,134 @@
   }
 }
 
+/**
+ * 2カラムレイアウト。
+ */
 .l-grid--col2 > .l-grid__item {
   width: calc((6 / 12) * 100%);
+  &:nth-of-type(n+3) {
+    margin-top: 1.6rem;
+  }
 }
-
+.l-grid--col2-md > .l-grid__item,
+.l-grid--col2-lg > .l-grid__item {
+  margin-top: 1.6rem;
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
 @media (--md-up) {
   .l-grid--col2-md > .l-grid__item {
     width: calc((6 / 12) * 100%);
+    &:nth-of-type(n+3) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2) {
+      margin-top: 0;
+    }
   }
 }
-
 @media (--lg-up) {
   .l-grid--col2-lg > .l-grid__item {
     width: calc((6 / 12) * 100%);
+    &:nth-of-type(n+3) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2) {
+      margin-top: 0;
+    }
   }
 }
 
+/**
+ * 3カラムレイアウト。
+ */
 .l-grid--col3 > .l-grid__item {
   width: calc((4 / 12) * 100%);
+  &:nth-of-type(n+4) {
+    margin-top: 1.6rem;
+  }
+}
+.l-grid--col3-md > .l-grid__item,
+.l-grid--col3-lg > .l-grid__item {
+  margin-top: 1.6rem;
+  &:first-of-type,
+  &:nth-of-type(2) {
+    margin-top: 0;
+  }
 }
 
 @media (--md-up) {
   .l-grid--col3-md > .l-grid__item {
     width: calc((4 / 12) * 100%);
+    &:nth-of-type(n+4) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      margin-top: 0;
+    }
   }
 }
-
 @media (--lg-up) {
   .l-grid--col3-lg > .l-grid__item {
     width: calc((4 / 12) * 100%);
+    &:nth-of-type(n+4) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      margin-top: 0;
+    }
   }
 }
 
+/**
+ * 4カラムレイアウト。
+ */
 .l-grid--col4 > .l-grid__item {
   width: calc((3 / 12) * 100%);
+  &:nth-of-type(n+5) {
+    margin-top: 1.6rem;
+  }
 }
-
+.l-grid--col4-md > .l-grid__item,
+.l-grid--col4-lg > .l-grid__item {
+  margin-top: 1.6rem;
+  &:first-of-type,
+  &:nth-of-type(2) {
+    margin-top: 0;
+  }
+}
+.l-grid--col3.l-grid--col4-md > .l-grid__item,
+.l-grid--col3.l-grid--col4-lg > .l-grid__item {
+  &:nth-of-type(3) {
+    margin-top: 0;
+  }
+}
 @media (--md-up) {
   .l-grid--col4-md > .l-grid__item {
     width: calc((3 / 12) * 100%);
+    &:nth-of-type(n+5) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3),
+    &:nth-of-type(4) {
+      margin-top: 0;
+    }
   }
 }
-
 @media (--lg-up) {
   .l-grid--col4-lg > .l-grid__item {
     width: calc((3 / 12) * 100%);
+    &:nth-of-type(n+5) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3),
+    &:nth-of-type(4) {
+      margin-top: 0;
+    }
   }
 }
