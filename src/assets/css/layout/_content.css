@@ -47,7 +47,7 @@
 
 /**
  * 1階層目の`section`に指定します。
- * e.g. h1 > section← > h2
+ * e.g. h1 > section←ココ > h2
  */
 .l-content__firstSection {
   margin-top: 3.2rem;
@@ -58,7 +58,7 @@
 
 /**
  * 2階層目の`section`に指定します。
- * e.g. h1 section h2 section← > h3
+ * e.g. h1 section h2 section←ココ > h3
  * `.l-content__secondSection`以降にsectionをともなう見出しがない場合は`.l-content__heading2`をh2に指定します。
  */
 .l-content__secondSection {
@@ -70,7 +70,7 @@
 
 /**
  * 3階層目の`section`に指定します。
- * e.g. h1 section h2 section h3 section← > h4
+ * e.g. h1 section h2 section h3 section←ココ > h4
  * `.l-content__thirdSection`以降にsectionをともなう見出しがない場合は`.l-content__heading3`をh3に指定します。
  */
 .l-content__thirdSection {
@@ -82,7 +82,7 @@
 
 /**
  * h2に直接余白を指定したいときに使います。
- * `.l-content__heading2`直下にsectionをともなう見出しがある場合は`.l-content__secondSection`を使います。
+ * `.l-content__heading2`直下にsectionをともなう見出しがある場合は`.l-content__firstSection`を使います。
  */
 .l-content__heading2 {
   margin-bottom: 1.6rem;
@@ -93,9 +93,20 @@
 
 /**
  * h3に直接余白を指定したいときに使います。
- * `.l-content__heading3`直下にsectionをともなう見出しがある場合は`.l-content__thirdSection`を使います。
+ * `.l-content__heading3`直下にsectionをともなう見出しがある場合は`.l-content__secondSection`を使います。
  */
 .l-content__heading3 {
+  margin-bottom: 0.8rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * h4に直接余白を指定したいときに使います。
+ * `.l-content__heading4`直下にsectionをともなう見出しがある場合は`.l-content__thirdSection`を使います。
+ */
+.l-content__heading4 {
   margin-bottom: 0.8rem;
   & > :last-child {
     margin-bottom: 0;
