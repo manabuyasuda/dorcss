@@ -57,6 +57,19 @@
 }
 
 /**
+ * `.l-content__secondSection`同士の間に区切り記号（デリミタ）を表示して通常より大きめに余白をとります。
+ * `.l-content__firstSection`のModifierとして指定します。
+ */
+.l-content__firstSection--delimiter >  .l-content__secondSection:not(:last-of-type):after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 1.6rem auto;
+  background-color: #e5e5e5;
+}
+
+/**
  * 2階層目の`section`に指定します。
  * e.g. h1 section h2 section←ココ > h3
  * `.l-content__secondSection`以降にsectionをともなう見出しがない場合は`.l-content__heading2`をh2に指定します。
