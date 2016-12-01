@@ -25,6 +25,10 @@
   }
 }
 
+.p-media__heading {
+  margin-bottom: 0.5rem;
+}
+
 .p-media--reverse > .p-media__image {
   float: right;
   margin-right: 0;

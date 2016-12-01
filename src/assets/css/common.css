@@ -18,8 +18,11 @@
  * button...ボタンオブジェクトです。
  * embed...Youtubeなどをレスポンシブ対応させます。
  * list...リストアイテムの左に役物などを表示します。
- * headingH2...`<h2>`で使われるような見出しのスタイルです。
- * headingH3...`<h3>`で使われるような見出しのスタイルです。
+ * title...`<h1>`で使われる見出しのスタイルです。
+ * heading2...`<h2>`で使われるような見出しのスタイルです。
+ * heading3...`<h3>`で使われるような見出しのスタイルです。
+ * lead...視覚的に目立たせるときに使うスタイルです。
+ * delimiter...`<hr>`のような区切り記号（デリミタ）です。
  *
  * PROJECT
  * listInline...ボタンやラベル、テキストリンクなどを横並びにします。
@@ -104,8 +107,12 @@
 @import "component/_button.css";
 @import "component/_embed.css";
 @import "component/_list.css";
-@import "component/_headingH2.css";
-@import "component/_headingH3.css";
+@import "component/_title.css";
+@import "component/_heading2.css";
+@import "component/_heading3.css";
+@import "component/_lead.css";
+@import "component/_delimiter.css";
+
 
 /* =============================================================================
    #Project

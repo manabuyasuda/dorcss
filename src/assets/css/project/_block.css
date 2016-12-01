@@ -8,13 +8,21 @@
 .p-block__item {
   display: block;
   width: 100%;
-  > :last-child {
+  & > :last-child {
     margin-bottom: 0;
   }
 }
 
 .p-block__item:not(:first-of-type) {
-  margin-top: 0.25em;
+  margin-top: 0.5em;
+}
+
+.p-block__heading {
+  margin-bottom: 0.5em;
+}
+
+.p-block__text {
+  margin-bottom: 1em;
 }
 
 .p-block__image {
