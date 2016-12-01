@@ -124,6 +124,10 @@
   }
 }
 
+[class*="l-grid--col"] > .l-grid__item >:last-child {
+  margin-bottom: 0;
+}
+
 /**
  * 2カラムレイアウト。
  */
