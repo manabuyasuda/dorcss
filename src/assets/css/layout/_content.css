@@ -5,6 +5,14 @@
  * `.l-footer`との下側の余白を指定します。
  * Elementでメインコンテンツ内のレイアウトを指定します。
  * `.l-wrapper__2culumn`を使用することで2カラムレイアウトにすることもできます。
+ * <div class="l-wrapper">
+ *   <div class="l-wrapper__2culumn">
+ *     <main class="l-wrapper__content">
+ *       <article class="l-content"></article>
+ *     </main>
+ *     <aside class="l-wrapper__sidebar"></sidebar>
+ *   </div>
+ * <div>
  */
 .l-content {
   margin-bottom: 3.2rem;
@@ -16,9 +24,13 @@
 /**
  * メインコンテンツのコンテンツヘッダーです。
  * `.l-content__body`に対して下側の余白を指定します。
+ * <article class="l-content">
+ *   <header class="l-content__head"></header>
+ * </article>
  */
 .l-content__head {
-  margin-bottom: 1.6rem;
+  margin-bottom: 3.2rem;
+  padding: 0 1rem 0;
   & > :last-child {
     margin-bottom: 0;
   }
@@ -26,9 +38,13 @@
 
 /**
  * メインコンテンツの本文です。
+ * <article class="l-content">
+ *   <header class="l-content__head"></header>
+ *   <div class="l-content__body"></div>
+ * </article>
  */
 .l-content__body {
-  padding: 2rem 1rem;
+  padding: 0 1rem 1rem;
   & > :last-child {
     margin-bottom: 0;
   }
@@ -37,6 +53,11 @@
 /**
  * メインコンテンツのコンテンツフッターです。
  * `.l-content__body`に対して上側の余白を指定します。
+ * <article class="l-content">
+ *   <header class="l-content__head"></header>
+ *   <div class="l-content__body"></div>
+ *   <footer class="l-content__foot"></footer>
+ * </article>
  */
 .l-content__foot {
   margin-top: 3.2rem;
@@ -47,6 +68,13 @@
 
 /**
  * ページタイトルです。
+ * `.l-content__head`内に配置します。
+ * e.g.
+ * <article class="l-content">
+ *   <header class="l-content__head">
+ *     <h1 class="l-content__title"><h1>
+ *   </header>
+ * </article>
  */
 .l-content__title {
   margin-bottom: 1.6rem;
@@ -56,41 +84,35 @@
 }
 
 /**
- * TLDR: `h2`の上に大きく余白をあけたいときに使う。
- * `h2`のラップ要素（1つ目の`section`）として上方向に余白をつけます。
+ * `h2`のラップ要素（1つ目の`section`）として下方向に余白をつけます。
  * e.g.
- * <h1>
- *   <section class="l-content__firstSection">
- *     <h2></h2>
- *   </section>
- * </h1>
+ * <article class="l-content">
+ *   <header class="l-content__head"></header>
+ *   <div class="l-content__body">
+ *     <section class="l-content__firstSection">
+ *       <h2></h2>
+ *     </section>
+ *     <section class="l-content__firstSection">
+ *       <h2></h2>
+ *     </section>
+ *   </div>
+ * </article>
  */
 .l-content__firstSection {
-  margin-top: 3.2rem;
+  margin-bottom: 3.2rem;
   & > :last-child {
     margin-bottom: 0;
   }
 }
 
 /**
- * TLDR: `h2`の下に余白がないときに使う。
- * `h2`に直接下方向の余白を指定したいときに使います。
- * `h2`直後に`section`をともなう`h3`を置かない場合に使います。
+ * `h2`の下に余白をつけます。
  * e.g.
- * <h1>
- *   <div class="l-content__firstSection">
- *     <div class="l-grid">
- *       <section class="l-grid__item">
- *         <h2 class="l-content__heading2"></h2>
- *         <p></p>
- *       </section>
- *       <section class="l-grid__item">
- *         <h2 class="l-content__heading2"></h2>
- *         <p></p>
- *       </section>
- *     </div>
- *   </div>
- * </h1>
+ * <div class="l-content__body">
+ *   <section class="l-content__firstSection">
+ *     <h2 class="l-content__heading2"></h2>
+ *   </section>
+ * </div>
  */
 .l-content__heading2 {
   margin-bottom: 1.6rem;
@@ -100,41 +122,41 @@
 }
 
 /**
- * TLDR: `h3`の上に大きく余白をあけたいときに使う。
- * `h3`のラップ要素（2つ目の`section`）として上方向に余白をつけます。
+ * `h3`のラップ要素（2つ目の`section`）として下方向に余白をつけます。
  * e.g.
- * <h1>
- *   <section>
- *     <h2></h2>
+ * <div class="l-content__body">
+ *   <section class="l-content__firstSection">
+ *     <h2 class="l-content__heading2"></h2>
+ *     <section class="l-content__secondSection">
+ *       <h3></h3>
+ *     </section>
  *     <section class="l-content__secondSection">
  *       <h3></h3>
  *     </section>
  *   </section>
- * </h1>
+ * </div>
  */
 .l-content__secondSection {
-  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
   & > :last-child {
     margin-bottom: 0;
   }
 }
 
 /**
- * TLDR: `h3`の下に余白がないときに使う。
- * h3に直接余白を指定したいときに使います。
- * `h3`直後に`l-content__secondSection`が置けない場合に使います。
+ * `h2`の下に余白をつけます。
  * e.g.
- * <h1>
- *   <section>
- *     <h2></h2>
- *     <section>
+ * <div class="l-content__body">
+ *   <section class="l-content__firstSection">
+ *     <h2 class="l-content__heading2"></h2>
+ *     <section class="l-content__secondSection">
  *       <h3 class="l-content__heading3"></h3>
- *       <p></p>
+ *     </section>
+ *     <section class="l-content__secondSection">
+ *       <h3 class="l-content__heading3"></h3>
  *     </section>
  *   </section>
- * </h1>
-
- * e.g. h1 section h2 div div h3←
+ * </div>
  */
 .l-content__heading3 {
   margin-bottom: 0.8rem;
@@ -144,9 +166,20 @@
 }
 
 /**
- * TLDR: セクションの間を罫線で区切りたいときに使う。
  * `.l-content__secondSection`同士の間に区切り記号（デリミタ）を表示して通常より大きめに余白をとります。
  * `.l-content__firstSection`のModifierとして指定します。
+ * e.g.
+ * <div class="l-content__body">
+ *   <section class="l-content__firstSection">
+ *     <h2 class="l-content__heading2"></h2>
+ *     <section class="l-content__secondSection">
+ *       <h3 class="l-content__heading3"></h3>
+ *     </section>
+ *     <section class="l-content__secondSection">
+ *       <h3 class="l-content__heading3"></h3>
+ *     </section>
+ *   </section>
+ * </div>
  */
 .l-content__firstSection--delimiter >  .l-content__secondSection:not(:last-of-type):after {
   content: "";
@@ -156,7 +189,9 @@
   border-top: 1px solid #e5e5e5;
 }
 
-/* オブジェクトのベースになる余白です。 */
+/**
+ * オブジェクトのベースになる余白を指定します。
+ */
 .l-content__item {
   margin-bottom: 1.6rem;
   & > :last-child {
@@ -164,9 +199,31 @@
   }
 }
 
-/* オブジェクトのベースより狭くなる余白です。 */
+/**
+ * オブジェクトのベースより小さい余白を指定します。
+ */
 .l-content__smallItem {
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.2rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * テキストのベースになる余白を指定します。
+ */
+.l-content__text {
+  margin-bottom: 1rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * テキストのベースより小さい余白を指定します。
+ */
+.l-content__smallText {
+  margin-bottom: 0.6rem;
   & > :last-child {
     margin-bottom: 0;
   }

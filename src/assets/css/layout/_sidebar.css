@@ -3,6 +3,16 @@
 /**
  * サイドバーです。
  * `.l-wrapper__2culumn`を使用することで2カラムレイアウトにすることもできます。
+ * <div class="l-wrapper">
+ *   <div class="l-wrapper__2culumn">
+ *     <main class="l-wrapper__content">
+ *       <article class="l-content"></article>
+ *     </main>
+ *     <aside class="l-wrapper__sidebar">
+ *       <div class="l-sidebar"></div>
+ *     </sidebar>
+ *   </div>
+ * <div>
  */
 .l-sidebar {
   & > :last-child {

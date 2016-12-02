@@ -14,6 +14,28 @@
 
 /**
  * メインコンテンツとサイドバーを2カラムレイアウトにしたいときに使用します。
+ * e.g.
+ * <div class="l-wrapper">
+ *   <header class="l-wrapper__header"></header>
+ *   <div class="l-wrapper__2culumn"></div>
+ * <div>
+ */
+.l-wrapper__header {
+  margin-bottom: 3.2rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * メインコンテンツとサイドバーを2カラムレイアウトにしたいときに使用します。
+ * e.g.
+ * <div class="l-wrapper">
+ *   <div class="l-wrapper__2culumn">
+ *     <main class="l-wrapper__content"></main>
+ *     <aside class="l-wrapper__sidebar"></aside>
+ *   </div>
+ * <div>
  */
 .l-wrapper__2culumn {
   display: block;
