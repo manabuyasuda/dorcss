@@ -2,15 +2,17 @@
    -------------------------------------------------------------------------- */
 /**
  * メインコンテンツです。
- * `.l-footer`との下側の余白を指定します。
  * Elementでメインコンテンツ内のレイアウトを指定します。
  * `.l-wrapper__2culumn`を使用することで2カラムレイアウトにすることもできます。
+ * e.g.
  * <div class="l-wrapper">
- *   <div class="l-wrapper__2culumn">
- *     <main class="l-wrapper__content">
- *       <article class="l-content"></article>
- *     </main>
- *     <aside class="l-wrapper__sidebar"></sidebar>
+ *   <div class="l-wrapper__inner">
+ *     <div class="l-wrapper__2culumn">
+ *       <main class="l-wrapper__content">
+ *         <article class="l-content"></article>
+ *       </main>
+ *       <aside class="l-wrapper__sidebar"></aside>
+ *     </div>
  *   </div>
  * <div>
  */
@@ -24,8 +26,10 @@
 /**
  * メインコンテンツのコンテンツヘッダーです。
  * `.l-content__body`に対して下側の余白を指定します。
+ * e.g.
  * <article class="l-content">
  *   <header class="l-content__head"></header>
+ *   <div class="l-content__body"></div>
  * </article>
  */
 .l-content__head {
@@ -38,9 +42,12 @@
 
 /**
  * メインコンテンツの本文です。
+ * `.l-content__head`と`.l-content__foot`から余白を指定されることがあります。
+ * e.g.
  * <article class="l-content">
  *   <header class="l-content__head"></header>
  *   <div class="l-content__body"></div>
+ *   <footer class="l-content__foot"></footer>
  * </article>
  */
 .l-content__body {
@@ -53,6 +60,7 @@
 /**
  * メインコンテンツのコンテンツフッターです。
  * `.l-content__body`に対して上側の余白を指定します。
+ * e.g.
  * <article class="l-content">
  *   <header class="l-content__head"></header>
  *   <div class="l-content__body"></div>
@@ -69,6 +77,7 @@
 /**
  * ページタイトルです。
  * `.l-content__head`内に配置します。
+ * `.l-content__head`によって最後の要素の下方向の余白がなくなります。
  * e.g.
  * <article class="l-content">
  *   <header class="l-content__head">
@@ -84,7 +93,8 @@
 }
 
 /**
- * `h2`のラップ要素（1つ目の`section`）として下方向に余白をつけます。
+ * `h2`のラップ要素（1つ目の`section`）として下方向に余白を指定します。
+ * `.l-content__body`によって最後の要素の下方向の余白がなくなります。
  * e.g.
  * <article class="l-content">
  *   <header class="l-content__head"></header>
@@ -106,7 +116,7 @@
 }
 
 /**
- * `h2`の下に余白をつけます。
+ * `h2`の下に余白を指定します。
  * e.g.
  * <div class="l-content__body">
  *   <section class="l-content__firstSection">
@@ -122,7 +132,8 @@
 }
 
 /**
- * `h3`のラップ要素（2つ目の`section`）として下方向に余白をつけます。
+ * `h3`のラップ要素（2つ目の`section`）として下方向に余白を指定します。
+ * `.l-content__firstSection`によって最後の要素の下方向の余白がなくなります。
  * e.g.
  * <div class="l-content__body">
  *   <section class="l-content__firstSection">
@@ -144,7 +155,7 @@
 }
 
 /**
- * `h2`の下に余白をつけます。
+ * `h3`の下に余白を指定します。
  * e.g.
  * <div class="l-content__body">
  *   <section class="l-content__firstSection">
@@ -170,14 +181,10 @@
  * `.l-content__firstSection`のModifierとして指定します。
  * e.g.
  * <div class="l-content__body">
- *   <section class="l-content__firstSection">
+ *   <section class="l-content__firstSection l-content__firstSection--delimiter">
  *     <h2 class="l-content__heading2"></h2>
- *     <section class="l-content__secondSection">
- *       <h3 class="l-content__heading3"></h3>
- *     </section>
- *     <section class="l-content__secondSection">
- *       <h3 class="l-content__heading3"></h3>
- *     </section>
+ *     <section class="l-content__secondSection"></section>
+ *     <section class="l-content__secondSection"></section>
  *   </section>
  * </div>
  */
@@ -190,7 +197,7 @@
 }
 
 /**
- * オブジェクトのベースになる余白を指定します。
+ * Projectオブジェクトのベースになる余白を指定します。
  */
 .l-content__item {
   margin-bottom: 1.6rem;
@@ -200,7 +207,7 @@
 }
 
 /**
- * オブジェクトのベースより小さい余白を指定します。
+ * Projectオブジェクトのベースより小さい余白を指定します。
  */
 .l-content__smallItem {
   margin-bottom: 1.2rem;
@@ -210,7 +217,7 @@
 }
 
 /**
- * テキストのベースになる余白を指定します。
+ * Componentオブジェクトのベースになる余白を指定します。
  */
 .l-content__text {
   margin-bottom: 1rem;
@@ -220,7 +227,7 @@
 }
 
 /**
- * テキストのベースより小さい余白を指定します。
+ * Componentオブジェクトのベースより小さい余白を指定します。
  */
 .l-content__smallText {
   margin-bottom: 0.6rem;

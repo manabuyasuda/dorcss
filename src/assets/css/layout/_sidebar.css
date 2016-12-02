@@ -3,14 +3,15 @@
 /**
  * サイドバーです。
  * `.l-wrapper__2culumn`を使用することで2カラムレイアウトにすることもできます。
+ * e.g.
  * <div class="l-wrapper">
- *   <div class="l-wrapper__2culumn">
- *     <main class="l-wrapper__content">
- *       <article class="l-content"></article>
- *     </main>
- *     <aside class="l-wrapper__sidebar">
- *       <div class="l-sidebar"></div>
- *     </sidebar>
+ *   <div class="l-wrapper__inner">
+ *     <div class="l-wrapper__2culumn">
+ *       <main class="l-wrapper__content"></main>
+ *       <aside class="l-wrapper__sidebar">
+ *         <div class="l-sidebar"></div>
+ *       </aside>
+ *     </div>
  *   </div>
  * <div>
  */
