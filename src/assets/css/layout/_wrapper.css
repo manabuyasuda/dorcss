@@ -60,6 +60,7 @@
 
 /**
  * メインコンテンツの最大幅を指定します。
+ * e.g.
  * <div class="l-wrapper">
  *   <header class="l-wrapper__header"></header>
  *   <div class="l-wrapper__inner">
