@@ -32,8 +32,8 @@
  * e.g.
  * <div class="l-wrapper">
  *   <header class="l-wrapper__header"></header>
- *   <div class="l-wrapper__breadcrumbs">
- *     <div class="l-wrapper__breadcrumbsInner">
+ *   <div class="l-wrapper__breadcrumb">
+ *     <div class="l-wrapper__breadcrumbInner">
  *       <ol class="p-breadcrumb">
  *         <li class="p-breadcrumb__item">
  *           <a class="p-breadcrumb__link" href="/"></a>
@@ -43,12 +43,12 @@
  *   </div>
  * <div>
  */
-.l-wrapper__breadcrumbs {
+.l-wrapper__breadcrumb {
   margin-bottom: 3.2rem;
   padding: 0 1rem 0;
 }
 
-.l-wrapper__breadcrumbsInner {
+.l-wrapper__breadcrumInner {
   display: block;
   width: 100%;
   max-width: calc(var(--max-width) - 16 * 2px);
