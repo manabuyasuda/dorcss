@@ -23,6 +23,9 @@
  * heading3...`<h3>`で使われるような見出しのスタイルです。
  * lead...視覚的に目立たせるときに使うスタイルです。
  * delimiter...`<hr>`のような区切り記号（デリミタ）です。
+ * input...`<input>`のデフォルトスタイルです。
+ * textarea...`<textarea>`のデフォルトスタイルです。
+ * select...`<select>`のデフォルトスタイルです。
  *
  * PROJECT
  * listInline...ボタンやラベル、テキストリンクなどを横並びにします。
@@ -112,6 +115,9 @@
 @import "component/_heading3.css";
 @import "component/_lead.css";
 @import "component/_delimiter.css";
+@import "component/_input.css";
+@import "component/_textarea.css";
+@import "component/_select.css";
 
 
 /* =============================================================================
