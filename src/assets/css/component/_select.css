@@ -14,33 +14,33 @@
     margin: auto;
     box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.05);
   }
-}
-
-.c-select__icon:after {
-  @apply --icon;
-  content: var(--icon--caret-down);
-  position: absolute;
-  top: -0.3em;
-  right: 1em;
-  bottom: 0;
-  margin: auto;
-  height: 1em;
-  color: #333;
+  &:after {
+    content: "";
+    background-image: url("/assets/img/caret-down.svg");
+    background-repeat: no-repeat;
+    background-size: 1em;
+    position: absolute;
+    top: 0;
+    right: 1em;
+    bottom: 0;
+    margin: auto;
+    width: 1em;
+    height: 1em;
+    pointer-events: none;
+  }
 }
 
 .c-select > select {
   /* Firefox Hack */
   text-indent: 0.01px;
   text-overflow: '';
-
   /* IE Hack */
   &::-ms-expand {
     display: none;
   }
-
   width: 100%;
   height: 2.5em;
-  padding: 0 3em 0 1em;
+  padding: 0 2em 0 1em;
   font-size: 1em;
   line-height: 1;
   vertical-align: middle;
@@ -62,4 +62,3 @@
     background-color: #eee;
   }
 }
-

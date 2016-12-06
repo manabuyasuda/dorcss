@@ -34,10 +34,6 @@
   --icon--angle-left: "\EA02";
   --icon--angle-right: "\EA03";
   --icon--angle-up: "\EA04";
-  --icon--caret-down: "\EA05";
-  --icon--check: "\EA06";
-  --icon--external-link: "\EA07";
-  --icon--map-marker: "\EA08";
   
 }
 
@@ -51,7 +47,3 @@
 .c-icon--angle-left:before { content: "\EA02"; }
 .c-icon--angle-right:before { content: "\EA03"; }
 .c-icon--angle-up:before { content: "\EA04"; }
-.c-icon--caret-down:before { content: "\EA05"; }
-.c-icon--check:before { content: "\EA06"; }
-.c-icon--external-link:before { content: "\EA07"; }
-.c-icon--map-marker:before { content: "\EA08"; }

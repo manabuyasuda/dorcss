@@ -26,6 +26,8 @@
  * input...`<input>`のデフォルトスタイルです。
  * textarea...`<textarea>`のデフォルトスタイルです。
  * select...`<select>`のデフォルトスタイルです。
+ * inputCheckbox...`type="checkbox"`のデフォルトスタイルです。
+ * inputRadio...`type="radio"`のデフォルトスタイルです。
  *
  * PROJECT
  * listInline...ボタンやラベル、テキストリンクなどを横並びにします。
@@ -118,7 +120,8 @@
 @import "component/_input.css";
 @import "component/_textarea.css";
 @import "component/_select.css";
-
+@import "component/_inputCheckbox.css";
+@import "component/_inputRadio.css";
 
 /* =============================================================================
    #Project

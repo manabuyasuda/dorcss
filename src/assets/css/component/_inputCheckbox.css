@@ -1,0 +1,48 @@
+ /* #inputCheckbox
+   -------------------------------------------------------------------------- */
+.c-inputCheckbox {
+  position: relative;
+  cursor: pointer;
+}
+
+.c-inputCheckbox > input[type="checkbox"] {
+  cursor: pointer;
+  appearance: none;
+}
+
+.c-inputCheckbox:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  top: -0.1em;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  margin: auto;
+  border: 1px solid #d0d0d0;
+  border-radius: var(--border-radius);
+  background-color: #fff;
+}
+
+.c-inputCheckbox > input[type="checkbox"]:checked:after {
+  content: "";
+  background-image: url("/assets/img/check.svg");
+  background-repeat: no-repeat;
+  background-size: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  width: 1em;
+  height: 1em;
+}
+
+.c-inputCheckbox[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+  & > input[type="checkbox"] {
+    display: none;
+  }
+}
