@@ -15,6 +15,9 @@ var stylefmt = require('stylefmt');
 var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
 
+// Styleguide
+var aigis = require('gulp-aigis');
+
 // Utility
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
@@ -156,6 +159,14 @@ gulp.task('iconfont', function() {
   .pipe(gulp.dest(dest.iconfont));
 });
 
+/**
+ * スタイルガイドを生成します。
+ */
+gulp.task('styleguide', function() {
+  return gulp.src('./aigis/aigis_config.yml')
+    .pipe(aigis());
+});
+
 gulp.task('cleanDest', function (cb) {
   rimraf('dest/', cb);
 });
@@ -165,13 +176,14 @@ gulp.task('cleanDest', function (cb) {
  */
 gulp.task('build', ['iconfont'], function() {
   runSequence(
-    ['html', 'css', 'js', 'image']
+    ['html', 'css', 'styleguide', 'js', 'image']
     )
 });
 
 gulp.task('watch', ['build'], function() {
   gulp.watch(src.html, ['html']);
   gulp.watch(src.cssWatch, ['css']);
+  gulp.watch(src.cssWatch, ['styleguide']);
   gulp.watch(src.js, ['js']);
   gulp.watch(src.image, ['image']);
   gulp.watch(src.iconfont, ['iconfont']);
