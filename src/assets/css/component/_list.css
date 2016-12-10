@@ -1,5 +1,37 @@
  /* #list
    -------------------------------------------------------------------------- */
+/*
+---
+name: list
+category: component
+tag: List
+---
+
+リストアイテムの左に役物などを表示します。
+
+```jade
+ul.c-list
+  li リストです。複数行になったときの表示方法を確認します。複数行になったときの表示方法を確認します。複数行になったときの表示方法を確認します。
+
+ul.c-list.c-list--note
+  li 注釈用のリストです。
+  li 注釈用のリストです。
+
+ol.c-list.c-list--noteOrder
+  li 順序をつけた注釈用のリストです。
+  li 順序をつけた注釈用のリストです。
+
+ol.c-list.c-list--bracketOrder
+  li 括弧をつけた順序リストです。
+  li 括弧をつけた順序リストです。
+
+ol.c-list.c-list--order
+  li 入れ子に対応した順序リストです。
+  li 入れ子に対応した順序リストです。
+    ol
+      li 入れ子に対応した順序リストです。
+```
+*/
 .c-list {
   display: table;
   @apply --listUnstyled;

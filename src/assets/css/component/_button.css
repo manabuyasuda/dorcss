@@ -1,5 +1,20 @@
  /* #button
    -------------------------------------------------------------------------- */
+/*
+---
+name: button
+category: component
+tag: form
+---
+
+ボタンオブジェクトです。
+
+```jade
+a.c-button(href="#") ボタン
+button.c-button(type="button") ボタン
+input.c-button(type="button" value="ボタン")
+```
+*/
 .c-button {
   display: inline-block;
   margin: 0;

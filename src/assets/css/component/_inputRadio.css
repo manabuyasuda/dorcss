@@ -1,5 +1,23 @@
  /* #inputRadio
    -------------------------------------------------------------------------- */
+/*
+---
+name: inputRadio
+category: component
+tag: form
+---
+
+`type="radio"`のデフォルトスタイルです。
+
+```jade
+label.c-inputRadio
+  input(type="radio" name="radio1")
+  | ラジオボタン1
+label.c-inputRadio
+  input(type="radio" name="radio1")
+  | ラジオボタン2
+```
+*/
 .c-inputRadio {
   position: relative;
   cursor: pointer;

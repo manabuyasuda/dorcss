@@ -1,5 +1,26 @@
  /* #textarea
    -------------------------------------------------------------------------- */
+/*
+---
+name: textarea
+category: component
+tag: Form
+---
+
+`<textarea>`のデフォルトスタイルです。
+
+```jade
+textarea.c-textarea(placeholder="テキストエリアです")
+
+label(for="textarea1").c-textarea__textTop textareaタグの説明です。
+textarea.c-textarea(id="textarea1" placeholder="テキストエリアです")
+
+textarea.c-textarea(id="textarea2" placeholder="テキストエリアです")
+label(for="textarea2").c-textarea__textTop textareaタグの説明です。
+
+textarea.c-textarea.c-textarea--large(placeholder="テキストエリアです")
+```
+*/
 .c-textarea {
   display: block;
   max-width: 100%;
@@ -22,6 +43,11 @@
     outline: none;
     border-color: #66afe9;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background-color: #eee;
   }
 }
 

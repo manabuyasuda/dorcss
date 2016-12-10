@@ -1,5 +1,32 @@
  /* #input
    -------------------------------------------------------------------------- */
+/*
+---
+name: input
+category: component
+tag: form
+---
+
+`<input>`タグのデフォルトスタイルです。
+
+```jade
+input.c-input(type="input" placeholder="サンプル")
+
+label(for="input1").c-input__textTop inputタグの説明です。
+input.c-input(type="input" id="input1" placeholder="サンプル")
+
+input.c-input(type="input" id="input2" placeholder="サンプル")
+label(for="input2").c-input__textBottom inputタグの説明です。
+
+input.c-input(type="input" disabled placeholder="サンプル")
+
+input.c-input.is-success(type="input" placeholder="サンプル")
+
+input.c-input.is-caution(type="input" placeholder="サンプル")
+
+input.c-input.is-error(type="input" placeholder="サンプル")
+```
+*/
 .c-input {
   width: 100%;
   height: 2.5em;

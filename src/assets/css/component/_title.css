@@ -1,5 +1,19 @@
  /* #title
    -------------------------------------------------------------------------- */
+/*
+---
+name: title
+category: component
+tag: Heading
+---
+
+`<h3>`で使われるような見出しのスタイルです。
+
+```jade
+h1.c-title.l-content__title ページタイトルです。
+h1.c-title ページタイトルです。
+```
+*/
 .c-title {
   font-size: 2rem;
   font-weight: normal;

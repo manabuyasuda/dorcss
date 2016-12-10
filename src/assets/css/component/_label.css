@@ -1,5 +1,19 @@
  /* #label
    -------------------------------------------------------------------------- */
+/*
+---
+name: label
+category: component
+tag: form
+---
+
+インラインで表示するラベルオブジェクトです。
+
+```jade
+span.c-label ラベル
+label.c-label ラベル
+```
+*/
 .c-label {
   display: inline-block;
   padding: 0.5em;

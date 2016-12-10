@@ -1,5 +1,19 @@
  /* #embed
    -------------------------------------------------------------------------- */
+/*
+---
+name: embed
+category: component
+tag: Movie
+---
+
+Youtubeなどをレスポンシブ対応させます。
+
+```jade
+.c-embed.
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/1OKZOV-iLj4"></iframe>
+```
+*/
 .c-embed {
   display: block;
   overflow: hidden;

@@ -1,5 +1,20 @@
  /* #inputCheckbox
    -------------------------------------------------------------------------- */
+/*
+---
+name: inputCheckbox
+category: component
+tag: form
+---
+
+`type="checkbox"`のデフォルトスタイルです。
+
+```jade
+label.c-inputCheckbox
+  input(type="checkbox")
+  | チェックボックス
+```
+*/
 .c-inputCheckbox {
   position: relative;
   cursor: pointer;

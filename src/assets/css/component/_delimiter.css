@@ -1,5 +1,19 @@
  /* #delimiter
    -------------------------------------------------------------------------- */
+/*
+---
+name: delimiter
+category: component
+---
+
+`<hr>`のような区切り記号（デリミタ）です。
+
+```jade
+p テキストです。
+hr.c-delimiter
+p テキストです
+```
+*/
 .c-delimiter {
   box-sizing: inherit;
   display: block;

@@ -1,5 +1,19 @@
  /* #heading2
    -------------------------------------------------------------------------- */
+/*
+---
+name: heading2
+category: component
+tag: Heading
+---
+
+`<h2>`で使われるような見出しのスタイルです。
+
+```jade
+h2.c-heading2.l-content__heading2 h2見出しです
+h2.c-heading2 h2見出しです
+```
+*/
 .c-heading2 {
   position: relative;
   font-size: 1.4em;

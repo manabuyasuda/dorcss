@@ -1,5 +1,22 @@
  /* #select
    -------------------------------------------------------------------------- */
+/*
+---
+name: select
+category: component
+tag: form
+---
+
+`<select>`タグのデフォルトスタイルです。
+
+```jade
+.c-select
+  select
+    option(value="default") 選択してください
+    option(value="hokkaido") 北海道
+    option(value="akita") 秋田
+```
+*/
 .c-select {
   position: relative;
   &:before {

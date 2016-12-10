@@ -13,4 +13,13 @@ append variables
   - var pageUrl= relativePath;
 
 block content
-  p hello!!
+  .l-wrapper__inner
+    textarea.c-textarea(placeholder="テキストエリアです")
+
+    label(for="textarea1").c-textarea__textTop textareaタグの説明です。
+    textarea.c-textarea(id="textarea1" placeholder="テキストエリアです")
+
+    textarea.c-textarea(id="textarea2" placeholder="テキストエリアです")
+    label(for="textarea2").c-textarea__textTop textareaタグの説明です。
+
+    textarea.c-textarea.c-textarea--large(placeholder="テキストエリアです")
