@@ -12,6 +12,8 @@ category: component
 p テキストです。
 hr.c-delimiter
 p テキストです
+hr.c-delimiter.c-delimiter--small
+p テキストです
 ```
 */
 .c-delimiter {

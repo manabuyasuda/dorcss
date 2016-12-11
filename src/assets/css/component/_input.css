@@ -18,13 +18,13 @@ input.c-input(type="input" id="input1" placeholder="サンプル")
 input.c-input(type="input" id="input2" placeholder="サンプル")
 label(for="input2").c-input__textBottom inputタグの説明です。
 
-input.c-input(type="input" disabled placeholder="サンプル")
+input.c-input(type="input" disabled placeholder="disabled")
 
-input.c-input.is-success(type="input" placeholder="サンプル")
+input.c-input.is-success(type="input" placeholder="is-success")
 
-input.c-input.is-caution(type="input" placeholder="サンプル")
+input.c-input.is-caution(type="input" placeholder="is-caution")
 
-input.c-input.is-error(type="input" placeholder="サンプル")
+input.c-input.is-error(type="input" placeholder="is-error")
 ```
 */
 .c-input {
@@ -53,32 +53,35 @@ input.c-input.is-error(type="input" placeholder="サンプル")
     opacity: 0.6;
     background-color: #eee;
   }
-  /* 成功 */
-  &.is-success {
-    border-color: #3c763d;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    &:focus {
-      border-color: #2b542c;
-      box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #67b168;
-    }
+}
+
+/* 成功 */
+.c-input.is-success {
+  border-color: #3c763d;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  &:focus {
+    border-color: #2b542c;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #67b168;
   }
-  /* 注意 */
-  &.is-caution {
-    border-color: #8a6d3b;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    &:focus {
-      border-color: #66512c;
-      box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #c0a16b;
-    }
+}
+
+/* 注意 */
+.c-input.is-caution {
+  border-color: #8a6d3b;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  &:focus {
+    border-color: #66512c;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #c0a16b;
   }
-  /* エラー */
-  &.is-error {
-    border-color: #a94442;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    &:focus {
-      border-color: #843534;
-      box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px #ce8483;
-    }
+}
+
+/* エラー */
+.c-input.is-error {
+  border-color: #a94442;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  &:focus {
+    border-color: #843534;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px #ce8483;
   }
 }
 

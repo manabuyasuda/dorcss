@@ -13,6 +13,9 @@ tag: form
 a.c-button(href="#") ボタン
 button.c-button(type="button") ボタン
 input.c-button(type="button" value="ボタン")
+a.c-button.is-disabled(href="#") .is-disabled
+button.c-button(type="button" disabled) disabled
+input.c-button(type="button" disabled value="disabled")
 ```
 */
 .c-button {
@@ -20,6 +23,7 @@ input.c-button(type="button" value="ボタン")
   margin: 0;
   padding: 1em 2em;
   border: none;
+  border: 1px solid #d0d0d0;
   border-radius: var(--border-radius);
   color: inherit;
   font-family: inherit;
@@ -33,11 +37,16 @@ input.c-button(type="button" value="ボタン")
   &:--onEvent {
     text-decoration: none;
   }
-  &:disabled,
-  &.is-disabled {
-    opacity: 0.5;
-    pointer-events: none;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
   }
+}
+
+.c-button.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .c-button--full {

@@ -19,6 +19,8 @@ textarea.c-textarea(id="textarea2" placeholder="テキストエリアです")
 label(for="textarea2").c-textarea__textTop textareaタグの説明です。
 
 textarea.c-textarea.c-textarea--large(placeholder="テキストエリアです")
+
+textarea.c-textarea(placeholder="disabled" disabled)
 ```
 */
 .c-textarea {

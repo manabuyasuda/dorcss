@@ -10,12 +10,16 @@ tag: form
 `type="radio"`のデフォルトスタイルです。
 
 ```jade
-label.c-inputRadio
-  input(type="radio" name="radio1")
+label.c-inputRadio(for="radio1")
+  input(type="radio" id="radio1" name="radio1")
   | ラジオボタン1
-label.c-inputRadio
-  input(type="radio" name="radio1")
+label.c-inputRadio(for="radio2")
+  input(type="radio" id="radio2" name="radio1")
   | ラジオボタン2
+
+label.c-inputRadio(for="radio3" disabled)
+  input(type="radio" id="radio3" name="radio3")
+  | disabled
 ```
 */
 .c-inputRadio {
@@ -49,7 +53,7 @@ label.c-inputRadio
   background-repeat: no-repeat;
   background-size: 0.5em;
   position: absolute;
-  top: 0;
+  top: 0.1em;
   left: 0.25em;
   bottom: 0;
   margin: auto;

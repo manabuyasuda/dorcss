@@ -15,6 +15,12 @@ tag: form
     option(value="default") 選択してください
     option(value="hokkaido") 北海道
     option(value="akita") 秋田
+
+.c-select
+  select(disabled)
+    option(value="default") disabled
+    option(value="hokkaido") 北海道
+    option(value="akita") 秋田
 ```
 */
 .c-select {

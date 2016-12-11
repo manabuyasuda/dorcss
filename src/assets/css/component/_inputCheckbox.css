@@ -10,9 +10,13 @@ tag: form
 `type="checkbox"`のデフォルトスタイルです。
 
 ```jade
-label.c-inputCheckbox
-  input(type="checkbox")
+label.c-inputCheckbox(for="checkbox1")
+  input(type="checkbox" id="checkbox1")
   | チェックボックス
+
+label.c-inputCheckbox(for="checkbox2" disabled)
+  input(type="checkbox" id="checkbox2")
+  | disabled
 ```
 */
 .c-inputCheckbox {
