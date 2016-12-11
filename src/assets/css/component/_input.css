@@ -4,7 +4,7 @@
 ---
 name: input
 category: component
-tag: form
+tag: Form
 ---
 
 `<input>`タグのデフォルトスタイルです。
@@ -13,9 +13,9 @@ tag: form
 input.c-input(type="input" placeholder="サンプル")
 
 label(for="input1").c-input__textTop inputタグの説明です。
-input.c-input(type="input" id="input1" placeholder="サンプル")
+input.c-input(type="input" name="email" autocomplete="email" id="input1" placeholder="example@gmail.com")
 
-input.c-input(type="input" id="input2" placeholder="サンプル")
+input.c-input(type="input" name="name" autocomplate="name" id="input2" placeholder="山田 太郎")
 label(for="input2").c-input__textBottom inputタグの説明です。
 
 input.c-input(type="input" disabled placeholder="disabled")
