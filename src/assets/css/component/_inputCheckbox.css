@@ -10,26 +10,24 @@ tag: Form
 `type="checkbox"`のデフォルトスタイルです。
 
 ```jade
-label.c-inputCheckbox(for="checkbox1")
-  input(type="checkbox" id="checkbox1")
-  | チェックボックス
+input.c-inputCheckbox(type="checkbox" id="checkbox1")
+label(for="checkbox1") チェックボックス
 
-label.c-inputCheckbox(for="checkbox2" disabled)
-  input(type="checkbox" id="checkbox2")
-  | disabled
+input.c-inputCheckbox(type="checkbox" disabled id="checkbox2")
+label(for="checkbox2" disabled) disabled
 ```
 */
 .c-inputCheckbox {
+  display: none;
+}
+
+.c-inputCheckbox + label {
   position: relative;
+  display: inline-block;
   cursor: pointer;
 }
 
-.c-inputCheckbox > input[type="checkbox"] {
-  cursor: pointer;
-  appearance: none;
-}
-
-.c-inputCheckbox:before {
+.c-inputCheckbox + label:before {
   content: "";
   position: relative;
   display: inline-block;
@@ -39,29 +37,32 @@ label.c-inputCheckbox(for="checkbox2" disabled)
   width: 1em;
   height: 1em;
   margin: auto;
+  margin-right: 0.25em;
   border: 1px solid #d0d0d0;
   border-radius: var(--border-radius);
   background-color: #fff;
 }
 
-.c-inputCheckbox > input[type="checkbox"]:checked:after {
+.c-inputCheckbox:checked + label:after {
   content: "";
   background-image: url("/assets/img/check.svg");
   background-repeat: no-repeat;
   background-size: 1em;
   position: absolute;
   top: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
   margin: auto;
   width: 1em;
   height: 1em;
 }
 
-.c-inputCheckbox[disabled] {
+.c-inputCheckbox:disabled,
+.c-inputCheckbox + label[disabled] {
   cursor: not-allowed;
   opacity: 0.6;
-  & > input[type="checkbox"] {
-    display: none;
-  }
+}
+
+.c-inputCheckbox:disabled + label:after {
+  display: none;
 }

@@ -68,6 +68,16 @@ img {
   vertical-align: middle;
 }
 
+/* IE10以降`input[type="text"]`の入力内容の消去を非表示にします。 */
+input::-ms-clear {
+  visibility: hidden;
+}
+
+/* IE10以降の`input[type="password"]`のマスクの一時的解除を非表示にします。 */
+input::-ms-reveal {
+  visibility: hidden;
+}
+
 figure {
   margin: 0;
 }
