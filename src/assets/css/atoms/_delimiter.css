@@ -1,0 +1,31 @@
+ /* #delimiter
+   -------------------------------------------------------------------------- */
+/*
+---
+name: delimiter
+category: Atoms
+---
+
+`<hr>`のような区切り記号（デリミタ）です。
+
+```jade
+p テキストです。
+hr.a-delimiter
+p テキストです
+hr.a-delimiter.a-delimiter--small
+p テキストです
+```
+*/
+.a-delimiter {
+  box-sizing: inherit;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1.6rem auto;
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+}
+
+.a-delimiter--small {
+  margin: 0.8rem auto;
+}

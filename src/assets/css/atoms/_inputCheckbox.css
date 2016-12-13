@@ -1,0 +1,68 @@
+ /* #inputCheckbox
+   -------------------------------------------------------------------------- */
+/*
+---
+name: inputCheckbox
+category: Atoms
+tag: Form
+---
+
+`type="checkbox"`のデフォルトスタイルです。
+
+```jade
+input.a-inputCheckbox(type="checkbox" id="checkbox1")
+label(for="checkbox1") チェックボックス
+
+input.a-inputCheckbox(type="checkbox" disabled id="checkbox2")
+label(for="checkbox2" disabled) disabled
+```
+*/
+.a-inputCheckbox {
+  display: none;
+}
+
+.a-inputCheckbox + label {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.a-inputCheckbox + label:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  top: -0.1em;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  margin: auto;
+  margin-right: 0.25em;
+  border: 1px solid #d0d0d0;
+  border-radius: var(--border-radius);
+  background-color: #fff;
+}
+
+.a-inputCheckbox:checked + label:after {
+  content: "";
+  background-image: url("/assets/img/check.svg");
+  background-repeat: no-repeat;
+  background-size: 1em;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 1em;
+  height: 1em;
+}
+
+.a-inputCheckbox:disabled,
+.a-inputCheckbox + label[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.a-inputCheckbox:disabled + label:after {
+  display: none;
+}

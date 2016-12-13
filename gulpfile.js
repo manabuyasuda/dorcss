@@ -136,7 +136,7 @@ gulp.task('iconfont', function() {
       // CSSファイルからfontファイルまでの相対パスを指定します。
       fontPath: '../font/',
       // CSSのクラス名を指定します。
-      className: 'c-icon'
+      className: 'a-icon'
     };
     // CSSのテンプレートからCSSファイルを生成します。
     gulp.src('src/assets/icon/template/_icon.css')
@@ -145,7 +145,7 @@ gulp.task('iconfont', function() {
       // 出力するCSSファイルをリネームします。
       basename: '_icon'
     }))
-    .pipe(gulp.dest('src/assets/css/component/'));
+    .pipe(gulp.dest('src/assets/css/atoms/'));
     // アイコンフォントのサンプルHTMLを生成します。
     gulp.src('src/assets/icon/template/_icon.html')
     .pipe(consolidate('lodash', options))

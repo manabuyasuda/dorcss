@@ -1,0 +1,41 @@
+ /* #embed
+   -------------------------------------------------------------------------- */
+/*
+---
+name: embed
+category: Atoms
+tag: Movie
+---
+
+Youtubeなどをレスポンシブ対応させます。
+
+```jade
+.a-embed.
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/1OKZOV-iLj4"></iframe>
+```
+*/
+.a-embed {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  height: 0;
+  padding-bottom: calc((9 / 16) * 100%);
+}
+
+.a-embed__item,
+.a-embed iframe,
+.a-embed embed,
+.a-embed object,
+.a-embed video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.a-embed--4to3 {
+  padding-bottom: calc((3 / 4) * 100%);
+}

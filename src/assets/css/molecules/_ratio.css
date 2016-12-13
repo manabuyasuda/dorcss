@@ -1,0 +1,41 @@
+ /* #ratio
+   -------------------------------------------------------------------------- */
+.m-ratio {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-bottom: calc((1 / 1) * 100%);
+  }
+}
+
+.m-ratio__content,
+.m-ratio > iframe,
+.m-ratio > embed,
+.m-ratio > object {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.m-ratio--16to9:before {
+  padding-bottom: calc((9 / 16) * 100%);
+}
+
+.m-ratio--4to3:before {
+  padding-bottom: calc((3 / 4) * 100%);
+}
+
+.m-ratio--3to2:before {
+  padding-bottom: calc((2 / 3) * 100%);
+}
+
+.m-ratio--2to1:before {
+  padding-bottom: calc((1 / 2) * 100%);
+}

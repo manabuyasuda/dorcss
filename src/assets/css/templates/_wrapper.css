@@ -1,0 +1,126 @@
+ /* #wrapper
+   -------------------------------------------------------------------------- */
+/**
+ * メインコンテンツ、もしくはメインコンテンツとサイドバーをラップします。
+ * `.t-wrapper__1culumn`で1カラムレイアウト、
+ * `.t-wrapper__2culumn`で2カラムレイアウトにすることができます。
+ */
+.t-wrapper {
+  display: block;
+  width: 100%;
+}
+
+/**
+ * グローバルヘッダーエリアです。
+ * e.g.
+ * <div class="t-wrapper">
+ *   <header class="t-wrapper__header">
+ *     <div class="t-header"></div>
+ *   </header>
+ *   <div class="t-wrapper__inner"><div>
+ * <div>
+ */
+.t-wrapper__header {
+  margin-bottom: 3.2rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * パンくずリストのレイアウトを指定します。
+ * e.g.
+ * <div class="t-wrapper">
+ *   <header class="t-wrapper__header"></header>
+ *   <div class="t-wrapper__breadcrumb">
+ *     <div class="t-wrapper__breadcrumbInner">
+ *       <ol class="p-breadcrumb">
+ *         <li class="p-breadcrumb__item">
+ *           <a class="p-breadcrumb__link" href="/"></a>
+ *         </li>
+ *       </ol>
+ *     </div>
+ *   </div>
+ * <div>
+ */
+.t-wrapper__breadcrumb {
+  margin-bottom: 3.2rem;
+  padding: 0 1rem 0;
+}
+
+.t-wrapper__breadcrumInner {
+  display: block;
+  width: 100%;
+  max-width: calc(var(--max-width) - 16 * 2px);
+  max-width: calc(var(--max-width) - 2rem);
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem 0;
+}
+
+/**
+ * メインコンテンツの最大幅を指定します。
+ * e.g.
+ * <div class="t-wrapper">
+ *   <header class="t-wrapper__header"></header>
+ *   <div class="t-wrapper__inner">
+ *     <div class="t-wrapper__2culumn"></div>
+ *   <div>
+ * <div>
+ */
+.t-wrapper__inner {
+  display: block;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/**
+ * メインコンテンツを1カラムレイアウトにしたいときに指定します。
+ * e.g.
+ * <div class="t-wrapper__inner">
+ *   <div class="t-wrapper__1culumn">
+ *     <main class="t-wrapper__content"></main>
+ *   </div>
+ * <div>
+ */
+.t-wrapper__1culumn {
+  width: 100%;
+}
+
+/**
+ * メインコンテンツとサイドバーを2カラムレイアウトにしたいときに指定します。
+ * e.g.
+ * <div class="t-wrapper__inner">
+ *   <div class="t-wrapper__2culumn">
+ *     <main class="t-wrapper__content"></main>
+ *     <aside class="t-wrapper__sidebar"></aside>
+ *   </div>
+ * </div>
+ */
+.t-wrapper__2culumn {
+  display: block;
+  margin-left: -2rem;
+  font-size: 0;
+  @apply --listUnstyled;
+}
+
+.t-wrapper__2culumn > .t-wrapper__content,
+.t-wrapper__2culumn > .t-wrapper__sidebar {
+  display: inline-block;
+  width: 100%;
+  padding-left: 2rem;
+  font-size: medium;
+  font-size: 1rem;
+  verticat-align: top;
+}
+
+@media (--md-up) {
+  .t-wrapper__2culumn > .t-wrapper__content {
+    width: calc((8 / 12) * 100%);
+  }
+  .t-wrapper__2culumn > .t-wrapper__sidebar {
+    width: calc((4 / 12) * 100%);
+  }
+}

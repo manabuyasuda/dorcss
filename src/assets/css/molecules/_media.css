@@ -1,0 +1,52 @@
+ /* #media
+   -------------------------------------------------------------------------- */
+.m-media {
+  display: block;
+  @apply --clearfix;
+}
+
+.m-media__image {
+  float: left;
+  margin-right: 1rem;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.m-media__image > img {
+  display: block;
+}
+
+.m-media__body {
+  display: block;
+  overflow: hidden;
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.m-media__heading {
+  margin-bottom: 0.5rem;
+}
+
+.m-media--reverse > .m-media__image {
+  float: right;
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+@media (--md-up) {
+  .m-media--reverse-md > .m-media__image {
+    float: right;
+    margin-right: 0;
+    margin-left: 1rem;
+  }
+}
+
+@media (--lg-up) {
+  .m-media--reverse-lg > .m-media__image {
+    float: right;
+    margin-right: 0;
+    margin-left: 1rem;
+  }
+}

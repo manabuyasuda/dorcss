@@ -1,0 +1,22 @@
+ /* #breadcrumb
+   -------------------------------------------------------------------------- */
+.m-breadcrumb {
+  @apply --truncate;
+  @apply --listUnstyled;
+}
+
+.m-breadcrumb__item {
+  display: inline-block;
+  &:last-child {
+    display: inline;
+  }
+}
+
+.m-breadcrumb__link {
+  display: inline-block;
+}
+
+.m-breadcrumb__item:not(:first-of-type):before {
+  content: "\003E";
+  margin: 0 0.5rem;
+}

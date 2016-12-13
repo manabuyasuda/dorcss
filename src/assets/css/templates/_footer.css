@@ -1,0 +1,24 @@
+ /* #footer
+   -------------------------------------------------------------------------- */
+/**
+ * グローバルフッターです。
+ * `.t-content`との余白は`.t-content`側で指定します。
+ * Elementでグローバルフッター内のレイアウトを指定します。
+ */
+.t-footer {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.t-footer__link {
+
+}
+
+.t-footer__logo {
+
+}
+
+.t-footer__copyright {
+
+}

@@ -1,0 +1,26 @@
+ /* #figure
+   -------------------------------------------------------------------------- */
+.m-figure {
+  display: table;
+  /* キャプションの最小幅。 */
+  min-width: 280px;
+}
+
+.m-figure__image {
+  display: block;
+  margin: 0 auto;
+}
+
+.m-figure__captionTop,
+.m-figure__captionBottom {
+  display: table-caption;
+  font-size: 0.8rem;
+}
+
+.m-figure__captionTop {
+  caption-side: top;
+}
+
+.m-figure__captionBottom {
+  caption-side: bottom;
+}

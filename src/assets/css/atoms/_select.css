@@ -1,0 +1,99 @@
+ /* #select
+   -------------------------------------------------------------------------- */
+/*
+---
+name: select
+category: Atoms
+tag: Form
+---
+
+`<select>`タグのデフォルトスタイルです。
+
+```jade
+.a-select
+  select
+    option(value="default") 選択してください
+    option(value="hokkaido") 北海道
+    option(value="akita") 秋田
+
+.a-select
+  select(disabled)
+    option(value="default") disabled
+    option(value="hokkaido") 北海道
+    option(value="akita") 秋田
+```
+*/
+.a-select {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 99%;
+    width: calc(100% - 6px);
+    margin: auto;
+    box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  &:after {
+    content: "";
+    background-image: url("/assets/img/caret-down.svg");
+    background-repeat: no-repeat;
+    background-size: 1em;
+    position: absolute;
+    top: 0;
+    right: 1em;
+    bottom: 0;
+    margin: auto;
+    width: 1em;
+    height: 1em;
+    pointer-events: none;
+  }
+}
+
+.a-select > select {
+  width: 100%;
+  height: 2.5em;
+  padding: 0 2em 0 1em;
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: middle;
+  border: 1px solid #d0d0d0;
+  background-color: #fff;
+  box-shadow:1px 1px 6px -3px #9e9e9e inset;
+  border-radius: var(--border-radius);
+  appearance: none;
+  transition-duration: 0.3s;
+  transition-property: border-color, box-shadow;
+  &:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background-color: #eee;
+  }
+}
+
+/* Firefox Hack */
+.a-select > select {
+  text-indent: 0.01px;
+  text-overflow: "";
+}
+
+/* IE10以上 */
+.a-select > select::-ms-expand {
+  display: none;
+}
+
+/* IE9ではデフォルトの矢印アイコンを表示する。 */
+.a-select:not(:target):after {
+  background-image: none\9;
+}
+.a-select > select:not(:target) {
+  padding-right: 0\9;
+}

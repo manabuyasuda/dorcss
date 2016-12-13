@@ -1,0 +1,258 @@
+ /* #grid
+   -------------------------------------------------------------------------- */
+.t-grid {
+  display: block;
+  font-size: 0;
+  @apply --listUnstyled;
+}
+
+.t-grid__item {
+  display: inline-block;
+  width: 100%;
+  font-size: medium;
+  font-size: 1rem;
+  verticat-align: top;
+}
+
+/**
+ * ガターの指定。
+ */
+.t-grid--medium {
+  margin-left: -2rem;
+  & > .t-grid__item {
+    padding-left: 2rem;
+  }
+}
+
+/**
+ * 要素の垂直位置を真ん中寄せ。
+ */
+.t-grid--middle > .t-grid__item {
+  verticat-align: middle;
+}
+
+/**
+ * 要素の垂直位置を下寄せ。
+ */
+.t-grid--bottom > .t-grid__item {
+  verticat-align: bottom;
+}
+
+/**
+ * 要素を中央寄せ、要素内は左寄せ。
+ */
+.t-grid--center {
+  text-align: center;
+  & > .t-grid__item {
+    text-align: left;
+  }
+}
+@media (--md-up) {
+  .t-grid--center-md {
+    text-align: center;
+    & > .t-grid__item {
+      text-align: left;
+    }
+  }
+}
+@media (--lg-up) {
+  .t-grid--center-lg {
+    text-align: center;
+    & > .t-grid__item {
+      text-align: left;
+    }
+  }
+}
+
+/**
+ * 要素を右寄せ、要素内は左寄せ。
+ */
+.t-grid--right {
+  text-align: right;
+  & > .t-grid__item {
+    text-align: left;
+  }
+}
+@media (--md-up) {
+  .t-grid--right-md {
+    text-align: right;
+    & > .t-grid__item {
+      text-align: left;
+    }
+  }
+}
+@media (--lg-up) {
+  .t-grid--right-lg {
+    text-align: right;
+    & > .t-grid__item {
+      text-align: left;
+    }
+  }
+}
+
+/**
+ * 要素の反転。
+ */
+.t-grid--reverse {
+  text-align: left;
+  direction: rtl;
+  & > .t-grid__item {
+    text-align: left;
+    direction: ltr;
+  }
+}
+@media (--md-up) {
+  .t-grid--reverse-md {
+    text-align: left;
+    direction: rtl;
+    & > .t-grid__item {
+      text-align: left;
+      direction: ltr;
+    }
+  }
+}
+@media (--lg-up) {
+  .t-grid--reverse-lg {
+    text-align: left;
+    direction: rtl;
+    & > .t-grid__item {
+      text-align: left;
+      direction: ltr;
+    }
+  }
+}
+
+[class*="t-grid--col"] > .t-grid__item >:last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * 2カラムレイアウト。
+ */
+.t-grid--col2 > .t-grid__item {
+  width: calc((6 / 12) * 100%);
+  &:nth-of-type(n+3) {
+    margin-top: 1.6rem;
+  }
+}
+.t-grid--col2-md > .t-grid__item,
+.t-grid--col2-lg > .t-grid__item {
+  margin-top: 1.6rem;
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+@media (--md-up) {
+  .t-grid--col2-md > .t-grid__item {
+    width: calc((6 / 12) * 100%);
+    &:nth-of-type(n+3) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2) {
+      margin-top: 0;
+    }
+  }
+}
+@media (--lg-up) {
+  .t-grid--col2-lg > .t-grid__item {
+    width: calc((6 / 12) * 100%);
+    &:nth-of-type(n+3) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2) {
+      margin-top: 0;
+    }
+  }
+}
+
+/**
+ * 3カラムレイアウト。
+ */
+.t-grid--col3 > .t-grid__item {
+  width: calc((4 / 12) * 100%);
+  &:nth-of-type(n+4) {
+    margin-top: 1.6rem;
+  }
+}
+.t-grid--col3-md > .t-grid__item,
+.t-grid--col3-lg > .t-grid__item {
+  margin-top: 1.6rem;
+  &:first-of-type,
+  &:nth-of-type(2) {
+    margin-top: 0;
+  }
+}
+@media (--md-up) {
+  .t-grid--col3-md > .t-grid__item {
+    width: calc((4 / 12) * 100%);
+    &:nth-of-type(n+4) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      margin-top: 0;
+    }
+  }
+}
+@media (--lg-up) {
+  .t-grid--col3-lg > .t-grid__item {
+    width: calc((4 / 12) * 100%);
+    &:nth-of-type(n+4) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      margin-top: 0;
+    }
+  }
+}
+
+/**
+ * 4カラムレイアウト。
+ */
+.t-grid--col4 > .t-grid__item {
+  width: calc((3 / 12) * 100%);
+  &:nth-of-type(n+5) {
+    margin-top: 1.6rem;
+  }
+}
+.t-grid--col4-md > .t-grid__item,
+.t-grid--col4-lg > .t-grid__item {
+  margin-top: 1.6rem;
+  &:first-of-type,
+  &:nth-of-type(2) {
+    margin-top: 0;
+  }
+}
+.t-grid--col3.t-grid--col4-md > .t-grid__item,
+.t-grid--col3.t-grid--col4-lg > .t-grid__item {
+  &:nth-of-type(3) {
+    margin-top: 0;
+  }
+}
+@media (--md-up) {
+  .t-grid--col4-md > .t-grid__item {
+    width: calc((3 / 12) * 100%);
+    &:nth-of-type(n+5) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3),
+    &:nth-of-type(4) {
+      margin-top: 0;
+    }
+  }
+}
+@media (--lg-up) {
+  .t-grid--col4-lg > .t-grid__item {
+    width: calc((3 / 12) * 100%);
+    &:nth-of-type(n+5) {
+      margin-top: 1.6rem;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3),
+    &:nth-of-type(4) {
+      margin-top: 0;
+    }
+  }
+}

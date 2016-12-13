@@ -1,0 +1,21 @@
+ /* #laed
+   -------------------------------------------------------------------------- */
+/*
+---
+name: lead
+category: Atoms
+tag: Text
+---
+
+視覚的に目立たせるときに使うスタイルです。
+
+```jade
+p.a-lead リード文です。
+```
+*/
+.a-lead {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  font-weight: bold;
+  color: #0a41a6;
+}

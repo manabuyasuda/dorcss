@@ -1,0 +1,59 @@
+ /* #button
+   -------------------------------------------------------------------------- */
+/*
+---
+name: button
+category: Atoms
+tag: Form
+---
+
+ボタンのデフォルトスタイルです。
+
+```jade
+a.a-button(href="#") ボタン
+button.a-button(type="button") ボタン
+input.a-button(type="button" value="ボタン")
+a.a-button.is-disabled(href="#") .is-disabled
+button.a-button(type="button" disabled) disabled
+input.a-button(type="button" disabled value="disabled")
+```
+*/
+.a-button {
+  display: inline-block;
+  margin: 0;
+  padding: 1em 2em;
+  border: none;
+  border: 1px solid #d0d0d0;
+  border-radius: var(--border-radius);
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  &:--onEvent {
+    text-decoration: none;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.a-button.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.a-button--full {
+  width: 100%;
+}
+
+.a-button--primary {}
+.a-button--secondary {}
+.a-button--tertiary {}
+.a-button--quaternary {}

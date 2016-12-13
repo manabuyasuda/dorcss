@@ -11,11 +11,11 @@
  * normalize...Normalize.cssをインポートしています。
  * base...タイプセレクタと属性セレクタのデフォルトスタイルです。
  *
- * COMPONENT
+ * ATOMS
  * icon...アイコンフォントです。テンプレートから自動で生成されます。
  * iconExtend...アイコンにスタイルを追加します。
- * label...インラインで表示するラベルオブジェクトです。
- * button...ボタンオブジェクトです。
+ * label...インラインで表示するラベルコンポーネントです。
+ * button...ボタンのデフォルトスタイルです。
  * embed...Youtubeなどをレスポンシブ対応させます。
  * list...リストアイテムの左に役物などを表示します。
  * title...`<h1>`で使われる見出しのスタイルです。
@@ -29,18 +29,20 @@
  * inputCheckbox...`type="checkbox"`のデフォルトスタイルです。
  * inputRadio...`type="radio"`のデフォルトスタイルです。
  *
- * PROJECT
+ * MOLECULES
  * listInline...ボタンやラベル、テキストリンクなどを横並びにします。
  * listMark...リストアイテムの左にアイコンを配置します。
- * breadcrumb...パンくずリストオブジェクトです。
  * figure...キャプションをつけた画像オブジェクトです。
  * ratio...アスペクト比を固定したまま伸縮させます。
  * block...画像とテキストを縦に配置します。
  * table...`<table>`のベースとなるスタイルです。
  * media...画像とテキストが横並びになるオブジェクトです。
  * flag...画像とテキストが横並びになるオブジェクトです。垂直方向の指定ができます。
+ * breadcrumb...パンくずリストオブジェクトです。
  *
- * LAYOUT
+ * ORGANISMS
+ *
+ * TEMPLATES
  * grid...汎用的なグリッドオブジェクトです。`width`の変更はUtilityレイヤーで指定します。
  * header...グローバルヘッダーのレイアウトを指定します。
  * content...コンテンツエリアのレイアウトを指定します。
@@ -48,7 +50,7 @@
  * footer...グローバルフッターのレイアウトを指定します。
  * wrapper...最大幅と2カラムレイアウトの指定をします。
  *
- * SCOPE
+ * PAGES
  * blog...ブログエリアのスタイルです。
  *
  * UTILITY
@@ -97,97 +99,94 @@
 @import "base/_base.css";
 
 /* =============================================================================
-   #Component
+   #Atoms
    ========================================================================== */
 /**
- * Componentレイヤーは装飾的なスタイルを持つことができる、再利用可能で小さなオブジェクトを定義します。
- * 目安としては、見出しやリスト、ボタンやラベルのような他のオブジェクトを内包できない小さなオブジェクトです。
- * 後述するProjectオブジェクトのサイズ変更を継承できるように
- * サイズ（`font-size`, `margin`, `padding`など）は`em`で指定します。
- * プレフィックス（接頭辞）として`.c-`をつけます。
+ * Atoms（アトム）は機能的にこれ以上分割ができない最小の要素です。
+ * 例えば、見出しやリスト、フォームラベルやボタンなどが該当します。
+ * Atomic DesignにおけるAtomsは抽象的で目的をもたないものとされますが、
+ * 役割をもった具体的なUIにすることも許容します。つまりAtoms単体で機能を拡張することもできます。
+ * カラーパレットやアニメーションもAtomsとされていますが、SettingとToolに定義します。
+ * 後述するMoleculesとOrganismsのスタイルを継承できるように`em`での指定を基本とします。
+ * 配置に関する情報は持つことができないので、Atoms単体で使う場合はTemplatesとセットになります。
+ * プレフィックス（接頭辞）として`.a-`をつけます。
  */
-@import "component/_icon.css";
-@import "component/_iconExtend.css";
-@import "component/_label.css";
-@import "component/_button.css";
-@import "component/_embed.css";
-@import "component/_list.css";
-@import "component/_title.css";
-@import "component/_heading2.css";
-@import "component/_heading3.css";
-@import "component/_lead.css";
-@import "component/_delimiter.css";
-@import "component/_input.css";
-@import "component/_textarea.css";
-@import "component/_select.css";
-@import "component/_inputCheckbox.css";
-@import "component/_inputRadio.css";
+@import "atoms/_icon.css";
+@import "atoms/_iconExtend.css";
+@import "atoms/_label.css";
+@import "atoms/_button.css";
+@import "atoms/_embed.css";
+@import "atoms/_list.css";
+@import "atoms/_title.css";
+@import "atoms/_heading2.css";
+@import "atoms/_heading3.css";
+@import "atoms/_lead.css";
+@import "atoms/_delimiter.css";
+@import "atoms/_input.css";
+@import "atoms/_textarea.css";
+@import "atoms/_select.css";
+@import "atoms/_inputCheckbox.css";
+@import "atoms/_inputRadio.css";
 
 /* =============================================================================
-   #Project
+   #Molecules
    ========================================================================== */
 /**
- * ProjectレイヤーはComponentオブジェクトを内包・上書きできる比較的大きなオブジェクトを定義します。
- * Projectレイヤー同士での依存関係がうまれることもあります。
- * 内包されるオブジェクトは内包するオブジェクトよりも先に読み込むことで期待通りに適応されるようにしておきます。
- * Projectオブジェクトがユーザーインターフェイスの見た目と構造を確定するので、
- * 自分自身と内包するオブジェクトに対して具体的な情報を持つべきです。
- * ただし、役割がより明確になり詳細度を低く保てるように、内包するオブジェクトに直接指定するのではなく、
- * 自身のElementに対して指定することを推奨します。
- * Projectオブジェクトは常にルートを基準にサイズを決めるため、`rem`を基本単位とします。
- * ただし、オブジェクトのBlockにフォントサイズを指定すると範囲が大きくなり過ぎるので、
- * Blockは`1rem`を基本として、ElementやModifierでフォントサイズの変更をすることを推奨します。
- * オブジェクト内の余白をフォントサイズを基準に指定したい場合は`em`で指定してもいいでしょう。
- * 基本的にはProjectオブジェクト自身の配置を指定することはできませんが、
- * JavaScriptで動的に表示や配置の変更がされるUIの場合は許容されます。
+ * Molecules（モルキュール）はAtomsを組み合わせた比較的シンプルなUIグループです。
+ * 例えば、検索フォームはlabelとinput、buttonが組み合わさったMoleculesです。
+ * Moleculesはシンプルで機能的・意味的なコンポーネントにすることを推奨します。
+ * これにより、扱いやすく、メンテナンス性が高く、一貫性を保ったUIにすることができます。
+ * 後述するOrganismsのスタイルを継承できるように`em`での指定を基本とします。
+ * プレフィックス（接頭辞）として`.m-`をつけます。
+ */
+@import "molecules/_listInline.css";
+@import "molecules/_listMark.css";
+@import "molecules/_figure.css";
+@import "molecules/_ratio.css";
+@import "molecules/_block.css";
+@import "molecules/_table.css";
+@import "molecules/_media.css";
+@import "molecules/_flag.css";
+@import "molecules/_breadcrumb.css";
+
+/* =============================================================================
+   #Organisms
+   ========================================================================== */
+/**
+ * Organisms（オルガニズム）はAtomsやMolecules、または複数のMoleculesを組み合わせた比較的複雑なUIグループです。
+ * 例えば、グローバルヘッダーはロゴとグローバルナビゲーション、検索フォームなどが組み合わさったOrganismsです。
+ * プレフィックス（接頭辞）として`.o-`をつけます。
+ */
+/*@import "organisms/";*/
+
+/* =============================================================================
+   #Templates
+   ========================================================================== */
+/**
+ * Templates（テンプレート）はページレベルのオブジェクトで、
+ * コンポーネント（Atoms・Molecules・Organisms）を配置してページの構成を整えます。
+ * ワイヤーフレームのような大きなレイアウトから、コンポーネント単位のレイアウトまで様々です。
+ * コンポーネントにダミーのテキストや画像を挿入することで、コンテンツの量や大きさによって
+ * 意図しないデザインになってしまわないかをテストすることができます。
+ * プレフィックス（接頭辞）として`.t-`をつけます。
+ */
+@import "templates/_grid.css";
+@import "templates/_header.css";
+@import "templates/_content.css";
+@import "templates/_sidebar.css";
+@import "templates/_footer.css";
+@import "templates/_wrapper.css";
+
+/* =============================================================================
+   #Pages
+   ========================================================================== */
+/**
+ * Pages（ページ）では実際のコンテンツを挿入して最終的な外観を確認します。
+ * Templatesのバリエーションを定義することもできます。
+ * 例えば、特定のページやカテゴリに対するスタイルを定義したり、動的にページの状態を変更したいときなどです。
  * プレフィックス（接頭辞）として`.p-`をつけます。
  */
-@import "project/_listInline.css";
-@import "project/_listMark.css";
-@import "project/_breadcrumb.css";
-@import "project/_figure.css";
-@import "project/_ratio.css";
-@import "project/_block.css";
-@import "project/_table.css";
-@import "project/_media.css";
-@import "project/_flag.css";
-
-/* =============================================================================
-   #Layout
-   ========================================================================== */
-/**
- * Layoutレイヤーはワイヤーフレームに出てくるような大枠のレイアウトやオブジェクトのレイアウトを定義します。
- * Layoutオブジェクトによってページ内のレイアウトが確定します。
- * グリッドのようなレイアウト専用のオブジェクトもこのレイヤーに含みます。
- * 内包するオブジェクトを上書きすることもできません。
- * Layoutオブジェクトはレイアウトに特化したオブジェクトです。
- * ただし、背景色のようにレイアウトによって影響範囲が変わるものは、
- * 最小限であればLayoutオブジェクトに含めることも許容します。
- * 内包するオブジェクトのレイアウトは自身のElementで指定します。
- * 内包するオブジェクトと同じ要素に指定することを避けて、オブジェクト同士が干渉しないようにします。
- * Layoutオブジェクトは常にルートを基準にサイズを決めるため、`rem`を基本単位とします。
- * プレフィックス（接頭辞）として`.l-`をつけます。
- */
-@import "layout/_grid.css";
-@import "layout/_header.css";
-@import "layout/_content.css";
-@import "layout/_sidebar.css";
-@import "layout/_footer.css";
-@import "layout/_wrapper.css";
-
-/* =============================================================================
-   #Scope
-   ========================================================================== */
-/**
- * Scopeレイヤーは特定の範囲でのスタイルを定義します。
- * オブジェクト単位ではなく、任意の範囲（スコープ）に対するスタイルを指定します。
- * 例えばブログやフッター内であったり、ページやカテゴリなどです。
- * 内包するオブジェクトにも装飾的なスタイルや配置に関する指定をすることもできる影響範囲の大きなレイヤーです。
- * 影響範囲ができるだけ狭くなるように適応する範囲や要素を限定しなければいけません。
- * 例えば`.s-scope .c-button`ではなく、`.s-scope__button`と`.c-button`のマルチクラスで指定します。
- * プレフィックス（接頭辞）として`.s-`をつけます。
- */
-@import "scope/_blog.css";
+@import "pages/_blog.css";
 
 /* =============================================================================
    #Utility
@@ -195,8 +194,8 @@
 /**
  * Utilityレイヤーは汎用クラスを定義します。
  * シングルクラスでも確実にスタイルを適応させるために`!important`を指定することを推奨します。
- * オブジェクトがUtilityオブジェクトで成り立ってしまうことはできるだけ避けます。
- * Utilityオブジェクトは他のレイヤーが持つよりも汎用的に使えたり、コードが冗長になってしまう場合に使います。
+ * コンポーネントがUtilityコンポーネントで成り立ってしまうことはできるだけ避けます。
+ * Utilityコンポーネントは他のレイヤーが持つよりも汎用的に使えたり、コードが冗長になってしまう場合に使います。
  * pxのような絶対値ではなく、remや%のような相対値を指定することを推奨します。
  * プレフィックス（接頭辞）として`.u-`をつけます。
  */

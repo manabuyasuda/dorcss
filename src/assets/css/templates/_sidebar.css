@@ -1,0 +1,40 @@
+ /* #sidebar
+   -------------------------------------------------------------------------- */
+/**
+ * サイドバーです。
+ * `.t-wrapper__2culumn`を使用することで2カラムレイアウトにすることもできます。
+ * e.g.
+ * <div class="t-wrapper">
+ *   <div class="t-wrapper__inner">
+ *     <div class="t-wrapper__2culumn">
+ *       <main class="t-wrapper__content"></main>
+ *       <aside class="t-wrapper__sidebar">
+ *         <div class="t-sidebar"></div>
+ *       </aside>
+ *     </div>
+ *   </div>
+ * <div>
+ */
+.t-sidebar {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.t-sidebar__nav {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.t-sidebar__banner {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.t-sidebar__links {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
