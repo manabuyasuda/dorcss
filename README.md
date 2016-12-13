@@ -6,8 +6,8 @@ DORCSS（ドールシーエスエス）はRole（役割）を分担・分割（D
 
 DORCSSでは以下のような用語を使います。
 
-- オブジェクト - 役割をもった部品
-- モジュール - オブジェクトをファイル化したもの
+- コンポーネント - 役割をもった部品
+- モジュール - コンポーネントをファイル化したもの
 - レイヤー - モジュールをカテゴライズした状態
 - 装飾 - `color`や`background-color`のような見た目に関すること
 - 構造 - `display`や`padding`のような骨格に関すること
@@ -16,47 +16,47 @@ DORCSSでは以下のような用語を使います。
 ## DORCSSの基本
 
 ### 継承
-オブジェクトはハードコード（ある状態でだけ正しくふるまうこと）をできるだけ避けるべきです。規模の大きなWebサイトでは1つのデザイン変更で多くのオブジェクトに修正が必要になってしまう恐れがあるからです。
+コンポーネントはハードコード（ある状態でだけ正しくふるまうこと）をできるだけ避けるべきです。規模の大きなWebサイトでは1つのデザイン変更で多くのコンポーネントに修正が必要になってしまう恐れがあるからです。
 
-CSSには継承という仕組みがあります。ルート要素にベースとなるスタイルを指定してオブジェクトが継承して利用できるようにします。変数や@apply ruleを併用して一括で管理できるのが理想的です。また、サイズの単位はpxをなるべく避け、remやemをベースにします。
+CSSには継承という仕組みがあります。ルート要素にベースとなるスタイルを指定してコンポーネントが継承して利用できるようにします。変数や@apply ruleを併用して一括で管理できるのが理想的です。また、サイズの単位はpxをなるべく避け、remやemをベースにします。
 
 ### 名前の衝突と役割の明確化
 CSSには機能的にスコープを作ることはできないので、名前によって擬似的にスコープを作る必要があります。名前の重複を避けることができれば、スタイルの意図しない衝突を起こす可能性が下がります。
 名前でスコープを作るために4つの方法を利用します。
 
-1. MindBEMdingの命名規則をベースとすることでオブジェクト名の衝突を防ぐこと
+1. MindBEMdingの命名規則をベースとすることでコンポーネント名の衝突を防ぐこと
 2. BEMのBlockごとにファイルを分割（モジュール化）することでファイル単位での管理をすること
-3. オブジェクトの役割ごとにレイヤーを定義しフォルダに分けることでディレクトリ単位での管理をすること
-4. オブジェクトの役割ごとにプレフィックス（ネームスペース）をつけること
+3. コンポーネントの役割ごとにレイヤーを定義しフォルダに分けることでディレクトリ単位での管理をすること
+4. コンポーネントの役割ごとにプレフィックス（ネームスペース）をつけること
 
 ### 見た目を表す名前
-オブジェクトの名前と役割は一致することが望ましいです。オブジェクトの見た目は変更される可能性がありますが、役割が変わることはないからです。オブジェクト名が見た目を表していた場合、見た目の変更は大幅なHTMLの修正につながってしまいます。
+コンポーネントの名前と役割は一致することが望ましいです。コンポーネントの見た目は変更される可能性がありますが、役割が変わることはないからです。コンポーネント名が見た目を表していた場合、見た目の変更は大幅なHTMLの修正につながってしまいます。
 
-見た目を表すオブジェクト名にするときは変数や@apply Ruleなどで抽象化をして使うようにします。
+見た目を表すコンポーネント名にするときは変数や@apply Ruleなどで抽象化をして使うようにします。
 
 ### 詳細度と読み込み順
 スタイルが期待通りに適応されるようにするために3つの方法を利用します。
 
-1. シングルクラスの指定をベースにして詳細度をできるだけ低く保つこと
+1. 結合子をもたないクラスの指定をベースにして詳細度をできるだけ低く保つこと
 2. スタイルシートの序盤はできるだけ詳細度を低く、徐々に高くすること
-3. 優先的に適応したいオブジェクトほどスタイルシートの後半で指定すること
+3. 優先的に適応したいコンポーネントほどスタイルシートの後半で指定すること
 
-### オブジェクトの拡張性
-オブジェクトは拡張を前提として考えます。拡張性の高いオブジェクトはベースとなる構造を持ち、バリエーションはBEMのModifierやSMACSSのStateで拡張します。
+### コンポーネントの拡張性
+コンポーネントは拡張を前提として考えます。コンポーネントはベースとなる構造を持ち、バリエーションはBEMのModifierやSMACSSのStateで拡張します。
 
-### オブジェクト同士の関係性
-あるオブジェクト内のカスケーディング（例えばバリエーション違いでスタイルを上書きすることなど）に制限はありません。カスケーディングが問題になるのはオブジェクト同士のカスケーディングです。
+### コンポーネント同士の関係性
+あるコンポーネント内のカスケーディング（例えばバリエーション違いでスタイルを上書きすることなど）に制限はありません。カスケーディングが問題になるのはコンポーネント同士のカスケーディングです。
 
-オブジェクトは**上書きされるオブジェクト**と**上書きするオブジェクト**を区別することで関係性を明確にします。オブジェクト同士の方向性を一致させることでスタイルの衝突を防ぎます。上書きされるオブジェクトは上書きに適したスタイルの指定をする必要があります。
+コンポーネントは**上書きされるオブジェクト**と**上書きするオブジェクト**を区別することで関係性を明確にします。コンポーネント同士の方向性を一致させることでスタイルの衝突を防ぎます。上書きされるコンポーネントは上書きに適したスタイルの指定をする必要があります。
 
-### オブジェクトとレイアウト
-オブジェクトによってユーザーインターフェイスが決まり、レイアウトによってオブジェクトの配置が決まります。
+### コンポーネントとレイアウト
+コンポーネントによってユーザーインターフェイスが決まり、レイアウトによってコンポーネントの配置が決まります。
 
-オブジェクトとレイアウトは疎結合にして、それぞれの役割を明確にします。オブジェクト自身は内包している要素のレイアウトを指定することはできますが、オブジェクト同士のレイアウトは指定することができません。
+コンポーネントとレイアウトは疎結合にして、それぞれの役割を明確にします。コンポーネント自身は内包している要素のレイアウトを指定することはできますが、コンポーネント同士のレイアウトは指定することができません。
 
 ## 命名規則
 クラス名の命名規則はBEM（[MindBEMding](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)）をベースにします。  
-BEMはBlock、Element、Modifierという関係性を示すことでコードを理解しやすくします。オブジェクトもBEMをベースに作っていきます。
+BEMはBlock、Element、Modifierという関係性を示すことでコードを理解しやすくします。コンポーネントもBEMをベースに作っていきます。
 
 DORCSSでは単語をローワーキャメルケースにすることで、BEMを構成する要素を把握しやすくします（一貫性を保持できるのであれば他の命名規則を使うこともできます）。
 
@@ -97,8 +97,38 @@ Blockは2つの単語をつなげることを推奨しますが、Blockがネー
 ```
 
 基本的にクラスセレクタ単体（0,0,1,0）で指定します。  
-複数の`.blockName__element--modifier`を指定するなどして冗長になってしまう場合は、`.blockName--modifier > .blockName__element`（0,0,2,0）のように結合子で指定することもできますが、子セレクタを使うなどして範囲をできるだけ限定させます。
+ただし、以下のように指定が冗長になってしまう場合はModiferとElementを結合子でつなぐこともできます。
 
+```css
+/* CSSはシンプルだけど… */
+.blockName__element {}
+.blockName__element--modifier {}
+```
+
+```html
+<!-- 冗長なマークアップになってしまう… -->
+<div class="blockName">
+  <div class="blockName__element blockName__element--modifier"></div>
+  <div class="blockName__element blockName__element--modifier"></div>
+  <div class="blockName__element blockName__element--modifier"></div>
+</div>
+```
+
+```css
+/* CSSが複雑にならない範囲であれば */
+.blockName--Modifier > .blockName__element {}
+```
+
+```html
+<!-- ModifierでElementを拡張する -->
+<div class="blockName blockName--Modifier">
+  <div class="blockName__element"></div>
+  <div class="blockName__element"></div>
+  <div class="blockName__element"></div>
+</div>
+```
+
+詳細度は（0,0,1,0）から（0,0,2,0）に上がってしまいますが、大きなデメリットにはならないと考えています。ただし、直近の要素（`>`）に対して指定するなどして、影響範囲ができるだけ狭くなるようにします。
 
 JavaScriptを使った動的なスタイルはSMACSSのStateクラスを使います。Stateクラス自体にスタイルを指定することは禁止します。
 
@@ -136,7 +166,7 @@ JavaScriptを使った動的なスタイルはSMACSSのStateクラスを使い�
 ```
 
 ## モジュール化
-BEMで表現したオブジェクトはモジュールとして1つのファイルにまとめます。Block名とファイル名を同じにすることで、オブジェクトを把握・管理しやすくします。PostCSSではpostcss-importを、Sassでは標準機能の`@import`を使います。
+BEMで表現したコンポーネントはモジュールとして1つのファイルにまとめます。Block名とファイル名を同じにすることで、コンポーネントを把握・管理しやすくします。PostCSSではpostcss-importを、Sassでは標準機能の`@import`を使います。
 
 - `.button` => `_button.css`
 - `.listInline` => `_listInline.css`
@@ -156,10 +186,11 @@ css
 ├── Setting/
 ├── Tool/
 ├── Base/
-├── Component/
-├── Project/
-├── Layout/
-├── Scope/
+├── Atoms/
+├── Molecules/
+├── Organisms/
+├── Templates/
+├── Pages/
 └── Utility/
 ```
 
@@ -173,10 +204,11 @@ root
 │       ├── Setting/
 │       ├── Tool/
 │       ├── Base/
-│       ├── Component/
-│       ├── Project/
-│       ├── layout/
-│       ├── Scope/
+│       ├── Atoms/
+│       ├── Molecules/
+│       ├── Organisms/
+│       ├── Templates/
+│       ├── Pages/
 │       └── Utility/
 ├── css/
 │   └── index.css
@@ -261,8 +293,8 @@ Baseレイヤーでは要素セレクタや属性セレクタのようなオブ�
 
 詳細度はクラスセレクタと同じ0,0,1,0以下になるように極力低くします。メディアクエリや擬似クラスのような、ある状況や状態に対するスタイルは極力持つべきではありません。
 
-オブジェクト間の余白を管理しやすくするために、上下方向の`margin`は`0`にリセットしておくのを推奨します。ただし、過度なリセットは禁止します。  
-継承を利用するために、ルート要素の`font-size`はパーセンテージで指定（`62.5%`の指定は禁止）、その他の要素やオブジェクトのサイズは`rem`と`em`で指定します。
+コンポーネント間の余白を管理しやすくするために、上下方向の`margin`は`0`にリセットしておくのを推奨します。ただし、過度なリセットは禁止します。  
+継承を利用するために、ルート要素の`font-size`はパーセンテージで指定（`62.5%`の指定は禁止）、その他の要素は`rem`と`em`で指定します。
 
 ```css
 @import "../../node_modules/normalize.css/normalize.css";
@@ -307,214 +339,95 @@ pre {
 }
 ```
 
-### 4. Component
-Componentレイヤーは装飾的なスタイルを持つことができる再利用可能で小さなオブジェクトを定義します。
+### 4. Atoms
+Atoms（アトム）は機能的にこれ以上分割ができない最小の要素です。例えば、見出しやリスト、フォームラベルやボタンなどが該当します。
+
+Atomic DesignにおけるAtomsは抽象的で目的をもたないものとされますが、役割をもった具体的なUIにすることも許容します。つまりAtoms単体で機能を拡張することもできます。カラーパレットやアニメーションもAtomsとされていますが、SettingとToolに定義します。
+
+後述するMoleculesとOrganismsのスタイルを継承できるように`em`での指定を基本とします。
+
+配置に関する情報は持つことができないので、Atoms単体で使う場合はTemplatesとセットになります。  
+プレフィックス（接頭辞）として`.a-`をつけます。
 
 ```css
-@import "component/_icon.css";
-@import "component/_iconExtend.css";
-@import "component/_label.css";
-@import "component/_button.css";
-@import "component/_embed.css";
-@import "component/_list.css";
-@import "component/_headingH2.css";
-@import "component/_headingH3.css";
+@import "atoms/_icon.css";
+@import "atoms/_iconExtend.css";
+@import "atoms/_label.css";
+@import "atoms/_button.css";
+@import "atoms/_embed.css";
+@import "atoms/_list.css";
+@import "atoms/_title.css";
+@import "atoms/_heading2.css";
+@import "atoms/_heading3.css";
+@import "atoms/_lead.css";
+@import "atoms/_delimiter.css";
+@import "atoms/_input.css";
+@import "atoms/_textarea.css";
+@import "atoms/_select.css";
+@import "atoms/_inputCheckbox.css";
+@import "atoms/_inputRadio.css";
 ```
 
-目安としては、見出しやリスト、ボタンやラベルのような他のオブジェクトを内包できない小さなオブジェクトです。  
-後述するProjectオブジェクトのサイズ変更を継承できるようにサイズ（`font-size`, `margin`, `padding`など）は`em`で指定します。
+### 5. Molecules
+Molecules（モルキュール）はAtomsを組み合わせた比較的シンプルなUIグループです。例えば、検索フォームはlabelとinput、buttonが組み合わさったMoleculesです。
 
-プレフィックス（接頭辞）として`.c-`をつけます。
+Moleculesはシンプルで機能的・意味的なコンポーネントにすることを推奨します。これにより、扱いやすく、メンテナンス性が高く、一貫性を保ったUIにすることができます。
 
-### 5. Project
-ProjectレイヤーはComponentオブジェクトを内包・上書きできる比較的大きなオブジェクトを定義します。  
-Projectレイヤー同士での依存関係がうまれることもあります。内包されるオブジェクトは内包するオブジェクトよりも先に読み込むことで期待通りに適応されるようにしておきます。
+後述するOrganismsのスタイルを継承できるように`em`での指定を基本とします。  
+プレフィックス（接頭辞）として`.m-`をつけます。
 
 ```css
-@import "project/_listInline.css";
-@import "project/_listMark.css";
-@import "project/_breadcrumb.css";
-@import "project/_figure.css";
-@import "project/_ratio.css";
-@import "project/_block.css";
-@import "project/_table.css";
-@import "project/_media.css";
-@import "project/_flag.css";
+@import "molecules/_listInline.css";
+@import "molecules/_listMark.css";
+@import "molecules/_figure.css";
+@import "molecules/_ratio.css";
+@import "molecules/_block.css";
+@import "molecules/_table.css";
+@import "molecules/_media.css";
+@import "molecules/_flag.css";
+@import "molecules/_breadcrumb.css";
 ```
 
-Projectオブジェクトがユーザーインターフェイスの見た目と構造を確定するので、自分自身と内包するオブジェクトに対して具体的な情報を持つべきです。
-
-```html
-<div class="p-articleList">
-  <a class="p-articleList__item" href="#"></a>
-  <a class="p-articleList__item" href="#">
-    <h2 class="p-articleList__heading c-headingH2"></h2> 
-    <p class="p-articleList__text"></p>
-  </a>
-</div>
-```
+### 6. Organisms
+Organisms（オルガニズム）はAtomsやMolecules、または複数のMoleculesを組み合わせた比較的複雑なUIグループです。例えば、グローバルヘッダーはロゴとグローバルナビゲーション、検索フォームなどが組み合わさったOrganismsです。  
+プレフィックス（接頭辞）として`.o-`をつけます。
 
 ```css
-.p-articleList__heading.c-headingH2 {}
+@import "organisms/";
 ```
 
-ただし、役割がより明確になり詳細度を低く保てるように、内包するオブジェクトに直接指定するのではなく、自身のElementに対してだけ指定することを推奨します。
+### 7. Templates
+Templates（テンプレート）はページレベルのオブジェクトで、コンポーネント（Atoms・Molecules・Organisms）を配置してページの構成を整えます。
+
+ワイヤーフレームのような大きなレイアウトから、コンポーネント単位のレイアウトまで様々です。コンポーネントにダミーのテキストや画像を挿入することで、コンテンツの量や大きさによって意図しないデザインになってしまわないかをテストすることができます。  
+プレフィックス（接頭辞）として`.t-`をつけます。
 
 ```css
-.p-articleList__heading {}
+@import "templates/_grid.css";
+@import "templates/_header.css";
+@import "templates/_content.css";
+@import "templates/_sidebar.css";
+@import "templates/_footer.css";
+@import "templates/_wrapper.css";
 ```
 
-Projectオブジェクトは常にルートを基準にサイズを決めるため、`rem`を基本単位とします。  
-ただし、オブジェクトのBlockにフォントサイズを指定すると範囲が大きくなり過ぎるので、Blockは`1rem`を基本として、ElementやModifierでフォントサイズの変更をすることを推奨します。  
-オブジェクト内の余白をフォントサイズを基準に指定したい場合は`em`で指定してもいいでしょう。
+### 8. Pages
+Pages（ページ）では実際のコンテンツを挿入して最終的な外観を確認します。
 
-基本的にはProjectオブジェクト自身の配置を指定することはできませんが、JavaScriptで動的に表示や配置の変更がされるUIの場合は許容されます。
-
+Templatesのバリエーションを定義することもできます。例えば、特定のページやカテゴリに対するスタイルを定義したり、動的にページの状態を変更したいときなどです。  
 プレフィックス（接頭辞）として`.p-`をつけます。
 
-### 6. Layout
-Layoutレイヤーはワイヤーフレームに出てくるような大枠のレイアウトやオブジェクトのレイアウトを定義します。Layoutオブジェクトによってページ内のレイアウトが確定します。  
-グリッドのようなレイアウト専用のオブジェクトもこのレイヤーに含みます。
-
 ```css
-@import "layout/_grid.css";
-@import "layout/_header.css";
-@import "layout/_content.css";
-@import "layout/_sidebar.css";
-@import "layout/_footer.css";
-@import "layout/_wrapper.css";
+@import "pages/_blog.css";
 ```
 
-内包するモジュールを上書きすることはできません。Layoutオブジェクトはレイアウトに特化したオブジェクトです。  
-ただし、背景色のようにレイアウトによって影響範囲が変わるものは、最小限であればLayoutオブジェクトに含めることも許容します。
-
-内包するオブジェクトのレイアウトは自身のElementで指定します。内包するオブジェクトと同じ要素に指定することを避けて、オブジェクト同士が干渉しないようにします。
-
-```html
-<div class="l-globalHeader">
-  <div class="l-globalHeader__logo">
-    <h1 class="p-logo"></h1>
-  </div>
-  <nav class="l-globalHeader__nav">
-    <ul class="p-globalNav">
-      <li class="p-globalNav__item"></li>
-      <li class="p-globalNav__item"></li>
-    </ul>
-  </nav>
-</div>
-```
-
-コンテンツ内のオブジェクトのレイアウトは以下のように指定します。
-
-```css
-/**
- * メインコンテンツです。
- * `.l-footer`との下側の余白を指定します。
- * Elementでメインコンテンツ内のレイアウトを指定します。
- * `.l-wrapper__2culumn`を使用することで2カラムレイアウトにすることもできます。
- */
-.l-content {
-  margin-bottom: 3.2rem;
-  & > :last-child {
-    margin-bottom: 0;
-  }
-}
-
-/**
- * メインコンテンツのコンテンツヘッダーです。
- * `.l-content__body`に対して下側の余白を指定します。
- */
-.l-content__head {
-  margin-bottom: 1.6rem;
-  & > :last-child {
-    margin-bottom: 0;
-  }
-}
-
-/**
- * メインコンテンツの本文です。
- */
-.l-content__body {
-  & > :last-child {
-    margin-bottom: 0;
-  }
-}
-
-/**
- * メインコンテンツのコンテンツフッターです。
- * `.l-content__body`に対して上側の余白を指定します。
- */
-.l-content__foot {
-  margin-top: 3.2rem;
-  & > :last-child {
-    margin-bottom: 0;
-  }
-}
-
-/* 1階層目の`<section>` */
-.l-content__firstSection {
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
-  & > :last-child {
-    margin-bottom: 0;
-  }
-}
-
-/* 2階層目の`<section>` */
-.l-content__secondSection {
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
-  & > :last-child {
-    margin-bottom: 0;
-  }
-}
-
-/* 3階層目の`<section>` */
-.l-content__thirdSection {
-  margin-bottom: 1.6rem;
-  & > :last-child {
-    margin-bottom: 0;
-  }
-}
-
-/* オブジェクト間のベースになる余白 */
-.l-content__item {
-  margin-bottom: 1.6rem;
-  & > :last-child {
-    margin-bottom: 0;
-  }
-}
-```
-
-Layoutオブジェクトは常にルートを基準にサイズを決めるため、`rem`を基本単位とします。
-
-プレフィックス（接頭辞）として`.l-`をつけます。
-
-### 7. Scope
-Scopeレイヤーは特定の範囲でのスタイルを定義します。オブジェクト単位ではなく、任意の範囲（スコープ）に対するスタイルを指定します。例えばブログやフッター内であったり、ページやカテゴリなどです。
-
-```css
-@import "scope/_blog.css";
-```
-
-内包するオブジェクトにも装飾的なスタイルや配置に関する指定をすることもできる影響範囲の大きなレイヤーです。
-
-影響範囲ができるだけ狭くなるように適応する範囲や要素を限定しなければいけません。例えば`.s-scope .c-button--prymary`ではなく、`.c-button--prymary`と`.s-scope__button`のマルチクラスで指定します。
-
-```html
-<!-- Allow -->
-<div class="s-scope">
-  <a class="c-button c-button--prymary" href="#"></a>
-</div>
-
-<!-- Good -->
-<a class="c-button c-button--prymary s-scope__button" href="#"></a>
-```
-
-プレフィックス（接頭辞）として`.s-`をつけます。
-
-### 8. Utility
+### 9. Utility
 Utilityレイヤーは汎用クラスを定義します。シングルクラスでも確実にスタイルを適応させるために`!important`を指定することを推奨します。
+
+コンポーネントがUtilityコンポーネントで成り立ってしまうことはできるだけ避けます。Utilityコンポーネントは他のレイヤーが持つよりも汎用的に使えたり、コードが冗長になってしまう場合に使います。
+
+pxのような絶対値ではなく、remや%のような相対値を指定することを推奨します。  
+プレフィックス（接頭辞）として`.u-`をつけます。
 
 ```css
 @import "utility/_align.css";
@@ -523,27 +436,22 @@ Utilityレイヤーは汎用クラスを定義します。シングルクラス�
 @import "utility/_col.css";
 ```
 
-オブジェクトがUtilityオブジェクトで成り立ってしまうことはできるだけ避けます。
-
-Utilityオブジェクトは他のレイヤーが持つよりも汎用的に使えたり、コードが冗長になってしまう場合に使います。pxのような絶対値ではなく、remや%のような相対値を指定することを推奨します。
-
-プレフィックス（接頭辞）として`.u-`をつけます。
-
 ### ライブラリ、フレームワーク、プラグイン
 CSSのライブラリやフレームワーク、JQueryプラグインのCSSファイルなどを追加する場合も3つの基準にもとづいてカテゴライズします。  
 外部のCSSだからといって、役割や機能が変わることはないからです。
 
-例えばnormalize.cssはBaseレイヤー、スライダーのようなJQueryプラグインはProjectレイヤーが適切な場所になります。
+例えばnormalize.cssはBaseレイヤー、スライダーのようなJQueryプラグインはOrganismsレイヤーが適切な場所になります。
 
 CSSファイルは直接編集をせず、librarynameExtend.cssのようなファイルを用意して上書きをします。記述が冗長になってしまう場合は直接編集してもかまいません。
 
 ## プレフィックス
 レイヤーにカテゴライズしたオブジェクトにはレイヤー名からとったプレフィックスをつけます。
 
-- Component - `.c-`
-- Project - `.p-`
-- Layout - `.l-`
-- Scope - `.s-`
+- Atoms - `.a-`
+- Molecules - `.m-`
+- Organisms - `.o-`
+- Templates - `.t-`
+- Pages - `.p-`
 - utility - `.u-`
 
 レイヤーにもとづいたネームスペースで名前の重複を避け、プレフィックスによってオブジェクトの役割を明確にすることができます。
@@ -558,50 +466,11 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
 
 ブレイクポイントは`-sp`や`-pc`のようなデバイスを基準とせず、`-sm`や`-lg`のような相対的な名前を使います。
 
-- xs(Extra small)
-- sm(Small)
-- md(Medium)
-- lg(Large)
-- xl(Extra large)
-
-## レイヤーの役割
-レイヤーには役割を持たせ、装飾と配置、上書きに関するルールを定義します。
-
-### オブジェクト自身の役割
-自分自身とはBEMでいうBlockのことです。配置するとは`margin`や`float`、`position`プロパティなどでオブジェクト同士の間隔や位置関係を変更することです。
-
-| レイヤー名   | 自分自身を装飾すること   | 自分自身を配置すること   |
-|------------ |------------------------ |------------------------ |
-| Base        | 禁止                    | 禁止                    |
-| Component   | 可能                    | 禁止                    |
-| Project     | 推奨                    | 許容                    |
-| Layout      | 許容                    | 推奨                    |
-| Scope       | 可能                    | 許容                    |
-| Utility     | 許容                    | 禁止                    |
-
-
-### 内包しているオブジェクトへの影響範囲
-内包するオブジェクトとは別のオブジェクトのことです。Blockに対するElementではありません。
-
-| レイヤー名   | 内包するオブジェクトを装飾すること    | 内包するオブジェクトを配置すること    |
-|------------ |-------------------------------------- |-------------------------------------- |
-| Base        | 禁止                                  | 禁止                                  |
-| Component   | 禁止                                  | 禁止                                  |
-| Project     | 許容                                  | 推奨                                  |
-| Layout      | 許容                                  | 推奨                                  |
-| Scope       | 許容                                  | 許容                                  |
-| Utility     | 禁止                                  | 禁止                                  |
-
-
-### 役割と詳細度
-| レイヤー名   | 役割                   | 詳細度  |
-|------------ |----------------------- |-------- |
-| Base        | オブジェクトのベーススタイル       | 低       |
-| Component   | 再利用可能で小さなオブジェクト     | 中       |
-| Project     | 最終的なユーザーインターフェイス   | 中       |
-| Layout      | オブジェクトのレイアウトを決める   | 中       |
-| Scope       | 任意の範囲のスタイル              | 中       |
-| Utility     | オブジェクトの冗長化を避ける       | 高       |
+- xs(Extra small) - `-xs`
+- sm(Small) - `-sm`
+- md(Medium) - `-md`
+- lg(Large) - `-lg`
+- xl(Extra large) - `-xl`
 
 ## コメント
 コメントにはコードだけでは理解できない（しにくい）情報を残します。例えば以下のようなものです。
@@ -627,19 +496,21 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
  * normalize...Normalize.cssをインポートしています。
  * base...タイプセレクタと属性セレクタのデフォルトスタイルです。
  *
- * Component
+ * ATOMS
  * icon...アイコンフォントです。テンプレートから自動で生成されます。
- * button...ボタンオブジェクトです。
+ * iconExtend...アイコンにスタイルを追加します。
  *
- * Project
+ * MOLECULES
  * listInline...ボタンやラベル、テキストリンクなどを横並びにします。
  * listMark...リストアイテムの左にアイコンを配置します。
  *
- * LAYOUT
- * grid...汎用的なグリッドオブジェクトです。`width`の変更はUtilityレイヤーで指定します。
- * content...コンテンツエリアのレイアウトを指定します。
+ * ORGANISMS
  *
- * SCOPE
+ * TEMPLATE
+ * grid...汎用的なグリッドオブジェクトです。`width`の変更はUtilityレイヤーで指定します。
+ * header...グローバルヘッダーのレイアウトを指定します。
+ *
+ * PAGE
  * blog...ブログエリアのスタイルです。
  *
  * UTILITY
@@ -666,26 +537,68 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
 ```
 
 ### モジュールタイトル
-モジュール化したファイルにはオブジェクトの名前や機能をコメントとして残します。スタイルガイドジェネレーター用のコメントを残してもいいでしょう。
+モジュール化したファイルにはオブジェクトの名前や機能をコメントとして残します。スタイルガイドジェネレーター用のコメントを残してもいいでしょう。以下は[Aigis](https://pxgrid.github.io/aigis/)のコメントです（シンタックスハイライトを有効にするため一部記述を変えています）。
 
 ```css
- /* #label
+ /* #button
    -------------------------------------------------------------------------- */
-.c-label {
+/*
+---
+name: button
+category: Atoms
+tag: Form
+---
+
+ボタンのデフォルトスタイルです。
+
+---jade
+a.a-button(href="#") ボタン
+button.a-button(type="button") ボタン
+input.a-button(type="button" value="ボタン")
+a.a-button.is-disabled(href="#") .is-disabled
+button.a-button(type="button" disabled) disabled
+input.a-button(type="button" disabled value="disabled")
+---
+*/
+.a-button {
   display: inline-block;
-  padding: 0.5em;
-  color: #fff;
-  font-size: 0.8em;
+  margin: 0;
+  padding: 1em 2em;
+  border: none;
+  border: 1px solid #d0d0d0;
+  border-radius: var(--border-radius);
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
   line-height: 1;
   text-align: center;
-  white-space: nowrap;
   text-decoration: none;
-  background-color: var(--color--link);
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
   &:--onEvent {
-    color: #fff;
     text-decoration: none;
   }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 }
+
+.a-button.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.a-button--full {
+  width: 100%;
+}
+
+.a-button--primary {}
+.a-button--secondary {}
+.a-button--tertiary {}
+.a-button--quaternary {}
 ```
 
 ### 注意事項とTODO
