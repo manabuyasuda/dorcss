@@ -16,7 +16,7 @@
 
 .m-flag__image {
   width: 1px;
-  padding-right: 1rem;
+  padding-right: 1em;
 }
 
 .m-flag__image > img {
@@ -47,7 +47,7 @@
   }
   & > .m-flag__image {
     padding-right: 0;
-    padding-left: 1rem;
+    padding-left: 1em;
   }
 }
 
@@ -62,7 +62,7 @@
     }
     & > .m-flag__image {
       padding-right: 0;
-      padding-left: 1rem;
+      padding-left: 1em;
     }
   }
 }
@@ -78,7 +78,7 @@
     }
     & > .m-flag__image {
       padding-right: 0;
-      padding-left: 1rem;
+      padding-left: 1em;
     }
   }
 }

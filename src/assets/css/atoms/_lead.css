@@ -14,7 +14,7 @@ p.a-lead リード文です。
 ```
 */
 .a-lead {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   line-height: 1.8;
   font-weight: var(--font-weight--bold);
   color: #0a41a6;

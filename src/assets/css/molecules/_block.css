@@ -34,7 +34,7 @@
 .m-block--reverse {
   display: table;
   & > .m-block__item:first-child {
-    margin-top: 0.5rem;
+    margin-top: 0.5em;
   }
   & > .m-block__item:last-child {
     display: table-header-group;
@@ -45,7 +45,7 @@
   .m-block--reverse-md {
     display: table;
     & > .m-block__item:first-child {
-      margin-top: 0.5rem;
+      margin-top: 0.5em;
     }
     & > .m-block__item:last-child {
       display: table-header-group;
@@ -57,7 +57,7 @@
   .m-block--reverse-lg {
     display: table;
     & > .m-block__item:first-child {
-      margin-top: 0.5rem;
+      margin-top: 0.5em;
     }
     & > .m-block__item:last-child {
       display: table-header-group;

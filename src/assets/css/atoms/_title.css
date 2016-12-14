@@ -15,7 +15,7 @@ h1.a-title ページタイトルです。
 ```
 */
 .a-title {
-  font-size: 2rem;
+  font-size: 2em;
   font-weight: normal;
   line-height: 1.4;
   border-bottom: 5px solid #eee;

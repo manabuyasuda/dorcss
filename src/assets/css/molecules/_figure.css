@@ -14,7 +14,7 @@
 .m-figure__captionTop,
 .m-figure__captionBottom {
   display: table-caption;
-  font-size: 0.8rem;
+  font-size: var(--font-size--secondary);
 }
 
 .m-figure__captionTop {
