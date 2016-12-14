@@ -342,11 +342,11 @@ pre {
 ### 4. Atoms
 Atoms（アトム）は機能的にこれ以上分割ができない最小の要素です。例えば、見出しやリスト、フォームラベルやボタンなどが該当します。
 
-Atomic DesignにおけるAtomsは抽象的で目的をもたないものとされますが、役割をもった具体的なUIにすることも許容します。つまりAtoms単体で機能を拡張することもできます。カラーパレットやアニメーションもAtomsとされていますが、SettingとToolに定義します。
+Atomic DesignにおけるAtomsは抽象的で目的をもたないものとされますが、役割をもった具体的なUIにすることも許容します。つまりAtoms単体で機能を拡張することもできます。カラーパレットやアニメーションもAtomsとされていますが、SettingとToolに定義しています。
 
 後述するMoleculesとOrganismsのスタイルを継承できるように`em`での指定を基本とします。
 
-配置に関する情報は持つことができないので、Atoms単体で使う場合はTemplatesとセットになります。  
+テキストやリストのような文章を書くためのコンポーネントはAtoms単体で使用することがあります。  
 プレフィックス（接頭辞）として`.a-`をつけます。
 
 ```css
@@ -371,7 +371,7 @@ Atomic DesignにおけるAtomsは抽象的で目的をもたないものとさ�
 ### 5. Molecules
 Molecules（モルキュール）はAtomsを組み合わせた比較的シンプルなUIグループです。例えば、検索フォームはlabelとinput、buttonが組み合わさったMoleculesです。
 
-Moleculesはシンプルで機能的・意味的なコンポーネントにすることを推奨します。これにより、扱いやすく、メンテナンス性が高く、一貫性を保ったUIにすることができます。
+Moleculesはシンプルで機能的なコンポーネントにすることを推奨します。これにより、扱いやすく、メンテナンス性が高く、一貫性を保ったUIにすることができます。
 
 後述するOrganismsのスタイルを継承できるように`em`での指定を基本とします。  
 プレフィックス（接頭辞）として`.m-`をつけます。
@@ -389,11 +389,13 @@ Moleculesはシンプルで機能的・意味的なコンポーネントにす�
 ```
 
 ### 6. Organisms
-Organisms（オルガニズム）はAtomsやMolecules、または複数のMoleculesを組み合わせた比較的複雑なUIグループです。例えば、グローバルヘッダーはロゴとグローバルナビゲーション、検索フォームなどが組み合わさったOrganismsです。  
+Organisms（オルガニズム）はAtomsやMolecules、または複数のMoleculesを組み合わせた比較的複雑なUIグループです。例えば、グローバルヘッダーはロゴとグローバルナビゲーション、検索フォームなどが組み合わさったOrganismsです。OrganismsはMoleculesよりも具体的なコンテキストをもつコンポーネントです。  
 プレフィックス（接頭辞）として`.o-`をつけます。
 
 ```css
-@import "organisms/";
+@import "organisms/_globalHeader";
+@import "organisms/_globalFooter";
+@import "organisms/_articleList";
 ```
 
 ### 7. Templates
