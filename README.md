@@ -237,6 +237,9 @@ Custom Propertiesもカスケーディングの対象となるため、定数の
   --color--link: #2b70ba;
   --background-color: #fff;
   --border-radius: 3px;
+  --font-size--secondary: 0.85em;
+  --font-weight--normal: 400;
+  --font-weight--bold: 600;
 }
 ```
 
@@ -323,7 +326,7 @@ html {
 body {
   color: var(--color);
   font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  font-weight: 400;
+  font-weight: var(--font-weight--normal);
   background-color: var(--background-color);
 }
 
@@ -352,15 +355,18 @@ Atomic DesignにおけるAtomsは抽象的で目的をもたないものとさ�
 ```css
 @import "atoms/_icon.css";
 @import "atoms/_iconExtend.css";
-@import "atoms/_label.css";
-@import "atoms/_button.css";
-@import "atoms/_embed.css";
-@import "atoms/_list.css";
 @import "atoms/_title.css";
 @import "atoms/_heading2.css";
 @import "atoms/_heading3.css";
 @import "atoms/_lead.css";
+@import "atoms/_textEmphasis.css";
+@import "atoms/_textAttention.css";
+@import "atoms/_textSecondary.css";
+@import "atoms/_list.css";
 @import "atoms/_delimiter.css";
+@import "atoms/_embed.css";
+@import "atoms/_label.css";
+@import "atoms/_button.css";
 @import "atoms/_input.css";
 @import "atoms/_textarea.css";
 @import "atoms/_select.css";
