@@ -1,0 +1,20 @@
+ /* #textSecondary
+   -------------------------------------------------------------------------- */
+/*
+---
+name: textSecondary
+category: Atoms
+tag: Text
+---
+
+`<p>`や`<small>`で使われるようなテキストスタイルです。副次的な意味合いを持たせる場合に使います。
+
+```jade
+p.t-content__text 通常のテキストスタイルです。
+p.a-textSecondary.t-content__smallText 通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。
+p.a-textSecondary.t-content__smallText 通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。
+```
+*/
+.a-textSecondary {
+  font-size: var(--font-size--secondary);
+}

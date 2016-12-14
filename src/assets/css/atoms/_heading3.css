@@ -16,7 +16,7 @@ h3.a-heading3 h3見出しです
 */
 .a-heading3 {
   font-size: 1.2em;
-  font-weight: normal;
+  font-weight: var(--font-weight--normal);
   line-height: 1.4;
   padding: 0.5em;
   background-color: #f3f3f3;

@@ -7,7 +7,7 @@ category: Atoms
 tag: Heading
 ---
 
-`<h3>`で使われるような見出しのスタイルです。
+`<h1>`で使われるようなページタイトルのスタイルです。
 
 ```jade
 h1.a-title.t-content__title ページタイトルです。

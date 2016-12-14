@@ -21,7 +21,7 @@ html {
 body {
   color: var(--color);
   font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  font-weight: 400;
+  font-weight: var(--font-weight--normal);
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
   font-kerning: normal;
@@ -57,6 +57,11 @@ a {
 [lang="ja"] address,
 [lang="ja"] dfn {
   font-style: normal;
+}
+
+b,
+strong {
+  font-weight: var(--font-weight--bold);
 }
 
 /**

@@ -51,6 +51,9 @@ ol.a-list.a-list--order
 }
 
 /* ※list */
+.a-list--note > li {
+  font-size: var(--font-size--secondary);
+}
 .a-list--note > li:before {
   content: "※";
 }
@@ -58,6 +61,7 @@ ol.a-list.a-list--order
 /* ※1 list */
 .a-list--noteOrder > li {
   counter-increment: noteOrder;
+  font-size: var(--font-size--secondary);
   &:target {
     background-color: lightgray;
   }

@@ -14,15 +14,18 @@
  * ATOMS
  * icon...アイコンフォントです。テンプレートから自動で生成されます。
  * iconExtend...アイコンにスタイルを追加します。
- * label...インラインで表示するラベルコンポーネントです。
- * button...ボタンのデフォルトスタイルです。
- * embed...Youtubeなどをレスポンシブ対応させます。
- * list...リストアイテムの左に役物などを表示します。
  * title...`<h1>`で使われる見出しのスタイルです。
  * heading2...`<h2>`で使われるような見出しのスタイルです。
  * heading3...`<h3>`で使われるような見出しのスタイルです。
  * lead...視覚的に目立たせるときに使うスタイルです。
+ * textEmphasis...強調や重要性を示すときに使います。
+ * textAttention...注意や注目を引きたい場合に使います。
+ * textSecondary...副次的な意味合いを持たせる場合に使います。
+ * list...リストアイテムの左に役物などを表示します。
  * delimiter...`<hr>`のような区切り記号（デリミタ）です。
+ * embed...Youtubeなどをレスポンシブ対応させます。
+ * label...インラインで表示するラベルコンポーネントです。
+ * button...ボタンのデフォルトスタイルです。
  * input...`<input>`のデフォルトスタイルです。
  * textarea...`<textarea>`のデフォルトスタイルです。
  * select...`<select>`のデフォルトスタイルです。
@@ -113,15 +116,18 @@
  */
 @import "atoms/_icon.css";
 @import "atoms/_iconExtend.css";
-@import "atoms/_label.css";
-@import "atoms/_button.css";
-@import "atoms/_embed.css";
-@import "atoms/_list.css";
 @import "atoms/_title.css";
 @import "atoms/_heading2.css";
 @import "atoms/_heading3.css";
 @import "atoms/_lead.css";
+@import "atoms/_textEmphasis.css";
+@import "atoms/_textAttention.css";
+@import "atoms/_textSecondary.css";
+@import "atoms/_list.css";
 @import "atoms/_delimiter.css";
+@import "atoms/_embed.css";
+@import "atoms/_label.css";
+@import "atoms/_button.css";
 @import "atoms/_input.css";
 @import "atoms/_textarea.css";
 @import "atoms/_select.css";
