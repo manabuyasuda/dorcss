@@ -10,22 +10,22 @@ tag: List
 リストアイテムの左に役物などを表示します。
 
 ```jade
-ul.a-list
+ul.a-list.t-content__textSmall
   li リストです。複数行になったときの表示方法を確認します。複数行になったときの表示方法を確認します。複数行になったときの表示方法を確認します。
 
-ul.a-list.a-list--note
+ul.a-list.a-list--note.t-content__text
   li 注釈用のリストです。
   li 注釈用のリストです。
 
-ol.a-list.a-list--noteOrder
+ol.a-list.a-list--noteOrder.t-content__text
   li 順序をつけた注釈用のリストです。
   li 順序をつけた注釈用のリストです。
 
-ol.a-list.a-list--bracketOrder
+ol.a-list.a-list--bracketOrder.t-content__text
   li 括弧をつけた順序リストです。
   li 括弧をつけた順序リストです。
 
-ol.a-list.a-list--order
+ol.a-list.a-list--order.t-content__text
   li 入れ子に対応した順序リストです。
   li 入れ子に対応した順序リストです。
     ol

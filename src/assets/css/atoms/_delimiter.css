@@ -22,11 +22,11 @@ p テキストです
   display: block;
   width: 100%;
   height: auto;
-  margin: 1.6em auto;
+  margin: 1.2em auto;
   border: 0;
   border-top: 1px solid #e5e5e5;
 }
 
 .a-delimiter--small {
-  margin: 0.8em auto;
+  margin: 0.6em auto;
 }

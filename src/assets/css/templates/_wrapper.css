@@ -13,12 +13,10 @@
 /**
  * グローバルヘッダーエリアです。
  * e.g.
- * <div class="t-wrapper">
- *   <header class="t-wrapper__header">
- *     <div class="t-header"></div>
- *   </header>
- *   <div class="t-wrapper__inner"><div>
- * <div>
+ * .t-wrapper
+ *   header.t-wrapper__header
+ *     .t-header
+ *   .t-wrapper__inner
  */
 .t-wrapper__header {
   margin-bottom: 3.2rem;
@@ -30,18 +28,13 @@
 /**
  * パンくずリストのレイアウトを指定します。
  * e.g.
- * <div class="t-wrapper">
- *   <header class="t-wrapper__header"></header>
- *   <div class="t-wrapper__breadcrumb">
- *     <div class="t-wrapper__breadcrumbInner">
- *       <ol class="p-breadcrumb">
- *         <li class="p-breadcrumb__item">
- *           <a class="p-breadcrumb__link" href="/"></a>
- *         </li>
- *       </ol>
- *     </div>
- *   </div>
- * <div>
+ * .t-wrapper
+ *   header.t-wrapper__header
+ *   .t-wrapper__breadcrumb
+ *     .t-wrapper__breadcrumbInner
+ *       ol.p-breadcrumb
+ *         li.p-breadcrumb__item
+ *           a.p-breadcrumb__link(href="#")
  */
 .t-wrapper__breadcrumb {
   margin-bottom: 3.2rem;
@@ -61,12 +54,10 @@
 /**
  * メインコンテンツの最大幅を指定します。
  * e.g.
- * <div class="t-wrapper">
- *   <header class="t-wrapper__header"></header>
- *   <div class="t-wrapper__inner">
- *     <div class="t-wrapper__2culumn"></div>
- *   <div>
- * <div>
+ * .t-wrapper
+ *   header.t-wrapper__header
+ *   .t-wrapper__inner
+ *     .t-wrapper__2culumn
  */
 .t-wrapper__inner {
   display: block;
@@ -79,11 +70,9 @@
 /**
  * メインコンテンツを1カラムレイアウトにしたいときに指定します。
  * e.g.
- * <div class="t-wrapper__inner">
- *   <div class="t-wrapper__1culumn">
- *     <main class="t-wrapper__content"></main>
- *   </div>
- * <div>
+ * .t-wrapper__inner
+ *   .t-wrapper__1culumn
+ *     main.t-wrapper__content
  */
 .t-wrapper__1culumn {
   width: 100%;
@@ -92,12 +81,10 @@
 /**
  * メインコンテンツとサイドバーを2カラムレイアウトにしたいときに指定します。
  * e.g.
- * <div class="t-wrapper__inner">
- *   <div class="t-wrapper__2culumn">
- *     <main class="t-wrapper__content"></main>
- *     <aside class="t-wrapper__sidebar"></aside>
- *   </div>
- * </div>
+ * .t-wrapper__inner
+ *   .t-wrapper__2culumn
+ *     main.t-wrapper__content
+ *     aside.t-wrapper__sidebar
  */
 .t-wrapper__2culumn {
   display: block;
