@@ -1,12 +1,31 @@
  /* #breadcrumb
    -------------------------------------------------------------------------- */
+/*
+---
+name: breadcrumb
+category: Molecules
+---
+
+パンくずリストオブジェクトです。
+
+```jade
+ol.m-breadcrumb
+  li.m-breadcrumb__item
+    a.m-breadcrumb__link(href="/") ホーム
+  li.m-breadcrumb__item
+    a.m-breadcrumb__link(href="#") カテゴリ名
+  li.m-breadcrumb__item ページ名
+```
+*/
 .m-breadcrumb {
   @apply --truncate;
   @apply --listUnstyled;
+  font-size: 0;
 }
 
 .m-breadcrumb__item {
   display: inline-block;
+  font-size: 1rem;
   &:last-child {
     display: inline;
   }
@@ -17,6 +36,6 @@
 }
 
 .m-breadcrumb__item:not(:first-of-type):before {
-  content: "\003E";
+  content: "/";
   margin: 0 0.5em;
 }

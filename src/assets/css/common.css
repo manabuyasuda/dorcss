@@ -42,6 +42,7 @@
  * media...画像とテキストが横並びになるオブジェクトです。
  * flag...画像とテキストが横並びになるオブジェクトです。垂直方向の指定ができます。
  * breadcrumb...パンくずリストオブジェクトです。
+ * thumbnail...リンク付きのサムネイル画像とテキストからなるコンポーネントです。
  *
  * ORGANISMS
  *
@@ -154,6 +155,7 @@
 @import "molecules/_media.css";
 @import "molecules/_flag.css";
 @import "molecules/_breadcrumb.css";
+@import "molecules/_thumbnail.css";
 
 /* =============================================================================
    #Organisms
