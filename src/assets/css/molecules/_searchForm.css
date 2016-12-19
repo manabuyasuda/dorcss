@@ -13,7 +13,7 @@ category: Molecules
   .m-searchForm__input
     input.a-input(type="input" name="q" id="m-searchForm__input" placeholder="keywords…")
   .m-searchForm__button
-    button.a-button.a-button--full(type="submit" value="検索") 検索
+    button.a-button.a-button--full.a-button--search(type="submit" value="検索") 検索
 ```
 */
 .m-searchForm {

@@ -24,7 +24,7 @@ input.a-button(type="button" disabled value="disabled")
   padding: 1em 2em;
   border: none;
   border: 1px solid #d0d0d0;
-  border-radius: var(--border-radius);
+  border-radius: var(--form--border-radius);
   color: inherit;
   font-family: inherit;
   font-size: 1em;
@@ -34,18 +34,28 @@ input.a-button(type="button" disabled value="disabled")
   background: transparent;
   cursor: pointer;
   appearance: none;
+  transition-duration: var(--form--transition-duration);
+  transition-property: var(--form--transition-property);
+
   &:--onEvent {
     text-decoration: none;
   }
+
+  &:focus {
+
+  }
+
   &:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
+    cursor: var(--form--disabled-cursor);
+    opacity: var(--form--disabled-opacity);
+    background-color: var(--form--disabled-background-color);
   }
 }
 
 .a-button.is-disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
+  cursor: var(--form--disabled-cursor);
+  opacity: var(--form--disabled-opacity);
+  background-color: var(--form--disabled-background-color);
   pointer-events: none;
 }
 
@@ -57,3 +67,12 @@ input.a-button(type="button" disabled value="disabled")
 .a-button--secondary {}
 .a-button--tertiary {}
 .a-button--quaternary {}
+
+.a-button--search {
+
+  &:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  }
+}

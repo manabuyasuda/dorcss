@@ -34,22 +34,25 @@ textarea.a-textarea(placeholder="disabled" disabled)
   border: 1px solid #d0d0d0;
   background-color: #fff;
   box-shadow:1px 1px 6px -3px #9e9e9e inset;
-  border-radius: var(--border-radius);
+  border-radius: var(--form--border-radius);
   appearance: none;
-  transition-duration: 0.3s;
-  transition-property: border-color, box-shadow;
+  transition-duration: var(--form--transition-duration);
+  transition-property: var(--form--transition-property);
+
   &::placeholder {
-    color: #aaa;
+    color: var(--form--placeholder-color);
   }
+
   &:focus {
     outline: none;
     border-color: #66afe9;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
   }
+
   &:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-    background-color: #eee;
+    cursor: var(--form--disabled-cursor);
+    opacity: var(--form--disabled-opacity);
+    background-color: var(--form--disabled-background-color);
   }
 }
 

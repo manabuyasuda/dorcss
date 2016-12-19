@@ -39,7 +39,7 @@ label(for="checkbox2" disabled) disabled
   margin: auto;
   margin-right: 0.25em;
   border: 1px solid #d0d0d0;
-  border-radius: var(--border-radius);
+  border-radius: var(--form--border-radius);
   background-color: #fff;
 }
 
@@ -59,8 +59,8 @@ label(for="checkbox2" disabled) disabled
 
 .a-inputCheckbox:disabled,
 .a-inputCheckbox + label[disabled] {
-  cursor: not-allowed;
-  opacity: 0.6;
+  cursor: var(--form--disabled-cursor);
+  opacity: var(--form--disabled-opacity);
 }
 
 .a-inputCheckbox:disabled + label:after {

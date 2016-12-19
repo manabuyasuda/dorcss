@@ -4,7 +4,16 @@
   --color--link: #2b70ba;
   --background-color: #fff;
   --border-radius: 3px;
+
   --font-size--secondary: 0.85em;
   --font-weight--normal: 400;
   --font-weight--bold: 600;
+
+  --form--border-radius: 3px;
+  --form--transition-duration: 0.3s;
+  --form--transition-property: border-color, box-shadow, background-color;
+  --form--placeholder-color: #767676;
+  --form--disabled-cursor: not-allowed;
+  --form--disabled-opacity: 0.5;
+  --form--disabled-background-color: #ddd;
 }
