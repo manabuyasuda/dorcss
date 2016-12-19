@@ -43,6 +43,7 @@
  * flag...画像とテキストが横並びになるオブジェクトです。垂直方向の指定ができます。
  * breadcrumb...パンくずリストオブジェクトです。
  * thumbnail...リンク付きのサムネイル画像とテキストからなるコンポーネントです。
+ * searchForm...検索フォームコンポーネントです。
  *
  * ORGANISMS
  *
@@ -156,6 +157,7 @@
 @import "molecules/_flag.css";
 @import "molecules/_breadcrumb.css";
 @import "molecules/_thumbnail.css";
+@import "molecules/_searchForm.css";
 
 /* =============================================================================
    #Organisms

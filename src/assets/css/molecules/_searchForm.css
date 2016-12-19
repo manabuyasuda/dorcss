@@ -1,0 +1,49 @@
+ /* #searchForm
+   -------------------------------------------------------------------------- */
+/*
+---
+name: searchForm
+category: Molecules
+---
+
+検索フォームコンポーネントです。
+
+```jade
+.m-searchForm
+  .m-searchForm__input
+    input.a-input(type="input" name="q" id="m-searchForm__input" placeholder="keywords…")
+  .m-searchForm__button
+    button.a-button.a-button--full(type="submit" value="検索") 検索
+```
+*/
+.m-searchForm {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.m-searchForm__input {
+  display: table-cell;
+  vertical-align: top;
+  width: 100%;
+  padding-right: 1em;
+}
+
+.m-searchForm__input > .a-input {
+  height: 3em;
+}
+
+.m-searchForm__button {
+  display: table-cell;
+  vertical-align: top;
+  width: 5em;
+
+  @media (--md-up) {
+    width: 7em;
+  }
+}
+
+.m-searchForm__button > .a-button {
+  height: 3em;
+  padding: 0 1em;
+}
