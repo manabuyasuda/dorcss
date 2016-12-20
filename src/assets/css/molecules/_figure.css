@@ -1,26 +1,59 @@
  /* #figure
    -------------------------------------------------------------------------- */
+/*
+---
+name: figure
+category: Molecules
+tag: Contents
+---
+
+キャプションをつけた画像コンポーネントです。キャプションは画像の横幅を基準に折り返されます。
+
+Modifier
+
+- `.m-figure--center` - コンポーネント自体をセンタリングする
+- `.m-figure__caption--center` - キャプションをセンタリングする
+
+```jade
+figure.m-figure.m-figure--center
+  img.m-figure__image(src="https://placehold.jp/300x200.png" alt="")
+  figcaption.m-figure__caption キャプションキャプションキャプションキャプションキャプション
+
+figure.m-figure
+  img.m-figure__image(src="https://placehold.jp/300x200.png" alt="")
+  figcaption.m-figure__caption.m-figure__caption--center キャプション
+```
+*/
 .m-figure {
   display: table;
-  /* キャプションの最小幅。 */
-  min-width: 280px;
+  /* キャプションの最小幅です。コンテンツの最小幅に合わせてください。 */
+  min-width: 260px;
 }
 
 .m-figure__image {
-  display: block;
-  margin: 0 auto;
 }
 
 .m-figure__captionTop,
-.m-figure__captionBottom {
+.m-figure__caption {
   display: table-caption;
   font-size: var(--font-size--secondary);
+  text-align: left;
 }
 
 .m-figure__captionTop {
   caption-side: top;
 }
 
-.m-figure__captionBottom {
+.m-figure__caption {
   caption-side: bottom;
+}
+
+/* Modifier */
+.m-figure--center {
+  margin: auto;
+}
+
+/* Modifier */
+.m-figure__caption--center {
+  text-align: center;
 }
