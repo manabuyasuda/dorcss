@@ -232,7 +232,7 @@ Custom Propertiesもカスケーディングの対象となるため、定数の
 
 ```css
 :root {
-  --max-width: 960px;
+  --max-width: 1080px;
   --color: #000;
   --color--link: #2b70ba;
   --background-color: #fff;
@@ -253,10 +253,13 @@ ToolレイヤーではCustom SelectorsやCustom Media Queries、@apply Ruleを�
 ```css
 @custom-selector :--onEvent :hover, :active, :focus;
 
-@custom-media --md-up screen and (min-width: 768px);
-@custom-media --lg-up screen and (min-width: 1000px);
-@custom-media --md-down screen and (max-width: 767px);
-@custom-media --lg-down screen and (max-width: 999px);
+@custom-media --md-up (min-width: 768px);
+@custom-media --lg-up (min-width: 1080px);
+@custom-media --xl-up (min-width: 1440px);
+@custom-media --md-down (max-width: 767px);
+@custom-media --lg-down (max-width: 1079px);
+@custom-media --xl-down (max-width: 1439px);
+@custom-media --default (--md-up);
 
 :root {
   --clearfix: {

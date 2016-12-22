@@ -39,7 +39,7 @@ tag: Form
   vertical-align: top;
   width: 5em;
 
-  @media (--md-up) {
+  @media (--default) {
     width: 7em;
   }
 }
