@@ -183,15 +183,15 @@ Stateクラスやメディアクエリなど、Blockに関わるスタイルは�
 ```
 css
 ├── common.css
-├── Setting/
-├── Tool/
-├── Base/
-├── Atoms/
-├── Molecules/
-├── Organisms/
-├── Templates/
-├── Pages/
-└── Utility/
+├── setting/
+├── tool/
+├── base/
+├── atoms/
+├── molecules/
+├── organisms/
+├── templates/
+├── pages/
+└── utility/
 ```
 
 ページ特有のスタイルを多く含む場合は、ページ専用のCSSファイルを作ることもできます。
@@ -201,15 +201,15 @@ root
 ├── assets/
 │   └── css/
 │       ├── common.css
-│       ├── Setting/
-│       ├── Tool/
-│       ├── Base/
-│       ├── Atoms/
-│       ├── Molecules/
-│       ├── Organisms/
-│       ├── Templates/
-│       ├── Pages/
-│       └── Utility/
+│       ├── setting/
+│       ├── tool/
+│       ├── base/
+│       ├── atoms/
+│       ├── molecules/
+│       ├── organisms/
+│       ├── templates/
+│       ├── pages/
+│       └── utility/
 ├── css/
 │   └── index.css
 ├── index.html
@@ -367,11 +367,11 @@ Atomic DesignにおけるAtomsは抽象的で目的をもたないものとさ�
 @import "atoms/_embed.css";
 @import "atoms/_label.css";
 @import "atoms/_button.css";
-@import "atoms/_input.css";
-@import "atoms/_textarea.css";
-@import "atoms/_select.css";
-@import "atoms/_inputCheckbox.css";
-@import "atoms/_inputRadio.css";
+@import "atoms/_formInput.css";
+@import "atoms/_formTextarea.css";
+@import "atoms/_formSelect.css";
+@import "atoms/_formCheckbox.css";
+@import "atoms/_formRadio.css";
 ```
 
 ### 5. Molecules
@@ -392,6 +392,8 @@ Moleculesはシンプルで機能的なコンポーネントにすることを�
 @import "molecules/_media.css";
 @import "molecules/_flag.css";
 @import "molecules/_breadcrumb.css";
+@import "molecules/_thumbnail.css";
+@import "molecules/_searchForm.css";
 ```
 
 ### 6. Organisms
@@ -505,18 +507,18 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
  * base...タイプセレクタと属性セレクタのデフォルトスタイルです。
  *
  * ATOMS
- * icon...アイコンフォントです。テンプレートから自動で生成されます。
- * iconExtend...アイコンにスタイルを追加します。
+ * title...`<h1>`で使われる見出しのスタイルです。
+ * button...ボタンのデフォルトスタイルです。
  *
  * MOLECULES
- * listInline...ボタンやラベル、テキストリンクなどを横並びにします。
- * listMark...リストアイテムの左にアイコンを配置します。
+ * table...`<table>`のベースとなるスタイルです。
+ * searchForm...検索フォームコンポーネントです。
  *
  * ORGANISMS
  *
  * TEMPLATE
- * grid...汎用的なグリッドオブジェクトです。`width`の変更はUtilityレイヤーで指定します。
- * header...グローバルヘッダーのレイアウトを指定します。
+ * grid...汎用的なグリッドオブジェクトです。
+ * content...コンテンツエリアのレイアウトを指定します。
  *
  * PAGE
  * blog...ブログエリアのスタイルです。
@@ -574,28 +576,39 @@ input.a-button(type="button" disabled value="disabled")
   padding: 1em 2em;
   border: none;
   border: 1px solid #d0d0d0;
-  border-radius: var(--border-radius);
-  color: inherit;
+  border-radius: var(--form--border-radius);
+  color: #fff;
   font-family: inherit;
   font-size: 1em;
   line-height: 1;
   text-align: center;
   text-decoration: none;
   background: transparent;
+  background-color: var(--color--link);
   cursor: pointer;
   appearance: none;
+  transition-duration: var(--form--transition-duration);
+  transition-property: var(--form--transition-property);
+
   &:--onEvent {
     text-decoration: none;
   }
+
+  &:focus {
+
+  }
+
   &:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
+    cursor: var(--form--disabled-cursor);
+    opacity: var(--form--disabled-opacity);
+    background-color: var(--form--disabled-background-color);
   }
 }
 
 .a-button.is-disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
+  cursor: var(--form--disabled-cursor);
+  opacity: var(--form--disabled-opacity);
+  background-color: var(--form--disabled-background-color);
   pointer-events: none;
 }
 
@@ -607,6 +620,7 @@ input.a-button(type="button" disabled value="disabled")
 .a-button--secondary {}
 .a-button--tertiary {}
 .a-button--quaternary {}
+.a-button--search {}
 ```
 
 ### 注意事項とTODO
