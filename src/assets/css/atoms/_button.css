@@ -25,13 +25,14 @@ input.a-button(type="button" disabled value="disabled")
   border: none;
   border: 1px solid #d0d0d0;
   border-radius: var(--form--border-radius);
-  color: inherit;
+  color: #fff;
   font-family: inherit;
   font-size: 1em;
   line-height: 1;
   text-align: center;
   text-decoration: none;
   background: transparent;
+  background-color: var(--color--link);
   cursor: pointer;
   appearance: none;
   transition-duration: var(--form--transition-duration);

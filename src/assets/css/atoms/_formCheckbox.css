@@ -1,8 +1,8 @@
- /* #inputCheckbox
+ /* #formCheckbox
    -------------------------------------------------------------------------- */
 /*
 ---
-name: inputCheckbox
+name: formCheckbox
 category: Atoms
 tag: Form
 ---
@@ -10,24 +10,24 @@ tag: Form
 `type="checkbox"`のデフォルトスタイルです。
 
 ```jade
-input.a-inputCheckbox(type="checkbox" id="checkbox1")
+input.a-formCheckbox(type="checkbox" id="checkbox1")
 label(for="checkbox1") チェックボックス
 
-input.a-inputCheckbox(type="checkbox" disabled id="checkbox2")
+input.a-formCheckbox(type="checkbox" disabled id="checkbox2")
 label(for="checkbox2" disabled) disabled
 ```
 */
-.a-inputCheckbox {
+.a-formCheckbox {
   display: none;
 }
 
-.a-inputCheckbox + label {
+.a-formCheckbox + label {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
 
-.a-inputCheckbox + label:before {
+.a-formCheckbox + label:before {
   content: "";
   position: relative;
   display: inline-block;
@@ -43,7 +43,7 @@ label(for="checkbox2" disabled) disabled
   background-color: #fff;
 }
 
-.a-inputCheckbox:checked + label:after {
+.a-formCheckbox:checked + label:after {
   content: "";
   background-image: url("/assets/img/check.svg");
   background-repeat: no-repeat;
@@ -57,12 +57,12 @@ label(for="checkbox2" disabled) disabled
   height: 1em;
 }
 
-.a-inputCheckbox:disabled,
-.a-inputCheckbox + label[disabled] {
+.a-formCheckbox:disabled,
+.a-formCheckbox + label[disabled] {
   cursor: var(--form--disabled-cursor);
   opacity: var(--form--disabled-opacity);
 }
 
-.a-inputCheckbox:disabled + label:after {
+.a-formCheckbox:disabled + label:after {
   display: none;
 }

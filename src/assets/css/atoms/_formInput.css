@@ -1,8 +1,8 @@
- /* #input
+ /* #formInput
    -------------------------------------------------------------------------- */
 /*
 ---
-name: input
+name: formInput
 category: Atoms
 tag: Form
 ---
@@ -10,24 +10,24 @@ tag: Form
 `<input>`タグのデフォルトスタイルです。
 
 ```jade
-input.a-input(type="input" placeholder="サンプル")
+input.a-formInput(type="input" placeholder="サンプル")
 
-label(for="input1").a-input__textTop inputタグの説明です。
-input.a-input(type="input" name="email" autocomplete="email" id="input1" placeholder="example@gmail.com")
+label(for="input1").a-formInput__textTop inputタグの説明です。
+input.a-formInput(type="input" name="email" autocomplete="email" id="input1" placeholder="example@gmail.com")
 
-input.a-input(type="input" name="name" autocomplate="name" id="input2" placeholder="山田 太郎")
-label(for="input2").a-input__textBottom inputタグの説明です。
+input.a-formInput(type="input" name="name" autocomplate="name" id="input2" placeholder="山田 太郎")
+label(for="input2").a-formInput__textBottom inputタグの説明です。
 
-input.a-input(type="input" disabled placeholder="disabled")
+input.a-formInput(type="input" disabled placeholder="disabled")
 
-input.a-input.is-success(type="input" placeholder="is-success")
+input.a-formInput.is-success(type="input" placeholder="is-success")
 
-input.a-input.is-caution(type="input" placeholder="is-caution")
+input.a-formInput.is-caution(type="input" placeholder="is-caution")
 
-input.a-input.is-error(type="input" placeholder="is-error")
+input.a-formInput.is-error(type="input" placeholder="is-error")
 ```
 */
-.a-input {
+.a-formInput {
   width: 100%;
   height: 2.5em;
   padding: 0 1em;
@@ -59,7 +59,7 @@ input.a-input.is-error(type="input" placeholder="is-error")
 }
 
 /* 成功 */
-.a-input.is-success {
+.a-formInput.is-success {
   border-color: #3c763d;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 
@@ -70,7 +70,7 @@ input.a-input.is-error(type="input" placeholder="is-error")
 }
 
 /* 注意 */
-.a-input.is-caution {
+.a-formInput.is-caution {
   border-color: #8a6d3b;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 
@@ -81,7 +81,7 @@ input.a-input.is-error(type="input" placeholder="is-error")
 }
 
 /* エラー */
-.a-input.is-error {
+.a-formInput.is-error {
   border-color: #a94442;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 
@@ -91,12 +91,12 @@ input.a-input.is-error(type="input" placeholder="is-error")
   }
 }
 
-.a-input__textTop {
+.a-formInput__textTop {
   display: inline-block;
   margin-bottom: 0.25em;
 }
 
-.a-input__textBottom {
+.a-formInput__textBottom {
   display: inline-block;
   margin-top: 0.25em;
 }

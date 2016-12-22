@@ -1,8 +1,8 @@
- /* #textarea
+ /* #formTextarea
    -------------------------------------------------------------------------- */
 /*
 ---
-name: textarea
+name: formTextarea
 category: Atoms
 tag: Form
 ---
@@ -10,20 +10,20 @@ tag: Form
 `<textarea>`のデフォルトスタイルです。
 
 ```jade
-textarea.a-textarea(placeholder="テキストエリアです")
+textarea.a-formTextarea(placeholder="テキストエリアです")
 
-label(for="textarea1").a-textarea__textTop textareaタグの説明です。
-textarea.a-textarea(id="textarea1" placeholder="テキストエリアです")
+label(for="textarea1").a-formTextarea__textTop textareaタグの説明です。
+textarea.a-formTextarea(id="textarea1" placeholder="テキストエリアです")
 
-textarea.a-textarea(id="textarea2" placeholder="テキストエリアです")
-label(for="textarea2").a-textarea__textTop textareaタグの説明です。
+textarea.a-formTextarea(id="textarea2" placeholder="テキストエリアです")
+label(for="textarea2").a-formTextarea__textTop textareaタグの説明です。
 
-textarea.a-textarea.a-textarea--large(placeholder="テキストエリアです")
+textarea.a-formTextarea.a-formTextarea--large(placeholder="テキストエリアです")
 
-textarea.a-textarea(placeholder="disabled" disabled)
+textarea.a-formTextarea(placeholder="disabled" disabled)
 ```
 */
-.a-textarea {
+.a-formTextarea {
   display: block;
   max-width: 100%;
   width: 100%;
@@ -56,16 +56,16 @@ textarea.a-textarea(placeholder="disabled" disabled)
   }
 }
 
-.a-textarea--large {
+.a-formTextarea--large {
   height: 14em;
 }
 
-.a-textarea__textTop {
+.a-formTextarea__textTop {
   display: inline-block;
   margin-bottom: 0.25rem;
 }
 
-.a-textarea__textBottom {
+.a-formTextarea__textBottom {
   display: inline-block;
   margin-top: 0.25rem;
 }

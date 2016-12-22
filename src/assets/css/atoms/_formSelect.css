@@ -1,8 +1,8 @@
- /* #select
+ /* #formSelect
    -------------------------------------------------------------------------- */
 /*
 ---
-name: select
+name: formSelect
 category: Atoms
 tag: Form
 ---
@@ -10,20 +10,20 @@ tag: Form
 `<select>`タグのデフォルトスタイルです。
 
 ```jade
-.a-select
+.a-formSelect
   select
     option(value="default") 選択してください
     option(value="hokkaido") 北海道
     option(value="akita") 秋田
 
-.a-select
+.a-formSelect
   select(disabled)
     option(value="default") disabled
     option(value="hokkaido") 北海道
     option(value="akita") 秋田
 ```
 */
-.a-select {
+.a-formSelect {
   position: relative;
 
   &:before {
@@ -55,7 +55,7 @@ tag: Form
   }
 }
 
-.a-select > select {
+.a-formSelect > select {
   width: 100%;
   height: 2.5em;
   padding: 0 2em 0 1em;
@@ -84,20 +84,20 @@ tag: Form
 }
 
 /* Firefox Hack */
-.a-select > select {
+.a-formSelect > select {
   text-indent: 0.01px;
   text-overflow: "";
 }
 
 /* IE10以上 */
-.a-select > select::-ms-expand {
+.a-formSelect > select::-ms-expand {
   display: none;
 }
 
 /* IE9ではデフォルトの矢印アイコンを表示する。 */
-.a-select:not(:target):after {
+.a-formSelect:not(:target):after {
   background-image: none\9;
 }
-.a-select > select:not(:target) {
+.a-formSelect > select:not(:target) {
   padding-right: 0\9;
 }

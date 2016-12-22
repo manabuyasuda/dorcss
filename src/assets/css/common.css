@@ -26,11 +26,11 @@
  * embed...Youtubeなどをレスポンシブ対応させます。
  * label...インラインで表示するラベルコンポーネントです。
  * button...ボタンのデフォルトスタイルです。
- * input...`<input>`のデフォルトスタイルです。
- * textarea...`<textarea>`のデフォルトスタイルです。
- * select...`<select>`のデフォルトスタイルです。
- * inputCheckbox...`type="checkbox"`のデフォルトスタイルです。
- * inputRadio...`type="radio"`のデフォルトスタイルです。
+ * formInput...`<input>`のデフォルトスタイルです。
+ * formTextarea...`<textarea>`のデフォルトスタイルです。
+ * formSelect...`<select>`のデフォルトスタイルです。
+ * formCheckbox...`type="checkbox"`のデフォルトスタイルです。
+ * formRadio...`type="radio"`のデフォルトスタイルです。
  *
  * MOLECULES
  * listInline...ボタンやラベル、テキストリンクなどを横並びにします。
@@ -130,11 +130,11 @@
 @import "atoms/_embed.css";
 @import "atoms/_label.css";
 @import "atoms/_button.css";
-@import "atoms/_input.css";
-@import "atoms/_textarea.css";
-@import "atoms/_select.css";
-@import "atoms/_inputCheckbox.css";
-@import "atoms/_inputRadio.css";
+@import "atoms/_formInput.css";
+@import "atoms/_formTextarea.css";
+@import "atoms/_formSelect.css";
+@import "atoms/_formCheckbox.css";
+@import "atoms/_formRadio.css";
 
 /* =============================================================================
    #Molecules

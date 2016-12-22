@@ -1,8 +1,8 @@
- /* #inputRadio
+ /* #formRadio
    -------------------------------------------------------------------------- */
 /*
 ---
-name: inputRadio
+name: formRadio
 category: Atoms
 tag: Form
 ---
@@ -10,27 +10,27 @@ tag: Form
 `type="radio"`のデフォルトスタイルです。
 
 ```jade
-input.a-inputRadio(type="radio" id="radio1" name="radio1")
+input.a-formRadio(type="radio" id="radio1" name="radio1")
 label(for="radio1") ラジオボタン1
 
-input.a-inputRadio(type="radio" id="radio2" name="radio1")
+input.a-formRadio(type="radio" id="radio2" name="radio1")
 label(for="radio2") ラジオボタン2
 
-input.a-inputRadio(type="radio" disabled id="radio3" name="radio3")
+input.a-formRadio(type="radio" disabled id="radio3" name="radio3")
 label(for="radio3" disabled) disabled
 ```
 */
-.a-inputRadio {
+.a-formRadio {
   display: none;
 }
 
-.a-inputRadio + label {
+.a-formRadio + label {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
 
-.a-inputRadio + label:before {
+.a-formRadio + label:before {
   content: "";
   position: relative;
   display: inline-block;
@@ -46,7 +46,7 @@ label(for="radio3" disabled) disabled
   background-color: #fff;
 }
 
-.a-inputRadio:checked + label:after {
+.a-formRadio:checked + label:after {
   content: "";
   background-image: url("/assets/img/disc.svg");
   background-repeat: no-repeat;
@@ -58,14 +58,16 @@ label(for="radio3" disabled) disabled
   margin: auto;
   width: 1em;
   height: 1em;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 
-.a-inputRadio:disabled,
-.a-inputRadio + label[disabled] {
+.a-formRadio:disabled,
+.a-formRadio + label[disabled] {
   cursor: var(--form--disabled-cursor);
   opacity: var(--form--disabled-opacity);
 }
 
-.a-inputRadio:disabled + label:after {
+.a-formRadio:disabled + label:after {
   display: none;
 }
