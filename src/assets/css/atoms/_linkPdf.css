@@ -1,0 +1,38 @@
+ /* #link
+   -------------------------------------------------------------------------- */
+/*
+---
+name: linkPdf
+category: Atoms
+tag: Link
+---
+
+リンク先がPDFであることを示す場合に使います。
+
+```jade
+p: a.a-link(href="#") リンク
+
+p: a.a-link.a-linkPdf(href="#")
+  | PDFを開く
+  span.a-linkPdf__icon(aria-hidden="true")
+
+p: a.a-link.a-linkPdf(href="#")
+  | PDFリンクが長文になったときの表示のされ方をテストします
+  span.a-linkPdf__icon(aria-hidden="true")
+```
+*/
+.a-linkPdf {
+  text-decoration: none;
+
+  &:--onEvent {
+    text-decoration: underline;
+  }
+}
+
+.a-linkPdf__icon:after {
+  @apply --icon;
+  content: var(--icon--file-pdf);
+  top: -0.2em;
+  left: 0.25em;
+  font-size: 1.25em;
+}

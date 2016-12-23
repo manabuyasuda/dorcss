@@ -321,7 +321,8 @@ html {
 html {
   font-size: calc((15 / 16) * 100%);
   line-height: 1.6;
-  @media (--md-up) {
+
+  @media (--default) {
     font-size: calc((16 / 16) * 100%);
   }
 }
@@ -366,6 +367,11 @@ Atomic DesignにおけるAtomsは抽象的で目的をもたないものとさ�
 @import "atoms/_textAttention.css";
 @import "atoms/_textSecondary.css";
 @import "atoms/_list.css";
+@import "atoms/_link.css";
+@import "atoms/_linkMore.css";
+@import "atoms/_linkExternal.css";
+@import "atoms/_linkPdf.css";
+@import "atoms/_linkDownload.css";
 @import "atoms/_delimiter.css";
 @import "atoms/_embed.css";
 @import "atoms/_label.css";

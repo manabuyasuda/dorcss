@@ -2,6 +2,7 @@
   --max-width: 1080px;
   --color: #000;
   --color--link: #2b70ba;
+  --color--link-hover: color(#2b70ba hue(10));
   --background-color: #fff;
   --border-radius: 3px;
 

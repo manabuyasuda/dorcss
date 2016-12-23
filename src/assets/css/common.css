@@ -22,6 +22,11 @@
  * textAttention...注意や注目を引きたい場合に使います。
  * textSecondary...副次的な意味合いを持たせる場合に使います。
  * list...リストアイテムの左に役物などを表示します。
+ * link...テキストリンクのデフォルトスタイルです。
+ * linkMore...クリックを促すようなテキストリンクに使います。
+ * linkExternal...外部リンクであることを示す場合に使います。
+ * linkPdf...リンク先がPDFであることを示す場合に使います。
+ * linkDownload...ファイルをダウンロードするためのリンクであることを示す場合に使います。
  * delimiter...`<hr>`のような区切り記号（デリミタ）です。
  * embed...Youtubeなどをレスポンシブ対応させます。
  * label...インラインで表示するラベルコンポーネントです。
@@ -126,6 +131,11 @@
 @import "atoms/_textAttention.css";
 @import "atoms/_textSecondary.css";
 @import "atoms/_list.css";
+@import "atoms/_link.css";
+@import "atoms/_linkMore.css";
+@import "atoms/_linkExternal.css";
+@import "atoms/_linkPdf.css";
+@import "atoms/_linkDownload.css";
 @import "atoms/_delimiter.css";
 @import "atoms/_embed.css";
 @import "atoms/_label.css";

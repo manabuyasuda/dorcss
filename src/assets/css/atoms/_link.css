@@ -1,0 +1,24 @@
+ /* #link
+   -------------------------------------------------------------------------- */
+/*
+---
+name: link
+category: Atoms
+tag: Link
+---
+
+テキストリンクのデフォルトスタイルです。
+
+```jade
+p: a.a-link(href="#") リンク
+```
+*/
+.a-link {
+  color: var(--color--link);
+  text-decoration: underline;
+
+  &:--onEvent {
+    color: var(--color--link-hover);
+    text-decoration: underline;
+  }
+}

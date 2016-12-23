@@ -1,0 +1,38 @@
+ /* #link
+   -------------------------------------------------------------------------- */
+/*
+---
+name: linkExternal
+category: Atoms
+tag: Link
+---
+
+外部リンクであることを示す場合に使います。
+
+```jade
+p: a.a-link(href="#") リンク
+
+p: a.a-link.a-link.a-linkExternal(href="#")
+  | 外部リンクを開く
+  span.a-linkExternal__icon(aria-hidden="true")
+
+p: a.a-link.a-link.a-linkExternal(href="#")
+  | 外部リンクが長文になったときの表示のされ方をテストします
+  span.a-linkExternal__icon(aria-hidden="true")
+```
+*/
+.a-linkExternal {
+  text-decoration: none;
+
+  &:--onEvent {
+    text-decoration: underline;
+  }
+}
+
+.a-linkExternal__icon:after {
+  @apply --icon;
+  content: var(--icon--external-link);
+  top: -0.15em;
+  left: 0.25em;
+  font-size: 1.25em;
+}

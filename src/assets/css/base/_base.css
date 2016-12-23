@@ -13,7 +13,8 @@ html {
 html {
   font-size: calc((15 / 16) * 100%);
   line-height: 1.6;
-  @media (--md-up) {
+
+  @media (--default) {
     font-size: calc((16 / 16) * 100%);
   }
 }
@@ -38,14 +39,6 @@ li > ol {
  */
 dd {
   margin-left: 0;
-}
-
-a {
-  text-decoration: underline;
-  color: var(--color--link);
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 /**

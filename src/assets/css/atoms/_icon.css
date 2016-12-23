@@ -34,6 +34,9 @@
   --icon--angle-left: "\EA02";
   --icon--angle-right: "\EA03";
   --icon--angle-up: "\EA04";
+  --icon--external-link: "\EA05";
+  --icon--download: "\EA06";
+  --icon--file-pdf: "\EA07";
   
 }
 
@@ -47,3 +50,6 @@
 .a-icon--angle-left:before { content: "\EA02"; }
 .a-icon--angle-right:before { content: "\EA03"; }
 .a-icon--angle-up:before { content: "\EA04"; }
+.a-icon--external-link:before { content: "\EA05"; }
+.a-icon--download:before { content: "\EA06"; }
+.a-icon--file-pdf:before { content: "\EA07"; }

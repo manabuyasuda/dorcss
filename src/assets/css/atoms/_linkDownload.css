@@ -1,0 +1,38 @@
+ /* #link
+   -------------------------------------------------------------------------- */
+/*
+---
+name: linkDownload
+category: Atoms
+tag: Link
+---
+
+ファイルをダウンロードするためのリンクであることを示す場合に使います。
+
+```jade
+p: a.a-link(href="#") リンク
+
+p: a.a-link.a-linkDownload(href="#")
+  | ファイルをダウンロードする
+  span.a-linkDownload__icon(aria-hidden="true")
+
+p: a.a-link.a-linkDownload(href="#")
+  | ダウンロードリンクが長文になったときの表示のされ方をテストします
+  span.a-linkDownload__icon(aria-hidden="true")
+```
+*/
+.a-linkDownload {
+  text-decoration: none;
+
+  &:--onEvent {
+    text-decoration: underline;
+  }
+}
+
+.a-linkDownload__icon:after {
+  @apply --icon;
+  content: var(--icon--download);
+  top: -0.2em;
+  left: 0.25em;
+  font-size: 1.25em;
+}
