@@ -1,17 +1,28 @@
  /* #sidebar
    -------------------------------------------------------------------------- */
 /**
- * サイドバーです。
+ * サイドバーエリアのレイアウトを指定します。
  * `.t-wrapper__2culumn`を使用することで2カラムレイアウトにすることもできます。
  * e.g.
- * .t-wrapper
- *   .t-wrapper__inner
- *     .t-wrapper__2culumn
- *       main.t-wrapper__content
- *       aside.t-wrapper__sidebar
- *         .t-sidebar
+  .t-wrapper
+    .t-wrapper__inner
+      .t-wrapper__2culumn
+        main.t-wrapper__content
+        aside.t-wrapper__sidebar
+          .t-sidebar
  */
 .t-sidebar {
+  display: block;
+  width: 100%;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.t-sidebar__body {
+  padding: 0 1rem 1rem;
+
   & > :last-child {
     margin-bottom: 0;
   }

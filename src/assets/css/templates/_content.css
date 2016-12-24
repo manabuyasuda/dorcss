@@ -1,19 +1,22 @@
  /* #content
    -------------------------------------------------------------------------- */
 /**
- * メインコンテンツです。
+ * コンテンツエリアのレイアウトを指定します。
  * Elementでメインコンテンツ内のレイアウトを指定します。
  * `.t-wrapper__2culumn`を使用することで2カラムレイアウトにすることもできます。
  * e.g.
- * .t-wrapper
- *   .t-wrapper__inner
- *     .t-wrapper__2culumn
- *       main.t-wrapper__content
- *         article.t-content
- *       aside.t-wrapper__sidebar
+  article.t-content
+    header.t-content__head
+      p メインヘッダー
+    .t-content__body
+      p メインコンテンツ
+    footer.t-content__foot
+      p メインフッター
  */
 .t-content {
-  margin-bottom: 3.2rem;
+  display: block;
+  width: 100%;
+
   & > :last-child {
     margin-bottom: 0;
   }
@@ -22,14 +25,11 @@
 /**
  * メインコンテンツのコンテンツヘッダーです。
  * `.t-content__body`に対して下側の余白を指定します。
- * e.g.
- * article.t-content
- *   header.t-content__head
- *   .t-content__body
  */
 .t-content__head {
   margin-bottom: 3.2rem;
   padding: 0 1rem 0;
+
   & > :last-child {
     margin-bottom: 0;
   }
@@ -38,13 +38,10 @@
 /**
  * メインコンテンツの本文です。
  * `.t-content__head`と`.t-content__foot`から余白を指定されることがあります。
- * e.g.
- * article.t-content
- *   header.t-content__head
- *   .t-content__body
  */
 .t-content__body {
   padding: 0 1rem 1rem;
+
   & > :last-child {
     margin-bottom: 0;
   }
@@ -53,14 +50,10 @@
 /**
  * メインコンテンツのコンテンツフッターです。
  * `.t-content__body`に対して上側の余白を指定します。
- * e.g.
- * article.t-content
- *   header.t-content__head
- *   .t-content__body
- *   footer.t-content__foot
  */
 .t-content__foot {
   margin-top: 3.2rem;
+
   & > :last-child {
     margin-bottom: 0;
   }
@@ -71,13 +64,14 @@
  * `.t-content__head`内に配置します。
  * `.t-content__head`によって最後の要素の下方向の余白がなくなります。
  * e.g.
- * article.t-content
- *   header.t-content__head
- *     h1.t-content__title
- *   .t-content__body
+  article.t-content
+    header.t-content__head
+      h1.t-content__title
+    .t-content__body
  */
 .t-content__title {
   margin-bottom: 1.6rem;
+
   & > :last-child {
     margin-bottom: 0;
   }
@@ -87,16 +81,17 @@
  * `h2`のラップ要素（1つ目の`section`）として下方向に余白を指定します。
  * `.t-content__body`によって最後の要素の下方向の余白がなくなります。
  * e.g.
- * article.t-content
- *   header.t-content__head
- *   .t-content__body
- *     section.t-content__firstSection
- *       h2
- *     section.t-content__firstSection
- *       h2
+  article.t-content
+    header.t-content__head
+    .t-content__body
+      section.t-content__firstSection
+        h2
+      section.t-content__firstSection
+        h2
  */
 .t-content__firstSection {
   margin-bottom: 3.2rem;
+
   & > :last-child {
     margin-bottom: 0;
   }
@@ -105,14 +100,15 @@
 /**
  * `h2`の下に余白を指定します。
  * e.g.
- * article.t-content
- *   header.t-content__head
- *   .t-content__body
- *     section.t-content__firstSection
- *       h2.t-content__heading2
+  article.t-content
+    header.t-content__head
+    .t-content__body
+      section.t-content__firstSection
+        h2.t-content__heading2
  */
 .t-content__heading2 {
   margin-bottom: 1.6rem;
+
   & > :last-child {
     margin-bottom: 0;
   }
@@ -122,18 +118,19 @@
  * `h3`のラップ要素（2つ目の`section`）として下方向に余白を指定します。
  * `.t-content__firstSection`によって最後の要素の下方向の余白がなくなります。
  * e.g.
- * .t-content__body
- *   section.t-content__firstSection
- *     h2.t-content__heading2
- *     section.t-content__secondSection
- *       h3
- *   section.t-content__firstSection
- *     h2.t-content__heading2
- *     section.t-content__secondSection
- *       h3
+  .t-content__body
+    section.t-content__firstSection
+      h2.t-content__heading2
+      section.t-content__secondSection
+        h3
+    section.t-content__firstSection
+      h2.t-content__heading2
+      section.t-content__secondSection
+        h3
  */
 .t-content__secondSection {
   margin-bottom: 1.6rem;
+
   & > :last-child {
     margin-bottom: 0;
   }
@@ -142,18 +139,19 @@
 /**
  * `h3`の下に余白を指定します。
  * e.g.
- * .t-content__body
- *   section.t-content__firstSection
- *     h2.t-content__heading2
- *     section.t-content__secondSection
- *       h3.t-content__heading3
- *   section.t-content__firstSection
- *     h2.t-content__heading2
- *     section.t-content__secondSection
- *       h3.t-content__heading3
+  .t-content__body
+    section.t-content__firstSection
+      h2.t-content__heading2
+      section.t-content__secondSection
+        h3.t-content__heading3
+    section.t-content__firstSection
+      h2.t-content__heading2
+      section.t-content__secondSection
+        h3.t-content__heading3
  */
 .t-content__heading3 {
   margin-bottom: 0.8rem;
+
   & > :last-child {
     margin-bottom: 0;
   }
@@ -163,11 +161,11 @@
  * `.t-content__secondSection`同士の間に区切り記号（デリミタ）を表示して通常より大きめに余白をとります。
  * `.t-content__firstSection`のModifierとして指定します。
  * e.g.
- * .t-content__body
- *   section.t-content__firstSection.t-content__firstSection--delimiter
- *     h2.t-content__heading2
- *     section.t-content__secondSection
- *     section.t-content__secondSection
+  .t-content__body
+    section.t-content__firstSection.t-content__firstSection--delimiter
+      h2.t-content__heading2
+      section.t-content__secondSection
+      section.t-content__secondSection
  */
 .t-content__firstSection--delimiter >  .t-content__secondSection:not(:last-of-type):after {
   content: "";
@@ -182,6 +180,7 @@
  */
 .t-content__text {
   margin-bottom: 1.2rem;
+
   & > :last-child {
     margin-bottom: 0;
   }
@@ -192,6 +191,7 @@
  */
 .t-content__textSmall {
   margin-bottom: 0.6rem;
+
   & > :last-child {
     margin-bottom: 0;
   }

@@ -1,7 +1,10 @@
  /* #wrapper
    -------------------------------------------------------------------------- */
 /**
- * メインコンテンツ、もしくはメインコンテンツとサイドバーをラップします。
+ * `body`直下に配置するラッパーコンポーネントです。
+ * グローバルヘッダーやグローバルフッター、メインコンテンツやサイドバーといった
+ * サイトの基本となるレイアウトを指定します。ただし、それぞれの具体的なレイアウトは
+ * `.t-header`や`.t-content`で指定します。
  * `.t-wrapper__1culumn`で1カラムレイアウト、
  * `.t-wrapper__2culumn`で2カラムレイアウトにすることができます。
  */
@@ -10,104 +13,186 @@
   width: 100%;
 }
 
-/**
- * グローバルヘッダーエリアです。
- * e.g.
- * .t-wrapper
- *   header.t-wrapper__header
- *     .t-header
- *   .t-wrapper__inner
- */
+/* グローバルヘッダーエリアです。 */
 .t-wrapper__header {
-  margin-bottom: 3.2rem;
   & > :last-child {
     margin-bottom: 0;
   }
 }
 
-/**
- * パンくずリストのレイアウトを指定します。
- * e.g.
- * .t-wrapper
- *   header.t-wrapper__header
- *   .t-wrapper__breadcrumb
- *     .t-wrapper__breadcrumbInner
- *       ol.p-breadcrumb
- *         li.p-breadcrumb__item
- *           a.p-breadcrumb__link(href="#")
- */
-.t-wrapper__breadcrumb {
-  margin-bottom: 3.2rem;
-  padding: 0 1rem 0;
-}
-
-.t-wrapper__breadcrumInner {
-  display: block;
-  width: 100%;
-  max-width: calc(var(--max-width) - 16 * 2px);
-  max-width: calc(var(--max-width) - 2rem);
-  margin-right: auto;
-  margin-left: auto;
-  padding: 1rem 0;
-}
-
-/**
- * メインコンテンツの最大幅を指定します。
- * e.g.
- * .t-wrapper
- *   header.t-wrapper__header
- *   .t-wrapper__inner
- *     .t-wrapper__2culumn
- */
-.t-wrapper__inner {
+.t-wrapper__headerInner {
   display: block;
   width: 100%;
   max-width: var(--max-width);
   margin-right: auto;
   margin-left: auto;
+  padding: 1rem;
+}
+
+/* パンくずリストのレイアウトを指定します。 */
+.t-wrapper__breadcrumb {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.t-wrapper__breadcrumInner {
+  display: block;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem;
+}
+
+.t-wrapper__hero {
+  display: block;
+  width: 100%;
+}
+
+.t-wrapper__heroInner {
+  display: block;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 1rem;
+}
+
+/* グローバルフッターです。 */
+.t-wrapper__footer {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.t-wrapper__footerInner {
+  display: block;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem;
 }
 
 /**
  * メインコンテンツを1カラムレイアウトにしたいときに指定します。
  * e.g.
- * .t-wrapper__inner
- *   .t-wrapper__1culumn
- *     main.t-wrapper__content
+  .t-wrapper(style="background-color:#ddd;")
+    header.t-wrapper__header(style="background-color:#eee;")
+      .t-wrapper__headerInner
+        .t-header
+          p グローバルヘッダー
+
+    .t-wrapper__hero(style="background-color:#eee;")
+      .t-wrapper__heroInner
+        p ヒーローイメージ
+
+    .t-wrapper__1culumn
+      .t-wrapper__inner
+        main.t-wrapper__content
+          article.t-content(style="background-color:#eee;")
+            header.t-content__head
+              p メインヘッダー
+            .t-content__body
+              p メインコンテンツ
+
+    footer.t-wrapper__footer(style="background-color:#eee;")
+      .t-wrapper__footerInner
+        .t-footer
+          p グローバルフッター
  */
 .t-wrapper__1culumn {
+  display: block;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+
+.t-wrapper__1culumn > .t-wrapper__inner {
+  display: block;
+  width: 100%;
+  @apply --listUnstyled;
+}
+
+.t-wrapper__1culumn .t-wrapper__content {
+  display: block;
   width: 100%;
 }
 
 /**
  * メインコンテンツとサイドバーを2カラムレイアウトにしたいときに指定します。
  * e.g.
- * .t-wrapper__inner
- *   .t-wrapper__2culumn
- *     main.t-wrapper__content
- *     aside.t-wrapper__sidebar
+  .t-wrapper(style="background-color:#ddd;")
+    header.t-wrapper__header(style="background-color:#eee;")
+      .t-wrapper__headerInner
+        .t-header
+          p グローバルヘッダー
+
+    .t-wrapper__breadcrumb
+      .t-wrapper__breadcrumInner(style="background-color:#eee;")
+        ol.m-breadcrumb
+          li.m-breadcrumb__item
+            a.m-breadcrumb__link(href="#") ホーム
+          li.m-breadcrumb__item ページ名
+
+    .t-wrapper__2culumn
+      .t-wrapper__inner
+        main.t-wrapper__content
+          article.t-content(style="background-color:#eee;")
+            header.t-content__head
+              p メインヘッダー
+            .t-content__body
+              p メインコンテンツ
+        aside.t-wrapper__sidebar
+          .t-sidebar__body(style="background-color:#eee;")
+            p サイドバー
+
+    footer.t-wrapper__footer(style="background-color:#eee;")
+      .t-wrapper__footerInner
+        .t-footer
+          p グローバルフッター
  */
 .t-wrapper__2culumn {
+  display: block;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+
+.t-wrapper__2culumn > .t-wrapper__inner {
   display: block;
   margin-left: -2rem;
   font-size: 0;
   @apply --listUnstyled;
 }
 
-.t-wrapper__2culumn > .t-wrapper__content,
-.t-wrapper__2culumn > .t-wrapper__sidebar {
+.t-wrapper__2culumn .t-wrapper__content {
+  margin-bottom: 1.6rem;
+}
+
+.t-wrapper__2culumn .t-wrapper__content,
+.t-wrapper__2culumn .t-wrapper__sidebar {
   display: inline-block;
   width: 100%;
   padding-left: 2rem;
   font-size: medium;
   font-size: 1rem;
-  verticat-align: top;
+  vertical-align: top;
 }
 
 @media (--default) {
-  .t-wrapper__2culumn > .t-wrapper__content {
+  .t-wrapper__2culumn .t-wrapper__content {
     width: calc((8 / 12) * 100%);
+    margin-bottom: 0;
   }
-  .t-wrapper__2culumn > .t-wrapper__sidebar {
+  .t-wrapper__2culumn .t-wrapper__sidebar {
     width: calc((4 / 12) * 100%);
   }
 }

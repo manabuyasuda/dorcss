@@ -1,0 +1,70 @@
+extend /_includes/_layout
+append variables
+  //- Required
+  - var pageTitle= "Templatesのテストページです";
+  - var pageDescription= site.description;
+  - var pageKeywords= site.keywords;
+  //- Optional
+  - var pageOgpTitle= "Templatesのテストページです";
+  - var pageOgpImage= site.ogpImage
+  - var pageLang= "ja";
+  - var pageOgpType= "article";
+  //- Not modified
+  - var pageUrl= relativePath;
+
+block content
+  .t-wrapper(style="margin-bottom:6rem;")
+    header.t-wrapper__header(style="background-color:#eee;")
+      .t-wrapper__headerInner
+        .t-header
+          p グローバルヘッダー
+
+    .t-wrapper__breadcrumb
+      .t-wrapper__breadcrumInner(style="background-color:#eee;")
+        ol.m-breadcrumb
+          li.m-breadcrumb__item
+            a.m-breadcrumb__link(href="#") ホーム
+          li.m-breadcrumb__item ページ名
+
+    .t-wrapper__2culumn
+      .t-wrapper__inner
+        main.t-wrapper__content
+          article.t-content(style="background-color:#eee;")
+            header.t-content__head
+              p メインヘッダー
+            .t-content__body
+              p メインコンテンツ
+        aside.t-wrapper__sidebar
+          .t-sidebar__body(style="background-color:#eee;")
+            p サイドバー
+
+    footer.t-wrapper__footer(style="background-color:#eee;")
+      .t-wrapper__footerInner
+        .t-footer
+          p グローバルフッター
+
+
+
+  .t-wrapper
+    header.t-wrapper__header(style="background-color:#eee;")
+      .t-wrapper__headerInner
+        .t-header
+          p グローバルヘッダー
+
+    .t-wrapper__hero(style="background-color:#eee;")
+      .t-wrapper__heroInner
+        p ヒーローイメージ
+
+    .t-wrapper__1culumn
+      .t-wrapper__inner
+        main.t-wrapper__content
+          article.t-content(style="background-color:#eee;")
+            header.t-content__head
+              p メインヘッダー
+            .t-content__body
+              p メインコンテンツ
+
+    footer.t-wrapper__footer(style="background-color:#eee;")
+      .t-wrapper__footerInner
+        .t-footer
+          p グローバルフッター

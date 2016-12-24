@@ -1,9 +1,12 @@
  /* #grid
    -------------------------------------------------------------------------- */
+/**
+ * 汎用的なグリッドオブジェクトです。
+ */
 .t-grid {
+  @apply --listUnstyled;
   display: block;
   font-size: 0;
-  @apply --listUnstyled;
 }
 
 .t-grid__item {
@@ -19,6 +22,7 @@
  */
 .t-grid--medium {
   margin-left: -2rem;
+
   & > .t-grid__item {
     padding-left: 2rem;
   }
@@ -43,6 +47,7 @@
  */
 .t-grid--center {
   text-align: center;
+
   & > .t-grid__item {
     text-align: left;
   }
@@ -50,6 +55,7 @@
 @media (--md-up) {
   .t-grid--center-md {
     text-align: center;
+
     & > .t-grid__item {
       text-align: left;
     }
@@ -58,6 +64,7 @@
 @media (--lg-up) {
   .t-grid--center-lg {
     text-align: center;
+
     & > .t-grid__item {
       text-align: left;
     }
@@ -69,6 +76,7 @@
  */
 .t-grid--right {
   text-align: right;
+
   & > .t-grid__item {
     text-align: left;
   }
@@ -76,6 +84,7 @@
 @media (--md-up) {
   .t-grid--right-md {
     text-align: right;
+
     & > .t-grid__item {
       text-align: left;
     }
@@ -84,6 +93,7 @@
 @media (--lg-up) {
   .t-grid--right-lg {
     text-align: right;
+
     & > .t-grid__item {
       text-align: left;
     }
@@ -96,6 +106,7 @@
 .t-grid--reverse {
   text-align: left;
   direction: rtl;
+
   & > .t-grid__item {
     text-align: left;
     direction: ltr;
@@ -105,6 +116,7 @@
   .t-grid--reverse-md {
     text-align: left;
     direction: rtl;
+
     & > .t-grid__item {
       text-align: left;
       direction: ltr;
@@ -115,6 +127,7 @@
   .t-grid--reverse-lg {
     text-align: left;
     direction: rtl;
+
     & > .t-grid__item {
       text-align: left;
       direction: ltr;
@@ -131,6 +144,7 @@
  */
 .t-grid--col2 > .t-grid__item {
   width: calc((6 / 12) * 100%);
+
   &:nth-of-type(n+3) {
     margin-top: 1.6rem;
   }
@@ -138,6 +152,7 @@
 .t-grid--col2-md > .t-grid__item,
 .t-grid--col2-lg > .t-grid__item {
   margin-top: 1.6rem;
+
   &:first-of-type {
     margin-top: 0;
   }
@@ -145,9 +160,11 @@
 @media (--md-up) {
   .t-grid--col2-md > .t-grid__item {
     width: calc((6 / 12) * 100%);
+
     &:nth-of-type(n+3) {
       margin-top: 1.6rem;
     }
+
     &:nth-of-type(2) {
       margin-top: 0;
     }
@@ -156,9 +173,11 @@
 @media (--lg-up) {
   .t-grid--col2-lg > .t-grid__item {
     width: calc((6 / 12) * 100%);
+
     &:nth-of-type(n+3) {
       margin-top: 1.6rem;
     }
+
     &:nth-of-type(2) {
       margin-top: 0;
     }
@@ -170,6 +189,7 @@
  */
 .t-grid--col3 > .t-grid__item {
   width: calc((4 / 12) * 100%);
+
   &:nth-of-type(n+4) {
     margin-top: 1.6rem;
   }
@@ -177,6 +197,7 @@
 .t-grid--col3-md > .t-grid__item,
 .t-grid--col3-lg > .t-grid__item {
   margin-top: 1.6rem;
+
   &:first-of-type,
   &:nth-of-type(2) {
     margin-top: 0;
@@ -185,9 +206,11 @@
 @media (--md-up) {
   .t-grid--col3-md > .t-grid__item {
     width: calc((4 / 12) * 100%);
+
     &:nth-of-type(n+4) {
       margin-top: 1.6rem;
     }
+
     &:nth-of-type(2),
     &:nth-of-type(3) {
       margin-top: 0;
@@ -197,9 +220,11 @@
 @media (--lg-up) {
   .t-grid--col3-lg > .t-grid__item {
     width: calc((4 / 12) * 100%);
+
     &:nth-of-type(n+4) {
       margin-top: 1.6rem;
     }
+
     &:nth-of-type(2),
     &:nth-of-type(3) {
       margin-top: 0;
@@ -212,6 +237,7 @@
  */
 .t-grid--col4 > .t-grid__item {
   width: calc((3 / 12) * 100%);
+
   &:nth-of-type(n+5) {
     margin-top: 1.6rem;
   }
@@ -219,6 +245,7 @@
 .t-grid--col4-md > .t-grid__item,
 .t-grid--col4-lg > .t-grid__item {
   margin-top: 1.6rem;
+
   &:first-of-type,
   &:nth-of-type(2) {
     margin-top: 0;
@@ -233,9 +260,11 @@
 @media (--md-up) {
   .t-grid--col4-md > .t-grid__item {
     width: calc((3 / 12) * 100%);
+
     &:nth-of-type(n+5) {
       margin-top: 1.6rem;
     }
+
     &:nth-of-type(2),
     &:nth-of-type(3),
     &:nth-of-type(4) {
@@ -246,9 +275,11 @@
 @media (--lg-up) {
   .t-grid--col4-lg > .t-grid__item {
     width: calc((3 / 12) * 100%);
+
     &:nth-of-type(n+5) {
       margin-top: 1.6rem;
     }
+
     &:nth-of-type(2),
     &:nth-of-type(3),
     &:nth-of-type(4) {

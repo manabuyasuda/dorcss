@@ -14,6 +14,6 @@
 .p-blog__content img {}
 .p-blog__content code {}
 .p-blog__content pre code {}
-.p-blog__content:last-child {
+.p-blog__content > :last-child {
   margin-bottom: 0;
 }
