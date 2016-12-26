@@ -64,7 +64,7 @@
  * blog...ブログエリアのスタイルです。
  *
  * UTILITY
- * align...画像などを左右や中央に配置します。
+ * image...画像の汎用スタイルです。
  * text...テキストのスタイルに関するスタイルです。
  * display...要素の表示や改行をコントロールするスタイルです。
  * col...レスポンシブに対応した`width`プロパティを指定します。
@@ -222,7 +222,7 @@
  * pxのような絶対値ではなく、remや%のような相対値を指定することを推奨します。
  * プレフィックス（接頭辞）として`.u-`をつけます。
  */
-@import "utility/_align.css";
+@import "utility/_image.css";
 @import "utility/_text.css";
 @import "utility/_display.css";
 @import "utility/_col.css";

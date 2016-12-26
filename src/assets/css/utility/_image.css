@@ -1,0 +1,84 @@
+ /* #display
+   -------------------------------------------------------------------------- */
+/*
+---
+name: image
+category: Utility
+---
+
+画像の汎用スタイルです。
+
+```jade
+img.u-image--full(src="https://placehold.jp/300x200.png" alt="")
+
+img.u-image-left(src="https://placehold.jp/300x200.png" alt="")
+
+img.u-image-center(src="https://placehold.jp/300x200.png" alt="")
+
+img.u-image-right(src="https://placehold.jp/300x200.png" alt="")
+```
+*/
+.u-image--full {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.u-image-left {
+  display: block !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+@media (--md-up) {
+  .u-image-left-md {
+    display: block !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+}
+@media (--lg-up) {
+  .u-image-left-lg {
+    display: block !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+}
+
+.u-image-center {
+  display: block !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+@media (--md-up) {
+  .u-image-center-md {
+    display: block !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
+@media (--lg-up) {
+  .u-image-center-lg {
+    display: block !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
+
+.u-image-right {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+@media (--md-up) {
+  .u-image-right-md {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
+@media (--lg-up) {
+  .u-image-right-lg {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
