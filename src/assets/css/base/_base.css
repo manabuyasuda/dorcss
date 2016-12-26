@@ -19,9 +19,26 @@ html {
   }
 }
 
+/* 日本語 */
+html[lang^="ja"] {
+  font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  /*font-family: "Noto Sans Japanese", sans-serif;*/
+}
+
+/* 英語 */
+html[lang^="en"] {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  /*font-family: "Noto Sans", sans-serif;*/
+}
+
+/* 中国語(簡体字) */
+html[lang="zh-cn"] {
+  font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif;
+  /*font-family: "Noto Sans SC", sans-serif;*/
+}
+
 body {
   color: var(--color);
-  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: var(--font-weight--normal);
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
@@ -29,9 +46,9 @@ body {
   background-color: var(--background-color);
 }
 
-li > ul,
-li > ol {
-  margin-bottom: 0;
+ul,
+ol {
+  padding-left: 1.5em;
 }
 
 /**
@@ -50,6 +67,16 @@ dd {
 [lang="ja"] address,
 [lang="ja"] dfn {
   font-style: normal;
+}
+
+/* 全角幅のフォント(和文フォントなど)にプロポーショナルメトリクスを指定します。 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-feature-settings: "palt";
 }
 
 b,
@@ -76,10 +103,12 @@ input::-ms-reveal {
   visibility: hidden;
 }
 
+/* Normalize.cssをリセットします。 */
 figure {
   margin: 0;
 }
 
+/* ブロック要素の上下のマージンをリセットします。 */
 h1, h2, h3, h4, h5, h6,
 ul, ol, dl,
 blockquote, p, address,
