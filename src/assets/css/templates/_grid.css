@@ -3,6 +3,52 @@
 /**
  * 汎用的なグリッドオブジェクトです。
  */
+/*
+---
+name: grid
+category: Templates
+tag: Grid
+---
+
+グリッドシステムです。カラムごとに任意の値を指定したい場合に使います。
+カラムの指定はutility/_col.cssのスタイルを使います。
+
+以下のような指定ができます。
+
+- `.u-col-8of12` カラム数の指定。
+- `.t-grid--medium` ガターの指定。
+- `.t-grid--reverse` カラムの反転。
+- `.t-grid--center` カラムのセンタリング。
+- `.t-grid--right` カラムの右寄せ。
+
+```jade
+.t-grid.t-grid--medium(style="margin-bottom:4rem;")
+  .t-grid__item.u-col-8of12-md
+    p 8カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item.u-col-4of12-md
+    p 4カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+
+.t-grid.t-grid--medium.t-grid--reverse-md(style="margin-bottom:4rem;")
+  .t-grid__item.u-col-8of12-md
+    p 8カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item.u-col-4of12-md
+    p 4カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+
+.t-grid.t-grid--medium.t-grid--center-md
+  .t-grid__item.u-col-8of12-md
+    p 8カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+
+.t-grid.t-grid--medium.t-grid--right-md
+  .t-grid__item.u-col-8of12-md
+    p 8カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+```
+*/
 .t-grid {
   @apply --listUnstyled;
   display: block;
@@ -14,7 +60,7 @@
   width: 100%;
   font-size: medium;
   font-size: 1rem;
-  verticat-align: top;
+  vertical-align: top;
 }
 
 /**
@@ -135,6 +181,67 @@
   }
 }
 
+/*
+---
+name: grid--col
+category: Templates
+tag: Grid
+---
+
+グリッドシステムです。1/2や1/3のような均等なカラムを指定できます。
+カラム間の余白は`var(--t-grid--margin-top)`で統一しています。
+
+以下のような指定ができます。
+
+- 1/2から1/4までの均等なカラム指定。
+- ブレイクポイントなしから、`-md`、`-lg`での指定。
+
+```jade
+.t-grid.t-grid--medium.t-grid--col3(style="margin-bottom:4rem;")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+
+.t-grid.t-grid--medium.t-grid--col2-md.t-grid--col3-lg(style="margin-bottom:4rem;")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+```
+*/
+:root {
+  --t-grid--margin-top: 1.6rem;
+}
+
 [class*="t-grid--col"] > .t-grid__item >:last-child {
   margin-bottom: 0;
 }
@@ -146,12 +253,12 @@
   width: calc((6 / 12) * 100%);
 
   &:nth-of-type(n+3) {
-    margin-top: 1.6rem;
+    margin-top: var(--t-grid--margin-top);
   }
 }
 .t-grid--col2-md > .t-grid__item,
 .t-grid--col2-lg > .t-grid__item {
-  margin-top: 1.6rem;
+  margin-top: var(--t-grid--margin-top);
 
   &:first-of-type {
     margin-top: 0;
@@ -162,7 +269,7 @@
     width: calc((6 / 12) * 100%);
 
     &:nth-of-type(n+3) {
-      margin-top: 1.6rem;
+      margin-top: var(--t-grid--margin-top);
     }
 
     &:nth-of-type(2) {
@@ -175,7 +282,7 @@
     width: calc((6 / 12) * 100%);
 
     &:nth-of-type(n+3) {
-      margin-top: 1.6rem;
+      margin-top: var(--t-grid--margin-top);
     }
 
     &:nth-of-type(2) {
@@ -191,16 +298,7 @@
   width: calc((4 / 12) * 100%);
 
   &:nth-of-type(n+4) {
-    margin-top: 1.6rem;
-  }
-}
-.t-grid--col3-md > .t-grid__item,
-.t-grid--col3-lg > .t-grid__item {
-  margin-top: 1.6rem;
-
-  &:first-of-type,
-  &:nth-of-type(2) {
-    margin-top: 0;
+    margin-top: var(--t-grid--margin-top);
   }
 }
 @media (--md-up) {
@@ -208,7 +306,7 @@
     width: calc((4 / 12) * 100%);
 
     &:nth-of-type(n+4) {
-      margin-top: 1.6rem;
+      margin-top: var(--t-grid--margin-top);
     }
 
     &:nth-of-type(2),
@@ -222,7 +320,7 @@
     width: calc((4 / 12) * 100%);
 
     &:nth-of-type(n+4) {
-      margin-top: 1.6rem;
+      margin-top: var(--t-grid--margin-top);
     }
 
     &:nth-of-type(2),
@@ -239,16 +337,7 @@
   width: calc((3 / 12) * 100%);
 
   &:nth-of-type(n+5) {
-    margin-top: 1.6rem;
-  }
-}
-.t-grid--col4-md > .t-grid__item,
-.t-grid--col4-lg > .t-grid__item {
-  margin-top: 1.6rem;
-
-  &:first-of-type,
-  &:nth-of-type(2) {
-    margin-top: 0;
+    margin-top: var(--t-grid--margin-top);
   }
 }
 .t-grid--col3.t-grid--col4-md > .t-grid__item,
@@ -262,7 +351,7 @@
     width: calc((3 / 12) * 100%);
 
     &:nth-of-type(n+5) {
-      margin-top: 1.6rem;
+      margin-top: var(--t-grid--margin-top);
     }
 
     &:nth-of-type(2),
@@ -277,7 +366,7 @@
     width: calc((3 / 12) * 100%);
 
     &:nth-of-type(n+5) {
-      margin-top: 1.6rem;
+      margin-top: var(--t-grid--margin-top);
     }
 
     &:nth-of-type(2),
