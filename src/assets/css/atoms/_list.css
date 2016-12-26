@@ -10,6 +10,20 @@ tag: List
 リストアイテムの左に役物などを表示します。
 
 ```jade
+ul.t-content__text
+  li デフォルトのulタグのリストです。
+    ul
+      li デフォルトのulタグのリストです。
+      li デフォルトのulタグのリストです。
+  li デフォルトのulタグのリストです。
+
+ol.t-content__text
+  li デフォルトのolタグのリストです。
+    ol
+      li デフォルトのolタグのリストです。
+      li デフォルトのolタグのリストです。
+  li デフォルトのulタグのリストです。
+
 ul.a-list.t-content__textSmall
   li リストです。複数行になったときの表示方法を確認します。複数行になったときの表示方法を確認します。複数行になったときの表示方法を確認します。
 
@@ -57,6 +71,10 @@ ol.a-list.a-list--order.t-content__text
 .a-list--note > li:before {
   content: "※";
 }
+/* 英語では注釈にアスタリスクを使う。 */
+[lang="en"] .a-list--note > li:before {
+  content: "*";
+}
 
 /* ※1 list */
 .a-list--noteOrder > li {
@@ -69,6 +87,10 @@ ol.a-list.a-list--order.t-content__text
     content: "※" counter(noteOrder);
     padding-right: 0.25em;
   }
+}
+/* 英語では注釈にアスタリスクを使う。 */
+[lang="en"] .a-list--noteOrder > li:before {
+  content: "*" counter(noteOrder);
 }
 
 /* (1) list */
