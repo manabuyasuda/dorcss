@@ -66,7 +66,7 @@
  * UTILITY
  * image...画像の汎用スタイルです。
  * text...テキストのスタイルに関するスタイルです。
- * display...要素の表示や改行をコントロールするスタイルです。
+ * display...`<br>`タグに指定をして、改行をブレイクポイントごとにコントロールします。
  * col...レスポンシブに対応した`width`プロパティを指定します。
  */
 
@@ -224,5 +224,5 @@
  */
 @import "utility/_image.css";
 @import "utility/_text.css";
-@import "utility/_display.css";
+@import "utility/_break.css";
 @import "utility/_col.css";

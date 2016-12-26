@@ -1,0 +1,52 @@
+ /* #break
+   -------------------------------------------------------------------------- */
+/*
+---
+name: break
+category: Utility
+---
+
+`<br>`タグに指定をして、改行をブレイクポイントごとにコントロールします。
+
+```jade
+p.t-content__text 常に
+  br
+  | 改行されます。
+
+p.t-content__text ブレイクポイント以降は
+  br.u-break-none-md
+  | 改行されません。
+
+p.t-content__text ブレイクポイント以降に
+  br.u-break-none.u-break-md
+  | 改行されます。
+```
+*/
+.u-break-none {
+  display: none !important;
+}
+@media (--md-up) {
+  .u-break-none-md {
+    display: none !important;
+  }
+}
+
+@media (--lg-up) {
+  .u-break-none-lg {
+    display: none !important;
+  }
+}
+
+.u-break {
+  display: block !important;
+}
+@media (--md-up) {
+  .u-break-md {
+    display: block !important;
+  }
+}
+@media (--lg-up) {
+  .u-break-lg {
+    display: block !important;
+  }
+}
