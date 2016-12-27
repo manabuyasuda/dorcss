@@ -1,5 +1,40 @@
  /* #content
    -------------------------------------------------------------------------- */
+/*
+---
+name: content
+category: Templates
+---
+
+コンテンツエリアのレイアウト例です。
+
+```jade
+.t-content__body
+  section.t-content__firstSection
+    h2.t-content__heading2.a-heading2 見出し2
+    section.t-content__secondSection
+      h3.t-content__heading3.a-heading3 見出し3
+      p.t-content__text ボディーテキスト
+      p.t-content__text ボディーテキスト
+
+      .t-grid.t-grid--medium.t-grid--col2-md.t-content__text
+        .t-grid__item
+          figure.m-figure
+            img.m-figure__image(src="https://placehold.jp/600x400.png" alt="")
+            figcaption.m-figure__caption.m-figure__caption--center キャプション
+        .t-grid__item
+          figure.m-figure
+            img.m-figure__image(src="https://placehold.jp/600x400.png" alt="")
+            figcaption.m-figure__caption.m-figure__caption--center キャプション
+
+      ul.t-content__text.a-list.a-list--note
+        li 注釈リスト
+        li 注釈リスト
+  section.t-content__firstSection
+    h2.t-content__heading2.a-heading2 見出し2
+    p.t-content__text ボディーテキスト
+```
+*/
 /**
  * コンテンツエリアのレイアウトを指定します。
  * Elementでメインコンテンツ内のレイアウトを指定します。

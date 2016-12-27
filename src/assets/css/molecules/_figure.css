@@ -26,8 +26,8 @@ figure.m-figure
 */
 .m-figure {
   display: table;
-  /* キャプションの最小幅です。コンテンツの最小幅に合わせてください。 */
-  min-width: 260px;
+  /* キャプションの最小幅です。 */
+  min-width: 100px;
 }
 
 .m-figure__image {
