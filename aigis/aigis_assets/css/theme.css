@@ -325,7 +325,7 @@
 @media screen and (min-width: 768px) {
   .aigis-contents__body {
     margin-left: 1rem;
-    padding-left: 280px;
+    padding-left: 220px;
 
   }
 }
@@ -333,6 +333,6 @@
 @media screen and (min-width: 768px) {
   .aigis-sidemenu {
     position: fixed;
-    width: 280px;
+    width: 220px;
   }
 }
