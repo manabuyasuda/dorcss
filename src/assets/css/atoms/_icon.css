@@ -37,6 +37,7 @@
   --icon--external-link: "\EA05";
   --icon--download: "\EA06";
   --icon--file-pdf: "\EA07";
+  --icon--caret-right: "\EA08";
   
 }
 
@@ -53,3 +54,4 @@
 .a-icon--external-link:before { content: "\EA05"; }
 .a-icon--download:before { content: "\EA06"; }
 .a-icon--file-pdf:before { content: "\EA07"; }
+.a-icon--caret-right:before { content: "\EA08"; }

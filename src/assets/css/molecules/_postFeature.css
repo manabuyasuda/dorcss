@@ -1,0 +1,108 @@
+ /* #postFeature
+   -------------------------------------------------------------------------- */
+/*
+---
+name: postFeature
+category: Molecules
+tag: Contents
+---
+
+画像リンクです。（`.m-postSummary`よりも）特に目立たせたい場合に使います。
+
+```jade
+.t-grid.t-grid--medium.t-grid--col2-md
+  .t-grid__item
+    a.m-postFeature.m-postFeature--fixed(href="#")
+      .m-postFeature__image
+        img(src="https://placehold.jp/600x400.png" alt="")
+      .m-postFeature__body
+        .m-postFeature__inner
+          span.m-postFeature__icon(aria-hidden="true")
+          h2.m-postFeature__heading 見出しです
+    .m-postFeature__foot
+      p フッターテキストです
+
+  .t-grid__item
+    a.m-postFeature.m-postFeature--fixed(href="#")
+      .m-postFeature__image
+        img(src="https://placehold.jp/600x400.png" alt="")
+      .m-postFeature__body
+        .m-postFeature__inner
+          span.m-postFeature__icon(aria-hidden="true")
+          h2.m-postFeature__heading 見出しです
+    .m-postFeature__foot
+      p フッターテキストです
+```
+*/
+:root {
+  --m-postFeature--duration: 0.3s;
+}
+
+.m-postFeature {
+  position: relative;
+  display: block;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+  transition-duration: var(--m-postFeature--duration);
+}
+
+.m-postFeature__body {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.m-postFeature__inner {
+  position: relative;
+  width: 100%;
+  padding: 1em;
+  padding-right: 2.5em;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition-duration: var(--m-postFeature--duration);
+}
+
+.m-postFeature__icon {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+.m-postFeature__icon:before {
+  @apply --icon;
+  content: var(--icon--angle-right);
+}
+
+.m-postFeature__heading {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.m-postFeature__foot {
+  margin-top: 0.5em;
+}
+
+.m-postFeature__image {
+  transition-duration: var(--m-postFeature--duration);
+}
+.m-postFeature__image > img {
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+
+/* State */
+.m-postFeature:--onEvent {
+  text-decoration: none;
+
+  & .m-postFeature__image {
+    opacity: 0.8;
+  }
+
+  & .m-postFeature__inner {
+    opacity: 0.8;
+  }
+}

@@ -47,7 +47,8 @@
  * media...画像とテキストが横並びになるオブジェクトです。
  * flag...画像とテキストが横並びになるオブジェクトです。垂直方向の指定ができます。
  * breadcrumb...パンくずリストオブジェクトです。
- * thumbnail...リンク付きのサムネイル画像とテキストからなるコンポーネントです。
+ * postSummary...ページへの画像リンクです。画像と見出しなどの概要を伴います。
+ * postFeature...ページへの画像リンクです。（`.m-postSummary`よりも）特に目立たせたい場合に使います。
  * searchForm...検索フォームコンポーネントです。
  *
  * ORGANISMS
@@ -166,7 +167,8 @@
 @import "molecules/_media.css";
 @import "molecules/_flag.css";
 @import "molecules/_breadcrumb.css";
-@import "molecules/_thumbnail.css";
+@import "molecules/_postSummary.css";
+@import "molecules/_postFeature.css";
 @import "molecules/_searchForm.css";
 
 /* =============================================================================
