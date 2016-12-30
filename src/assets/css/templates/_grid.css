@@ -301,6 +301,14 @@ tag: Grid
     margin-top: var(--t-grid--margin-top);
   }
 }
+.t-grid--col3-md > .t-grid__item,
+.t-grid--col3-lg > .t-grid__item {
+  margin-top: var(--t-grid--margin-top);
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
 @media (--md-up) {
   .t-grid--col3-md > .t-grid__item {
     width: calc((4 / 12) * 100%);
