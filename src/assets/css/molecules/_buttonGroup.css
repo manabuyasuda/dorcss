@@ -1,0 +1,50 @@
+/*
+---
+name: buttonGroup
+category: Molecules
+---
+
+複数のボタンをグルーピングします。モバイルで縦に並び、タブレット以降で横に並びます。
+
+```jade
+.m-buttonGroup
+  .m-buttonGroup__item
+    a.m-buttonGroup__button.a-button(href="#") メールで問い合わせる
+  .m-buttonGroup__item
+    a.m-buttonGroup__button.a-button(href="#") フォームで問い合わせる
+```
+*/
+.m-buttonGroup {
+  @apply --listUnstyled;
+
+  @media (--default) {
+    display: table;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.m-buttonGroup__item {
+  display: block;
+
+  @media (--default) {
+    display: table-cell;
+    vertical-align: top;
+    margin-left: -1em;
+  }
+}
+
+.m-buttonGroup__item:not(:first-of-type) {
+  margin-top: 1em;
+
+  @media (--default) {
+    margin-top: 0;
+    padding-left: 1em;
+  }
+}
+
+.m-buttonGroup__button {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+}
