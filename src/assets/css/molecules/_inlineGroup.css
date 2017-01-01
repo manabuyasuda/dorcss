@@ -1,0 +1,39 @@
+ /* #inlineGroup
+   -------------------------------------------------------------------------- */
+/*
+---
+name: inlineGroup
+category: Molecules
+---
+
+ボタンやラベル、テキストリンクなどを横並びにします。
+
+```jade
+ul.m-inlineGroup.m-inlineGroup--medium.t-content__text
+  li.m-inlineGroup__item
+    a.a-link(href="#") リンク1
+  li.m-inlineGroup__item
+    a.a-link(href="#") リンク2
+
+.m-inlineGroup.m-inlineGroup--medium
+  .m-inlineGroup__item
+    input.a-formRadio(type="radio" id="radio1" name="radio1")
+    label(for="radio1") ラジオボタン1
+  .m-inlineGroup__item
+    input.a-formRadio(type="radio" id="radio2" name="radio1")
+    label(for="radio2") ラジオボタン2
+```
+*/
+.m-inlineGroup {
+  display: block;
+  @apply --listUnstyled;
+  @apply --clearfix;
+}
+
+.m-inlineGroup__item {
+  float: left;
+}
+
+.m-inlineGroup--medium > .m-inlineGroup__item {
+  margin-right: 1em;
+}

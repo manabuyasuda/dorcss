@@ -10,7 +10,7 @@ tag: Link
 クリックを促すようなテキストリンクに使います。
 
 ```jade
-p: a.a-link(href="#") Moreリンク
+p: a.a-link(href="#") リンク
 
 p: a.a-link.a-linkMore(href="#")
   | 詳しく見る

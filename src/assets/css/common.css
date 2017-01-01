@@ -48,7 +48,8 @@
  * flag...画像とテキストが横並びになるオブジェクトです。垂直方向の指定ができます。
  * breadcrumb...パンくずリストオブジェクトです。
  * postSummary...ページへの画像リンクです。画像と見出しなどの概要を伴います。
- * postFeature...ページへの画像リンクです。（`.m-postSummary`よりも）特に目立たせたい場合に使います。
+ * postFeature...ページへの画像リンクです。（`.m-postSummary`よりも）特に目立たせたい主要なページへの誘導に使います。
+ * buttonGroup...2つのボタンをグルーピングします。
  * searchForm...検索フォームコンポーネントです。
  *
  * ORGANISMS
@@ -158,7 +159,7 @@
  * 後述するOrganismsのスタイルを継承できるように`em`での指定を基本とします。
  * プレフィックス（接頭辞）として`.m-`をつけます。
  */
-@import "molecules/_listInline.css";
+@import "molecules/_inlineGroup.css";
 @import "molecules/_listMark.css";
 @import "molecules/_figure.css";
 @import "molecules/_ratio.css";
@@ -169,6 +170,7 @@
 @import "molecules/_breadcrumb.css";
 @import "molecules/_postSummary.css";
 @import "molecules/_postFeature.css";
+@import "molecules/_buttonGroup.css";
 @import "molecules/_searchForm.css";
 
 /* =============================================================================

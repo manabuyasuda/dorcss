@@ -7,7 +7,7 @@ category: Molecules
 tag: Contents
 ---
 
-画像リンクです。（`.m-postSummary`よりも）特に目立たせたい場合に使います。
+ページへの画像リンクです。（`.m-postSummary`よりも）特に目立たせたい主要なページへの誘導に使います。
 
 ```jade
 .t-grid.t-grid--medium.t-grid--col2-md
