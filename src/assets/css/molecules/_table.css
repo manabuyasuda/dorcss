@@ -1,16 +1,123 @@
  /* #table
    -------------------------------------------------------------------------- */
-.m-table {
+/*
+---
+name: table
+category: Molecules
+tag: Contents
+---
+
+`<table>`のベースとなるスタイルです。
+
+```jade
+.m-table.t-content__text
+  table
+    caption
+      p 事業部ごとの売上額と構成比
+    thead
+      tr
+        th.u-col-4of12.u-col-2of12-md 事業部名
+        th.u-col-4of12.u-col-5of12-md 売上額
+          sup#ref01
+            a.a-link.a-linkNote(href="#note01") 1
+        th.u-col-4of12.u-col-5of12-md 構成比
+    tbody
+      tr
+        th ○○事業部
+        td.m-table__number ○○○億円
+        td.m-table__number ○○%
+      tr
+        th △△事業部
+        td.m-table__number △△億円
+        td.m-table__number △△%
+      tr
+        th □□事業部
+        td.m-table__number □億円
+        td.m-table__number □%
+  ul.m-table__note.a-list.a-list--noteOrder
+    li#note01 売上額の注釈です。
+      a.a-link.a-linkReturn(href="#ref01")
+
+.m-table.m-table--scroll
+  table
+    caption
+      p 事業部ごとの売上額と構成比
+    thead
+      tr
+        th.u-col-4of12.u-col-2of12-md 事業部名
+        th.u-col-4of12.u-col-5of12-md 売上額
+          sup#ref02
+            a.a-link.a-linkNote(href="#note02") 1
+        th.u-col-4of12.u-col-5of12-md 構成比
+    tbody
+      tr
+        th ○○事業部
+        td.m-table__number ○○○億円
+        td.m-table__number ○○%
+      tr
+        th △△事業部
+        td.m-table__number △△億円
+        td.m-table__number △△%
+      tr
+        th □□事業部
+        td.m-table__number □億円
+        td.m-table__number □%
+  ul.m-table__note.a-list.a-list--noteOrder
+    li#note02 売上額の注釈です。
+      a.a-link.a-linkReturn(href="#ref02")
+```
+*/
+.m-table table {
   width: 100%;
-  & th,
-  & td {
-    padding: 1em;
+}
+
+.m-table th,
+.m-table td {
+  padding: 1em;
+  border: 1px solid #ddd;
+}
+
+.m-table thead,
+.m-table th {
+  background-color: #eee;
+}
+
+.m-table caption {
+  margin-bottom: 0.25em;
+  font-size: var(--font-size--secondary);
+  text-align: left;
+
+  @media (--default) {
+    text-align: right;
   }
 }
 
-/**
- * セルを均等にします。`width`を1つだけ指定した場合は、残りのセルが均等になります。
- */
-.m-table--fixed {
-  table-layout: fixed;
+/* テーブルの下に注釈用のリストを配置します。 */
+.m-table__note {
+  margin-top: 0.5em;
+}
+
+.m-table__number {
+  text-align: left;
+
+  @media (--default) {
+    text-align: right;
+  }
+}
+
+/* 横スクロール可能なテーブルにする。 */
+.m-table--scroll {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  min-height: 0.01%;
+}
+
+.m-table--scroll th,
+.m-table--scroll td {
+  white-space: nowrap;
+}
+
+.m-table--scroll .m-table__number {
+  text-align: right;
 }
