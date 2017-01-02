@@ -1,0 +1,28 @@
+ /* #linkNote
+   -------------------------------------------------------------------------- */
+/*
+---
+name: linkNote
+category: Atoms
+tag: Link
+---
+
+注釈へのリンクです。`<sup>`タグの子要素として指定します。
+参照元に戻るリンクには`.linkReturn`を使います。
+
+```jade
+p 注釈へのリンクです
+  sup
+    a.a-link.a-linkNote(href="#note01") 1
+```
+*/
+.a-linkNote:before {
+  content: "※";
+  margin-left: 0.25em;
+}
+
+/* 英語と簡体字では注釈にアスタリスクを使う。 */
+[lang^="en"] .a-linkNote:before,
+[lang="zh-cn"] .a-linkNote:before {
+  content: "*";
+}

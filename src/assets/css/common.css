@@ -27,6 +27,8 @@
  * linkExternal...外部リンクであることを示す場合に使います。
  * linkPdf...リンク先がPDFであることを示す場合に使います。
  * linkDownload...ファイルをダウンロードするためのリンクであることを示す場合に使います。
+ * linkNote...注釈へのリンクです。`<sup>`タグの子要素として指定します。
+ * linkReturn...注釈から参照元に戻るためのリンクです。
  * delimiter...`<hr>`のような区切り記号（デリミタ）です。
  * embed...Youtubeなどをレスポンシブ対応させます。
  * label...インラインで表示するラベルコンポーネントです。
@@ -138,6 +140,8 @@
 @import "atoms/_linkExternal.css";
 @import "atoms/_linkPdf.css";
 @import "atoms/_linkDownload.css";
+@import "atoms/_linkNote.css";
+@import "atoms/_linkReturn.css";
 @import "atoms/_delimiter.css";
 @import "atoms/_embed.css";
 @import "atoms/_label.css";

@@ -1,0 +1,26 @@
+ /* #linkReturn
+   -------------------------------------------------------------------------- */
+/*
+---
+name: linkReturn
+category: Atoms
+tag: Link
+---
+
+注釈から参照元に戻るためのリンクです。
+
+```jade
+a.a-link.a-linkReturn(href="#ref01")
+```
+*/
+.a-linkReturn:before {
+  content: "[本文に戻る]";
+}
+
+[lang^="en"] .a-linkReturn:before {
+  content: "[Back to text]";
+}
+
+[lang="zh-cn"] .a-linkReturn:before {
+  content: "[背在身上]";
+}
