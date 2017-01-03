@@ -44,6 +44,8 @@ body {
   -moz-osx-font-smoothing: auto;
   font-kerning: normal;
   background-color: var(--background-color);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 ul,
@@ -56,6 +58,10 @@ ol {
  */
 dd {
   margin-left: 0;
+}
+
+th {
+  font-weight: var(--font-weight--normal);
 }
 
 /**
