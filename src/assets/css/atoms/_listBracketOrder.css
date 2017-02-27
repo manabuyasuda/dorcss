@@ -1,0 +1,28 @@
+ /* #listBracketOrder
+   -------------------------------------------------------------------------- */
+/*
+---
+name: listBracketOrder
+category: Atoms
+tag: List
+---
+
+括弧で囲んだ順序リストです。
+
+```jade
+ul.a-listBracketOrder
+  li 1つ目のリストです。
+  li 2つ目のリストです。
+```
+*/
+.a-listBracketOrder {
+  @apply --listUnstyled;
+}
+
+.a-listBracketOrder > li {
+  counter-increment: bracketOrder;
+  &:before {
+    content: "(" counter(bracketOrder) ")";
+    margin-right: 0.25em;
+  }
+}

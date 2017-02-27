@@ -134,7 +134,10 @@
 @import "atoms/_textEmphasis.css";
 @import "atoms/_textAttention.css";
 @import "atoms/_textSecondary.css";
-@import "atoms/_list.css";
+@import "atoms/_listOrder.css";
+@import "atoms/_listNote.css";
+@import "atoms/_listNoteOrder.css";
+@import "atoms/_listBracketOrder.css";
 @import "atoms/_link.css";
 @import "atoms/_linkMore.css";
 @import "atoms/_linkExternal.css";

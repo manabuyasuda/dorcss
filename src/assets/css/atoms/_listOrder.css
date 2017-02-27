@@ -1,0 +1,39 @@
+ /* #listOrder
+   -------------------------------------------------------------------------- */
+/*
+---
+name: listOrder
+category: Atoms
+tag: List
+---
+
+入れ子に対応した順序リストです。
+
+```jade
+ol.a-listOrder
+  li 1階層目のリスト1です。
+  li 1階層目のリスト2です。
+    ol
+      li 2階層目のリスト1です。
+      li 2階層目のリスト2です。
+```
+*/
+.a-listOrder {
+  display: table;
+  @apply --listUnstyled;
+}
+
+.a-listOrder li {
+  display: table-row;
+  counter-increment: order;
+  &:before {
+    content: counters(order, ".") ".";
+    display: table-cell;
+    padding-right: 0.5em;
+    text-align: right;
+  }
+  & ol {
+    counter-reset: order;
+    @apply --listUnstyled;
+  }
+}

@@ -1,0 +1,40 @@
+ /* #listNote
+   -------------------------------------------------------------------------- */
+/*
+---
+name: listNote
+category: Atoms
+tag: List
+---
+
+注釈用のリストです。米印やアスタリスクが表示されます。
+
+```jade
+ul.a-listNote
+  li 1つ目の注釈です。
+  li 2つ目の注釈です。
+
+div(lang="en")
+  ul.a-listNote
+    li This is the first annotation.
+    li This is the second annotation.
+```
+*/
+
+.a-listNote {
+  @apply --listUnstyled;
+}
+
+.a-listNote > li {
+  font-size: var(--font-size--secondary);
+}
+.a-listNote > li:before {
+  content: "※";
+  margin-right: 0.5em;
+}
+
+  /* 英語と簡体字では注釈にアスタリスクを使う。 */
+  [lang="en"] .a-listNote > li:before,
+  [lang="zh-cn"] .a-listNote > li:before {
+    content: "*";
+  }
