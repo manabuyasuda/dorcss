@@ -12,19 +12,21 @@ tag: Link
 ```jade
 p: a.a-link(href="#") リンク
 
-p: a.a-link.a-linkPdf(href="#")
+p: a.a-linkPdf(href="#")
   | PDFを開く
   span.a-linkPdf__icon(aria-hidden="true")
 
-p: a.a-link.a-linkPdf(href="#")
+p: a.a-linkPdf(href="#")
   | PDFリンクが長文になったときの表示のされ方をテストします
   span.a-linkPdf__icon(aria-hidden="true")
 ```
 */
 .a-linkPdf {
+  color: var(--color--link);
   text-decoration: none;
 
   &:--onEvent {
+    color: var(--color--link-hover);
     text-decoration: underline;
   }
 }

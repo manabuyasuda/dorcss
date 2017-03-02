@@ -13,9 +13,19 @@ tag: Link
 ```jade
 p 注釈へのリンクです
   sup
-    a.a-link.a-linkNote(href="#note01") 1
+    a.a-linkNote(href="#note01") 1
 ```
 */
+.a-linkNote {
+  color: var(--color--link);
+  text-decoration: underline;
+
+  &:--onEvent {
+    color: var(--color--link-hover);
+    text-decoration: underline;
+  }
+}
+
 .a-linkNote:before {
   content: "※";
   margin-left: 0.25em;

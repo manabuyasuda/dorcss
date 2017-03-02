@@ -12,19 +12,21 @@ tag: Link
 ```jade
 p: a.a-link(href="#") リンク
 
-p: a.a-link.a-linkDownload(href="#")
+p: a.a-linkDownload(href="#")
   | ファイルをダウンロードする
   span.a-linkDownload__icon(aria-hidden="true")
 
-p: a.a-link.a-linkDownload(href="#")
+p: a.a-linkDownload(href="#")
   | ダウンロードリンクが長文になったときの表示のされ方をテストします
   span.a-linkDownload__icon(aria-hidden="true")
 ```
 */
 .a-linkDownload {
+  color: var(--color--link);
   text-decoration: none;
 
   &:--onEvent {
+    color: var(--color--link-hover);
     text-decoration: underline;
   }
 }
