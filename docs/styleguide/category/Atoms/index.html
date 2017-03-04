@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Styleguide</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex, nofollow">
+    <link href="../../aigis_assets/css/highlight/prism.css" rel="stylesheet">
+    <link href="../../aigis_assets/css/theme.css" rel="stylesheet">
+    <link href="/assets/css/common.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="aigis-container">
+      <div class="aigis-sidemenu">
+        <header class="aigis-header"><a href="../../index.html">Styleguide</a></header>
+        <h2 class="aigis-sidemenu__heading">Category</h2>
+        <nav class="aigis-categoryList"><ul data-path-depth="0"><li data-path-depth="0"><a href="../../category/Atoms/index.html" data-tree-current>Atoms</a></li><li data-path-depth="0"><a href="../../category/Molecules/index.html">Molecules</a></li><li data-path-depth="0"><a href="../../category/Templates/index.html">Templates</a></li><li data-path-depth="0"><a href="../../category/Utility/index.html">Utility</a></li></ul>
+        </nav>
+        <h2 class="aigis-sidemenu__heading">Tag</h2>
+        <nav class="aigis-tags aigis-tagList"><a href="../../tag/Contents/index.html" class="aigis-tags__item aigis-tags__item--Contents">Contents</a><a href="../../tag/Embed/index.html" class="aigis-tags__item aigis-tags__item--Embed">Embed</a><a href="../../tag/Form/index.html" class="aigis-tags__item aigis-tags__item--Form">Form</a><a href="../../tag/Grid/index.html" class="aigis-tags__item aigis-tags__item--Grid">Grid</a><a href="../../tag/Heading/index.html" class="aigis-tags__item aigis-tags__item--Heading">Heading</a><a href="../../tag/Link/index.html" class="aigis-tags__item aigis-tags__item--Link">Link</a><a href="../../tag/List/index.html" class="aigis-tags__item aigis-tags__item--List">List</a><a href="../../tag/Navigation/index.html" class="aigis-tags__item aigis-tags__item--Navigation">Navigation</a><a href="../../tag/Text/index.html" class="aigis-tags__item aigis-tags__item--Text">Text</a>
+        </nav>
+        <h2 class="aigis-sidemenu__heading"><a href="../../color.html">All Colors</a></h2>
+      </div>
+      <div class="aigis-contents">
+        <div class="aigis-contents__body">
+          <nav>
+            <h2 class="aigis-module__heading">TOC</h2>
+            <ul class="aigis-moduleList">
+              <li class="aigis-moduleList__item"><a href="#button">button</a></li>
+              <li class="aigis-moduleList__item"><a href="#delimiter">delimiter</a></li>
+              <li class="aigis-moduleList__item"><a href="#embed">embed</a></li>
+              <li class="aigis-moduleList__item"><a href="#formCheckbox">formCheckbox</a></li>
+              <li class="aigis-moduleList__item"><a href="#formInput">formInput</a></li>
+              <li class="aigis-moduleList__item"><a href="#formRadio">formRadio</a></li>
+              <li class="aigis-moduleList__item"><a href="#formSelect">formSelect</a></li>
+              <li class="aigis-moduleList__item"><a href="#formTextarea">formTextarea</a></li>
+              <li class="aigis-moduleList__item"><a href="#heading2">heading2</a></li>
+              <li class="aigis-moduleList__item"><a href="#heading3">heading3</a></li>
+              <li class="aigis-moduleList__item"><a href="#label">label</a></li>
+              <li class="aigis-moduleList__item"><a href="#lead">lead</a></li>
+              <li class="aigis-moduleList__item"><a href="#link">link</a></li>
+              <li class="aigis-moduleList__item"><a href="#linkDownload">linkDownload</a></li>
+              <li class="aigis-moduleList__item"><a href="#linkExternal">linkExternal</a></li>
+              <li class="aigis-moduleList__item"><a href="#linkMore">linkMore</a></li>
+              <li class="aigis-moduleList__item"><a href="#linkNote">linkNote</a></li>
+              <li class="aigis-moduleList__item"><a href="#linkPdf">linkPdf</a></li>
+              <li class="aigis-moduleList__item"><a href="#linkReturn">linkReturn</a></li>
+              <li class="aigis-moduleList__item"><a href="#listBracketOrder">listBracketOrder</a></li>
+              <li class="aigis-moduleList__item"><a href="#listNote">listNote</a></li>
+              <li class="aigis-moduleList__item"><a href="#listNoteOrder">listNoteOrder</a></li>
+              <li class="aigis-moduleList__item"><a href="#listOrder">listOrder</a></li>
+              <li class="aigis-moduleList__item"><a href="#textAttention">textAttention</a></li>
+              <li class="aigis-moduleList__item"><a href="#textEmphasis">textEmphasis</a></li>
+              <li class="aigis-moduleList__item"><a href="#textSecondary">textSecondary</a></li>
+              <li class="aigis-moduleList__item"><a href="#title">title</a></li>
+            </ul>
+          </nav>
+          <div class="aigis-module">
+            <h2 id="button" class="aigis-module__heading">button</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_button.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Form">Form</li>
+            </ul><p>ボタンのデフォルトスタイルです。</p>
+<div class="aigis-preview">
+  <a href="#" class="a-button">ボタン</a>
+<button type="button" class="a-button">ボタン</button>
+<input type="button" value="ボタン" class="a-button"/><a href="#" class="a-button is-disabled">.is-disabled</a>
+<button type="button" disabled="disabled" class="a-button">disabled</button>
+<input type="button" disabled="disabled" value="disabled" class="a-button"/></div>
+
+<pre><code class="language-jade"><span class="token tag">a.a-button<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">ボタン</span>
+<span class="token tag">button.a-button<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"button"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">ボタン</span>
+<span class="token tag">input.a-button<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"button"</span> value<span class="token operator">=</span><span class="token string">"ボタン"</span></span><span class="token punctuation">)</span></span></span>
+<span class="token tag">a.a-button.is-disabled<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">.is-disabled</span>
+<span class="token tag">button.a-button<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"button"</span> disabled</span><span class="token punctuation">)</span></span></span> <span class="token plain-text">disabled</span>
+<span class="token tag">input.a-button<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"button"</span> disabled value<span class="token operator">=</span><span class="token string">"disabled"</span></span><span class="token punctuation">)</span></span></span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="delimiter" class="aigis-module__heading">delimiter</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_delimiter.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Text">Text</li>
+            </ul><p><code>&lt;hr&gt;</code>のような区切り記号（デリミタ）です。</p>
+<div class="aigis-preview">
+
+<p>テキストです。</p>
+<hr class="a-delimiter"/>
+<p>テキストです</p>
+<hr class="a-delimiter a-delimiter--small"/>
+<p>テキストです</p></div>
+
+<pre><code class="language-jade"><span class="token tag">p</span> <span class="token plain-text">テキストです。</span>
+<span class="token tag">hr.a-delimiter</span>
+<span class="token tag">p</span> <span class="token plain-text">テキストです</span>
+<span class="token tag">hr.a-delimiter.a-delimiter--small</span>
+<span class="token tag">p</span> <span class="token plain-text">テキストです</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="embed" class="aigis-module__heading">embed</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_embed.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Embed">Embed</li>
+            </ul><p>Youtubeなどをレスポンシブ対応させます。</p>
+<div class="aigis-preview">
+
+<div class="a-embed"><iframe width="560" height="315" src="https://www.youtube.com/embed/1OKZOV-iLj4"></iframe></div></div>
+
+<pre><code class="language-jade"><span class="token tag">.a-embed</span><span class="token punctuation">.</span><span class="token multiline-plain-text">
+  &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/1OKZOV-iLj4">&lt;/iframe></span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="formCheckbox" class="aigis-module__heading">formCheckbox</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_formCheckbox.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Form">Form</li>
+            </ul><p><code>type=&quot;checkbox&quot;</code>のデフォルトスタイルです。</p>
+<div class="aigis-preview">
+
+<input type="checkbox" id="checkbox1" class="a-formCheckbox"/>
+<label for="checkbox1">チェックボックス</label>
+<input type="checkbox" disabled="disabled" id="checkbox2" class="a-formCheckbox"/>
+<label for="checkbox2" disabled="disabled">disabled</label></div>
+
+<pre><code class="language-jade"><span class="token tag">input.a-formCheckbox<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"checkbox"</span> id<span class="token operator">=</span><span class="token string">"checkbox1"</span></span><span class="token punctuation">)</span></span></span>
+<span class="token tag">label<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">for</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"checkbox1"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">チェックボックス</span>
+
+<span class="token tag">input.a-formCheckbox<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"checkbox"</span> disabled id<span class="token operator">=</span><span class="token string">"checkbox2"</span></span><span class="token punctuation">)</span></span></span>
+<span class="token tag">label<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">for</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"checkbox2"</span> disabled</span><span class="token punctuation">)</span></span></span> <span class="token plain-text">disabled</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="formInput" class="aigis-module__heading">formInput</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_formInput.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Form">Form</li>
+            </ul><p><code>&lt;input&gt;</code>タグのデフォルトスタイルです。</p>
+<div class="aigis-preview">
+
+<input type="input" placeholder="サンプル" class="a-formInput"/>
+<label for="input1" class="a-formInput__textTop">inputタグの説明です。</label>
+<input type="input" name="email" autocomplete="email" id="input1" placeholder="example@gmail.com" class="a-formInput"/>
+<input type="input" name="name" autocomplate="name" id="input2" placeholder="山田 太郎" class="a-formInput"/>
+<label for="input2" class="a-formInput__textBottom">inputタグの説明です。</label>
+<input type="input" disabled="disabled" placeholder="disabled" class="a-formInput"/>
+<input type="input" placeholder="is-success" class="a-formInput is-success"/>
+<input type="input" placeholder="is-caution" class="a-formInput is-caution"/>
+<input type="input" placeholder="is-error" class="a-formInput is-error"/></div>
+
+<pre><code class="language-jade"><span class="token tag">input.a-formInput<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"input"</span> placeholder<span class="token operator">=</span><span class="token string">"サンプル"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">label<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">for</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"input1"</span></span><span class="token punctuation">)</span></span></span><span class="token tag">.a-formInput__textTop</span> <span class="token tag">input</span>タグの説明です。
+<span class="token tag">input.a-formInput<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"input"</span> name<span class="token operator">=</span><span class="token string">"email"</span> autocomplete<span class="token operator">=</span><span class="token string">"email"</span> id<span class="token operator">=</span><span class="token string">"input1"</span> placeholder<span class="token operator">=</span><span class="token string">"example@gmail.com"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">input.a-formInput<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"input"</span> name<span class="token operator">=</span><span class="token string">"name"</span> autocomplate<span class="token operator">=</span><span class="token string">"name"</span> id<span class="token operator">=</span><span class="token string">"input2"</span> placeholder<span class="token operator">=</span><span class="token string">"山田 太郎"</span></span><span class="token punctuation">)</span></span></span>
+<span class="token tag">label<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">for</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"input2"</span></span><span class="token punctuation">)</span></span></span><span class="token tag">.a-formInput__textBottom</span> <span class="token tag">input</span>タグの説明です。
+
+<span class="token tag">input.a-formInput<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"input"</span> disabled placeholder<span class="token operator">=</span><span class="token string">"disabled"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">input.a-formInput.is-success<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"input"</span> placeholder<span class="token operator">=</span><span class="token string">"is-success"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">input.a-formInput.is-caution<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"input"</span> placeholder<span class="token operator">=</span><span class="token string">"is-caution"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">input.a-formInput.is-error<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"input"</span> placeholder<span class="token operator">=</span><span class="token string">"is-error"</span></span><span class="token punctuation">)</span></span></span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="formRadio" class="aigis-module__heading">formRadio</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_formRadio.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Form">Form</li>
+            </ul><p><code>type=&quot;radio&quot;</code>のデフォルトスタイルです。</p>
+<div class="aigis-preview">
+
+<input type="radio" id="radio1" name="radio1" class="a-formRadio"/>
+<label for="radio1">ラジオボタン1</label>
+<input type="radio" id="radio2" name="radio1" class="a-formRadio"/>
+<label for="radio2">ラジオボタン2</label>
+<input type="radio" disabled="disabled" id="radio3" name="radio3" class="a-formRadio"/>
+<label for="radio3" disabled="disabled">disabled</label></div>
+
+<pre><code class="language-jade"><span class="token tag">input.a-formRadio<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"radio"</span> id<span class="token operator">=</span><span class="token string">"radio1"</span> name<span class="token operator">=</span><span class="token string">"radio1"</span></span><span class="token punctuation">)</span></span></span>
+<span class="token tag">label<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">for</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"radio1"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">ラジオボタン1</span>
+
+<span class="token tag">input.a-formRadio<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"radio"</span> id<span class="token operator">=</span><span class="token string">"radio2"</span> name<span class="token operator">=</span><span class="token string">"radio1"</span></span><span class="token punctuation">)</span></span></span>
+<span class="token tag">label<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">for</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"radio2"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">ラジオボタン2</span>
+
+<span class="token tag">input.a-formRadio<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"radio"</span> disabled id<span class="token operator">=</span><span class="token string">"radio3"</span> name<span class="token operator">=</span><span class="token string">"radio3"</span></span><span class="token punctuation">)</span></span></span>
+<span class="token tag">label<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">for</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"radio3"</span> disabled</span><span class="token punctuation">)</span></span></span> <span class="token plain-text">disabled</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="formSelect" class="aigis-module__heading">formSelect</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_formSelect.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Form">Form</li>
+            </ul><p><code>&lt;select&gt;</code>タグのデフォルトスタイルです。</p>
+<div class="aigis-preview">
+
+<div class="a-formSelect">
+  <select>
+    <option value="default">選択してください</option>
+    <option value="hokkaido">北海道</option>
+    <option value="akita">秋田</option>
+  </select>
+</div>
+<div class="a-formSelect">
+  <select disabled="disabled">
+    <option value="default">disabled</option>
+    <option value="hokkaido">北海道</option>
+    <option value="akita">秋田</option>
+  </select>
+</div></div>
+
+<pre><code class="language-jade"><span class="token tag">.a-formSelect</span>
+  <span class="token tag">select</span>
+    <span class="token tag">option<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">value</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"default"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">選択してください</span>
+    <span class="token tag">option<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">value</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"hokkaido"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">北海道</span>
+    <span class="token tag">option<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">value</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"akita"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">秋田</span>
+
+<span class="token tag">.a-formSelect</span>
+  <span class="token tag">select<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">disabled</span><span class="token punctuation">)</span></span></span>
+    <span class="token tag">option<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">value</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"default"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">disabled</span>
+    <span class="token tag">option<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">value</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"hokkaido"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">北海道</span>
+    <span class="token tag">option<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">value</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"akita"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">秋田</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="formTextarea" class="aigis-module__heading">formTextarea</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_formTextarea.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Form">Form</li>
+            </ul><p><code>&lt;textarea&gt;</code>のデフォルトスタイルです。</p>
+<div class="aigis-preview">
+
+<textarea placeholder="テキストエリアです" class="a-formTextarea"></textarea>
+<label for="textarea1" class="a-formTextarea__textTop">textareaタグの説明です。</label>
+<textarea id="textarea1" placeholder="テキストエリアです" class="a-formTextarea"></textarea>
+<textarea id="textarea2" placeholder="テキストエリアです" class="a-formTextarea"></textarea>
+<label for="textarea2" class="a-formTextarea__textTop">textareaタグの説明です。</label>
+<textarea placeholder="テキストエリアです" class="a-formTextarea a-formTextarea--large"></textarea>
+<textarea placeholder="disabled" disabled="disabled" class="a-formTextarea"></textarea></div>
+
+<pre><code class="language-jade"><span class="token tag">textarea.a-formTextarea<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">placeholder</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"テキストエリアです"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">label<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">for</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"textarea1"</span></span><span class="token punctuation">)</span></span></span><span class="token tag">.a-formTextarea__textTop</span> <span class="token tag">textarea</span>タグの説明です。
+<span class="token tag">textarea.a-formTextarea<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"textarea1"</span> placeholder<span class="token operator">=</span><span class="token string">"テキストエリアです"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">textarea.a-formTextarea<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"textarea2"</span> placeholder<span class="token operator">=</span><span class="token string">"テキストエリアです"</span></span><span class="token punctuation">)</span></span></span>
+<span class="token tag">label<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">for</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"textarea2"</span></span><span class="token punctuation">)</span></span></span><span class="token tag">.a-formTextarea__textTop</span> <span class="token tag">textarea</span>タグの説明です。
+
+<span class="token tag">textarea.a-formTextarea.a-formTextarea--large<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">placeholder</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"テキストエリアです"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">textarea.a-formTextarea<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">placeholder</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"disabled"</span> disabled</span><span class="token punctuation">)</span></span></span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="heading2" class="aigis-module__heading">heading2</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_heading2.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Heading">Heading</li>
+            </ul><p><code>&lt;h2&gt;</code>で使われるような見出しのスタイルです。</p>
+<div class="aigis-preview">
+
+<h2 class="a-heading2 t-content__heading2">h2見出しです</h2>
+<h2 class="a-heading2">h2見出しです</h2></div>
+
+<pre><code class="language-jade"><span class="token tag">h2.a-heading2.t-content__heading2</span> <span class="token plain-text">h2見出しです</span>
+<span class="token tag">h2.a-heading2</span> <span class="token plain-text">h2見出しです</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="heading3" class="aigis-module__heading">heading3</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_heading3.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Heading">Heading</li>
+            </ul><p><code>&lt;h3&gt;</code>で使われるような見出しのスタイルです。</p>
+<div class="aigis-preview">
+
+<h3 class="a-heading3 t-content__heading3">h3見出しです</h3>
+<h3 class="a-heading3">h3見出しです</h3></div>
+
+<pre><code class="language-jade"><span class="token tag">h3.a-heading3.t-content__heading3</span> <span class="token plain-text">h3見出しです</span>
+<span class="token tag">h3.a-heading3</span> <span class="token plain-text">h3見出しです</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="label" class="aigis-module__heading">label</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_label.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Form">Form</li>
+            </ul><p>インラインで表示するラベルコンポーネントです。</p>
+<div class="aigis-preview">
+  <span class="a-label">ラベル</span>
+<label class="a-label">ラベル</label></div>
+
+<pre><code class="language-jade"><span class="token tag">span.a-label</span> <span class="token plain-text">ラベル</span>
+<span class="token tag">label.a-label</span> <span class="token plain-text">ラベル</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="lead" class="aigis-module__heading">lead</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_lead.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Text">Text</li>
+            </ul><p>視覚的に目立たせるときに使うスタイルです。</p>
+<div class="aigis-preview">
+
+<p class="a-lead">リード文です。</p></div>
+
+<pre><code class="language-jade"><span class="token tag">p.a-lead</span> <span class="token plain-text">リード文です。</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="link" class="aigis-module__heading">link</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_link.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Link">Link</li>
+            </ul><p>テキストリンクのデフォルトスタイルです。</p>
+<div class="aigis-preview">
+
+<p><a href="#" class="a-link">リンク</a></p></div>
+
+<pre><code class="language-jade"><span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-link<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> リンク
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="linkDownload" class="aigis-module__heading">linkDownload</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_linkDownload.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Link">Link</li>
+            </ul><p>ファイルをダウンロードするためのリンクであることを示す場合に使います。</p>
+<div class="aigis-preview">
+
+<p><a href="#" class="a-link">リンク</a></p>
+<p><a href="#" class="a-linkDownload">ファイルをダウンロードする<span aria-hidden="true" class="a-linkDownload__icon"></span></a></p>
+<p><a href="#" class="a-linkDownload">ダウンロードリンクが長文になったときの表示のされ方をテストします<span aria-hidden="true" class="a-linkDownload__icon"></span></a></p></div>
+
+<pre><code class="language-jade"><span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-link<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> リンク
+
+<span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-linkDownload<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token punctuation">|</span> ファイルをダウンロードする
+  <span class="token tag">span.a-linkDownload__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-linkDownload<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token punctuation">|</span> ダウンロードリンクが長文になったときの表示のされ方をテストします
+  <span class="token tag">span.a-linkDownload__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="linkExternal" class="aigis-module__heading">linkExternal</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_linkExternal.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Link">Link</li>
+            </ul><p>外部リンクであることを示す場合に使います。</p>
+<div class="aigis-preview">
+
+<p><a href="#" class="a-link">リンク</a></p>
+<p><a href="#" class="a-link a-linkExternal">外部リンクを開く<span aria-hidden="true" class="a-linkExternal__icon"></span></a></p>
+<p><a href="#" class="a-link a-linkExternal">外部リンクが長文になったときの表示のされ方をテストします<span aria-hidden="true" class="a-linkExternal__icon"></span></a></p></div>
+
+<pre><code class="language-jade"><span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-link<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> リンク
+
+<span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-link.a-linkExternal<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token punctuation">|</span> 外部リンクを開く
+  <span class="token tag">span.a-linkExternal__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-link.a-linkExternal<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token punctuation">|</span> 外部リンクが長文になったときの表示のされ方をテストします
+  <span class="token tag">span.a-linkExternal__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="linkMore" class="aigis-module__heading">linkMore</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_linkMore.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Link">Link</li>
+            </ul><p>クリックを促すようなテキストリンクに使います。</p>
+<div class="aigis-preview">
+
+<p><a href="#" class="a-link">リンク</a></p>
+<p><a href="#" class="a-linkMore">詳しく見る<span aria-hidden="true" class="a-linkMore__icon"></span></a></p>
+<p><a href="#" class="a-linkMore">Moreリンクが長文になったときの表示のされ方をテストします<span aria-hidden="true" class="a-linkMore__icon"></span></a></p></div>
+
+<pre><code class="language-jade"><span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-link<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> リンク
+
+<span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-linkMore<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token punctuation">|</span> 詳しく見る
+  <span class="token tag">span.a-linkMore__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-linkMore<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token punctuation">|</span> Moreリンクが長文になったときの表示のされ方をテストします
+  <span class="token tag">span.a-linkMore__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="linkNote" class="aigis-module__heading">linkNote</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_linkNote.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Link">Link</li>
+            </ul><p>注釈へのリンクです。<code>&lt;sup&gt;</code>タグの子要素として指定します。
+参照元に戻るリンクには<code>.linkReturn</code>を使います。</p>
+<div class="aigis-preview">
+
+<p>注釈へのリンクです<sup><a href="#note01" class="a-linkNote">1</a></sup></p></div>
+
+<pre><code class="language-jade"><span class="token tag">p</span> <span class="token plain-text">注釈へのリンクです</span>
+  <span class="token tag">sup</span>
+    <span class="token tag">a.a-linkNote<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#note01"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">1</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="linkPdf" class="aigis-module__heading">linkPdf</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_linkPdf.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Link">Link</li>
+            </ul><p>リンク先がPDFであることを示す場合に使います。</p>
+<div class="aigis-preview">
+
+<p><a href="#" class="a-link">リンク</a></p>
+<p><a href="#" class="a-linkPdf">PDFを開く<span aria-hidden="true" class="a-linkPdf__icon"></span></a></p>
+<p><a href="#" class="a-linkPdf">PDFリンクが長文になったときの表示のされ方をテストします<span aria-hidden="true" class="a-linkPdf__icon"></span></a></p></div>
+
+<pre><code class="language-jade"><span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-link<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> リンク
+
+<span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-linkPdf<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token punctuation">|</span> PDFを開く
+  <span class="token tag">span.a-linkPdf__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">p<span class="token punctuation">:</span></span> <span class="token tag">a.a-linkPdf<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token punctuation">|</span> PDFリンクが長文になったときの表示のされ方をテストします
+  <span class="token tag">span.a-linkPdf__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="linkReturn" class="aigis-module__heading">linkReturn</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_linkReturn.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Link">Link</li>
+            </ul><p>注釈から参照元に戻るためのリンクです。</p>
+<div class="aigis-preview">
+  <a href="#ref01" class="a-link a-linkReturn"></a></div>
+
+<pre><code class="language-jade"><span class="token tag">a.a-link.a-linkReturn<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#ref01"</span></span><span class="token punctuation">)</span></span></span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="listBracketOrder" class="aigis-module__heading">listBracketOrder</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_listBracketOrder.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--List">List</li>
+            </ul><p>括弧で囲んだ順序リストです。</p>
+<div class="aigis-preview">
+
+<ul class="a-listBracketOrder">
+  <li>1つ目のリストです。</li>
+  <li>2つ目のリストです。</li>
+</ul></div>
+
+<pre><code class="language-jade"><span class="token tag">ul.a-listBracketOrder</span>
+  <span class="token tag">li</span> <span class="token plain-text">1つ目のリストです。</span>
+  <span class="token tag">li</span> <span class="token plain-text">2つ目のリストです。</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="listNote" class="aigis-module__heading">listNote</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_listnote.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--List">List</li>
+            </ul><p>注釈用のリストです。米印やアスタリスクが表示されます。</p>
+<div class="aigis-preview">
+
+<ul class="a-listNote">
+  <li>1つ目の注釈です。</li>
+  <li>2つ目の注釈です。</li>
+</ul>
+<div lang="en">
+  <ul class="a-listNote">
+    <li>This is the first annotation.</li>
+    <li>This is the second annotation.</li>
+  </ul>
+</div></div>
+
+<pre><code class="language-jade"><span class="token tag">ul.a-listNote</span>
+  <span class="token tag">li</span> <span class="token plain-text">1つ目の注釈です。</span>
+  <span class="token tag">li</span> <span class="token plain-text">2つ目の注釈です。</span>
+
+<span class="token tag">div<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">lang</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"en"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">ul.a-listNote</span>
+    <span class="token tag">li</span> <span class="token plain-text">This is the first annotation.</span>
+    <span class="token tag">li</span> <span class="token plain-text">This is the second annotation.</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="listNoteOrder" class="aigis-module__heading">listNoteOrder</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_listNoteOrder.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--List">List</li>
+            </ul><p>順序つきの注釈用リストです。米印やアスタリスクが表示されます。</p>
+<div class="aigis-preview">
+
+<ul class="a-listNoteOrder">
+  <li>1つ目の注釈です。</li>
+  <li>2つ目の注釈です。</li>
+</ul>
+<div lang="en">
+  <ul class="a-listNoteOrder">
+    <li>This is the first annotation.</li>
+    <li>This is the second annotation.</li>
+  </ul>
+</div></div>
+
+<pre><code class="language-jade"><span class="token tag">ul.a-listNoteOrder</span>
+  <span class="token tag">li</span> <span class="token plain-text">1つ目の注釈です。</span>
+  <span class="token tag">li</span> <span class="token plain-text">2つ目の注釈です。</span>
+
+<span class="token tag">div<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">lang</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"en"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">ul.a-listNoteOrder</span>
+    <span class="token tag">li</span> <span class="token plain-text">This is the first annotation.</span>
+    <span class="token tag">li</span> <span class="token plain-text">This is the second annotation.</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="listOrder" class="aigis-module__heading">listOrder</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_listOrder.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--List">List</li>
+            </ul><p>入れ子に対応した順序リストです。</p>
+<div class="aigis-preview">
+
+<ol class="a-listOrder">
+  <li>1階層目のリスト1です。</li>
+  <li>1階層目のリスト2です。
+    <ol>
+      <li>2階層目のリスト1です。</li>
+      <li>2階層目のリスト2です。</li>
+    </ol>
+  </li>
+</ol></div>
+
+<pre><code class="language-jade"><span class="token tag">ol.a-listOrder</span>
+  <span class="token tag">li</span> <span class="token plain-text">1階層目のリスト1です。</span>
+  <span class="token tag">li</span> <span class="token plain-text">1階層目のリスト2です。</span>
+    <span class="token tag">ol</span>
+      <span class="token tag">li</span> <span class="token plain-text">2階層目のリスト1です。</span>
+      <span class="token tag">li</span> <span class="token plain-text">2階層目のリスト2です。</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="textAttention" class="aigis-module__heading">textAttention</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_textAttention.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Text">Text</li>
+            </ul><p><code>&lt;p&gt;</code>や<code>&lt;strong&gt;</code>で使われるようなスタイルです。注意や注目を引きたい場合に使います。</p>
+<div class="aigis-preview">
+
+<p class="a-textAttention t-content__text">注目を引きたい文章です。</p>
+<p>通常の文章です。<strong class="a-textAttention">ただし、○○は注意してください。</strong></p></div>
+
+<pre><code class="language-jade"><span class="token tag">p.a-textAttention.t-content__text</span> <span class="token plain-text">注目を引きたい文章です。</span>
+<span class="token tag">p</span> <span class="token plain-text">通常の文章です。</span>
+  <span class="token tag">strong.a-textAttention</span> <span class="token plain-text">ただし、○○は注意してください。</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="textEmphasis" class="aigis-module__heading">textEmphasis</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_textEmphasis.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Text">Text</li>
+            </ul><p><code>&lt;p&gt;</code>や<code>&lt;strong&gt;</code>で使われるようなスタイルです。強調や重要性を示すときに使います。</p>
+<div class="aigis-preview">
+
+<p class="a-textEmphasis t-content__text">重要な文章です。</p>
+<p>一般的な文章です。<strong class="a-textEmphasis">強調したいキーワード</strong>です。</p></div>
+
+<pre><code class="language-jade"><span class="token tag">p.a-textEmphasis.t-content__text</span> <span class="token plain-text">重要な文章です。</span>
+<span class="token tag">p</span> <span class="token plain-text">一般的な文章です。</span>
+  <span class="token tag">strong.a-textEmphasis</span> <span class="token plain-text">強調したいキーワード</span>
+  <span class="token punctuation">|</span> です。
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="textSecondary" class="aigis-module__heading">textSecondary</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_textSecondary.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Text">Text</li>
+            </ul><p><code>&lt;p&gt;</code>や<code>&lt;small&gt;</code>で使われるようなテキストスタイルです。副次的な意味合いを持たせる場合に使います。</p>
+<div class="aigis-preview">
+
+<p class="t-content__textSmall">通常のテキストスタイルです。</p>
+<p class="a-textSecondary">通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。</p></div>
+
+<pre><code class="language-jade"><span class="token tag">p.t-content__textSmall</span> <span class="token plain-text">通常のテキストスタイルです。</span>
+<span class="token tag">p.a-textSecondary</span> <span class="token plain-text">通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="title" class="aigis-module__heading">title</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_title.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Heading">Heading</li>
+            </ul><p><code>&lt;h1&gt;</code>で使われるようなページタイトルのスタイルです。</p>
+<div class="aigis-preview">
+
+<h1 class="a-title t-content__title">ページタイトルです。</h1>
+<h1 class="a-title">ページタイトルです。</h1></div>
+
+<pre><code class="language-jade"><span class="token tag">h1.a-title.t-content__title</span> <span class="token plain-text">ページタイトルです。</span>
+<span class="token tag">h1.a-title</span> <span class="token plain-text">ページタイトルです。</span>
+</code></pre>
+
+          </div>
+          <footer class="aigis-footer">Last update at 2017/03/04 16:56</footer>
+        </div>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/js/jquery-2.2.0.min.js"><\/script>')</script>
+    <script src="/assets/js/common.js"></script>
+  </body>
+</html>

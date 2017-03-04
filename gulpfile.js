@@ -212,3 +212,14 @@ gulp.task('default', ['cleanDest'], function() {
     'browser-sync'
   )
 });
+
+/**
+ * スタイルガイドに必要なファイルを/docsに出力します。
+ */
+gulp.task('cleanDocs', function (cb) {
+  rimraf('docs/', cb);
+});
+gulp.task('docs', ['cleanDocs'], function() {
+  return gulp.src(['dest/styleguide/**/*', 'dest/assets/**/*'], {base: 'dest'})
+  .pipe(gulp.dest('docs/'));
+});

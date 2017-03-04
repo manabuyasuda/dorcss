@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Styleguide</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex, nofollow">
+    <link href="../../aigis_assets/css/highlight/prism.css" rel="stylesheet">
+    <link href="../../aigis_assets/css/theme.css" rel="stylesheet">
+    <link href="/assets/css/common.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="aigis-container">
+      <div class="aigis-sidemenu">
+        <header class="aigis-header"><a href="../../index.html">Styleguide</a></header>
+        <h2 class="aigis-sidemenu__heading">Category</h2>
+        <nav class="aigis-categoryList"><ul data-path-depth="0"><li data-path-depth="0"><a href="../../category/Atoms/index.html">Atoms</a></li><li data-path-depth="0"><a href="../../category/Molecules/index.html" data-tree-current>Molecules</a></li><li data-path-depth="0"><a href="../../category/Templates/index.html">Templates</a></li><li data-path-depth="0"><a href="../../category/Utility/index.html">Utility</a></li></ul>
+        </nav>
+        <h2 class="aigis-sidemenu__heading">Tag</h2>
+        <nav class="aigis-tags aigis-tagList"><a href="../../tag/Contents/index.html" class="aigis-tags__item aigis-tags__item--Contents">Contents</a><a href="../../tag/Embed/index.html" class="aigis-tags__item aigis-tags__item--Embed">Embed</a><a href="../../tag/Form/index.html" class="aigis-tags__item aigis-tags__item--Form">Form</a><a href="../../tag/Grid/index.html" class="aigis-tags__item aigis-tags__item--Grid">Grid</a><a href="../../tag/Heading/index.html" class="aigis-tags__item aigis-tags__item--Heading">Heading</a><a href="../../tag/Link/index.html" class="aigis-tags__item aigis-tags__item--Link">Link</a><a href="../../tag/List/index.html" class="aigis-tags__item aigis-tags__item--List">List</a><a href="../../tag/Navigation/index.html" class="aigis-tags__item aigis-tags__item--Navigation">Navigation</a><a href="../../tag/Text/index.html" class="aigis-tags__item aigis-tags__item--Text">Text</a>
+        </nav>
+        <h2 class="aigis-sidemenu__heading"><a href="../../color.html">All Colors</a></h2>
+      </div>
+      <div class="aigis-contents">
+        <div class="aigis-contents__body">
+          <nav>
+            <h2 class="aigis-module__heading">TOC</h2>
+            <ul class="aigis-moduleList">
+              <li class="aigis-moduleList__item"><a href="#breadcrumb">breadcrumb</a></li>
+              <li class="aigis-moduleList__item"><a href="#buttonGroup">buttonGroup</a></li>
+              <li class="aigis-moduleList__item"><a href="#figure">figure</a></li>
+              <li class="aigis-moduleList__item"><a href="#inlineGroup">inlineGroup</a></li>
+              <li class="aigis-moduleList__item"><a href="#postFeature">postFeature</a></li>
+              <li class="aigis-moduleList__item"><a href="#postSummary">postSummary</a></li>
+              <li class="aigis-moduleList__item"><a href="#searchForm">searchForm</a></li>
+              <li class="aigis-moduleList__item"><a href="#table">table</a></li>
+            </ul>
+          </nav>
+          <div class="aigis-module">
+            <h2 id="breadcrumb" class="aigis-module__heading">breadcrumb</h2>
+            <div class="aigis-module__filepath">/src/assets/css/molecules/_breadcrumb.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Navigation">Navigation</li>
+            </ul><p>パンくずリストオブジェクトです。</p>
+<div class="aigis-preview">
+
+<ol class="m-breadcrumb">
+  <li class="m-breadcrumb__item"><a href="/" class="m-breadcrumb__link a-link">ホーム</a></li>
+  <li class="m-breadcrumb__item"><a href="#" class="m-breadcrumb__link a-link">カテゴリ名</a></li>
+  <li class="m-breadcrumb__item">ページ名</li>
+</ol></div>
+
+<pre><code class="language-jade"><span class="token tag">ol.m-breadcrumb</span>
+  <span class="token tag">li.m-breadcrumb__item</span>
+    <span class="token tag">a.m-breadcrumb__link.a-link<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"/"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">ホーム</span>
+  <span class="token tag">li.m-breadcrumb__item</span>
+    <span class="token tag">a.m-breadcrumb__link.a-link<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">カテゴリ名</span>
+  <span class="token tag">li.m-breadcrumb__item</span> <span class="token plain-text">ページ名</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="buttonGroup" class="aigis-module__heading">buttonGroup</h2>
+            <div class="aigis-module__filepath">/src/assets/css/molecules/_buttonGroup.css</div>
+            <ul class="aigis-tags">
+            </ul><p>複数のボタンをグルーピングします。モバイルで縦に並び、タブレット以降で横に並びます。</p>
+<div class="aigis-preview">
+
+<div class="m-buttonGroup">
+  <div class="m-buttonGroup__item"><a href="#" class="m-buttonGroup__button a-button">メールで問い合わせる</a></div>
+  <div class="m-buttonGroup__item"><a href="#" class="m-buttonGroup__button a-button">フォームで問い合わせる</a></div>
+</div></div>
+
+<pre><code class="language-jade"><span class="token tag">.m-buttonGroup</span>
+  <span class="token tag">.m-buttonGroup__item</span>
+    <span class="token tag">a.m-buttonGroup__button.a-button<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">メールで問い合わせる</span>
+  <span class="token tag">.m-buttonGroup__item</span>
+    <span class="token tag">a.m-buttonGroup__button.a-button<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">フォームで問い合わせる</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="figure" class="aigis-module__heading">figure</h2>
+            <div class="aigis-module__filepath">/src/assets/css/molecules/_figure.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Contents">Contents</li>
+            </ul><p>キャプションをつけた画像コンポーネントです。キャプションは画像の横幅を基準に折り返されます。</p>
+<p>Modifier</p>
+<ul>
+<li><code>.m-figure--center</code> - コンポーネント自体をセンタリングする</li>
+<li><code>.m-figure__caption--center</code> - キャプションをセンタリングする</li>
+</ul>
+<div class="aigis-preview">
+
+<figure class="m-figure m-figure--center"><img src="https://placehold.jp/300x200.png" alt="" class="m-figure__image"/>
+  <figcaption class="m-figure__caption">キャプションキャプションキャプションキャプションキャプション</figcaption>
+</figure>
+<figure class="m-figure"><img src="https://placehold.jp/300x200.png" alt="" class="m-figure__image"/>
+  <figcaption class="m-figure__caption m-figure__caption--center">キャプション</figcaption>
+</figure></div>
+
+<pre><code class="language-jade"><span class="token tag">figure.m-figure.m-figure--center</span>
+  <span class="token tag">img.m-figure__image<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/300x200.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">figcaption.m-figure__caption</span> <span class="token plain-text">キャプションキャプションキャプションキャプションキャプション</span>
+
+<span class="token tag">figure.m-figure</span>
+  <span class="token tag">img.m-figure__image<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/300x200.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">figcaption.m-figure__caption.m-figure__caption--center</span> <span class="token plain-text">キャプション</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="inlineGroup" class="aigis-module__heading">inlineGroup</h2>
+            <div class="aigis-module__filepath">/src/assets/css/molecules/_inlineGroup.css</div>
+            <ul class="aigis-tags">
+            </ul><p>ボタンやラベル、テキストリンクなどを横並びにします。</p>
+<div class="aigis-preview">
+
+<ul class="m-inlineGroup m-inlineGroup--medium t-content__text">
+  <li class="m-inlineGroup__item"><a href="#" class="a-link">リンク1</a></li>
+  <li class="m-inlineGroup__item"><a href="#" class="a-link">リンク2</a></li>
+</ul>
+<div class="m-inlineGroup m-inlineGroup--medium">
+  <div class="m-inlineGroup__item">
+    <input type="radio" id="radio1" name="radio1" class="a-formRadio"/>
+    <label for="radio1">ラジオボタン1</label>
+  </div>
+  <div class="m-inlineGroup__item">
+    <input type="radio" id="radio2" name="radio1" class="a-formRadio"/>
+    <label for="radio2">ラジオボタン2</label>
+  </div>
+</div></div>
+
+<pre><code class="language-jade"><span class="token tag">ul.m-inlineGroup.m-inlineGroup--medium.t-content__text</span>
+  <span class="token tag">li.m-inlineGroup__item</span>
+    <span class="token tag">a.a-link<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">リンク1</span>
+  <span class="token tag">li.m-inlineGroup__item</span>
+    <span class="token tag">a.a-link<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">リンク2</span>
+
+<span class="token tag">.m-inlineGroup.m-inlineGroup--medium</span>
+  <span class="token tag">.m-inlineGroup__item</span>
+    <span class="token tag">input.a-formRadio<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"radio"</span> id<span class="token operator">=</span><span class="token string">"radio1"</span> name<span class="token operator">=</span><span class="token string">"radio1"</span></span><span class="token punctuation">)</span></span></span>
+    <span class="token tag">label<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">for</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"radio1"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">ラジオボタン1</span>
+  <span class="token tag">.m-inlineGroup__item</span>
+    <span class="token tag">input.a-formRadio<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"radio"</span> id<span class="token operator">=</span><span class="token string">"radio2"</span> name<span class="token operator">=</span><span class="token string">"radio1"</span></span><span class="token punctuation">)</span></span></span>
+    <span class="token tag">label<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">for</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"radio2"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">ラジオボタン2</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="postFeature" class="aigis-module__heading">postFeature</h2>
+            <div class="aigis-module__filepath">/src/assets/css/molecules/_postFeature.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Contents">Contents</li>
+            </ul><p>ページへの画像リンクです。（<code>.m-postSummary</code>よりも）特に目立たせたい主要なページへの誘導に使います。</p>
+<div class="aigis-preview">
+
+<div class="t-grid t-grid--medium t-grid--col2-md">
+  <div class="t-grid__item"><a href="#" class="m-postFeature m-postFeature--fixed">
+      <div class="m-postFeature__image"><img src="https://placehold.jp/600x400.png" alt=""/></div>
+      <div class="m-postFeature__body">
+        <div class="m-postFeature__inner"><span aria-hidden="true" class="m-postFeature__icon"></span>
+          <h2 class="m-postFeature__heading">見出しです</h2>
+        </div>
+      </div></a>
+    <div class="m-postFeature__foot">
+      <p>フッターテキストです</p>
+    </div>
+  </div>
+  <div class="t-grid__item"><a href="#" class="m-postFeature m-postFeature--fixed">
+      <div class="m-postFeature__image"><img src="https://placehold.jp/600x400.png" alt=""/></div>
+      <div class="m-postFeature__body">
+        <div class="m-postFeature__inner"><span aria-hidden="true" class="m-postFeature__icon"></span>
+          <h2 class="m-postFeature__heading">見出しです</h2>
+        </div>
+      </div></a>
+    <div class="m-postFeature__foot">
+      <p>フッターテキストです</p>
+    </div>
+  </div>
+</div></div>
+
+<pre><code class="language-jade"><span class="token tag">.t-grid.t-grid--medium.t-grid--col2-md</span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">a.m-postFeature.m-postFeature--fixed<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+      <span class="token tag">.m-postFeature__image</span>
+        <span class="token tag">img<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+      <span class="token tag">.m-postFeature__body</span>
+        <span class="token tag">.m-postFeature__inner</span>
+          <span class="token tag">span.m-postFeature__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+          <span class="token tag">h2.m-postFeature__heading</span> <span class="token plain-text">見出しです</span>
+    <span class="token tag">.m-postFeature__foot</span>
+      <span class="token tag">p</span> <span class="token plain-text">フッターテキストです</span>
+
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">a.m-postFeature.m-postFeature--fixed<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+      <span class="token tag">.m-postFeature__image</span>
+        <span class="token tag">img<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+      <span class="token tag">.m-postFeature__body</span>
+        <span class="token tag">.m-postFeature__inner</span>
+          <span class="token tag">span.m-postFeature__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+          <span class="token tag">h2.m-postFeature__heading</span> <span class="token plain-text">見出しです</span>
+    <span class="token tag">.m-postFeature__foot</span>
+      <span class="token tag">p</span> <span class="token plain-text">フッターテキストです</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="postSummary" class="aigis-module__heading">postSummary</h2>
+            <div class="aigis-module__filepath">/src/assets/css/molecules/_postSummary.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Contents">Contents</li>
+            </ul><p>ページへの画像リンクです。画像と見出しなどの概要を伴います。</p>
+<div class="aigis-preview">
+
+<div class="t-grid t-grid--medium t-grid--col3-md">
+  <div class="t-grid__item"><a href="#" class="m-postSummary">
+      <div class="m-postSummary__image"><img src="https://placehold.jp/600x400.png" alt=""/></div>
+      <div class="m-postSummary__body"><span aria-hidden="true" class="m-postSummary__icon"></span>
+        <h2 class="m-postSummary__heading">見出しです</h2>
+      </div></a></div>
+  <div class="t-grid__item"><a href="#" class="m-postSummary">
+      <div class="m-postSummary__image"><img src="https://placehold.jp/600x400.png" alt=""/></div>
+      <div class="m-postSummary__body"><span aria-hidden="true" class="m-postSummary__icon"></span>
+        <h2 class="m-postSummary__heading">見出しです</h2>
+        <p class="m-postSummary__subHeading">サブ見出しです</p>
+      </div></a>
+    <div class="m-postSummary__foot">
+      <p>フッターテキストです。</p>
+    </div>
+  </div>
+  <div class="t-grid__item"><a href="#" class="m-postSummary">
+      <div class="m-postSummary__body"><span aria-hidden="true" class="m-postSummary__icon"></span>
+        <h2 class="m-postSummary__heading">見出しです</h2>
+        <p class="m-postSummary__subHeading">サブ見出しです</p>
+      </div>
+      <div class="m-postSummary__image"><img src="https://placehold.jp/600x400.png" alt=""/></div></a>
+    <div class="m-postSummary__foot">
+      <p>フッターテキストです。</p>
+    </div>
+  </div>
+</div></div>
+
+<pre><code class="language-jade"><span class="token tag">.t-grid.t-grid--medium.t-grid--col3-md</span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">a.m-postSummary<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+      <span class="token tag">.m-postSummary__image</span>
+        <span class="token tag">img<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+      <span class="token tag">.m-postSummary__body</span>
+        <span class="token tag">span.m-postSummary__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+        <span class="token tag">h2.m-postSummary__heading</span> <span class="token plain-text">見出しです</span>
+
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">a.m-postSummary<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+      <span class="token tag">.m-postSummary__image</span>
+        <span class="token tag">img<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+      <span class="token tag">.m-postSummary__body</span>
+        <span class="token tag">span.m-postSummary__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+        <span class="token tag">h2.m-postSummary__heading</span> <span class="token plain-text">見出しです</span>
+        <span class="token tag">p.m-postSummary__subHeading</span> <span class="token plain-text">サブ見出しです</span>
+    <span class="token tag">.m-postSummary__foot</span>
+      <span class="token tag">p</span> <span class="token plain-text">フッターテキストです。</span>
+
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">a.m-postSummary<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#"</span></span><span class="token punctuation">)</span></span></span>
+      <span class="token tag">.m-postSummary__body</span>
+        <span class="token tag">span.m-postSummary__icon<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">aria-hidden</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"true"</span></span><span class="token punctuation">)</span></span></span>
+        <span class="token tag">h2.m-postSummary__heading</span> <span class="token plain-text">見出しです</span>
+        <span class="token tag">p.m-postSummary__subHeading</span> <span class="token plain-text">サブ見出しです</span>
+      <span class="token tag">.m-postSummary__image</span>
+        <span class="token tag">img<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+    <span class="token tag">.m-postSummary__foot</span>
+      <span class="token tag">p</span> <span class="token plain-text">フッターテキストです。</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="searchForm" class="aigis-module__heading">searchForm</h2>
+            <div class="aigis-module__filepath">/src/assets/css/molecules/_searchForm.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Form">Form</li>
+            </ul><p>検索フォームコンポーネントです。</p>
+<div class="aigis-preview">
+
+<div class="m-searchForm">
+  <div class="m-searchForm__input">
+    <input type="input" name="q" id="m-searchForm__input" placeholder="keywords…" class="a-formInput"/>
+  </div>
+  <div class="m-searchForm__button">
+    <button type="submit" value="検索" class="a-button a-button--full a-button--search">検索</button>
+  </div>
+</div></div>
+
+<pre><code class="language-jade"><span class="token tag">.m-searchForm</span>
+  <span class="token tag">.m-searchForm__input</span>
+    <span class="token tag">input.a-formInput<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"input"</span> name<span class="token operator">=</span><span class="token string">"q"</span> id<span class="token operator">=</span><span class="token string">"m-searchForm__input"</span> placeholder<span class="token operator">=</span><span class="token string">"keywords…"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.m-searchForm__button</span>
+    <span class="token tag">button.a-button.a-button--full.a-button--search<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"submit"</span> value<span class="token operator">=</span><span class="token string">"検索"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">検索</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="table" class="aigis-module__heading">table</h2>
+            <div class="aigis-module__filepath">/src/assets/css/molecules/_table.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Contents">Contents</li>
+            </ul><p><code>&lt;table&gt;</code>のベースとなるスタイルです。</p>
+<div class="aigis-preview">
+
+<div class="m-table t-content__text">
+  <table>
+    <caption>
+      <p>事業部ごとの売上額と構成比</p>
+    </caption>
+    <thead>
+      <tr>
+        <th class="u-col-4of12 u-col-2of12-md">事業部名</th>
+        <th class="u-col-4of12 u-col-5of12-md">売上額<sup id="ref01"><a href="#note01" class="a-link a-linkNote">1</a></sup></th>
+        <th class="u-col-4of12 u-col-5of12-md">構成比</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>○○事業部</th>
+        <td class="m-table__number">○○○億円</td>
+        <td class="m-table__number">○○%</td>
+      </tr>
+      <tr>
+        <th>△△事業部</th>
+        <td class="m-table__number">△△億円</td>
+        <td class="m-table__number">△△%</td>
+      </tr>
+      <tr>
+        <th>□□事業部</th>
+        <td class="m-table__number">□億円</td>
+        <td class="m-table__number">□%</td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="m-table__note a-list a-list--noteOrder">
+    <li id="note01">売上額の注釈です。<a href="#ref01" class="a-link a-linkReturn"></a></li>
+  </ul>
+</div>
+<div class="m-table m-table--scroll">
+  <table>
+    <caption>
+      <p>事業部ごとの売上額と構成比</p>
+    </caption>
+    <thead>
+      <tr>
+        <th class="u-col-4of12 u-col-2of12-md">事業部名</th>
+        <th class="u-col-4of12 u-col-5of12-md">売上額<sup id="ref02"><a href="#note02" class="a-link a-linkNote">1</a></sup></th>
+        <th class="u-col-4of12 u-col-5of12-md">構成比</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>○○事業部</th>
+        <td class="m-table__number">○○○億円</td>
+        <td class="m-table__number">○○%</td>
+      </tr>
+      <tr>
+        <th>△△事業部</th>
+        <td class="m-table__number">△△億円</td>
+        <td class="m-table__number">△△%</td>
+      </tr>
+      <tr>
+        <th>□□事業部</th>
+        <td class="m-table__number">□億円</td>
+        <td class="m-table__number">□%</td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="m-table__note a-list a-list--noteOrder">
+    <li id="note02">売上額の注釈です。<a href="#ref02" class="a-link a-linkReturn"></a></li>
+  </ul>
+</div></div>
+
+<pre><code class="language-jade"><span class="token tag">.m-table.t-content__text</span>
+  <span class="token tag">table</span>
+    <span class="token tag">caption</span>
+      <span class="token tag">p</span> <span class="token plain-text">事業部ごとの売上額と構成比</span>
+    <span class="token tag">thead</span>
+      <span class="token tag">tr</span>
+        <span class="token tag">th.u-col-4of12.u-col-2of12-md</span> <span class="token plain-text">事業部名</span>
+        <span class="token tag">th.u-col-4of12.u-col-5of12-md</span> <span class="token plain-text">売上額</span>
+          <span class="token tag">sup#ref01</span>
+            <span class="token tag">a.a-link.a-linkNote<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#note01"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">1</span>
+        <span class="token tag">th.u-col-4of12.u-col-5of12-md</span> <span class="token plain-text">構成比</span>
+    <span class="token tag">tbody</span>
+      <span class="token tag">tr</span>
+        <span class="token tag">th</span> <span class="token plain-text">○○事業部</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">○○○億円</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">○○%</span>
+      <span class="token tag">tr</span>
+        <span class="token tag">th</span> <span class="token plain-text">△△事業部</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">△△億円</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">△△%</span>
+      <span class="token tag">tr</span>
+        <span class="token tag">th</span> <span class="token plain-text">□□事業部</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">□億円</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">□%</span>
+  <span class="token tag">ul.m-table__note.a-list.a-list--noteOrder</span>
+    <span class="token tag">li#note01</span> <span class="token plain-text">売上額の注釈です。</span>
+      <span class="token tag">a.a-link.a-linkReturn<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#ref01"</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">.m-table.m-table--scroll</span>
+  <span class="token tag">table</span>
+    <span class="token tag">caption</span>
+      <span class="token tag">p</span> <span class="token plain-text">事業部ごとの売上額と構成比</span>
+    <span class="token tag">thead</span>
+      <span class="token tag">tr</span>
+        <span class="token tag">th.u-col-4of12.u-col-2of12-md</span> <span class="token plain-text">事業部名</span>
+        <span class="token tag">th.u-col-4of12.u-col-5of12-md</span> <span class="token plain-text">売上額</span>
+          <span class="token tag">sup#ref02</span>
+            <span class="token tag">a.a-link.a-linkNote<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#note02"</span></span><span class="token punctuation">)</span></span></span> <span class="token plain-text">1</span>
+        <span class="token tag">th.u-col-4of12.u-col-5of12-md</span> <span class="token plain-text">構成比</span>
+    <span class="token tag">tbody</span>
+      <span class="token tag">tr</span>
+        <span class="token tag">th</span> <span class="token plain-text">○○事業部</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">○○○億円</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">○○%</span>
+      <span class="token tag">tr</span>
+        <span class="token tag">th</span> <span class="token plain-text">△△事業部</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">△△億円</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">△△%</span>
+      <span class="token tag">tr</span>
+        <span class="token tag">th</span> <span class="token plain-text">□□事業部</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">□億円</span>
+        <span class="token tag">td.m-table__number</span> <span class="token plain-text">□%</span>
+  <span class="token tag">ul.m-table__note.a-list.a-list--noteOrder</span>
+    <span class="token tag">li#note02</span> <span class="token plain-text">売上額の注釈です。</span>
+      <span class="token tag">a.a-link.a-linkReturn<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">href</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"#ref02"</span></span><span class="token punctuation">)</span></span></span>
+</code></pre>
+
+          </div>
+          <footer class="aigis-footer">Last update at 2017/03/04 16:56</footer>
+        </div>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/js/jquery-2.2.0.min.js"><\/script>')</script>
+    <script src="/assets/js/common.js"></script>
+  </body>
+</html>

@@ -1,0 +1,4685 @@
+@charset "utf-8";
+
+/**
+ * SETTING
+ * setting...Custom Propertiesを使ったグローバル変数です。
+ *
+ * TOOL
+ * tool...Custom SelectorsやCustom Media Queries、@apply Ruleを使った汎用的なルールです。
+ *
+ * BASE
+ * normalize...Normalize.cssをインポートしています。
+ * base...タイプセレクタと属性セレクタのデフォルトスタイルです。
+ *
+ * ATOMS
+ * icon...アイコンフォントです。テンプレートから自動で生成されます。
+ * iconExtend...アイコンにスタイルを追加します。
+ * title...`<h1>`で使われる見出しのスタイルです。
+ * heading2...`<h2>`で使われるような見出しのスタイルです。
+ * heading3...`<h3>`で使われるような見出しのスタイルです。
+ * lead...視覚的に目立たせるときに使うスタイルです。
+ * textEmphasis...強調や重要性を示すときに使います。
+ * textAttention...注意や注目を引きたい場合に使います。
+ * textSecondary...副次的な意味合いを持たせる場合に使います。
+ * list...リストアイテムの左に役物などを表示します。
+ * link...テキストリンクのデフォルトスタイルです。
+ * linkMore...クリックを促すようなテキストリンクに使います。
+ * linkExternal...外部リンクであることを示す場合に使います。
+ * linkPdf...リンク先がPDFであることを示す場合に使います。
+ * linkDownload...ファイルをダウンロードするためのリンクであることを示す場合に使います。
+ * linkNote...注釈へのリンクです。`<sup>`タグの子要素として指定します。
+ * linkReturn...注釈から参照元に戻るためのリンクです。
+ * delimiter...`<hr>`のような区切り記号（デリミタ）です。
+ * embed...Youtubeなどをレスポンシブ対応させます。
+ * label...インラインで表示するラベルコンポーネントです。
+ * button...ボタンのデフォルトスタイルです。
+ * formInput...`<input>`のデフォルトスタイルです。
+ * formTextarea...`<textarea>`のデフォルトスタイルです。
+ * formSelect...`<select>`のデフォルトスタイルです。
+ * formCheckbox...`type="checkbox"`のデフォルトスタイルです。
+ * formRadio...`type="radio"`のデフォルトスタイルです。
+ *
+ * MOLECULES
+ * listInline...ボタンやラベル、テキストリンクなどを横並びにします。
+ * listMark...リストアイテムの左にアイコンを配置します。
+ * figure...キャプションをつけた画像オブジェクトです。
+ * ratio...アスペクト比を固定したまま伸縮させます。
+ * block...画像とテキストを縦に配置します。
+ * table...`<table>`のベースとなるスタイルです。
+ * media...画像とテキストが横並びになるオブジェクトです。
+ * flag...画像とテキストが横並びになるオブジェクトです。垂直方向の指定ができます。
+ * breadcrumb...パンくずリストオブジェクトです。
+ * postSummary...ページへの画像リンクです。画像と見出しなどの概要を伴います。
+ * postFeature...ページへの画像リンクです。（`.m-postSummary`よりも）特に目立たせたい主要なページへの誘導に使います。
+ * buttonGroup...2つのボタンをグルーピングします。
+ * searchForm...検索フォームコンポーネントです。
+ *
+ * ORGANISMS
+ *
+ * TEMPLATES
+ * grid...汎用的なグリッドオブジェクトです。
+ * header...グローバルヘッダーのレイアウトを指定します。
+ * content...コンテンツエリアのレイアウトを指定します。
+ * sidebar...サイドバーエリアのレイアウトを指定します。
+ * footer...グローバルフッターのレイアウトを指定します。
+ * wrapper...グローバルヘッダーやグローバルフッター、メインコンテンツやサイドバーといったサイトの基本となるレイアウトを指定します。
+ *
+ * PAGES
+ * blog...ブログエリアのスタイルです。
+ *
+ * UTILITY
+ * image...画像の汎用スタイルです。
+ * text...テキストのスタイルに関するスタイルです。
+ * display...`<br>`タグに指定をして、改行をブレイクポイントごとにコントロールします。
+ * col...レスポンシブに対応した`width`プロパティを指定します。
+ */
+
+/* =============================================================================
+   #Setting
+   ========================================================================== */
+
+/**
+ * SettingレイヤーではCustom Propertiesを使ったグローバル変数を定義します。
+ * Sassでは`$`変数で定義します。
+ * 例えば、サイトのmax-widthやフォントのサイズ、余白や色に関するものです。
+ * Custom Propertiesもカスケーディングの対象となるため、定数のように扱います。
+ * 非対応ブラウザがある場合、変数はコード内に変換され、コメントのみが残ります。
+ */
+
+/* =============================================================================
+   #Tool
+   ========================================================================== */
+
+/**
+ * ToolレイヤーではCustom SelectorsやCustom Media Queries、@apply Ruleを使った汎用的なルールを定義します。
+ * Sassでは@functionや@mixinで定義します。
+ * 非対応ブラウザがある場合、ルールはコード内に変換され、コメントのみが残ります。
+ */
+
+/* =============================================================================
+   #Base
+   ========================================================================== */
+
+/**
+ * Baseレイヤーでは要素セレクタや属性セレクタのようなオブジェクトのベースとなるスタイルを定義します。
+ * Normalize.cssもこのレイヤーに含まれます。
+ * 詳細度はクラスセレクタと同じ0,0,1,0以下になるように極力低くします。
+ * メディアクエリや擬似クラスのような、ある状況や状態に対するスタイルは極力持つべきではありません。
+ * オブジェクト間の余白を管理しやすくするために、上下方向の`margin`は`0`にリセットしておくのを推奨します。
+ * ただし、過度なリセットは禁止します。
+ * 継承を利用するために、ルート要素の`font-size`はパーセンテージで指定（`62.5%`の指定は禁止）、
+ * その他の要素やオブジェクトのサイズは`rem`と`em`で指定します。
+ */
+
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  box-sizing: content-box; /* 2 */
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/* #base
+   -------------------------------------------------------------------------- */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 93.75%;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+/* 日本語 */
+
+html[lang^="ja"] {
+  font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  /*font-family: "Noto Sans Japanese", sans-serif;*/
+}
+
+/* 英語 */
+
+html[lang^="en"] {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  /*font-family: "Noto Sans", sans-serif;*/
+}
+
+/* 中国語(簡体字) */
+
+html[lang="zh-cn"] {
+  font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif;
+  /*font-family: "Noto Sans SC", sans-serif;*/
+}
+
+body {
+  color: #000;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-feature-settings: "kern";
+  font-feature-settings: "kern";
+  -webkit-font-kerning: normal;
+  font-kerning: normal;
+  background-color: #fff;
+  word-wrap: break-word;
+  word-wrap: break-word;
+}
+
+ul,
+ol {
+  padding-left: 1.5em;
+}
+
+/**
+ * `dt`と`dd`の左端を揃えます。
+ */
+
+dd {
+  margin-left: 0;
+}
+
+th {
+  font-weight: 400;
+}
+
+/**
+ * 日本語では斜体を使用しないためリセットします。
+ */
+
+[lang="ja"] i,
+[lang="ja"] cite,
+[lang="ja"] em,
+[lang="ja"] address,
+[lang="ja"] dfn {
+  font-style: normal;
+}
+
+/* 全角幅のフォント(和文フォントなど)にプロポーショナルメトリクスを指定します。 */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  -webkit-font-feature-settings: "palt";
+  font-feature-settings: "palt";
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+/**
+ * フルードイメージにします。
+ */
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* IE10以降`input[type="text"]`の入力内容の消去を非表示にします。 */
+
+input::-ms-clear {
+  visibility: hidden;
+}
+
+/* IE10以降の`input[type="password"]`のマスクの一時的解除を非表示にします。 */
+
+input::-ms-reveal {
+  visibility: hidden;
+}
+
+/* Normalize.cssをリセットします。 */
+
+figure {
+  margin: 0;
+}
+
+/* ブロック要素の上下のマージンをリセットします。 */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+blockquote,
+p,
+address,
+hr,
+table,
+fieldset,
+figure,
+pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* =============================================================================
+   #Atoms
+   ========================================================================== */
+
+/**
+ * Atoms（アトム）は機能的にこれ以上分割ができない最小の要素です。
+ * 例えば、見出しやリスト、フォームラベルやボタンなどが該当します。
+ * Atomic DesignにおけるAtomsは抽象的で目的をもたないものとされますが、
+ * 役割をもった具体的なUIにすることも許容します。つまりAtoms単体で機能を拡張することもできます。
+ * カラーパレットやアニメーションもAtomsとされていますが、SettingとToolに定義しています。
+ * 後述するMoleculesとOrganismsのスタイルを継承できるように`em`での指定を基本とします。
+ * テキストやリストのような文章を書くためのコンポーネントはAtoms単体で使用することがあります。
+ * プレフィックス（接頭辞）として`.a-`をつけます。
+ */
+
+/* #icon
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "iconfont";
+  src: url('../font/iconfont.eot');
+  src: url('../font/iconfont.eot?#iefix') format('eot'), url('../font/iconfont.woff') format('woff'), url('../font/iconfont.ttf') format('truetype'), url('../font/iconfont.svg#iconfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.a-icon {
+  display: inline-block;
+}
+
+.a-icon:before {
+  position: relative;
+  top: -0.1em;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "iconfont";
+  font-style: normal;
+  -webkit-font-feature-settings: normal;
+  font-feature-settings: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+  speak: none;
+}
+
+.a-icon--angle-down:before {
+  content: "\EA01";
+}
+
+.a-icon--angle-left:before {
+  content: "\EA02";
+}
+
+.a-icon--angle-right:before {
+  content: "\EA03";
+}
+
+.a-icon--angle-up:before {
+  content: "\EA04";
+}
+
+.a-icon--external-link:before {
+  content: "\EA05";
+}
+
+.a-icon--download:before {
+  content: "\EA06";
+}
+
+.a-icon--file-pdf:before {
+  content: "\EA07";
+}
+
+.a-icon--caret-right:before {
+  content: "\EA08";
+}
+
+.a-icon--left:before {
+  margin-right: 0.25em;
+}
+
+.a-icon--right:before {
+  margin-left: 0.25em;
+}
+
+/* #title
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: title
+category: Atoms
+tag: Heading
+---
+
+`<h1>`で使われるようなページタイトルのスタイルです。
+
+```jade
+h1.a-title.t-content__title ページタイトルです。
+h1.a-title ページタイトルです。
+```
+*/
+
+.a-title {
+  font-size: 2em;
+  font-weight: normal;
+  line-height: 1.4;
+  border-bottom: 5px solid #eee;
+}
+
+/* #heading2
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: heading2
+category: Atoms
+tag: Heading
+---
+
+`<h2>`で使われるような見出しのスタイルです。
+
+```jade
+h2.a-heading2.t-content__heading2 h2見出しです
+h2.a-heading2 h2見出しです
+```
+*/
+
+.a-heading2 {
+  position: relative;
+  font-size: 1.4em;
+  font-weight: 400;
+  line-height: 1.4;
+  padding-bottom: 0.5em;
+}
+
+.a-heading2:before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  background-color: #c9c9c9;
+}
+
+.a-heading2:after {
+  display: block;
+  content: "";
+  width: 3em;
+  height: 1px;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  background-color: #0a41a6;
+}
+
+/* #heading3
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: heading3
+category: Atoms
+tag: Heading
+---
+
+`<h3>`で使われるような見出しのスタイルです。
+
+```jade
+h3.a-heading3.t-content__heading3 h3見出しです
+h3.a-heading3 h3見出しです
+```
+*/
+
+.a-heading3 {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 0.5em;
+  background-color: #f3f3f3;
+  border-left: 5px solid #0a41a6;
+}
+
+/* #laed
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: lead
+category: Atoms
+tag: Text
+---
+
+視覚的に目立たせるときに使うスタイルです。
+
+```jade
+p.a-lead リード文です。
+```
+*/
+
+.a-lead {
+  font-size: 1.2em;
+  line-height: 1.8;
+  font-weight: 600;
+  color: #0a41a6;
+}
+
+/* #textEmphasis
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: textEmphasis
+category: Atoms
+tag: Text
+---
+
+`<p>`や`<strong>`で使われるようなスタイルです。強調や重要性を示すときに使います。
+
+```jade
+p.a-textEmphasis.t-content__text 重要な文章です。
+p 一般的な文章です。
+  strong.a-textEmphasis 強調したいキーワード
+  | です。
+```
+*/
+
+.a-textEmphasis {
+  font-weight: 600;
+}
+
+/* #textAttention
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: textAttention
+category: Atoms
+tag: Text
+---
+
+`<p>`や`<strong>`で使われるようなスタイルです。注意や注目を引きたい場合に使います。
+
+```jade
+p.a-textAttention.t-content__text 注目を引きたい文章です。
+p 通常の文章です。
+  strong.a-textAttention ただし、○○は注意してください。
+```
+*/
+
+.a-textAttention {
+  color: #a94442;
+}
+
+/* #textSecondary
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: textSecondary
+category: Atoms
+tag: Text
+---
+
+`<p>`や`<small>`で使われるようなテキストスタイルです。副次的な意味合いを持たせる場合に使います。
+
+```jade
+p.t-content__textSmall 通常のテキストスタイルです。
+p.a-textSecondary 通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。
+```
+*/
+
+.a-textSecondary {
+  font-size: 0.85em;
+}
+
+/* #listOrder
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: listOrder
+category: Atoms
+tag: List
+---
+
+入れ子に対応した順序リストです。
+
+```jade
+ol.a-listOrder
+  li 1階層目のリスト1です。
+  li 1階層目のリスト2です。
+    ol
+      li 2階層目のリスト1です。
+      li 2階層目のリスト2です。
+```
+*/
+
+.a-listOrder {
+  display: table;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.a-listOrder li {
+  display: table-row;
+  counter-increment: order;
+}
+
+.a-listOrder li:before {
+  content: counters(order, ".") ".";
+  display: table-cell;
+  padding-right: 0.5em;
+  text-align: right;
+}
+
+.a-listOrder li ol {
+  counter-reset: order;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+/* #listNote
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: listNote
+category: Atoms
+tag: List
+---
+
+注釈用のリストです。米印やアスタリスクが表示されます。
+
+```jade
+ul.a-listNote
+  li 1つ目の注釈です。
+  li 2つ目の注釈です。
+
+div(lang="en")
+  ul.a-listNote
+    li This is the first annotation.
+    li This is the second annotation.
+```
+*/
+
+.a-listNote {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.a-listNote > li {
+  font-size: 0.85em;
+}
+
+.a-listNote > li:before {
+  content: "※";
+  margin-right: 0.5em;
+}
+
+/* 英語と簡体字では注釈にアスタリスクを使う。 */
+
+[lang="en"] .a-listNote > li:before,
+[lang="zh-cn"] .a-listNote > li:before {
+  content: "*";
+}
+
+/* #listNoteOrder
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: listNoteOrder
+category: Atoms
+tag: List
+---
+
+順序つきの注釈用リストです。米印やアスタリスクが表示されます。
+
+```jade
+ul.a-listNoteOrder
+  li 1つ目の注釈です。
+  li 2つ目の注釈です。
+
+div(lang="en")
+  ul.a-listNoteOrder
+    li This is the first annotation.
+    li This is the second annotation.
+```
+*/
+
+.a-listNoteOrder {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.a-listNoteOrder > li {
+  counter-increment: noteOrder;
+  font-size: 0.85em;
+}
+
+.a-listNoteOrder > li:target {
+  background-color: lightgray;
+}
+
+.a-listNoteOrder > li:before {
+  content: "※" counter(noteOrder);
+  margin-right: 0.25em;
+}
+
+/* 英語と簡体字では注釈にアスタリスクを使う。 */
+
+[lang="en"] .a-list--noteOrder > li:before,
+[lang="zh-cn"] .a-list--noteOrder > li:before {
+  content: "*" counter(noteOrder);
+}
+
+/* #listBracketOrder
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: listBracketOrder
+category: Atoms
+tag: List
+---
+
+括弧で囲んだ順序リストです。
+
+```jade
+ul.a-listBracketOrder
+  li 1つ目のリストです。
+  li 2つ目のリストです。
+```
+*/
+
+.a-listBracketOrder {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.a-listBracketOrder > li {
+  counter-increment: bracketOrder;
+}
+
+.a-listBracketOrder > li:before {
+  content: "(" counter(bracketOrder) ")";
+  margin-right: 0.25em;
+}
+
+/* #link
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: link
+category: Atoms
+tag: Link
+---
+
+テキストリンクのデフォルトスタイルです。
+
+```jade
+p: a.a-link(href="#") リンク
+```
+*/
+
+.a-link {
+  color: #2b70ba;
+  text-decoration: underline;
+}
+
+.a-link:hover,
+.a-link:active,
+.a-link:focus {
+  color: rgb(186, 67, 44);
+  text-decoration: underline;
+}
+
+/* #link
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: linkMore
+category: Atoms
+tag: Link
+---
+
+クリックを促すようなテキストリンクに使います。
+
+```jade
+p: a.a-link(href="#") リンク
+
+p: a.a-linkMore(href="#")
+  | 詳しく見る
+  span.a-linkMore__icon(aria-hidden="true")
+
+p: a.a-linkMore(href="#")
+  | Moreリンクが長文になったときの表示のされ方をテストします
+  span.a-linkMore__icon(aria-hidden="true")
+```
+*/
+
+.a-linkMore {
+  color: #2b70ba;
+  text-decoration: none;
+}
+
+.a-linkMore:hover,
+.a-linkMore:active,
+.a-linkMore:focus {
+  color: rgb(186, 67, 44);
+  text-decoration: underline;
+}
+
+.a-linkMore__icon:after {
+  position: relative;
+  top: -0.1em;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "iconfont";
+  font-style: normal;
+  -webkit-font-feature-settings: normal;
+  font-feature-settings: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+  speak: none;
+  content: "\EA03";
+  top: -0.1em;
+  left: 0.25em;
+  font-size: 0.8em;
+}
+
+/* #link
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: linkExternal
+category: Atoms
+tag: Link
+---
+
+外部リンクであることを示す場合に使います。
+
+```jade
+p: a.a-link(href="#") リンク
+
+p: a.a-link.a-linkExternal(href="#")
+  | 外部リンクを開く
+  span.a-linkExternal__icon(aria-hidden="true")
+
+p: a.a-link.a-linkExternal(href="#")
+  | 外部リンクが長文になったときの表示のされ方をテストします
+  span.a-linkExternal__icon(aria-hidden="true")
+```
+*/
+
+.a-linkExternal {
+  color: #2b70ba;
+  text-decoration: none;
+}
+
+.a-linkExternal:hover,
+.a-linkExternal:active,
+.a-linkExternal:focus {
+  color: rgb(186, 67, 44);
+  text-decoration: underline;
+}
+
+.a-linkExternal__icon:after {
+  position: relative;
+  top: -0.1em;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "iconfont";
+  font-style: normal;
+  -webkit-font-feature-settings: normal;
+  font-feature-settings: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+  speak: none;
+  content: "\EA05";
+  top: -0.15em;
+  left: 0.25em;
+  font-size: 1.25em;
+}
+
+/* #link
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: linkPdf
+category: Atoms
+tag: Link
+---
+
+リンク先がPDFであることを示す場合に使います。
+
+```jade
+p: a.a-link(href="#") リンク
+
+p: a.a-linkPdf(href="#")
+  | PDFを開く
+  span.a-linkPdf__icon(aria-hidden="true")
+
+p: a.a-linkPdf(href="#")
+  | PDFリンクが長文になったときの表示のされ方をテストします
+  span.a-linkPdf__icon(aria-hidden="true")
+```
+*/
+
+.a-linkPdf {
+  color: #2b70ba;
+  text-decoration: none;
+}
+
+.a-linkPdf:hover,
+.a-linkPdf:active,
+.a-linkPdf:focus {
+  color: rgb(186, 67, 44);
+  text-decoration: underline;
+}
+
+.a-linkPdf__icon:after {
+  position: relative;
+  top: -0.1em;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "iconfont";
+  font-style: normal;
+  -webkit-font-feature-settings: normal;
+  font-feature-settings: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+  speak: none;
+  content: "\EA07";
+  top: -0.2em;
+  left: 0.25em;
+  font-size: 1.25em;
+}
+
+/* #link
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: linkDownload
+category: Atoms
+tag: Link
+---
+
+ファイルをダウンロードするためのリンクであることを示す場合に使います。
+
+```jade
+p: a.a-link(href="#") リンク
+
+p: a.a-linkDownload(href="#")
+  | ファイルをダウンロードする
+  span.a-linkDownload__icon(aria-hidden="true")
+
+p: a.a-linkDownload(href="#")
+  | ダウンロードリンクが長文になったときの表示のされ方をテストします
+  span.a-linkDownload__icon(aria-hidden="true")
+```
+*/
+
+.a-linkDownload {
+  color: #2b70ba;
+  text-decoration: none;
+}
+
+.a-linkDownload:hover,
+.a-linkDownload:active,
+.a-linkDownload:focus {
+  color: rgb(186, 67, 44);
+  text-decoration: underline;
+}
+
+.a-linkDownload__icon:after {
+  position: relative;
+  top: -0.1em;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "iconfont";
+  font-style: normal;
+  -webkit-font-feature-settings: normal;
+  font-feature-settings: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+  speak: none;
+  content: "\EA06";
+  top: -0.2em;
+  left: 0.25em;
+  font-size: 1.25em;
+}
+
+/* #linkNote
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: linkNote
+category: Atoms
+tag: Link
+---
+
+注釈へのリンクです。`<sup>`タグの子要素として指定します。
+参照元に戻るリンクには`.linkReturn`を使います。
+
+```jade
+p 注釈へのリンクです
+  sup
+    a.a-linkNote(href="#note01") 1
+```
+*/
+
+.a-linkNote {
+  color: #2b70ba;
+  text-decoration: underline;
+}
+
+.a-linkNote:hover,
+.a-linkNote:active,
+.a-linkNote:focus {
+  color: rgb(186, 67, 44);
+  text-decoration: underline;
+}
+
+.a-linkNote:before {
+  content: "※";
+  margin-left: 0.25em;
+}
+
+/* 英語と簡体字では注釈にアスタリスクを使う。 */
+
+[lang^="en"] .a-linkNote:before,
+[lang="zh-cn"] .a-linkNote:before {
+  content: "*";
+}
+
+/* #linkReturn
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: linkReturn
+category: Atoms
+tag: Link
+---
+
+注釈から参照元に戻るためのリンクです。
+
+```jade
+a.a-link.a-linkReturn(href="#ref01")
+```
+*/
+
+.a-linkReturn:before {
+  content: "[本文に戻る]";
+}
+
+[lang^="en"] .a-linkReturn:before {
+  content: "[Back to text]";
+}
+
+[lang="zh-cn"] .a-linkReturn:before {
+  content: "[背在身上]";
+}
+
+/* #delimiter
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: delimiter
+category: Atoms
+tag: Text
+---
+
+`<hr>`のような区切り記号（デリミタ）です。
+
+```jade
+p テキストです。
+hr.a-delimiter
+p テキストです
+hr.a-delimiter.a-delimiter--small
+p テキストです
+```
+*/
+
+.a-delimiter {
+  box-sizing: inherit;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1.2em auto;
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+}
+
+.a-delimiter--small {
+  margin: 0.6em auto;
+}
+
+/* #embed
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: embed
+category: Atoms
+tag: Embed
+---
+
+Youtubeなどをレスポンシブ対応させます。
+
+```jade
+.a-embed.
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/1OKZOV-iLj4"></iframe>
+```
+*/
+
+.a-embed {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.a-embed__item,
+.a-embed iframe,
+.a-embed embed,
+.a-embed object,
+.a-embed video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.a-embed--4to3 {
+  padding-bottom: 75%;
+}
+
+/* #label
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: label
+category: Atoms
+tag: Form
+---
+
+インラインで表示するラベルコンポーネントです。
+
+```jade
+span.a-label ラベル
+label.a-label ラベル
+```
+*/
+
+.a-label {
+  display: inline-block;
+  padding: 0.5em;
+  color: #fff;
+  font-size: 0.85em;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  background-color: #2b70ba;
+}
+
+.a-label:hover,
+.a-label:active,
+.a-label:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* #button
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: button
+category: Atoms
+tag: Form
+---
+
+ボタンのデフォルトスタイルです。
+
+```jade
+a.a-button(href="#") ボタン
+button.a-button(type="button") ボタン
+input.a-button(type="button" value="ボタン")
+a.a-button.is-disabled(href="#") .is-disabled
+button.a-button(type="button" disabled) disabled
+input.a-button(type="button" disabled value="disabled")
+```
+*/
+
+.a-button {
+  display: inline-block;
+  margin: 0;
+  padding: 1em 2em;
+  border: none;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  background-color: #2b70ba;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: border-color, box-shadow, background-color;
+  transition-property: border-color, box-shadow, background-color;
+}
+
+.a-button:hover,
+.a-button:active,
+.a-button:focus {
+  text-decoration: none;
+}
+
+.a-button:focus {
+}
+
+.a-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #ddd;
+}
+
+.a-button.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #ddd;
+  pointer-events: none;
+}
+
+.a-button--full {
+  width: 100%;
+}
+
+.a-button--primary {
+}
+
+.a-button--secondary {
+}
+
+.a-button--tertiary {
+}
+
+.a-button--quaternary {
+}
+
+.a-button--search {
+}
+
+.a-button--search:focus {
+  outline: none;
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+/* #formInput
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: formInput
+category: Atoms
+tag: Form
+---
+
+`<input>`タグのデフォルトスタイルです。
+
+```jade
+input.a-formInput(type="input" placeholder="サンプル")
+
+label(for="input1").a-formInput__textTop inputタグの説明です。
+input.a-formInput(type="input" name="email" autocomplete="email" id="input1" placeholder="example@gmail.com")
+
+input.a-formInput(type="input" name="name" autocomplate="name" id="input2" placeholder="山田 太郎")
+label(for="input2").a-formInput__textBottom inputタグの説明です。
+
+input.a-formInput(type="input" disabled placeholder="disabled")
+
+input.a-formInput.is-success(type="input" placeholder="is-success")
+
+input.a-formInput.is-caution(type="input" placeholder="is-caution")
+
+input.a-formInput.is-error(type="input" placeholder="is-error")
+```
+*/
+
+.a-formInput {
+  width: 100%;
+  height: 2.5em;
+  padding: 0 1em;
+  font-size: 1em;
+  vertical-align: middle;
+  border: 1px solid #d0d0d0;
+  background-color: #fff;
+  box-shadow: 1px 1px 6px -3px #9e9e9e inset;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: border-color, box-shadow, background-color;
+  transition-property: border-color, box-shadow, background-color;
+}
+
+.a-formInput::-webkit-input-placeholder {
+  color: #767676;
+}
+
+.a-formInput::-moz-placeholder {
+  color: #767676;
+}
+
+.a-formInput:-ms-input-placeholder {
+  color: #767676;
+}
+
+.a-formInput::placeholder {
+  color: #767676;
+}
+
+.a-formInput:focus {
+  outline: none;
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.a-formInput:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #ddd;
+}
+
+/* 成功 */
+
+.a-formInput.is-success {
+  border-color: #3c763d;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.a-formInput.is-success:focus {
+  border-color: #2b542c;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+}
+
+/* 注意 */
+
+.a-formInput.is-caution {
+  border-color: #8a6d3b;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.a-formInput.is-caution:focus {
+  border-color: #66512c;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #c0a16b;
+}
+
+/* エラー */
+
+.a-formInput.is-error {
+  border-color: #a94442;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.a-formInput.is-error:focus {
+  border-color: #843534;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}
+
+.a-formInput__textTop {
+  display: inline-block;
+  margin-bottom: 0.25em;
+}
+
+.a-formInput__textBottom {
+  display: inline-block;
+  margin-top: 0.25em;
+}
+
+/* #formTextarea
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: formTextarea
+category: Atoms
+tag: Form
+---
+
+`<textarea>`のデフォルトスタイルです。
+
+```jade
+textarea.a-formTextarea(placeholder="テキストエリアです")
+
+label(for="textarea1").a-formTextarea__textTop textareaタグの説明です。
+textarea.a-formTextarea(id="textarea1" placeholder="テキストエリアです")
+
+textarea.a-formTextarea(id="textarea2" placeholder="テキストエリアです")
+label(for="textarea2").a-formTextarea__textTop textareaタグの説明です。
+
+textarea.a-formTextarea.a-formTextarea--large(placeholder="テキストエリアです")
+
+textarea.a-formTextarea(placeholder="disabled" disabled)
+```
+*/
+
+.a-formTextarea {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 7em;
+  margin: 0;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border: 1px solid #d0d0d0;
+  background-color: #fff;
+  box-shadow: 1px 1px 6px -3px #9e9e9e inset;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: border-color, box-shadow, background-color;
+  transition-property: border-color, box-shadow, background-color;
+}
+
+.a-formTextarea::-webkit-input-placeholder {
+  color: #767676;
+}
+
+.a-formTextarea::-moz-placeholder {
+  color: #767676;
+}
+
+.a-formTextarea:-ms-input-placeholder {
+  color: #767676;
+}
+
+.a-formTextarea::placeholder {
+  color: #767676;
+}
+
+.a-formTextarea:focus {
+  outline: none;
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.a-formTextarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #ddd;
+}
+
+.a-formTextarea--large {
+  height: 14em;
+}
+
+.a-formTextarea__textTop {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+.a-formTextarea__textBottom {
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+/* #formSelect
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: formSelect
+category: Atoms
+tag: Form
+---
+
+`<select>`タグのデフォルトスタイルです。
+
+```jade
+.a-formSelect
+  select
+    option(value="default") 選択してください
+    option(value="hokkaido") 北海道
+    option(value="akita") 秋田
+
+.a-formSelect
+  select(disabled)
+    option(value="default") disabled
+    option(value="hokkaido") 北海道
+    option(value="akita") 秋田
+```
+*/
+
+.a-formSelect {
+  position: relative;
+}
+
+.a-formSelect:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 99%;
+  width: calc(100% - 6px);
+  margin: auto;
+  box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.a-formSelect:after {
+  content: "";
+  background-image: url("/assets/img/caret-down.svg");
+  background-repeat: no-repeat;
+  background-size: 1em;
+  position: absolute;
+  top: 0;
+  right: 1em;
+  bottom: 0;
+  margin: auto;
+  width: 1em;
+  height: 1em;
+  pointer-events: none;
+}
+
+.a-formSelect > select {
+  width: 100%;
+  height: 2.5em;
+  padding: 0 2em 0 1em;
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: middle;
+  border: 1px solid #d0d0d0;
+  background-color: #fff;
+  box-shadow: 1px 1px 6px -3px #9e9e9e inset;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: border-color, box-shadow, background-color;
+  transition-property: border-color, box-shadow, background-color;
+}
+
+.a-formSelect > select:focus {
+  outline: none;
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.a-formSelect > select:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #ddd;
+}
+
+/* Firefox Hack */
+
+.a-formSelect > select {
+  text-indent: 0.01px;
+  text-overflow: "";
+}
+
+/* IE10以上 */
+
+.a-formSelect > select::-ms-expand {
+  display: none;
+}
+
+/* IE9ではデフォルトの矢印アイコンを表示する。 */
+
+.a-formSelect:not(:target):after {
+  background-image: none\9;
+}
+
+.a-formSelect > select:not(:target) {
+  padding-right: 0\9;
+}
+
+/* #formCheckbox
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: formCheckbox
+category: Atoms
+tag: Form
+---
+
+`type="checkbox"`のデフォルトスタイルです。
+
+```jade
+input.a-formCheckbox(type="checkbox" id="checkbox1")
+label(for="checkbox1") チェックボックス
+
+input.a-formCheckbox(type="checkbox" disabled id="checkbox2")
+label(for="checkbox2" disabled) disabled
+```
+*/
+
+.a-formCheckbox {
+  display: none;
+}
+
+.a-formCheckbox + label {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.a-formCheckbox + label:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  top: -0.1em;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  margin: auto;
+  margin-right: 0.25em;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.a-formCheckbox:checked + label:after {
+  content: "";
+  background-image: url("/assets/img/check.svg");
+  background-repeat: no-repeat;
+  background-size: 1em;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 1em;
+  height: 1em;
+}
+
+.a-formCheckbox:disabled,
+.a-formCheckbox + label[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.a-formCheckbox:disabled + label:after {
+  display: none;
+}
+
+/* #formRadio
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: formRadio
+category: Atoms
+tag: Form
+---
+
+`type="radio"`のデフォルトスタイルです。
+
+```jade
+input.a-formRadio(type="radio" id="radio1" name="radio1")
+label(for="radio1") ラジオボタン1
+
+input.a-formRadio(type="radio" id="radio2" name="radio1")
+label(for="radio2") ラジオボタン2
+
+input.a-formRadio(type="radio" disabled id="radio3" name="radio3")
+label(for="radio3" disabled) disabled
+```
+*/
+
+.a-formRadio {
+  display: none;
+}
+
+.a-formRadio + label {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.a-formRadio + label:before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  top: -0.1em;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  margin: auto;
+  margin-right: 0.25em;
+  border: 1px solid #d0d0d0;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.a-formRadio:checked + label:after {
+  content: "";
+  background-image: url("/assets/img/disc.svg");
+  background-repeat: no-repeat;
+  background-size: 0.5em;
+  position: absolute;
+  top: -0.1em;
+  bottom: 0;
+  left: 0.25em;
+  margin: auto;
+  width: 1em;
+  height: 1em;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.a-formRadio:disabled,
+.a-formRadio + label[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.a-formRadio:disabled + label:after {
+  display: none;
+}
+
+/* =============================================================================
+   #Molecules
+   ========================================================================== */
+
+/**
+ * Molecules（モルキュール）はAtomsを組み合わせた比較的シンプルなUIグループです。
+ * 例えば、検索フォームはlabelとinput、buttonが組み合わさったMoleculesです。
+ * Moleculesはシンプルで機能的なコンポーネントにすることを推奨します。
+ * これにより、扱いやすく、メンテナンス性が高く、一貫性を保ったUIにすることができます。
+ * 後述するOrganismsのスタイルを継承できるように`em`での指定を基本とします。
+ * プレフィックス（接頭辞）として`.m-`をつけます。
+ */
+
+/* #inlineGroup
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: inlineGroup
+category: Molecules
+---
+
+ボタンやラベル、テキストリンクなどを横並びにします。
+
+```jade
+ul.m-inlineGroup.m-inlineGroup--medium.t-content__text
+  li.m-inlineGroup__item
+    a.a-link(href="#") リンク1
+  li.m-inlineGroup__item
+    a.a-link(href="#") リンク2
+
+.m-inlineGroup.m-inlineGroup--medium
+  .m-inlineGroup__item
+    input.a-formRadio(type="radio" id="radio1" name="radio1")
+    label(for="radio1") ラジオボタン1
+  .m-inlineGroup__item
+    input.a-formRadio(type="radio" id="radio2" name="radio1")
+    label(for="radio2") ラジオボタン2
+```
+*/
+
+.m-inlineGroup {
+  display: block;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.m-inlineGroup:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.m-inlineGroup__item {
+  float: left;
+}
+
+.m-inlineGroup--medium > .m-inlineGroup__item {
+  margin-right: 1em;
+}
+
+/* #listMark
+   -------------------------------------------------------------------------- */
+
+.m-listMark {
+  display: table;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.m-listMark__item {
+  display: table-row;
+}
+
+.m-listMark__icon {
+  display: table-cell;
+}
+
+.m-listMark__items {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+/* #figure
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: figure
+category: Molecules
+tag: Contents
+---
+
+キャプションをつけた画像コンポーネントです。キャプションは画像の横幅を基準に折り返されます。
+
+Modifier
+
+- `.m-figure--center` - コンポーネント自体をセンタリングする
+- `.m-figure__caption--center` - キャプションをセンタリングする
+
+```jade
+figure.m-figure.m-figure--center
+  img.m-figure__image(src="https://placehold.jp/300x200.png" alt="")
+  figcaption.m-figure__caption キャプションキャプションキャプションキャプションキャプション
+
+figure.m-figure
+  img.m-figure__image(src="https://placehold.jp/300x200.png" alt="")
+  figcaption.m-figure__caption.m-figure__caption--center キャプション
+```
+*/
+
+.m-figure {
+  display: table;
+  /* キャプションの最小幅です。 */
+  min-width: 100px;
+}
+
+.m-figure__image {
+}
+
+.m-figure__captionTop,
+.m-figure__caption {
+  display: table-caption;
+  font-size: 0.85em;
+  text-align: left;
+}
+
+.m-figure__captionTop {
+  caption-side: top;
+}
+
+.m-figure__caption {
+  caption-side: bottom;
+}
+
+/* Modifier */
+
+.m-figure--center {
+  margin: auto;
+}
+
+/* Modifier */
+
+.m-figure__caption--center {
+  text-align: center;
+}
+
+/* #ratio
+   -------------------------------------------------------------------------- */
+
+.m-ratio {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.m-ratio:before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.m-ratio__content,
+.m-ratio > iframe,
+.m-ratio > embed,
+.m-ratio > object {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.m-ratio--16to9:before {
+  padding-bottom: 56.25%;
+}
+
+.m-ratio--4to3:before {
+  padding-bottom: 75%;
+}
+
+.m-ratio--3to2:before {
+  padding-bottom: 66.66667%;
+}
+
+.m-ratio--2to1:before {
+  padding-bottom: 50%;
+}
+
+/* #block
+   -------------------------------------------------------------------------- */
+
+.m-block {
+  display: block;
+  width: 100%;
+}
+
+.m-block__item {
+  display: block;
+  width: 100%;
+}
+
+.m-block__item > :last-child {
+  margin-bottom: 0;
+}
+
+.m-block__item:not(:first-of-type) {
+  margin-top: 0.5em;
+}
+
+.m-block__heading {
+  margin-bottom: 0.5em;
+}
+
+.m-block__text {
+  margin-bottom: 1em;
+}
+
+.m-block__image {
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+
+.m-block--reverse {
+  display: table;
+}
+
+.m-block--reverse > .m-block__item:first-child {
+  margin-top: 0.5em;
+}
+
+.m-block--reverse > .m-block__item:last-child {
+  display: table-header-group;
+}
+
+@media (min-width: 768px) {
+  .m-block--reverse-md {
+    display: table;
+  }
+
+  .m-block--reverse-md > .m-block__item:first-child {
+    margin-top: 0.5em;
+  }
+
+  .m-block--reverse-md > .m-block__item:last-child {
+    display: table-header-group;
+  }
+}
+
+@media (min-width: 1080px) {
+  .m-block--reverse-lg {
+    display: table;
+  }
+
+  .m-block--reverse-lg > .m-block__item:first-child {
+    margin-top: 0.5em;
+  }
+
+  .m-block--reverse-lg > .m-block__item:last-child {
+    display: table-header-group;
+  }
+}
+
+/* #table
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: table
+category: Molecules
+tag: Contents
+---
+
+`<table>`のベースとなるスタイルです。
+
+```jade
+.m-table.t-content__text
+  table
+    caption
+      p 事業部ごとの売上額と構成比
+    thead
+      tr
+        th.u-col-4of12.u-col-2of12-md 事業部名
+        th.u-col-4of12.u-col-5of12-md 売上額
+          sup#ref01
+            a.a-link.a-linkNote(href="#note01") 1
+        th.u-col-4of12.u-col-5of12-md 構成比
+    tbody
+      tr
+        th ○○事業部
+        td.m-table__number ○○○億円
+        td.m-table__number ○○%
+      tr
+        th △△事業部
+        td.m-table__number △△億円
+        td.m-table__number △△%
+      tr
+        th □□事業部
+        td.m-table__number □億円
+        td.m-table__number □%
+  ul.m-table__note.a-list.a-list--noteOrder
+    li#note01 売上額の注釈です。
+      a.a-link.a-linkReturn(href="#ref01")
+
+.m-table.m-table--scroll
+  table
+    caption
+      p 事業部ごとの売上額と構成比
+    thead
+      tr
+        th.u-col-4of12.u-col-2of12-md 事業部名
+        th.u-col-4of12.u-col-5of12-md 売上額
+          sup#ref02
+            a.a-link.a-linkNote(href="#note02") 1
+        th.u-col-4of12.u-col-5of12-md 構成比
+    tbody
+      tr
+        th ○○事業部
+        td.m-table__number ○○○億円
+        td.m-table__number ○○%
+      tr
+        th △△事業部
+        td.m-table__number △△億円
+        td.m-table__number △△%
+      tr
+        th □□事業部
+        td.m-table__number □億円
+        td.m-table__number □%
+  ul.m-table__note.a-list.a-list--noteOrder
+    li#note02 売上額の注釈です。
+      a.a-link.a-linkReturn(href="#ref02")
+```
+*/
+
+.m-table table {
+  width: 100%;
+}
+
+.m-table th,
+.m-table td {
+  padding: 1em;
+  border: 1px solid #ddd;
+}
+
+.m-table thead,
+.m-table th {
+  background-color: #eee;
+}
+
+.m-table caption {
+  margin-bottom: 0.25em;
+  font-size: 0.85em;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .m-table caption {
+    text-align: right;
+  }
+}
+
+/* テーブルの下に注釈用のリストを配置します。 */
+
+.m-table__note {
+  margin-top: 0.5em;
+}
+
+.m-table__number {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .m-table__number {
+    text-align: right;
+  }
+}
+
+/* 横スクロール可能なテーブルにする。 */
+
+.m-table--scroll {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  min-height: 0.01%;
+}
+
+.m-table--scroll th,
+.m-table--scroll td {
+  white-space: nowrap;
+}
+
+.m-table--scroll .m-table__number {
+  text-align: right;
+}
+
+/* #media
+   -------------------------------------------------------------------------- */
+
+.m-media {
+  display: block;
+}
+
+.m-media:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.m-media__image {
+  float: left;
+  margin-right: 1em;
+}
+
+.m-media__image > :last-child {
+  margin-bottom: 0;
+}
+
+.m-media__image > img {
+  display: block;
+}
+
+.m-media__body {
+  display: block;
+  overflow: hidden;
+}
+
+.m-media__body > :last-child {
+  margin-bottom: 0;
+}
+
+.m-media__heading {
+  margin-bottom: 0.5em;
+}
+
+.m-media--reverse > .m-media__image {
+  float: right;
+  margin-right: 0;
+  margin-left: 1em;
+}
+
+@media (min-width: 768px) {
+  .m-media--reverse-md > .m-media__image {
+    float: right;
+    margin-right: 0;
+    margin-left: 1em;
+  }
+}
+
+@media (min-width: 1080px) {
+  .m-media--reverse-lg > .m-media__image {
+    float: right;
+    margin-right: 0;
+    margin-left: 1em;
+  }
+}
+
+/* #flag
+   -------------------------------------------------------------------------- */
+
+.m-flag {
+  display: table;
+  width: 100%;
+}
+
+.m-flag__image,
+.m-flag__body {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.m-flag__image > :last-child,
+.m-flag__body > :last-child {
+  margin-bottom: 0;
+}
+
+.m-flag__image {
+  width: 1px;
+  padding-right: 1em;
+}
+
+.m-flag__image > img {
+  max-width: none;
+}
+
+.m-flag__body {
+  width: auto;
+}
+
+.m-flag--middle > .m-flag__image,
+.m-flag--middle > .m-flag__body {
+  vertical-align: middle;
+}
+
+.m-flag--bottom > .m-flag__image,
+.m-flag--bottom > .m-flag__body {
+  vertical-align: bottom;
+}
+
+.m-flag--reverse {
+  text-align: left;
+  direction: rtl;
+}
+
+.m-flag--reverse > .m-flag__image,
+.m-flag--reverse > .m-flag__body {
+  text-align: left;
+  direction: ltr;
+}
+
+.m-flag--reverse > .m-flag__image {
+  padding-right: 0;
+  padding-left: 1em;
+}
+
+@media (min-width: 768px) {
+  .m-flag--reverse-md {
+    text-align: left;
+    direction: rtl;
+  }
+
+  .m-flag--reverse-md > .m-flag__image,
+  .m-flag--reverse-md > .m-flag__body {
+    text-align: left;
+    direction: ltr;
+  }
+
+  .m-flag--reverse-md > .m-flag__image {
+    padding-right: 0;
+    padding-left: 1em;
+  }
+}
+
+@media (min-width: 1080px) {
+  .m-flag--reverse-lg {
+    text-align: left;
+    direction: rtl;
+  }
+
+  .m-flag--reverse-lg > .m-flag__image,
+  .m-flag--reverse-lg > .m-flag__body {
+    text-align: left;
+    direction: ltr;
+  }
+
+  .m-flag--reverse-lg > .m-flag__image {
+    padding-right: 0;
+    padding-left: 1em;
+  }
+}
+
+/* #breadcrumb
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: breadcrumb
+category: Molecules
+tag: Navigation
+---
+
+パンくずリストオブジェクトです。
+
+```jade
+ol.m-breadcrumb
+  li.m-breadcrumb__item
+    a.m-breadcrumb__link.a-link(href="/") ホーム
+  li.m-breadcrumb__item
+    a.m-breadcrumb__link.a-link(href="#") カテゴリ名
+  li.m-breadcrumb__item ページ名
+```
+*/
+
+.m-breadcrumb {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-left: 0;
+  list-style-type: none;
+  font-size: 0;
+}
+
+.m-breadcrumb__item {
+  display: inline-block;
+  font-size: 1rem;
+  font-size: 0.85rem;
+}
+
+.m-breadcrumb__item:last-child {
+  display: inline;
+}
+
+.m-breadcrumb__link {
+  display: inline-block;
+}
+
+.m-breadcrumb__item:not(:first-of-type):before {
+  content: "/";
+  margin: 0 0.5em;
+}
+
+/* #postSummary
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: postSummary
+category: Molecules
+tag: Contents
+---
+
+ページへの画像リンクです。画像と見出しなどの概要を伴います。
+
+```jade
+.t-grid.t-grid--medium.t-grid--col3-md
+  .t-grid__item
+    a.m-postSummary(href="#")
+      .m-postSummary__image
+        img(src="https://placehold.jp/600x400.png" alt="")
+      .m-postSummary__body
+        span.m-postSummary__icon(aria-hidden="true")
+        h2.m-postSummary__heading 見出しです
+
+  .t-grid__item
+    a.m-postSummary(href="#")
+      .m-postSummary__image
+        img(src="https://placehold.jp/600x400.png" alt="")
+      .m-postSummary__body
+        span.m-postSummary__icon(aria-hidden="true")
+        h2.m-postSummary__heading 見出しです
+        p.m-postSummary__subHeading サブ見出しです
+    .m-postSummary__foot
+      p フッターテキストです。
+
+  .t-grid__item
+    a.m-postSummary(href="#")
+      .m-postSummary__body
+        span.m-postSummary__icon(aria-hidden="true")
+        h2.m-postSummary__heading 見出しです
+        p.m-postSummary__subHeading サブ見出しです
+      .m-postSummary__image
+        img(src="https://placehold.jp/600x400.png" alt="")
+    .m-postSummary__foot
+      p フッターテキストです。
+```
+*/
+
+.m-postSummary {
+  display: block;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.m-postSummary__body {
+  position: relative;
+  width: 100%;
+  padding: 1em;
+  padding-left: 2em;
+  text-decoration: none;
+  background-color: #e8e8e8;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.m-postSummary__icon {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+.m-postSummary__icon:before {
+  position: relative;
+  top: -0.1em;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "iconfont";
+  font-style: normal;
+  -webkit-font-feature-settings: normal;
+  font-feature-settings: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+  speak: none;
+  content: "\EA08";
+}
+
+.m-postSummary__heading {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.m-postSummary__subHeading {
+  margin-top: 0.25em;
+  font-size: 1em;
+  line-height: 1.6;
+  color: #444;
+}
+
+.m-postSummary__image {
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.m-postSummary__image > img {
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+
+.m-postSummary__foot {
+  margin-top: 0.5em;
+}
+
+/* State */
+
+.m-postSummary:hover,
+.m-postSummary:active,
+.m-postSummary:focus {
+  text-decoration: none;
+}
+
+.m-postSummary:hover .m-postSummary__image,
+.m-postSummary:active .m-postSummary__image,
+.m-postSummary:focus .m-postSummary__image {
+  opacity: 0.8;
+}
+
+.m-postSummary:hover .m-postSummary__body,
+.m-postSummary:active .m-postSummary__body,
+.m-postSummary:focus .m-postSummary__body {
+  background-color: #e8eefa;
+}
+
+/* #postFeature
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: postFeature
+category: Molecules
+tag: Contents
+---
+
+ページへの画像リンクです。（`.m-postSummary`よりも）特に目立たせたい主要なページへの誘導に使います。
+
+```jade
+.t-grid.t-grid--medium.t-grid--col2-md
+  .t-grid__item
+    a.m-postFeature.m-postFeature--fixed(href="#")
+      .m-postFeature__image
+        img(src="https://placehold.jp/600x400.png" alt="")
+      .m-postFeature__body
+        .m-postFeature__inner
+          span.m-postFeature__icon(aria-hidden="true")
+          h2.m-postFeature__heading 見出しです
+    .m-postFeature__foot
+      p フッターテキストです
+
+  .t-grid__item
+    a.m-postFeature.m-postFeature--fixed(href="#")
+      .m-postFeature__image
+        img(src="https://placehold.jp/600x400.png" alt="")
+      .m-postFeature__body
+        .m-postFeature__inner
+          span.m-postFeature__icon(aria-hidden="true")
+          h2.m-postFeature__heading 見出しです
+    .m-postFeature__foot
+      p フッターテキストです
+```
+*/
+
+.m-postFeature {
+  position: relative;
+  display: block;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.m-postFeature__body {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.m-postFeature__inner {
+  position: relative;
+  width: 100%;
+  padding: 1em;
+  padding-right: 2.5em;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.m-postFeature__icon {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+.m-postFeature__icon:before {
+  position: relative;
+  top: -0.1em;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "iconfont";
+  font-style: normal;
+  -webkit-font-feature-settings: normal;
+  font-feature-settings: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+  speak: none;
+  content: "\EA03";
+}
+
+.m-postFeature__heading {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.m-postFeature__foot {
+  margin-top: 0.5em;
+}
+
+.m-postFeature__image {
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.m-postFeature__image > img {
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+
+/* State */
+
+.m-postFeature:hover,
+.m-postFeature:active,
+.m-postFeature:focus {
+  text-decoration: none;
+}
+
+.m-postFeature:hover .m-postFeature__image,
+.m-postFeature:active .m-postFeature__image,
+.m-postFeature:focus .m-postFeature__image {
+  opacity: 0.8;
+}
+
+.m-postFeature:hover .m-postFeature__inner,
+.m-postFeature:active .m-postFeature__inner,
+.m-postFeature:focus .m-postFeature__inner {
+  opacity: 0.8;
+}
+
+/*
+---
+name: buttonGroup
+category: Molecules
+---
+
+複数のボタンをグルーピングします。モバイルで縦に並び、タブレット以降で横に並びます。
+
+```jade
+.m-buttonGroup
+  .m-buttonGroup__item
+    a.m-buttonGroup__button.a-button(href="#") メールで問い合わせる
+  .m-buttonGroup__item
+    a.m-buttonGroup__button.a-button(href="#") フォームで問い合わせる
+```
+*/
+
+.m-buttonGroup {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+@media (min-width: 768px) {
+  .m-buttonGroup {
+    display: table;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.m-buttonGroup__item {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .m-buttonGroup__item {
+    display: table-cell;
+    vertical-align: top;
+    margin-left: -1em;
+  }
+}
+
+.m-buttonGroup__item:not(:first-of-type) {
+  margin-top: 1em;
+}
+
+@media (min-width: 768px) {
+  .m-buttonGroup__item:not(:first-of-type) {
+    margin-top: 0;
+    padding-left: 1em;
+  }
+}
+
+.m-buttonGroup__button {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+}
+
+/* #searchForm
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: searchForm
+category: Molecules
+tag: Form
+---
+
+検索フォームコンポーネントです。
+
+```jade
+.m-searchForm
+  .m-searchForm__input
+    input.a-formInput(type="input" name="q" id="m-searchForm__input" placeholder="keywords…")
+  .m-searchForm__button
+    button.a-button.a-button--full.a-button--search(type="submit" value="検索") 検索
+```
+*/
+
+.m-searchForm {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.m-searchForm__input {
+  display: table-cell;
+  vertical-align: top;
+  width: 100%;
+  padding-right: 1em;
+}
+
+.m-searchForm__input > .a-formInput {
+  height: 3em;
+}
+
+.m-searchForm__button {
+  display: table-cell;
+  vertical-align: top;
+  width: 5em;
+}
+
+@media (min-width: 768px) {
+  .m-searchForm__button {
+    width: 7em;
+  }
+}
+
+.m-searchForm__button > .a-button {
+  height: 3em;
+  padding: 0 1em;
+}
+
+/* =============================================================================
+   #Organisms
+   ========================================================================== */
+
+/**
+ * Organisms（オルガニズム）はAtomsやMolecules、または複数のMoleculesを組み合わせた比較的複雑なUIグループです。
+ * 例えば、グローバルヘッダーはロゴとグローバルナビゲーション、検索フォームなどが組み合わさったOrganismsです。
+ * OrganismsはMoleculesよりも具体的なコンテキストをもつコンポーネントです。
+ * プレフィックス（接頭辞）として`.o-`をつけます。
+ */
+
+/*@import "organisms/_globalHeader";*/
+
+/*@import "organisms/_globalFooter";*/
+
+/*@import "organisms/_articleList";*/
+
+/* =============================================================================
+   #Templates
+   ========================================================================== */
+
+/**
+ * Templates（テンプレート）はページレベルのオブジェクトで、
+ * コンポーネント（Atoms・Molecules・Organisms）を配置してページの構成を整えます。
+ * ワイヤーフレームのような大きなレイアウトから、コンポーネント単位のレイアウトまで様々です。
+ * コンポーネントにダミーのテキストや画像を挿入することで、コンテンツの量や大きさによって
+ * 意図しないデザインになってしまわないかをテストすることができます。
+ * プレフィックス（接頭辞）として`.t-`をつけます。
+ */
+
+/* #grid
+   -------------------------------------------------------------------------- */
+
+/**
+ * 汎用的なグリッドオブジェクトです。
+ */
+
+/*
+---
+name: grid
+category: Templates
+tag: Grid
+---
+
+グリッドシステムです。カラムごとに任意の値を指定したい場合に使います。
+カラムの指定はutility/_col.cssのスタイルを使います。
+
+以下のような指定ができます。
+
+- `.u-col-8of12` カラム数の指定。
+- `.t-grid--medium` ガターの指定。
+- `.t-grid--reverse` カラムの反転。
+- `.t-grid--center` カラムのセンタリング。
+- `.t-grid--right` カラムの右寄せ。
+
+```jade
+.t-grid.t-grid--medium(style="margin-bottom:4rem;")
+  .t-grid__item.u-col-8of12-md
+    p 8カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item.u-col-4of12-md
+    p 4カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+
+.t-grid.t-grid--medium.t-grid--reverse-md(style="margin-bottom:4rem;")
+  .t-grid__item.u-col-8of12-md
+    p 8カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item.u-col-4of12-md
+    p 4カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+
+.t-grid.t-grid--medium.t-grid--center-md
+  .t-grid__item.u-col-8of12-md
+    p 8カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+
+.t-grid.t-grid--medium.t-grid--right-md
+  .t-grid__item.u-col-8of12-md
+    p 8カラム
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+```
+*/
+
+.t-grid {
+  padding-left: 0;
+  list-style-type: none;
+  display: block;
+  font-size: 0;
+}
+
+.t-grid__item {
+  display: inline-block;
+  width: 100%;
+  font-size: medium;
+  font-size: 1rem;
+  vertical-align: top;
+}
+
+/**
+ * ガターの指定。
+ */
+
+.t-grid--medium {
+  margin-left: -2rem;
+}
+
+.t-grid--medium > .t-grid__item {
+  padding-left: 2rem;
+}
+
+/**
+ * 要素の垂直位置を真ん中寄せ。
+ */
+
+.t-grid--middle > .t-grid__item {
+  verticat-align: middle;
+}
+
+/**
+ * 要素の垂直位置を下寄せ。
+ */
+
+.t-grid--bottom > .t-grid__item {
+  verticat-align: bottom;
+}
+
+/**
+ * 要素を中央寄せ、要素内は左寄せ。
+ */
+
+.t-grid--center {
+  text-align: center;
+}
+
+.t-grid--center > .t-grid__item {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .t-grid--center-md {
+    text-align: center;
+  }
+
+  .t-grid--center-md > .t-grid__item {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1080px) {
+  .t-grid--center-lg {
+    text-align: center;
+  }
+
+  .t-grid--center-lg > .t-grid__item {
+    text-align: left;
+  }
+}
+
+/**
+ * 要素を右寄せ、要素内は左寄せ。
+ */
+
+.t-grid--right {
+  text-align: right;
+}
+
+.t-grid--right > .t-grid__item {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .t-grid--right-md {
+    text-align: right;
+  }
+
+  .t-grid--right-md > .t-grid__item {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1080px) {
+  .t-grid--right-lg {
+    text-align: right;
+  }
+
+  .t-grid--right-lg > .t-grid__item {
+    text-align: left;
+  }
+}
+
+/**
+ * 要素の反転。
+ */
+
+.t-grid--reverse {
+  text-align: left;
+  direction: rtl;
+}
+
+.t-grid--reverse > .t-grid__item {
+  text-align: left;
+  direction: ltr;
+}
+
+@media (min-width: 768px) {
+  .t-grid--reverse-md {
+    text-align: left;
+    direction: rtl;
+  }
+
+  .t-grid--reverse-md > .t-grid__item {
+    text-align: left;
+    direction: ltr;
+  }
+}
+
+@media (min-width: 1080px) {
+  .t-grid--reverse-lg {
+    text-align: left;
+    direction: rtl;
+  }
+
+  .t-grid--reverse-lg > .t-grid__item {
+    text-align: left;
+    direction: ltr;
+  }
+}
+
+/*
+---
+name: grid--col
+category: Templates
+tag: Grid
+---
+
+グリッドシステムです。1/2や1/3のような均等なカラムを指定できます。
+カラム間の余白は`var(--t-grid--margin-top)`で統一しています。
+
+以下のような指定ができます。
+
+- 1/2から1/4までの均等なカラム指定。
+- ブレイクポイントなしから、`-md`、`-lg`での指定。
+
+```jade
+.t-grid.t-grid--medium.t-grid--col3(style="margin-bottom:4rem;")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+
+.t-grid.t-grid--medium.t-grid--col2-md.t-grid--col3-lg(style="margin-bottom:4rem;")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+  .t-grid__item
+    p 1/1 → 1/2 → 1/3
+    img.u-image--full(src="https://placehold.jp/600x400.png" alt="")
+```
+*/
+
+[class*="t-grid--col"] > .t-grid__item >:last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * 2カラムレイアウト。
+ */
+
+.t-grid--col2 > .t-grid__item {
+  width: 50%;
+}
+
+.t-grid--col2 > .t-grid__item:nth-of-type(n+3) {
+  margin-top: 1.6rem;
+}
+
+.t-grid--col2-md > .t-grid__item,
+.t-grid--col2-lg > .t-grid__item {
+  margin-top: 1.6rem;
+}
+
+.t-grid--col2-md > .t-grid__item:first-of-type,
+.t-grid--col2-lg > .t-grid__item:first-of-type {
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .t-grid--col2-md > .t-grid__item {
+    width: 50%;
+  }
+
+  .t-grid--col2-md > .t-grid__item:nth-of-type(n+3) {
+    margin-top: 1.6rem;
+  }
+
+  .t-grid--col2-md > .t-grid__item:nth-of-type(2) {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1080px) {
+  .t-grid--col2-lg > .t-grid__item {
+    width: 50%;
+  }
+
+  .t-grid--col2-lg > .t-grid__item:nth-of-type(n+3) {
+    margin-top: 1.6rem;
+  }
+
+  .t-grid--col2-lg > .t-grid__item:nth-of-type(2) {
+    margin-top: 0;
+  }
+}
+
+/**
+ * 3カラムレイアウト。
+ */
+
+.t-grid--col3 > .t-grid__item {
+  width: 33.33333%;
+}
+
+.t-grid--col3 > .t-grid__item:nth-of-type(n+4) {
+  margin-top: 1.6rem;
+}
+
+.t-grid--col3-md > .t-grid__item,
+.t-grid--col3-lg > .t-grid__item {
+  margin-top: 1.6rem;
+}
+
+.t-grid--col3-md > .t-grid__item:first-of-type,
+.t-grid--col3-lg > .t-grid__item:first-of-type {
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .t-grid--col3-md > .t-grid__item {
+    width: 33.33333%;
+  }
+
+  .t-grid--col3-md > .t-grid__item:nth-of-type(n+4) {
+    margin-top: 1.6rem;
+  }
+
+  .t-grid--col3-md > .t-grid__item:nth-of-type(2),
+  .t-grid--col3-md > .t-grid__item:nth-of-type(3) {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1080px) {
+  .t-grid--col3-lg > .t-grid__item {
+    width: 33.33333%;
+  }
+
+  .t-grid--col3-lg > .t-grid__item:nth-of-type(n+4) {
+    margin-top: 1.6rem;
+  }
+
+  .t-grid--col3-lg > .t-grid__item:nth-of-type(2),
+  .t-grid--col3-lg > .t-grid__item:nth-of-type(3) {
+    margin-top: 0;
+  }
+}
+
+/**
+ * 4カラムレイアウト。
+ */
+
+.t-grid--col4 > .t-grid__item {
+  width: 25%;
+}
+
+.t-grid--col4 > .t-grid__item:nth-of-type(n+5) {
+  margin-top: 1.6rem;
+}
+
+.t-grid--col3.t-grid--col4-md > .t-grid__item,
+.t-grid--col3.t-grid--col4-lg > .t-grid__item {
+}
+
+.t-grid--col3.t-grid--col4-md > .t-grid__item:nth-of-type(3),
+.t-grid--col3.t-grid--col4-lg > .t-grid__item:nth-of-type(3) {
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .t-grid--col4-md > .t-grid__item {
+    width: 25%;
+  }
+
+  .t-grid--col4-md > .t-grid__item:nth-of-type(n+5) {
+    margin-top: 1.6rem;
+  }
+
+  .t-grid--col4-md > .t-grid__item:nth-of-type(2),
+  .t-grid--col4-md > .t-grid__item:nth-of-type(3),
+  .t-grid--col4-md > .t-grid__item:nth-of-type(4) {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1080px) {
+  .t-grid--col4-lg > .t-grid__item {
+    width: 25%;
+  }
+
+  .t-grid--col4-lg > .t-grid__item:nth-of-type(n+5) {
+    margin-top: 1.6rem;
+  }
+
+  .t-grid--col4-lg > .t-grid__item:nth-of-type(2),
+  .t-grid--col4-lg > .t-grid__item:nth-of-type(3),
+  .t-grid--col4-lg > .t-grid__item:nth-of-type(4) {
+    margin-top: 0;
+  }
+}
+
+/* #header
+   -------------------------------------------------------------------------- */
+
+/**
+ * グローバルヘッダーのレイアウトを指定します。
+ * `.t-content`との下側の余白を指定します。
+ * Elementでグローバルヘッダー内のレイアウトを指定します。
+ */
+
+.t-header {
+  display: block;
+  width: 100%;
+}
+
+.t-header > :last-child {
+  margin-bottom: 0;
+}
+
+.t-header__logo {
+}
+
+.t-header__globalNav {
+}
+
+.t-header__breadcrumb {
+}
+
+/* #content
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: content
+category: Templates
+---
+
+コンテンツエリアのレイアウト例です。
+
+```jade
+.t-content__body
+  section.t-content__firstSection
+    h2.t-content__heading2.a-heading2 見出し2
+    section.t-content__secondSection
+      h3.t-content__heading3.a-heading3 見出し3
+      p.t-content__text ボディーテキスト
+      p.t-content__text ボディーテキスト
+
+      .t-grid.t-grid--medium.t-grid--col2-md.t-content__text
+        .t-grid__item
+          figure.m-figure
+            img.m-figure__image(src="https://placehold.jp/600x400.png" alt="")
+            figcaption.m-figure__caption.m-figure__caption--center キャプション
+        .t-grid__item
+          figure.m-figure
+            img.m-figure__image(src="https://placehold.jp/600x400.png" alt="")
+            figcaption.m-figure__caption.m-figure__caption--center キャプション
+
+      ul.t-content__text.a-list.a-list--note
+        li 注釈リスト
+        li 注釈リスト
+  section.t-content__firstSection
+    h2.t-content__heading2.a-heading2 見出し2
+    p.t-content__text ボディーテキスト
+```
+*/
+
+/**
+ * コンテンツエリアのレイアウトを指定します。
+ * Elementでメインコンテンツ内のレイアウトを指定します。
+ * `.t-wrapper__2culumn`を使用することで2カラムレイアウトにすることもできます。
+ * e.g.
+  article.t-content
+    header.t-content__head
+      p メインヘッダー
+    .t-content__body
+      p メインコンテンツ
+    footer.t-content__foot
+      p メインフッター
+ */
+
+.t-content {
+  display: block;
+  width: 100%;
+}
+
+.t-content > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * メインコンテンツのコンテンツヘッダーです。
+ * `.t-content__body`に対して下側の余白を指定します。
+ */
+
+.t-content__head {
+  margin-bottom: 3.2rem;
+  padding: 0 1rem 0;
+}
+
+.t-content__head > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * メインコンテンツの本文です。
+ * `.t-content__head`と`.t-content__foot`から余白を指定されることがあります。
+ */
+
+.t-content__body {
+  padding: 0 1rem 1rem;
+}
+
+.t-content__body > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * メインコンテンツのコンテンツフッターです。
+ * `.t-content__body`に対して上側の余白を指定します。
+ */
+
+.t-content__foot {
+  margin-top: 3.2rem;
+}
+
+.t-content__foot > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * ページタイトルです。
+ * `.t-content__head`内に配置します。
+ * `.t-content__head`によって最後の要素の下方向の余白がなくなります。
+ * e.g.
+  article.t-content
+    header.t-content__head
+      h1.t-content__title
+    .t-content__body
+ */
+
+.t-content__title {
+  margin-bottom: 1.6rem;
+}
+
+.t-content__title > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * `h2`のラップ要素（1つ目の`section`）として下方向に余白を指定します。
+ * `.t-content__body`によって最後の要素の下方向の余白がなくなります。
+ * e.g.
+  article.t-content
+    header.t-content__head
+    .t-content__body
+      section.t-content__firstSection
+        h2
+      section.t-content__firstSection
+        h2
+ */
+
+.t-content__firstSection {
+  margin-bottom: 3.2rem;
+}
+
+.t-content__firstSection > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * `h2`の下に余白を指定します。
+ * e.g.
+  article.t-content
+    header.t-content__head
+    .t-content__body
+      section.t-content__firstSection
+        h2.t-content__heading2
+ */
+
+.t-content__heading2 {
+  margin-bottom: 1.6rem;
+}
+
+.t-content__heading2 > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * `h3`のラップ要素（2つ目の`section`）として下方向に余白を指定します。
+ * `.t-content__firstSection`によって最後の要素の下方向の余白がなくなります。
+ * e.g.
+  .t-content__body
+    section.t-content__firstSection
+      h2.t-content__heading2
+      section.t-content__secondSection
+        h3
+    section.t-content__firstSection
+      h2.t-content__heading2
+      section.t-content__secondSection
+        h3
+ */
+
+.t-content__secondSection {
+  margin-bottom: 1.6rem;
+}
+
+.t-content__secondSection > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * `h3`の下に余白を指定します。
+ * e.g.
+  .t-content__body
+    section.t-content__firstSection
+      h2.t-content__heading2
+      section.t-content__secondSection
+        h3.t-content__heading3
+    section.t-content__firstSection
+      h2.t-content__heading2
+      section.t-content__secondSection
+        h3.t-content__heading3
+ */
+
+.t-content__heading3 {
+  margin-bottom: 0.8rem;
+}
+
+.t-content__heading3 > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * `.t-content__secondSection`同士の間に区切り記号（デリミタ）を表示して通常より大きめに余白をとります。
+ * `.t-content__firstSection`のModifierとして指定します。
+ * e.g.
+  .t-content__body
+    section.t-content__firstSection.t-content__firstSection--delimiter
+      h2.t-content__heading2
+      section.t-content__secondSection
+      section.t-content__secondSection
+ */
+
+.t-content__firstSection--delimiter > .t-content__secondSection:not(:last-of-type):after {
+  content: "";
+  display: block;
+  width: 100%;
+  margin: 24px auto;
+  margin: 1.6rem auto;
+  border-top: 1px solid #e5e5e5;
+}
+
+/**
+ * テキストレベルのコンポーネントのベースになる余白を指定します。
+ */
+
+.t-content__text {
+  margin-bottom: 1.2rem;
+}
+
+.t-content__text > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * テキストレベルのコンポーネントの少し狭い余白を指定します。
+ */
+
+.t-content__textSmall {
+  margin-bottom: 0.6rem;
+}
+
+.t-content__textSmall > :last-child {
+  margin-bottom: 0;
+}
+
+/* #sidebar
+   -------------------------------------------------------------------------- */
+
+/**
+ * サイドバーエリアのレイアウトを指定します。
+ * `.t-wrapper__2culumn`を使用することで2カラムレイアウトにすることもできます。
+ * e.g.
+  .t-wrapper
+    .t-wrapper__inner
+      .t-wrapper__2culumn
+        main.t-wrapper__content
+        aside.t-wrapper__sidebar
+          .t-sidebar
+ */
+
+.t-sidebar {
+  display: block;
+  width: 100%;
+}
+
+.t-sidebar > :last-child {
+  margin-bottom: 0;
+}
+
+.t-sidebar__body {
+  padding: 0 1rem 1rem;
+}
+
+.t-sidebar__body > :last-child {
+  margin-bottom: 0;
+}
+
+.t-sidebar__nav {
+}
+
+.t-sidebar__nav > :last-child {
+  margin-bottom: 0;
+}
+
+.t-sidebar__banner {
+}
+
+.t-sidebar__banner > :last-child {
+  margin-bottom: 0;
+}
+
+.t-sidebar__links {
+}
+
+.t-sidebar__links > :last-child {
+  margin-bottom: 0;
+}
+
+/* #footer
+   -------------------------------------------------------------------------- */
+
+/**
+ * グローバルフッターのレイアウトを指定します。
+ * `.t-content`との余白は`.t-content`側で指定します。
+ * Elementでグローバルフッター内のレイアウトを指定します。
+ */
+
+.t-footer {
+  display: block;
+  width: 100%;
+}
+
+.t-footer > :last-child {
+  margin-bottom: 0;
+}
+
+.t-footer__link {
+}
+
+.t-footer__logo {
+}
+
+.t-footer__copyright {
+}
+
+/* #wrapper
+   -------------------------------------------------------------------------- */
+
+/**
+ * `body`直下に配置するラッパーコンポーネントです。
+ * グローバルヘッダーやグローバルフッター、メインコンテンツやサイドバーといった
+ * サイトの基本となるレイアウトを指定します。ただし、それぞれの具体的なレイアウトは
+ * `.t-header`や`.t-content`で指定します。
+ * `.t-wrapper__1culumn`で1カラムレイアウト、
+ * `.t-wrapper__2culumn`で2カラムレイアウトにすることができます。
+ */
+
+.t-wrapper {
+  display: block;
+  width: 100%;
+}
+
+/* グローバルヘッダーエリアです。 */
+
+.t-wrapper__header {
+}
+
+.t-wrapper__header > :last-child {
+  margin-bottom: 0;
+}
+
+.t-wrapper__headerInner {
+  display: block;
+  width: 100%;
+  max-width: 1080px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem;
+}
+
+/* パンくずリストのレイアウトを指定します。 */
+
+.t-wrapper__breadcrumb {
+}
+
+.t-wrapper__breadcrumb > :last-child {
+  margin-bottom: 0;
+}
+
+.t-wrapper__breadcrumInner {
+  display: block;
+  width: 100%;
+  max-width: 1080px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem;
+}
+
+.t-wrapper__hero {
+  display: block;
+  width: 100%;
+}
+
+.t-wrapper__heroInner {
+  display: block;
+  width: 100%;
+  max-width: 1080px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 1rem;
+}
+
+/* グローバルフッターです。 */
+
+.t-wrapper__footer {
+}
+
+.t-wrapper__footer > :last-child {
+  margin-bottom: 0;
+}
+
+.t-wrapper__footerInner {
+  display: block;
+  width: 100%;
+  max-width: 1080px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem;
+}
+
+/**
+ * メインコンテンツを1カラムレイアウトにしたいときに指定します。
+ * e.g.
+  .t-wrapper(style="background-color:#ddd;")
+    header.t-wrapper__header(style="background-color:#eee;")
+      .t-wrapper__headerInner
+        .t-header
+          p グローバルヘッダー
+
+    .t-wrapper__hero(style="background-color:#eee;")
+      .t-wrapper__heroInner
+        p ヒーローイメージ
+
+    .t-wrapper__1culumn
+      .t-wrapper__inner
+        main.t-wrapper__content
+          article.t-content(style="background-color:#eee;")
+            header.t-content__head
+              p メインヘッダー
+            .t-content__body
+              p メインコンテンツ
+
+    footer.t-wrapper__footer(style="background-color:#eee;")
+      .t-wrapper__footerInner
+        .t-footer
+          p グローバルフッター
+ */
+
+.t-wrapper__1culumn {
+  display: block;
+  width: 100%;
+  max-width: 1080px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+
+.t-wrapper__1culumn > .t-wrapper__inner {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.t-wrapper__1culumn .t-wrapper__content {
+  display: block;
+  width: 100%;
+}
+
+/**
+ * メインコンテンツとサイドバーを2カラムレイアウトにしたいときに指定します。
+ * e.g.
+  .t-wrapper(style="background-color:#ddd;")
+    header.t-wrapper__header(style="background-color:#eee;")
+      .t-wrapper__headerInner
+        .t-header
+          p グローバルヘッダー
+
+    .t-wrapper__breadcrumb
+      .t-wrapper__breadcrumInner(style="background-color:#eee;")
+        ol.m-breadcrumb
+          li.m-breadcrumb__item
+            a.m-breadcrumb__link(href="#") ホーム
+          li.m-breadcrumb__item ページ名
+
+    .t-wrapper__2culumn
+      .t-wrapper__inner
+        main.t-wrapper__content
+          article.t-content(style="background-color:#eee;")
+            header.t-content__head
+              p メインヘッダー
+            .t-content__body
+              p メインコンテンツ
+        aside.t-wrapper__sidebar
+          .t-sidebar__body(style="background-color:#eee;")
+            p サイドバー
+
+    footer.t-wrapper__footer(style="background-color:#eee;")
+      .t-wrapper__footerInner
+        .t-footer
+          p グローバルフッター
+ */
+
+.t-wrapper__2culumn {
+  display: block;
+  width: 100%;
+  max-width: 1080px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+
+.t-wrapper__2culumn > .t-wrapper__inner {
+  display: block;
+  margin-left: -2rem;
+  font-size: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.t-wrapper__2culumn .t-wrapper__content {
+  margin-bottom: 1.6rem;
+}
+
+.t-wrapper__2culumn .t-wrapper__content,
+.t-wrapper__2culumn .t-wrapper__sidebar {
+  display: inline-block;
+  width: 100%;
+  padding-left: 2rem;
+  font-size: medium;
+  font-size: 1rem;
+  vertical-align: top;
+}
+
+@media (min-width: 768px) {
+  .t-wrapper__2culumn .t-wrapper__content {
+    width: 66.66667%;
+    margin-bottom: 0;
+  }
+
+  .t-wrapper__2culumn .t-wrapper__sidebar {
+    width: 33.33333%;
+  }
+}
+
+/* =============================================================================
+   #Pages
+   ========================================================================== */
+
+/**
+ * Pages（ページ）では実際のコンテンツを挿入して最終的な外観を確認します。
+ * Templatesのバリエーションを定義することもできます。
+ * 例えば、特定のページやカテゴリに対するスタイルを定義したり、動的にページの状態を変更したいときなどです。
+ * プレフィックス（接頭辞）として`.p-`をつけます。
+ */
+
+/* #blog
+   -------------------------------------------------------------------------- */
+
+.p-blog {
+}
+
+.p-blog__content h2 {
+}
+
+.p-blog__content h3 {
+}
+
+.p-blog__content h4 {
+}
+
+.p-blog__content h5 {
+}
+
+.p-blog__content h6 {
+}
+
+.p-blog__content p {
+}
+
+.p-blog__content ul,
+.p-blog__content ol {
+}
+
+.p-blog__content blockquote {
+}
+
+.p-blog__content img {
+}
+
+.p-blog__content code {
+}
+
+.p-blog__content pre code {
+}
+
+.p-blog__content > :last-child {
+  margin-bottom: 0;
+}
+
+/* =============================================================================
+   #Utility
+   ========================================================================== */
+
+/**
+ * Utilityレイヤーは汎用クラスを定義します。
+ * シングルクラスでも確実にスタイルを適応させるために`!important`を指定することを推奨します。
+ * コンポーネントがUtilityコンポーネントで成り立ってしまうことはできるだけ避けます。
+ * Utilityコンポーネントは他のレイヤーが持つよりも汎用的に使えたり、コードが冗長になってしまう場合に使います。
+ * pxのような絶対値ではなく、remや%のような相対値を指定することを推奨します。
+ * プレフィックス（接頭辞）として`.u-`をつけます。
+ */
+
+/* #display
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: image
+category: Utility
+---
+
+画像の汎用スタイルです。
+
+```jade
+img.u-image--full(src="https://placehold.jp/300x200.png" alt="")
+
+img.u-image-left(src="https://placehold.jp/300x200.png" alt="")
+
+img.u-image-center(src="https://placehold.jp/300x200.png" alt="")
+
+img.u-image-right(src="https://placehold.jp/300x200.png" alt="")
+```
+*/
+
+.u-image--full {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.u-image-left {
+  display: block !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+@media (min-width: 768px) {
+  .u-image-left-md {
+    display: block !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (min-width: 1080px) {
+  .u-image-left-lg {
+    display: block !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+}
+
+.u-image-center {
+  display: block !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+@media (min-width: 768px) {
+  .u-image-center-md {
+    display: block !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
+
+@media (min-width: 1080px) {
+  .u-image-center-lg {
+    display: block !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
+
+.u-image-right {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .u-image-right-md {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
+
+@media (min-width: 1080px) {
+  .u-image-right-lg {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* #text
+   -------------------------------------------------------------------------- */
+
+/* font-weightを指定します。 */
+
+.u-text-light {
+  font-weight: 300 !important;
+}
+
+.u-text-normal {
+  font-weight: 400 !important;
+}
+
+.u-text-bold {
+  font-weight: 700 !important;
+}
+
+/* 先頭の1文字目を1文字分字下げします。 */
+
+.u-text-indent {
+  text-indent: 1em !important;
+}
+
+/* 2行目以降の1文字目を1文字分字下げします。 */
+
+.u-text-note {
+  margin-left: 1em !important;
+  text-indent: -1em !important;
+}
+
+/**
+ * 文字の右側に1文字分の余白をあけます。
+ * '社名' => `社　名`
+ */
+
+.u-text-spacing-full {
+  letter-spacing: 1em !important;
+}
+
+/**
+ * 文字の右側に0.5文字分の余白をあけます。
+ * `URL` => `U R L`
+ */
+
+.u-text-spacing-half {
+  letter-spacing: 0.5em !important;
+}
+
+/* テキストを改行させません。 */
+
+.u-text-nowrap {
+  white-space: nowrap !important;
+}
+
+/* テキストを改行させます。 */
+
+.u-text-breakword {
+  word-wrap: break-word !important;
+  word-wrap: break-word !important;
+}
+
+/* テキストを両端揃えさせます。 */
+
+.u-text-justify {
+  text-align: justify !important;
+  text-justify: inter-ideograph !important;
+}
+
+/* 記述した通りに表示します。 */
+
+.u-text-none {
+  text-transform: none !important;
+}
+
+/* すべての英単語を小文字にします。 */
+
+.u-text-lowercase {
+  text-transform: lowercase !important;
+}
+
+/* すべての英単語を大文字にします。 */
+
+.u-text-uppercase {
+  text-transform: uppercase !important;
+}
+
+/* 英単語の先頭を大文字にします。 */
+
+.u-text-capitalize {
+  text-transform: capitalize !important;
+}
+
+/* スモールキャップ（小文字と同じ高さで作られた大文字）にします。 */
+
+.u-text-smallcaps {
+  -webkit-font-feature-settings: "c2sc" !important;
+  font-feature-settings: "c2sc" !important;
+  font-variant: small-caps !important;
+}
+
+/* 縦書きにします。 */
+
+.u-text-vertical {
+  -webkit-writing-mode: vertical-rl !important;
+  -ms-writing-mode: tb-rl !important;
+  writing-mode: vertical-rl !important;
+  text-orientation: mixed !important;
+}
+
+/* 英文も縦書きにする場合はModifierを指定します。 */
+
+.u-text-vertical--upright {
+  text-orientation: upright !important;
+}
+
+.u-text-right {
+  text-align: right !important;
+}
+
+.u-text-center {
+  text-align: center !important;
+}
+
+.u-text-left {
+  text-align: left !important;
+}
+
+.u-text-top {
+  vertical-align: top !important;
+}
+
+.u-text-middle {
+  vertical-align: middle !important;
+}
+
+.u-text-bottom {
+  vertical-align: bottom !important;
+}
+
+/* #break
+   -------------------------------------------------------------------------- */
+
+/*
+---
+name: break
+category: Utility
+---
+
+`<br>`タグに指定をして、改行をブレイクポイントごとにコントロールします。
+
+```jade
+p.t-content__text 常に
+  br
+  | 改行されます。
+
+p.t-content__text ブレイクポイント以降は
+  br.u-break-none-md
+  | 改行されません。
+
+p.t-content__text ブレイクポイント以降に
+  br.u-break-none.u-break-md
+  | 改行されます。
+```
+*/
+
+.u-break-none {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .u-break-none-md {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1080px) {
+  .u-break-none-lg {
+    display: none !important;
+  }
+}
+
+.u-break {
+  display: block !important;
+}
+
+@media (min-width: 768px) {
+  .u-break-md {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1080px) {
+  .u-break-lg {
+    display: block !important;
+  }
+}
+
+/* #col
+   -------------------------------------------------------------------------- */
+
+.u-col-1of12 {
+  width: 8.33333% !important;
+}
+
+.u-col-2of12 {
+  width: 16.66667% !important;
+}
+
+.u-col-3of12 {
+  width: 25% !important;
+}
+
+.u-col-4of12 {
+  width: 33.33333% !important;
+}
+
+.u-col-5of12 {
+  width: 41.66667% !important;
+}
+
+.u-col-6of12 {
+  width: 50% !important;
+}
+
+.u-col-7of12 {
+  width: 58.33333% !important;
+}
+
+.u-col-8of12 {
+  width: 66.66667% !important;
+}
+
+.u-col-9of12 {
+  width: 75% !important;
+}
+
+.u-col-10of12 {
+  width: 83.33333% !important;
+}
+
+.u-col-11of12 {
+  width: 91.66667% !important;
+}
+
+.u-col-12of12 {
+  width: 100% !important;
+}
+
+@media (min-width: 768px) {
+  .u-col-1of12-md {
+    width: 8.33333% !important;
+  }
+
+  .u-col-2of12-md {
+    width: 16.66667% !important;
+  }
+
+  .u-col-3of12-md {
+    width: 25% !important;
+  }
+
+  .u-col-4of12-md {
+    width: 33.33333% !important;
+  }
+
+  .u-col-5of12-md {
+    width: 41.66667% !important;
+  }
+
+  .u-col-6of12-md {
+    width: 50% !important;
+  }
+
+  .u-col-7of12-md {
+    width: 58.33333% !important;
+  }
+
+  .u-col-8of12-md {
+    width: 66.66667% !important;
+  }
+
+  .u-col-9of12-md {
+    width: 75% !important;
+  }
+
+  .u-col-10of12-md {
+    width: 83.33333% !important;
+  }
+
+  .u-col-11of12-md {
+    width: 91.66667% !important;
+  }
+
+  .u-col-12of12-md {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 1080px) {
+  .u-col-1of12-lg {
+    width: 8.33333% !important;
+  }
+
+  .u-col-2of12-lg {
+    width: 16.66667% !important;
+  }
+
+  .u-col-3of12-lg {
+    width: 25% !important;
+  }
+
+  .u-col-4of12-lg {
+    width: 33.33333% !important;
+  }
+
+  .u-col-5of12-lg {
+    width: 41.66667% !important;
+  }
+
+  .u-col-6of12-lg {
+    width: 50% !important;
+  }
+
+  .u-col-7of12-lg {
+    width: 58.33333% !important;
+  }
+
+  .u-col-8of12-lg {
+    width: 66.66667% !important;
+  }
+
+  .u-col-9of12-lg {
+    width: 75% !important;
+  }
+
+  .u-col-10of12-lg {
+    width: 83.33333% !important;
+  }
+
+  .u-col-11of12-lg {
+    width: 91.66667% !important;
+  }
+
+  .u-col-12of12-lg {
+    width: 100% !important;
+  }
+}
+
+/*# sourceMappingURL=common.css.map */

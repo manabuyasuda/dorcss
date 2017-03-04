@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Styleguide</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex, nofollow">
+    <link href="../../aigis_assets/css/highlight/prism.css" rel="stylesheet">
+    <link href="../../aigis_assets/css/theme.css" rel="stylesheet">
+    <link href="/assets/css/common.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="aigis-container">
+      <div class="aigis-sidemenu">
+        <header class="aigis-header"><a href="../../index.html">Styleguide</a></header>
+        <h2 class="aigis-sidemenu__heading">Category</h2>
+        <nav class="aigis-categoryList"><ul data-path-depth="0"><li data-path-depth="0"><a href="../../category/Atoms/index.html">Atoms</a></li><li data-path-depth="0"><a href="../../category/Molecules/index.html">Molecules</a></li><li data-path-depth="0"><a href="../../category/Templates/index.html">Templates</a></li><li data-path-depth="0"><a href="../../category/Utility/index.html">Utility</a></li></ul>
+        </nav>
+        <h2 class="aigis-sidemenu__heading">Tag</h2>
+        <nav class="aigis-tags aigis-tagList"><a href="../../tag/Contents/index.html" class="aigis-tags__item aigis-tags__item--Contents">Contents</a><a href="../../tag/Embed/index.html" class="aigis-tags__item aigis-tags__item--Embed">Embed</a><a href="../../tag/Form/index.html" class="aigis-tags__item aigis-tags__item--Form">Form</a><a href="../../tag/Grid/index.html" class="aigis-tags__item aigis-tags__item--Grid">Grid</a><a href="../../tag/Heading/index.html" class="aigis-tags__item aigis-tags__item--Heading">Heading</a><a href="../../tag/Link/index.html" class="aigis-tags__item aigis-tags__item--Link">Link</a><a href="../../tag/List/index.html" class="aigis-tags__item aigis-tags__item--List">List</a><a href="../../tag/Navigation/index.html" class="aigis-tags__item aigis-tags__item--Navigation">Navigation</a><a href="../../tag/Text/index.html" class="aigis-tags__item aigis-tags__item--Text">Text</a>
+        </nav>
+        <h2 class="aigis-sidemenu__heading"><a href="../../color.html">All Colors</a></h2>
+      </div>
+      <div class="aigis-contents">
+        <div class="aigis-contents__body">
+          <nav>
+            <h2 class="aigis-module__heading">TOC</h2>
+            <ul class="aigis-moduleList">
+              <li class="aigis-moduleList__item"><a href="#grid">grid</a></li>
+              <li class="aigis-moduleList__item"><a href="#grid--col">grid--col</a></li>
+            </ul>
+          </nav>
+          <div class="aigis-module">
+            <h2 id="grid" class="aigis-module__heading">grid</h2>
+            <div class="aigis-module__filepath">/src/assets/css/templates/_grid.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Grid">Grid</li>
+            </ul><p>グリッドシステムです。カラムごとに任意の値を指定したい場合に使います。
+カラムの指定はutility/_col.cssのスタイルを使います。</p>
+<p>以下のような指定ができます。</p>
+<ul>
+<li><code>.u-col-8of12</code> カラム数の指定。</li>
+<li><code>.t-grid--medium</code> ガターの指定。</li>
+<li><code>.t-grid--reverse</code> カラムの反転。</li>
+<li><code>.t-grid--center</code> カラムのセンタリング。</li>
+<li><code>.t-grid--right</code> カラムの右寄せ。</li>
+</ul>
+<div class="aigis-preview">
+
+<div style="margin-bottom:4rem;" class="t-grid t-grid--medium">
+  <div class="t-grid__item u-col-8of12-md">
+    <p>8カラム</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item u-col-4of12-md">
+    <p>4カラム</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+</div>
+<div style="margin-bottom:4rem;" class="t-grid t-grid--medium t-grid--reverse-md">
+  <div class="t-grid__item u-col-8of12-md">
+    <p>8カラム</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item u-col-4of12-md">
+    <p>4カラム</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+</div>
+<div class="t-grid t-grid--medium t-grid--center-md">
+  <div class="t-grid__item u-col-8of12-md">
+    <p>8カラム</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+</div>
+<div class="t-grid t-grid--medium t-grid--right-md">
+  <div class="t-grid__item u-col-8of12-md">
+    <p>8カラム</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+</div></div>
+
+<pre><code class="language-jade"><span class="token tag">.t-grid.t-grid--medium<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">style</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"margin-bottom:4rem;"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item.u-col-8of12-md</span>
+    <span class="token tag">p</span> <span class="token plain-text">8カラム</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item.u-col-4of12-md</span>
+    <span class="token tag">p</span> <span class="token plain-text">4カラム</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">.t-grid.t-grid--medium.t-grid--reverse-md<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">style</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"margin-bottom:4rem;"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item.u-col-8of12-md</span>
+    <span class="token tag">p</span> <span class="token plain-text">8カラム</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item.u-col-4of12-md</span>
+    <span class="token tag">p</span> <span class="token plain-text">4カラム</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">.t-grid.t-grid--medium.t-grid--center-md</span>
+  <span class="token tag">.t-grid__item.u-col-8of12-md</span>
+    <span class="token tag">p</span> <span class="token plain-text">8カラム</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">.t-grid.t-grid--medium.t-grid--right-md</span>
+  <span class="token tag">.t-grid__item.u-col-8of12-md</span>
+    <span class="token tag">p</span> <span class="token plain-text">8カラム</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="grid--col" class="aigis-module__heading">grid--col</h2>
+            <div class="aigis-module__filepath">/src/assets/css/templates/_grid.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Grid">Grid</li>
+            </ul><p>グリッドシステムです。1/2や1/3のような均等なカラムを指定できます。
+カラム間の余白は<code>var(--t-grid--margin-top)</code>で統一しています。</p>
+<p>以下のような指定ができます。</p>
+<ul>
+<li>1/2から1/4までの均等なカラム指定。</li>
+<li>ブレイクポイントなしから、<code>-md</code>、<code>-lg</code>での指定。</li>
+</ul>
+<div class="aigis-preview">
+
+<div style="margin-bottom:4rem;" class="t-grid t-grid--medium t-grid--col3">
+  <div class="t-grid__item">
+    <p>1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item">
+    <p>1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item">
+    <p>1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item">
+    <p>1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item">
+    <p>1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item">
+    <p>1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+</div>
+<div style="margin-bottom:4rem;" class="t-grid t-grid--medium t-grid--col2-md t-grid--col3-lg">
+  <div class="t-grid__item">
+    <p>1/1 → 1/2 → 1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item">
+    <p>1/1 → 1/2 → 1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item">
+    <p>1/1 → 1/2 → 1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item">
+    <p>1/1 → 1/2 → 1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item">
+    <p>1/1 → 1/2 → 1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+  <div class="t-grid__item">
+    <p>1/1 → 1/2 → 1/3</p><img src="https://placehold.jp/600x400.png" alt="" class="u-image--full"/>
+  </div>
+</div></div>
+
+<pre><code class="language-jade"><span class="token tag">.t-grid.t-grid--medium.t-grid--col3<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">style</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"margin-bottom:4rem;"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+
+<span class="token tag">.t-grid.t-grid--medium.t-grid--col2-md.t-grid--col3-lg<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">style</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"margin-bottom:4rem;"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/1 → 1/2 → 1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/1 → 1/2 → 1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/1 → 1/2 → 1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/1 → 1/2 → 1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/1 → 1/2 → 1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">.t-grid__item</span>
+    <span class="token tag">p</span> <span class="token plain-text">1/1 → 1/2 → 1/3</span>
+    <span class="token tag">img.u-image--full<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">src</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"https://placehold.jp/600x400.png"</span> alt<span class="token operator">=</span><span class="token string">""</span></span><span class="token punctuation">)</span></span></span>
+</code></pre>
+
+          </div>
+          <footer class="aigis-footer">Last update at 2017/03/04 16:56</footer>
+        </div>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/js/jquery-2.2.0.min.js"><\/script>')</script>
+    <script src="/assets/js/common.js"></script>
+  </body>
+</html>

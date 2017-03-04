@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Styleguide</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex, nofollow">
+    <link href="../../aigis_assets/css/highlight/prism.css" rel="stylesheet">
+    <link href="../../aigis_assets/css/theme.css" rel="stylesheet">
+    <link href="/assets/css/common.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="aigis-container">
+      <div class="aigis-sidemenu">
+        <header class="aigis-header"><a href="../../index.html">Styleguide</a></header>
+        <h2 class="aigis-sidemenu__heading">Category</h2>
+        <nav class="aigis-categoryList"><ul data-path-depth="0"><li data-path-depth="0"><a href="../../category/Atoms/index.html">Atoms</a></li><li data-path-depth="0"><a href="../../category/Molecules/index.html">Molecules</a></li><li data-path-depth="0"><a href="../../category/Templates/index.html">Templates</a></li><li data-path-depth="0"><a href="../../category/Utility/index.html">Utility</a></li></ul>
+        </nav>
+        <h2 class="aigis-sidemenu__heading">Tag</h2>
+        <nav class="aigis-tags aigis-tagList"><a href="../../tag/Contents/index.html" class="aigis-tags__item aigis-tags__item--Contents">Contents</a><a href="../../tag/Embed/index.html" class="aigis-tags__item aigis-tags__item--Embed">Embed</a><a href="../../tag/Form/index.html" class="aigis-tags__item aigis-tags__item--Form">Form</a><a href="../../tag/Grid/index.html" class="aigis-tags__item aigis-tags__item--Grid">Grid</a><a href="../../tag/Heading/index.html" class="aigis-tags__item aigis-tags__item--Heading">Heading</a><a href="../../tag/Link/index.html" class="aigis-tags__item aigis-tags__item--Link">Link</a><a href="../../tag/List/index.html" class="aigis-tags__item aigis-tags__item--List">List</a><a href="../../tag/Navigation/index.html" class="aigis-tags__item aigis-tags__item--Navigation">Navigation</a><a href="../../tag/Text/index.html" class="aigis-tags__item aigis-tags__item--Text">Text</a>
+        </nav>
+        <h2 class="aigis-sidemenu__heading"><a href="../../color.html">All Colors</a></h2>
+      </div>
+      <div class="aigis-contents">
+        <div class="aigis-contents__body">
+          <nav>
+            <h2 class="aigis-module__heading">TOC</h2>
+            <ul class="aigis-moduleList">
+              <li class="aigis-moduleList__item"><a href="#delimiter">delimiter</a></li>
+              <li class="aigis-moduleList__item"><a href="#lead">lead</a></li>
+              <li class="aigis-moduleList__item"><a href="#textAttention">textAttention</a></li>
+              <li class="aigis-moduleList__item"><a href="#textEmphasis">textEmphasis</a></li>
+              <li class="aigis-moduleList__item"><a href="#textSecondary">textSecondary</a></li>
+            </ul>
+          </nav>
+          <div class="aigis-module">
+            <h2 id="delimiter" class="aigis-module__heading">delimiter</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_delimiter.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Text">Text</li>
+            </ul><p><code>&lt;hr&gt;</code>のような区切り記号（デリミタ）です。</p>
+<div class="aigis-preview">
+
+<p>テキストです。</p>
+<hr class="a-delimiter"/>
+<p>テキストです</p>
+<hr class="a-delimiter a-delimiter--small"/>
+<p>テキストです</p></div>
+
+<pre><code class="language-jade"><span class="token tag">p</span> <span class="token plain-text">テキストです。</span>
+<span class="token tag">hr.a-delimiter</span>
+<span class="token tag">p</span> <span class="token plain-text">テキストです</span>
+<span class="token tag">hr.a-delimiter.a-delimiter--small</span>
+<span class="token tag">p</span> <span class="token plain-text">テキストです</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="lead" class="aigis-module__heading">lead</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_lead.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Text">Text</li>
+            </ul><p>視覚的に目立たせるときに使うスタイルです。</p>
+<div class="aigis-preview">
+
+<p class="a-lead">リード文です。</p></div>
+
+<pre><code class="language-jade"><span class="token tag">p.a-lead</span> <span class="token plain-text">リード文です。</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="textAttention" class="aigis-module__heading">textAttention</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_textAttention.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Text">Text</li>
+            </ul><p><code>&lt;p&gt;</code>や<code>&lt;strong&gt;</code>で使われるようなスタイルです。注意や注目を引きたい場合に使います。</p>
+<div class="aigis-preview">
+
+<p class="a-textAttention t-content__text">注目を引きたい文章です。</p>
+<p>通常の文章です。<strong class="a-textAttention">ただし、○○は注意してください。</strong></p></div>
+
+<pre><code class="language-jade"><span class="token tag">p.a-textAttention.t-content__text</span> <span class="token plain-text">注目を引きたい文章です。</span>
+<span class="token tag">p</span> <span class="token plain-text">通常の文章です。</span>
+  <span class="token tag">strong.a-textAttention</span> <span class="token plain-text">ただし、○○は注意してください。</span>
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="textEmphasis" class="aigis-module__heading">textEmphasis</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_textEmphasis.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Text">Text</li>
+            </ul><p><code>&lt;p&gt;</code>や<code>&lt;strong&gt;</code>で使われるようなスタイルです。強調や重要性を示すときに使います。</p>
+<div class="aigis-preview">
+
+<p class="a-textEmphasis t-content__text">重要な文章です。</p>
+<p>一般的な文章です。<strong class="a-textEmphasis">強調したいキーワード</strong>です。</p></div>
+
+<pre><code class="language-jade"><span class="token tag">p.a-textEmphasis.t-content__text</span> <span class="token plain-text">重要な文章です。</span>
+<span class="token tag">p</span> <span class="token plain-text">一般的な文章です。</span>
+  <span class="token tag">strong.a-textEmphasis</span> <span class="token plain-text">強調したいキーワード</span>
+  <span class="token punctuation">|</span> です。
+</code></pre>
+
+          </div>
+          <div class="aigis-module">
+            <h2 id="textSecondary" class="aigis-module__heading">textSecondary</h2>
+            <div class="aigis-module__filepath">/src/assets/css/atoms/_textSecondary.css</div>
+            <ul class="aigis-tags">
+              <li class="aigis-tags__item aigis-tags__item--Text">Text</li>
+            </ul><p><code>&lt;p&gt;</code>や<code>&lt;small&gt;</code>で使われるようなテキストスタイルです。副次的な意味合いを持たせる場合に使います。</p>
+<div class="aigis-preview">
+
+<p class="t-content__textSmall">通常のテキストスタイルです。</p>
+<p class="a-textSecondary">通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。</p></div>
+
+<pre><code class="language-jade"><span class="token tag">p.t-content__textSmall</span> <span class="token plain-text">通常のテキストスタイルです。</span>
+<span class="token tag">p.a-textSecondary</span> <span class="token plain-text">通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。</span>
+</code></pre>
+
+          </div>
+          <footer class="aigis-footer">Last update at 2017/03/04 16:56</footer>
+        </div>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/js/jquery-2.2.0.min.js"><\/script>')</script>
+    <script src="/assets/js/common.js"></script>
+  </body>
+</html>
