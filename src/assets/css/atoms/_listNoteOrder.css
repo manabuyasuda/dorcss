@@ -37,7 +37,7 @@ div(lang="en")
 }
 
 /* 英語と簡体字では注釈にアスタリスクを使う。 */
-[lang="en"] .a-list--noteOrder > li:before,
-[lang="zh-cn"] .a-list--noteOrder > li:before {
+[lang="en"] .a-listNoteOrder > li:before,
+[lang="zh-cn"] .a-listNoteOrder > li:before {
   content: "*" counter(noteOrder);
 }
