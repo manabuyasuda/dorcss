@@ -18,46 +18,52 @@ button.a-button(type="button" disabled) disabled
 input.a-button(type="button" disabled value="disabled")
 ```
 */
-.a-button {
-  display: inline-block;
-  margin: 0;
-  padding: 1em 2em;
-  border: none;
-  border: 1px solid #d0d0d0;
-  border-radius: var(--form--border-radius);
-  color: #fff;
-  font-family: inherit;
-  font-size: 1em;
-  line-height: 1;
-  text-align: center;
-  text-decoration: none;
-  background: transparent;
-  background-color: var(--color--link);
-  cursor: pointer;
-  appearance: none;
-  transition-duration: var(--form--transition-duration);
-  transition-property: var(--form--transition-property);
-
-  &:--onEvent {
+:root {
+  --a-button: {
+    display: inline-block;
+    margin: 0;
+    padding: 1em 2em;
+    border: none;
+    border: 1px solid #d0d0d0;
+    border-radius: var(--form--border-radius);
+    color: #fff;
+    font-family: inherit;
+    font-size: 1em;
+    line-height: 1;
+    text-align: center;
     text-decoration: none;
-  }
+    background: transparent;
+    background-color: var(--color--link);
+    cursor: pointer;
+    appearance: none;
+    transition-duration: var(--form--transition-duration);
+    transition-property: var(--form--transition-property);
 
-  &:focus {
+    &:--onEvent {
+      text-decoration: none;
+    }
 
-  }
+    &:focus {
 
-  &:disabled {
-    cursor: var(--form--disabled-cursor);
-    opacity: var(--form--disabled-opacity);
-    background-color: var(--form--disabled-background-color);
+    }
+
+    &:disabled {
+      cursor: var(--form--disabled-cursor);
+      opacity: var(--form--disabled-opacity);
+      background-color: var(--form--disabled-background-color);
+    }
+
+    &.is-disabled {
+      cursor: var(--form--disabled-cursor);
+      opacity: var(--form--disabled-opacity);
+      background-color: var(--form--disabled-background-color);
+      pointer-events: none;
+    }
   }
 }
 
-.a-button.is-disabled {
-  cursor: var(--form--disabled-cursor);
-  opacity: var(--form--disabled-opacity);
-  background-color: var(--form--disabled-background-color);
-  pointer-events: none;
+.a-button {
+  @apply --a-button;
 }
 
 .a-button--full {
@@ -69,7 +75,8 @@ input.a-button(type="button" disabled value="disabled")
 .a-button--tertiary {}
 .a-button--quaternary {}
 
-.a-button--search {
+.a-buttonSearch {
+  @apply --a-button;
 
   &:focus {
     outline: none;

@@ -20,20 +20,28 @@ div(lang="en")
     li This is the second annotation.
 ```
 */
-.a-listNoteOrder {
-  @apply --listUnstyled;
+:root {
+  --a-listNoteOrder: {
+    @apply --listUnstyled;
+
+    & > li {
+      counter-increment: noteOrder;
+      font-size: var(--font-size--secondary);
+    }
+
+    & > li:target {
+      background-color: lightgray;
+    }
+
+    & > li:before {
+      content: "※" counter(noteOrder);
+      margin-right: 0.25em;
+    }
+  }
 }
 
-.a-listNoteOrder > li {
-  counter-increment: noteOrder;
-  font-size: var(--font-size--secondary);
-  &:target {
-    background-color: lightgray;
-  }
-  &:before {
-    content: "※" counter(noteOrder);
-    margin-right: 0.25em;
-  }
+.a-listNoteOrder {
+  @apply --a-listNoteOrder;
 }
 
 /* 英語と簡体字では注釈にアスタリスクを使う。 */

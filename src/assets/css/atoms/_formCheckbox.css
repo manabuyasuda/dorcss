@@ -17,52 +17,58 @@ input.a-formCheckbox(type="checkbox" disabled id="checkbox2")
 label(for="checkbox2" disabled) disabled
 ```
 */
+:root {
+  --a-formCheckbox: {
+    display: none;
+
+    & + label {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    & + label:before {
+      content: "";
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      top: -0.1em;
+      left: 0;
+      width: 1em;
+      height: 1em;
+      margin: auto;
+      margin-right: 0.25em;
+      border: 1px solid #d0d0d0;
+      border-radius: var(--form--border-radius);
+      background-color: #fff;
+    }
+
+    &:checked + label:after {
+      content: "";
+      background-image: url("/assets/img/check.svg");
+      background-repeat: no-repeat;
+      background-size: 1em;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 1em;
+      height: 1em;
+    }
+
+    &:disabled,
+    & + label[disabled] {
+      cursor: var(--form--disabled-cursor);
+      opacity: var(--form--disabled-opacity);
+    }
+
+    &:disabled + label:after {
+      display: none;
+    }
+  }
+}
+
 .a-formCheckbox {
-  display: none;
-}
-
-.a-formCheckbox + label {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.a-formCheckbox + label:before {
-  content: "";
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  top: -0.1em;
-  left: 0;
-  width: 1em;
-  height: 1em;
-  margin: auto;
-  margin-right: 0.25em;
-  border: 1px solid #d0d0d0;
-  border-radius: var(--form--border-radius);
-  background-color: #fff;
-}
-
-.a-formCheckbox:checked + label:after {
-  content: "";
-  background-image: url("/assets/img/check.svg");
-  background-repeat: no-repeat;
-  background-size: 1em;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 1em;
-  height: 1em;
-}
-
-.a-formCheckbox:disabled,
-.a-formCheckbox + label[disabled] {
-  cursor: var(--form--disabled-cursor);
-  opacity: var(--form--disabled-opacity);
-}
-
-.a-formCheckbox:disabled + label:after {
-  display: none;
+  @apply --a-formCheckbox;
 }

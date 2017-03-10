@@ -27,7 +27,7 @@ category: Templates
             img.m-figure__image(src="https://placehold.jp/600x400.png" alt="")
             figcaption.m-figure__caption.m-figure__caption--center キャプション
 
-      ul.t-content__text.a-list.a-list--note
+      ul.t-content__text.a-listNote
         li 注釈リスト
         li 注釈リスト
   section.t-content__firstSection

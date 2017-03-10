@@ -12,9 +12,9 @@ tag: Form
 ```jade
 .m-searchForm
   .m-searchForm__input
-    input.a-formInput(type="input" name="q" id="m-searchForm__input" placeholder="keywords…")
+    input(type="input" name="q" id="m-searchForm__input" placeholder="keywords…")
   .m-searchForm__button
-    button.a-button.a-button--full.a-button--search(type="submit" value="検索") 検索
+    button.a-buttonSearch(type="submit" value="検索") 検索
 ```
 */
 .m-searchForm {
@@ -30,7 +30,8 @@ tag: Form
   padding-right: 1em;
 }
 
-.m-searchForm__input > .a-formInput {
+.m-searchForm__input > input {
+  @apply --a-formInput;
   height: 3em;
 }
 
@@ -44,7 +45,8 @@ tag: Form
   }
 }
 
-.m-searchForm__button > .a-button {
+.m-searchForm__button > .a-buttonSearch {
+  width: 100%;
   height: 3em;
   padding: 0 1em;
 }

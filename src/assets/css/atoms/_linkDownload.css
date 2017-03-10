@@ -21,20 +21,32 @@ p: a.a-linkDownload(href="#")
   span.a-linkDownload__icon(aria-hidden="true")
 ```
 */
-.a-linkDownload {
-  color: var(--color--link);
-  text-decoration: none;
+:root {
+  --a-linkDownload: {
+    color: var(--color--link);
+    text-decoration: none;
 
-  &:--onEvent {
-    color: var(--color--link-hover);
-    text-decoration: underline;
+    &:--onEvent {
+      color: var(--color--link-hover);
+      text-decoration: underline;
+    }
+  }
+
+  --a-linkDownload__icon: {
+    &:after {
+      @apply --icon;
+      content: var(--icon--download);
+      top: -0.2em;
+      left: 0.25em;
+      font-size: 1.25em;
+    }
   }
 }
 
-.a-linkDownload__icon:after {
-  @apply --icon;
-  content: var(--icon--download);
-  top: -0.2em;
-  left: 0.25em;
-  font-size: 1.25em;
+.a-linkDownload {
+  @apply --a-linkDownload;
+}
+
+.a-linkDownload__icon {
+  @apply --a-linkDownload__icon;
 }

@@ -18,22 +18,30 @@ ol.a-listOrder
       li 2階層目のリスト2です。
 ```
 */
-.a-listOrder {
-  display: table;
-  @apply --listUnstyled;
+:root {
+  --a-listOrder: {
+    display: table;
+    @apply --listUnstyled;
+
+    & li {
+      display: table-row;
+      counter-increment: order;
+    }
+
+    & li:before {
+      content: counters(order, ".") ".";
+      display: table-cell;
+      padding-right: 0.5em;
+      text-align: right;
+    }
+
+    & ol {
+      counter-reset: order;
+      @apply --listUnstyled;
+    }
+  }
 }
 
-.a-listOrder li {
-  display: table-row;
-  counter-increment: order;
-  &:before {
-    content: counters(order, ".") ".";
-    display: table-cell;
-    padding-right: 0.5em;
-    text-align: right;
-  }
-  & ol {
-    counter-reset: order;
-    @apply --listUnstyled;
-  }
+.a-listOrder {
+  @apply --a-listOrder;
 }

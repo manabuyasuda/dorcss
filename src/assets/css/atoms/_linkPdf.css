@@ -21,20 +21,32 @@ p: a.a-linkPdf(href="#")
   span.a-linkPdf__icon(aria-hidden="true")
 ```
 */
-.a-linkPdf {
-  color: var(--color--link);
-  text-decoration: none;
+:root {
+  --a-linkPdf: {
+    color: var(--color--link);
+    text-decoration: none;
 
-  &:--onEvent {
-    color: var(--color--link-hover);
-    text-decoration: underline;
+    &:--onEvent {
+      color: var(--color--link-hover);
+      text-decoration: underline;
+    }
+  }
+
+  --a-linkPdf__icon: {
+    &:after {
+      @apply --icon;
+      content: var(--icon--file-pdf);
+      top: -0.2em;
+      left: 0.25em;
+      font-size: 1.25em;
+    }
   }
 }
 
-.a-linkPdf__icon:after {
-  @apply --icon;
-  content: var(--icon--file-pdf);
-  top: -0.2em;
-  left: 0.25em;
-  font-size: 1.25em;
+.a-linkPdf {
+  @apply --a-linkPdf;
+}
+
+.a-linkPdf__icon {
+  @apply --a-linkPdf__icon;
 }

@@ -12,29 +12,41 @@ tag: Link
 ```jade
 p: a.a-link(href="#") リンク
 
-p: a.a-link.a-linkExternal(href="#")
+p: a.a-linkExternal(href="#")
   | 外部リンクを開く
   span.a-linkExternal__icon(aria-hidden="true")
 
-p: a.a-link.a-linkExternal(href="#")
+p: a.a-linkExternal(href="#")
   | 外部リンクが長文になったときの表示のされ方をテストします
   span.a-linkExternal__icon(aria-hidden="true")
 ```
 */
-.a-linkExternal {
-  color: var(--color--link);
-  text-decoration: none;
+:root {
+  --a-linkExternal: {
+    color: var(--color--link);
+    text-decoration: none;
 
-  &:--onEvent {
-    color: var(--color--link-hover);
-    text-decoration: underline;
+    &:--onEvent {
+      color: var(--color--link-hover);
+      text-decoration: underline;
+    }
+  }
+
+  --a-linkExternal__icon: {
+    &:after {
+      @apply --icon;
+      content: var(--icon--external-link);
+      top: -0.15em;
+      left: 0.25em;
+      font-size: 1.25em;
+    }
   }
 }
 
-.a-linkExternal__icon:after {
-  @apply --icon;
-  content: var(--icon--external-link);
-  top: -0.15em;
-  left: 0.25em;
-  font-size: 1.25em;
+.a-linkExternal {
+  @apply --a-linkExternal;
+}
+
+.a-linkExternal__icon {
+  @apply --a-linkExternal__icon;
 }

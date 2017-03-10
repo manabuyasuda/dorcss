@@ -12,9 +12,9 @@ tag: Navigation
 ```jade
 ol.m-breadcrumb
   li.m-breadcrumb__item
-    a.m-breadcrumb__link.a-link(href="/") ホーム
+    a.m-breadcrumb__link(href="/") ホーム
   li.m-breadcrumb__item
-    a.m-breadcrumb__link.a-link(href="#") カテゴリ名
+    a.m-breadcrumb__link(href="#") カテゴリ名
   li.m-breadcrumb__item ページ名
 ```
 */
@@ -34,6 +34,7 @@ ol.m-breadcrumb
 }
 
 .m-breadcrumb__link {
+  @apply --a-link;
   display: inline-block;
 }
 

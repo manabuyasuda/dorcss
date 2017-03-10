@@ -10,9 +10,13 @@ tag: Link
 注釈から参照元に戻るためのリンクです。
 
 ```jade
-a.a-link.a-linkReturn(href="#ref01")
+a.a-linkReturn(href="#ref01")
 ```
 */
+.a-linkReturn {
+  @apply --a-link;
+}
+
 .a-linkReturn:before {
   content: "[本文に戻る]";
 }

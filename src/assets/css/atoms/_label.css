@@ -14,19 +14,25 @@ span.a-label ラベル
 label.a-label ラベル
 ```
 */
-.a-label {
-  display: inline-block;
-  padding: 0.5em;
-  color: #fff;
-  font-size: var(--font-size--secondary);
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  text-decoration: none;
-  background-color: var(--color--link);
-
-  &:--onEvent {
+:root {
+  --a-label: {
+    display: inline-block;
+    padding: 0.5em;
     color: #fff;
+    font-size: var(--font-size--secondary);
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
     text-decoration: none;
+    background-color: var(--color--link);
+
+    &:--onEvent {
+      color: #fff;
+      text-decoration: none;
+    }
   }
+}
+
+.a-label {
+  @apply --a-label;
 }

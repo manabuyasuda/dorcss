@@ -17,14 +17,20 @@ hr.a-divider.a-divider--small
 p.t-content__textSmall テキストです
 ```
 */
+:root {
+  --a-divider: {
+    box-sizing: inherit;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 1.2em auto;
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+  }
+}
+
 .a-divider {
-  box-sizing: inherit;
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 1.2em auto;
-  border: 0;
-  border-top: 1px solid #e5e5e5;
+  @apply --a-divider;
 }
 
 .a-divider--small {

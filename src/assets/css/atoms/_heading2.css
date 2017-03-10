@@ -14,32 +14,38 @@ h2.a-heading2.t-content__heading2 h2見出しです
 h2.a-heading2 h2見出しです
 ```
 */
+:root {
+  --a-heading2: {
+    position: relative;
+    font-size: 1.4em;
+    font-weight: var(--font-weight--normal);
+    line-height: 1.4;
+    padding-bottom: 0.5em;
+
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      background-color: #c9c9c9;
+    }
+
+    &:after {
+      display: block;
+      content: "";
+      width: 3em;
+      height: 1px;
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      background-color: #0a41a6;
+    }
+  }
+}
+
 .a-heading2 {
-  position: relative;
-  font-size: 1.4em;
-  font-weight: var(--font-weight--normal);
-  line-height: 1.4;
-  padding-bottom: 0.5em;
-
-  &:before {
-    display: block;
-    content: "";
-    width: 100%;
-    height: 1px;
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    background-color: #c9c9c9;
-  }
-
-  &:after {
-    display: block;
-    content: "";
-    width: 3em;
-    height: 1px;
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    background-color: #0a41a6;
-  }
+  @apply --a-heading2;
 }

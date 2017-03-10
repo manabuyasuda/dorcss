@@ -12,9 +12,15 @@ tag: Text
 ```jade
 p.a-textAttention.t-content__text 注目を引きたい文章です。
 p 通常の文章です。
-  strong.a-textAttention ただし、○○は注意してください。
+  strong.a-textAttention.t-content__text ただし、○○は注意してください。
 ```
 */
+:root {
+  --a-textAttention: {
+    color: #a94442;
+  }
+}
+
 .a-textAttention {
-  color: #a94442;
+  @apply --a-textAttention;
 }

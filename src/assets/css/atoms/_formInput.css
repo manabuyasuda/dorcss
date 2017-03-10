@@ -27,68 +27,74 @@ input.a-formInput.is-caution(type="input" placeholder="is-caution")
 input.a-formInput.is-error(type="input" placeholder="is-error")
 ```
 */
+:root {
+  --a-formInput: {
+    width: 100%;
+    height: 2.5em;
+    padding: 0 1em;
+    font-size: 1em;
+    vertical-align: middle;
+    border: 1px solid #d0d0d0;
+    background-color: #fff;
+    box-shadow:1px 1px 6px -3px #9e9e9e inset;
+    border-radius: var(--form--border-radius);
+    appearance: none;
+    transition-duration: var(--form--transition-duration);
+    transition-property: var(--form--transition-property);
+
+    &::placeholder {
+      color: var(--form--placeholder-color);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #66afe9;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    }
+
+    &:disabled {
+      cursor: var(--form--disabled-cursor);
+      opacity: var(--form--disabled-opacity);
+      background-color: var(--form--disabled-background-color);
+    }
+
+    /* 成功 */
+    &.is-success {
+      border-color: #3c763d;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+
+      &:focus {
+        border-color: #2b542c;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #67b168;
+      }
+    }
+
+    /* 注意 */
+    &.is-caution {
+      border-color: #8a6d3b;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+
+      &:focus {
+        border-color: #66512c;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #c0a16b;
+      }
+    }
+
+    /* エラー */
+    &.is-error {
+      border-color: #a94442;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+
+      &:focus {
+        border-color: #843534;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px #ce8483;
+      }
+    }
+  }
+}
+
 .a-formInput {
-  width: 100%;
-  height: 2.5em;
-  padding: 0 1em;
-  font-size: 1em;
-  vertical-align: middle;
-  border: 1px solid #d0d0d0;
-  background-color: #fff;
-  box-shadow:1px 1px 6px -3px #9e9e9e inset;
-  border-radius: var(--form--border-radius);
-  appearance: none;
-  transition-duration: var(--form--transition-duration);
-  transition-property: var(--form--transition-property);
-
-  &::placeholder {
-    color: var(--form--placeholder-color);
-  }
-
-  &:focus {
-    outline: none;
-    border-color: #66afe9;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-  }
-
-  &:disabled {
-    cursor: var(--form--disabled-cursor);
-    opacity: var(--form--disabled-opacity);
-    background-color: var(--form--disabled-background-color);
-  }
-}
-
-/* 成功 */
-.a-formInput.is-success {
-  border-color: #3c763d;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-
-  &:focus {
-    border-color: #2b542c;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #67b168;
-  }
-}
-
-/* 注意 */
-.a-formInput.is-caution {
-  border-color: #8a6d3b;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-
-  &:focus {
-    border-color: #66512c;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #c0a16b;
-  }
-}
-
-/* エラー */
-.a-formInput.is-error {
-  border-color: #a94442;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-
-  &:focus {
-    border-color: #843534;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px #ce8483;
-  }
+  @apply --a-formInput;
 }
 
 .a-formInput__textTop {

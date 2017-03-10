@@ -11,11 +11,17 @@ tag: Text
 
 ```jade
 p.a-textEmphasis.t-content__text 重要な文章です。
-p 一般的な文章です。
+p.t-content__text 一般的な文章です。
   strong.a-textEmphasis 強調したいキーワード
   | です。
 ```
 */
+:root {
+  --a-textEmphasis: {
+    font-weight: var(--font-weight--bold);
+  }
+}
+
 .a-textEmphasis {
-  font-weight: var(--font-weight--bold);
+  @apply --a-textEmphasis;
 }

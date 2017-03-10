@@ -15,14 +15,21 @@ ul.a-listBracketOrder
   li 2つ目のリストです。
 ```
 */
-.a-listBracketOrder {
-  @apply --listUnstyled;
+:root {
+  --a-listBracketOrder: {
+    @apply --listUnstyled;
+
+    & > li {
+      counter-increment: bracketOrder;
+    }
+
+    & > li:before {
+      content: "(" counter(bracketOrder) ")";
+      margin-right: 0.25em;
+    }
+  }
 }
 
-.a-listBracketOrder > li {
-  counter-increment: bracketOrder;
-  &:before {
-    content: "(" counter(bracketOrder) ")";
-    margin-right: 0.25em;
-  }
+.a-listBracketOrder {
+  @apply --a-listBracketOrder;
 }

@@ -20,21 +20,27 @@ div(lang="en")
     li This is the second annotation.
 ```
 */
+:root {
+  --a-listNote: {
+    @apply --listUnstyled;
+
+    & > li {
+      font-size: var(--font-size--secondary);
+    }
+
+    & > li:before {
+      content: "※";
+      margin-right: 0.5em;
+    }
+  }
+}
 
 .a-listNote {
-  @apply --listUnstyled;
+  @apply --a-listNote;
 }
 
-.a-listNote > li {
-  font-size: var(--font-size--secondary);
+/* 英語と簡体字では注釈にアスタリスクを使う。 */
+[lang="en"] .a-listNote > li:before,
+[lang="zh-cn"] .a-listNote > li:before {
+  content: "*";
 }
-.a-listNote > li:before {
-  content: "※";
-  margin-right: 0.5em;
-}
-
-  /* 英語と簡体字では注釈にアスタリスクを使う。 */
-  [lang="en"] .a-listNote > li:before,
-  [lang="zh-cn"] .a-listNote > li:before {
-    content: "*";
-  }

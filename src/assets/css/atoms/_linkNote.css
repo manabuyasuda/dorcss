@@ -14,21 +14,31 @@ tag: Link
 p 注釈へのリンクです
   sup
     a.a-linkNote(href="#note01") 1
+div(lang="en")
+  p It is a link to an annotation
+    sup
+      a.a-linkNote(href="#note02") 2
 ```
 */
-.a-linkNote {
-  color: var(--color--link);
-  text-decoration: underline;
-
-  &:--onEvent {
-    color: var(--color--link-hover);
+:root {
+  --a-linkNote: {
+    color: var(--color--link);
     text-decoration: underline;
+
+    &:--onEvent {
+      color: var(--color--link-hover);
+      text-decoration: underline;
+    }
+
+    &:before {
+      content: "※";
+      margin-left: 0.25em;
+    }
   }
 }
 
-.a-linkNote:before {
-  content: "※";
-  margin-left: 0.25em;
+.a-linkNote {
+  @apply --a-linkNote;
 }
 
 /* 英語と簡体字では注釈にアスタリスクを使う。 */

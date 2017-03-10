@@ -11,9 +11,15 @@ tag: Text
 
 ```jade
 p.t-content__textSmall 通常のテキストスタイルです。
-p.a-textSecondary 通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。
+p.a-textSecondary.t-content__textSmall 通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。通常のテキストに対して（説明や注意をするような）副次的な意味合いを持たせたい場合に使います。
 ```
 */
+:root {
+  --a-textSecondary: {
+    font-size: var(--font-size--secondary);
+  }
+}
+
 .a-textSecondary {
-  font-size: var(--font-size--secondary);
+  @apply --a-textSecondary;
 }
