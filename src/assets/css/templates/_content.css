@@ -193,16 +193,16 @@ category: Templates
 }
 
 /**
- * `.t-content__secondSection`同士の間に区切り記号（デリミタ）を表示して通常より大きめに余白をとります。
+ * `.t-content__secondSection`同士の間に区切り記号を表示して通常より大きめに余白をとります。
  * `.t-content__firstSection`のModifierとして指定します。
  * e.g.
   .t-content__body
-    section.t-content__firstSection.t-content__firstSection--delimiter
+    section.t-content__firstSection.t-content__firstSection--divider
       h2.t-content__heading2
       section.t-content__secondSection
       section.t-content__secondSection
  */
-.t-content__firstSection--delimiter >  .t-content__secondSection:not(:last-of-type):after {
+.t-content__firstSection--divider > .t-content__secondSection:not(:last-of-type):after {
   content: "";
   display: block;
   width: 100%;

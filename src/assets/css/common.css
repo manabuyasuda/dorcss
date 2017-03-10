@@ -29,7 +29,7 @@
  * linkDownload...ファイルをダウンロードするためのリンクであることを示す場合に使います。
  * linkNote...注釈へのリンクです。`<sup>`タグの子要素として指定します。
  * linkReturn...注釈から参照元に戻るためのリンクです。
- * delimiter...`<hr>`のような区切り記号（デリミタ）です。
+ * divider...`<hr>`のような区切り記号を使って、分割・グルーピングします。
  * embed...Youtubeなどをレスポンシブ対応させます。
  * label...インラインで表示するラベルコンポーネントです。
  * button...ボタンのデフォルトスタイルです。
@@ -145,7 +145,7 @@
 @import "atoms/_linkDownload.css";
 @import "atoms/_linkNote.css";
 @import "atoms/_linkReturn.css";
-@import "atoms/_delimiter.css";
+@import "atoms/_divider.css";
 @import "atoms/_embed.css";
 @import "atoms/_label.css";
 @import "atoms/_button.css";
