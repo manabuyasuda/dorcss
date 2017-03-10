@@ -77,6 +77,7 @@
 
 /**
  * メインコンテンツを1カラムレイアウトにしたいときに指定します。
+ * `.t-wrapper__inner`を指定することで、横幅に制限をかけることができます。
  * e.g.
   .t-wrapper(style="background-color:#ddd;")
     header.t-wrapper__header(style="background-color:#eee;")
@@ -88,34 +89,36 @@
       .t-wrapper__heroInner
         p ヒーローイメージ
 
-    .t-wrapper__1culumn
-      .t-wrapper__inner
-        main.t-wrapper__content
-          article.t-content(style="background-color:#eee;")
+    main.t-wrapper__1culumn
+      article
+        .t-wrapper__inner
+          .t-content(style="background-color:#eee;")
             header.t-content__head
               p メインヘッダー
             .t-content__body
               p メインコンテンツ
+        .t-content__full
+          p フルコンテンツ
 
     footer.t-wrapper__footer(style="background-color:#eee;")
       .t-wrapper__footerInner
         .t-footer
           p グローバルフッター
+
  */
 .t-wrapper__1culumn {
+  display: block;
+  width: 100%;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+
+.t-wrapper__1culumn .t-wrapper__inner {
   display: block;
   width: 100%;
   max-width: var(--max-width);
   margin-right: auto;
   margin-left: auto;
-  padding-top: 3.2rem;
-  padding-bottom: 3.2rem;
-}
-
-.t-wrapper__1culumn > .t-wrapper__inner {
-  display: block;
-  width: 100%;
-  @apply --listUnstyled;
 }
 
 .t-wrapper__1culumn .t-wrapper__content {
