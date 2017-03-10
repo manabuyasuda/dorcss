@@ -2,7 +2,7 @@
 
 DORCSS（ドールシーエスエス）はRole（役割）を分担・分割（Division）することで影響範囲を管理するCSS設計の構成案です。
 
-[OOCSS](https://github.com/stubbornella/oocss)、[SMACSS](https://smacss.com/ja)、[BEM](https://en.bem.info/)、[FLOCSS](https://github.com/hiloki/flocss)、[ITCSS](https://speakerdeck.com/dafed/managing-css-projects-with-itcss)、[Atomic Desing](http://atomicdesign.bradfrost.com/)、[large-scale-javascript](https://github.com/azu/large-scale-javascript)に強く影響を受けています。
+[OOCSS](https://github.com/stubbornella/oocss)、[SMACSS](https://smacss.com/ja)、[BEM](https://en.bem.info/)、[FLOCSS](https://github.com/hiloki/flocss)、[Atomic Desing](http://atomicdesign.bradfrost.com/)、[Enduring CSS](http://ecss.io/)、[large-scale-javascript](https://github.com/azu/large-scale-javascript)に強く影響を受けています。
 
 DORCSSでは以下のような用語を使います。
 
@@ -12,42 +12,44 @@ DORCSSでは以下のような用語を使います。
 - 装飾 - `color`や`background-color`のような見た目に関すること
 - 構造 - `display`や`padding`のような骨格に関すること
 - 配置 - `margin`や`position`などのレイアウトに関すること
+- コンテキスト - そのデザインにした理由や、そのコンポーネントを使う状況
+- 名前空間 - コンポーネントの役割やコンテキストを示す接頭辞
 
 ## DORCSSの基本
 
-### 継承
+### 継承を利用する
 コンポーネントはハードコード（ある状態でだけ正しくふるまうこと）をできるだけ避けるべきです。規模の大きなWebサイトでは1つのデザイン変更で多くのコンポーネントに修正が必要になってしまう恐れがあるからです。
 
-CSSには継承という仕組みがあります。ルート要素にベースとなるスタイルを指定してコンポーネントが継承して利用できるようにします。変数や@apply ruleを併用して一括で管理できるのが理想的です。また、サイズの単位はpxをなるべく避け、remやemをベースにします。
+CSSには継承という仕組みがあります。ルート要素にベースとなるスタイルを指定して、それをコンポーネントが継承して利用できるようにします。変数や@apply ruleを併用して一括で管理できるのが理想的です。また、サイズの単位はpxをなるべく避け、remやemをベースにします。
 
-### 名前の衝突と役割の明確化
-CSSには機能的にスコープを作ることはできないので、名前によって擬似的にスコープを作る必要があります。名前の重複を避けることができれば、スタイルの意図しない衝突を起こす可能性が下がります。
-名前でスコープを作るために4つの方法を利用します。
+### 名前の衝突を避け、役割を明確にする
+CSSには機能的にスコープを作ることはできないので、名前空間によって擬似的にスコープを作る必要があります。名前の重複を避けることができれば、スタイルの意図しない衝突を起こす可能性が下がります。
+名前空間でスコープを作るために4つの方法を利用します。
 
 1. MindBEMdingの命名規則をベースとすることでコンポーネント名の衝突を防ぐこと
 2. BEMのBlockごとにファイルを分割（モジュール化）することでファイル単位での管理をすること
-3. コンポーネントの役割ごとにレイヤーを定義しフォルダに分けることでディレクトリ単位での管理をすること
-4. コンポーネントの役割ごとにプレフィックス（ネームスペース）をつけること
+3. コンポーネントのコンテキストごとにレイヤーを定義して、フォルダに分けることでディレクトリ単位での管理をすること
+4. コンポーネントのコンテキストごとに名前空間をつけること
 
-### 見た目を表す名前
-コンポーネントの名前と役割は一致することが望ましいです。コンポーネントの見た目は変更される可能性がありますが、役割が変わることはないからです。コンポーネント名が見た目を表していた場合、見た目の変更は大幅なHTMLの修正につながってしまいます。
+### 見た目を表す名前を避ける
+コンポーネントの名前とコンテキストは一致することが望ましいです。コンポーネントの見た目は変更される可能性がありますが、コンテキストが変わることはないからです。コンポーネント名が見た目を表していた場合、見た目の変更は大幅なHTMLの修正につながってしまう可能性が高くなります。
 
-見た目を表すコンポーネント名にするときは変数や@apply Ruleなどで抽象化をして使うようにします。
+見た目を表すコンポーネント名にしなければいけない場合は、変数や@apply Ruleなどで抽象化をしてから使うようにします。
 
-### 詳細度と読み込み順
+### 詳細度と読み込み順を管理する
 スタイルが期待通りに適応されるようにするために3つの方法を利用します。
 
 1. 結合子をもたないクラスの指定をベースにして詳細度をできるだけ低く保つこと
 2. スタイルシートの序盤はできるだけ詳細度を低く、徐々に高くすること
 3. 優先的に適応したいコンポーネントほどスタイルシートの後半で指定すること
 
-### コンポーネントの拡張性
+### コンポーネントを拡張可能にする
 コンポーネントは拡張を前提として考えます。コンポーネントはベースとなる構造を持ち、バリエーションはBEMのModifierやSMACSSのStateで拡張します。
 
 ### コンポーネント同士の関係性
 あるコンポーネント内のカスケーディング（例えばバリエーション違いでスタイルを上書きすることなど）に制限はありません。カスケーディングが問題になるのはコンポーネント同士のカスケーディングです。
 
-コンポーネントは**上書きされるオブジェクト**と**上書きするオブジェクト**を区別することで関係性を明確にします。コンポーネント同士の方向性を一致させることでスタイルの衝突を防ぎます。上書きされるコンポーネントは上書きに適したスタイルの指定をする必要があります。
+コンポーネントは**上書きされるコンポーネント**と**上書きするコンポーネント**を区別することで関係性を明確にします。コンポーネント同士の方向性を一致させることでスタイルの衝突を防ぎます。上書きされるコンポーネントは上書きに適したスタイルの指定をする必要があります。
 
 ### コンポーネントとレイアウト
 コンポーネントによってユーザーインターフェイスが決まり、レイアウトによってコンポーネントの配置が決まります。
@@ -142,7 +144,7 @@ JavaScriptを使った動的なスタイルはSMACSSのStateクラスを使い�
 .is-curent {}
 ``` 
 
-ネストを使った省略記法は（Stateクラスを含む）状態変化やメディアクエリ以外の使用を禁止します。セレクタが常に明確になるように書くことで保守性を維持します。
+ネストを使った省略記法は（Stateクラスを含む）状態変化やメディアクエリの使用を基本とします。他のコンポーネントをセレクタとしてつかうこともできますが、`&`で参照されるセレクタが常にルートにあるキーセレクタになるようにします。
 
 ```scss
 // Good
@@ -150,6 +152,13 @@ JavaScriptを使った動的なスタイルはSMACSSのStateクラスを使い�
 .blockName__element {}
 .blockName__element--modifier {}
 .blockName--modifier {}
+
+// Good
+.blockName {
+  &:before {}
+  & > .block2 {}
+  &.is-active {}
+}
 
 // Bad
 .blockName {
@@ -188,7 +197,9 @@ css
 ├── base/
 ├── atoms/
 ├── molecules/
-├── organisms/
+├── organisms
+│   ├── global
+│   └── toppage
 ├── templates/
 ├── pages/
 └── utility/
@@ -207,6 +218,8 @@ root
 │       ├── atoms/
 │       ├── molecules/
 │       ├── organisms/
+│       │   ├── global/
+│       │   └── toppage/
 │       ├── templates/
 │       ├── pages/
 │       └── utility/
@@ -295,7 +308,7 @@ ToolレイヤーではCustom SelectorsやCustom Media Queries、@apply Ruleを�
 ```
 
 ### 3. Base
-Baseレイヤーでは要素セレクタや属性セレクタのようなオブジェクトのベースとなるスタイルを定義します。Normalize.cssもこのレイヤーに含まれます。
+Baseレイヤーでは要素セレクタや属性セレクタのようなコンポーネントのベースとなるスタイルを定義します。Normalize.cssもこのレイヤーに含まれます。
 
 詳細度はクラスセレクタと同じ0,0,1,0以下になるように極力低くします。メディアクエリや擬似クラスのような、ある状況や状態に対するスタイルは極力持つべきではありません。
 
@@ -329,7 +342,7 @@ html {
 
 body {
   color: var(--color);
-  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: var(--font-weight--normal);
   background-color: var(--background-color);
 }
@@ -349,12 +362,13 @@ pre {
 ### 4. Atoms
 Atoms（アトム）は機能的にこれ以上分割ができない最小の要素です。例えば、見出しやリスト、フォームラベルやボタンなどが該当します。
 
-Atomic DesignにおけるAtomsは抽象的で目的をもたないものとされますが、役割をもった具体的なUIにすることも許容します。つまりAtoms単体で機能を拡張することもできます。カラーパレットやアニメーションもAtomsとされていますが、SettingとToolに定義しています。
+Atomsはコンテキストを含んだ名前にします。シングルクラスで指定したり、後述するMoleculesで呼び出せるように@apply Ruleなどを使いますが、過度に複雑にしてはいけません。  
+カラーパレットやアニメーションもAtomsとされていますが、SettingとToolに定義して読み込み順を管理しています。
 
-後述するMoleculesとOrganismsのスタイルを継承できるように`em`での指定を基本とします。
+MoleculesとOrganismsのスタイルを継承できるように`em`での指定を基本とします。
 
 テキストやリストのような文章を書くためのコンポーネントはAtoms単体で使用することがあります。  
-プレフィックス（接頭辞）として`.a-`をつけます。
+名前空間として`.a-`をつけます。
 
 ```css
 @import "atoms/_icon.css";
@@ -366,13 +380,18 @@ Atomic DesignにおけるAtomsは抽象的で目的をもたないものとさ�
 @import "atoms/_textEmphasis.css";
 @import "atoms/_textAttention.css";
 @import "atoms/_textSecondary.css";
-@import "atoms/_list.css";
+@import "atoms/_listOrder.css";
+@import "atoms/_listNote.css";
+@import "atoms/_listNoteOrder.css";
+@import "atoms/_listBracketOrder.css";
 @import "atoms/_link.css";
 @import "atoms/_linkMore.css";
 @import "atoms/_linkExternal.css";
 @import "atoms/_linkPdf.css";
 @import "atoms/_linkDownload.css";
-@import "atoms/_delimiter.css";
+@import "atoms/_linkNote.css";
+@import "atoms/_linkReturn.css";
+@import "atoms/_divider.css";
 @import "atoms/_embed.css";
 @import "atoms/_label.css";
 @import "atoms/_button.css";
@@ -384,15 +403,15 @@ Atomic DesignにおけるAtomsは抽象的で目的をもたないものとさ�
 ```
 
 ### 5. Molecules
-Molecules（モルキュール）はAtomsを組み合わせた比較的シンプルなUIグループです。例えば、検索フォームはlabelとinput、buttonが組み合わさったMoleculesです。
+Molecules（モルキュール）はAtomsを組み合わせたような比較的シンプルなUIグループです。例えば、検索フォームはlabelとinput、buttonが組み合わさったMoleculesです。
 
 Moleculesはシンプルで機能的なコンポーネントにすることを推奨します。これにより、扱いやすく、メンテナンス性が高く、一貫性を保ったUIにすることができます。
 
 後述するOrganismsのスタイルを継承できるように`em`での指定を基本とします。  
-プレフィックス（接頭辞）として`.m-`をつけます。
+名前空間として`.m-`をつけます。
 
 ```css
-@import "molecules/_listInline.css";
+@import "molecules/_inlineGroup.css";
 @import "molecules/_listMark.css";
 @import "molecules/_figure.css";
 @import "molecules/_ratio.css";
@@ -401,25 +420,31 @@ Moleculesはシンプルで機能的なコンポーネントにすることを�
 @import "molecules/_media.css";
 @import "molecules/_flag.css";
 @import "molecules/_breadcrumb.css";
-@import "molecules/_thumbnail.css";
+@import "molecules/_postSummary.css";
+@import "molecules/_postFeature.css";
+@import "molecules/_buttonGroup.css";
 @import "molecules/_searchForm.css";
 ```
 
 ### 6. Organisms
 Organisms（オルガニズム）はAtomsやMolecules、または複数のMoleculesを組み合わせた比較的複雑なUIグループです。例えば、グローバルヘッダーはロゴとグローバルナビゲーション、検索フォームなどが組み合わさったOrganismsです。OrganismsはMoleculesよりも具体的なコンテキストをもつコンポーネントです。  
-プレフィックス（接頭辞）として`.o-`をつけます。
+
+AtomsとMoleculesなどの配置がパターン化できるものはOrganismsになることが多いです。逆に、AtomsとMoleculesなどの配置がページごとに変わる場合はTempletesでレイアウトをします。
+
+名前空間はコンテキストにあわせてつけます。例えば、`.tp-`（トップページ）や`.glb-`（グローバル）などです。名前空間ごとにディレクトリをわけて管理をします。
 
 ```css
 @import "organisms/_globalHeader";
 @import "organisms/_globalFooter";
 @import "organisms/_articleList";
+@import "organisms/toppage/hero.css";
 ```
 
 ### 7. Templates
 Templates（テンプレート）はページレベルのオブジェクトで、コンポーネント（Atoms・Molecules・Organisms）を配置してページの構成を整えます。
 
 ワイヤーフレームのような大きなレイアウトから、コンポーネント単位のレイアウトまで様々です。コンポーネントにダミーのテキストや画像を挿入することで、コンテンツの量や大きさによって意図しないデザインになってしまわないかをテストすることができます。  
-プレフィックス（接頭辞）として`.t-`をつけます。
+名前空間として`.t-`をつけます。
 
 ```css
 @import "templates/_grid.css";
@@ -433,12 +458,8 @@ Templates（テンプレート）はページレベルのオブジェクトで�
 ### 8. Pages
 Pages（ページ）では実際のコンテンツを挿入して最終的な外観を確認します。
 
-Templatesのバリエーションを定義することもできます。例えば、特定のページやカテゴリに対するスタイルを定義したり、動的にページの状態を変更したいときなどです。  
-プレフィックス（接頭辞）として`.p-`をつけます。
-
-```css
-@import "pages/_blog.css";
-```
+PagesはTemplatesの動的なバリエーションです。例えば、ログインしているか、カートに入っているかといった特定の状況や、実際の画像やテキストを入れたときにレイアウトが崩れることはないかなどを確認します。スタイルの追加はあまりないと考えます。  
+名前空間として`.p-`をつけます。
 
 ### 9. Utility
 Utilityレイヤーは汎用クラスを定義します。シングルクラスでも確実にスタイルを適応させるために`!important`を指定することを推奨します。
@@ -446,7 +467,7 @@ Utilityレイヤーは汎用クラスを定義します。シングルクラス�
 コンポーネントがUtilityコンポーネントで成り立ってしまうことはできるだけ避けます。Utilityコンポーネントは他のレイヤーが持つよりも汎用的に使えたり、コードが冗長になってしまう場合に使います。
 
 pxのような絶対値ではなく、remや%のような相対値を指定することを推奨します。  
-プレフィックス（接頭辞）として`.u-`をつけます。
+名前空間として`.u-`をつけます。
 
 ```css
 @import "utility/_align.css";
@@ -456,28 +477,25 @@ pxのような絶対値ではなく、remや%のような相対値を指定す�
 ```
 
 ### ライブラリ、フレームワーク、プラグイン
-CSSのライブラリやフレームワーク、JQueryプラグインのCSSファイルなどを追加する場合も3つの基準にもとづいてカテゴライズします。  
+CSSのライブラリやフレームワーク、JQueryプラグインのCSSファイルなどを追加する場合もBaseからUtilityの基準にもとづいてカテゴライズします。  
 外部のCSSだからといって、役割や機能が変わることはないからです。
 
 例えばnormalize.cssはBaseレイヤー、スライダーのようなJQueryプラグインはOrganismsレイヤーが適切な場所になります。
 
 CSSファイルは直接編集をせず、librarynameExtend.cssのようなファイルを用意して上書きをします。記述が冗長になってしまう場合は直接編集してもかまいません。
 
-## プレフィックス
-レイヤーにカテゴライズしたオブジェクトにはレイヤー名からとったプレフィックスをつけます。
+## 名前空間
 
 - Atoms - `.a-`
 - Molecules - `.m-`
-- Organisms - `.o-`
+- Organisms - コンテキストにあわせる
 - Templates - `.t-`
 - Pages - `.p-`
 - utility - `.u-`
 
-レイヤーにもとづいたネームスペースで名前の重複を避け、プレフィックスによってオブジェクトの役割を明確にすることができます。
+レイヤーやコンテキストに基づいた名前空間をつけます。
 
-JavaScriptでのみ参照する要素には`js-`プレフィックスをつけます。`js-`プレフィックスのついたクラス名とID名にはCSSを指定することを禁止します。
-
-ライブラリ、フレームワーク、プラグインにはプレフィックスのルールを適応しませんが、独自のプレフィックスをもっているものを使うことを推奨します。
+ライブラリ、フレームワーク、プラグインは独自の名前空間があるものを使うことを推奨します。
 
 ### サフィックス
 ブレイクポイントをもっているオブジェクトにはクラス名の末尾にサフィックス（接尾辞）をつけます。  
@@ -509,32 +527,76 @@ JavaScriptでのみ参照する要素には`js-`プレフィックスをつけ�
  * setting...Custom Propertiesを使ったグローバル変数です。
  *
  * TOOL
- * tool...Custom SelectorsやCustom Media Queries、@apply Ruleを使ったルールです。
+ * tool...Custom SelectorsやCustom Media Queries、@apply Ruleを使った汎用的なルールです。
  *
  * BASE
  * normalize...Normalize.cssをインポートしています。
  * base...タイプセレクタと属性セレクタのデフォルトスタイルです。
  *
  * ATOMS
+ * icon...アイコンフォントです。テンプレートから自動で生成されます。
+ * iconExtend...アイコンにスタイルを追加します。
  * title...`<h1>`で使われる見出しのスタイルです。
+ * heading2...`<h2>`で使われるような見出しのスタイルです。
+ * heading3...`<h3>`で使われるような見出しのスタイルです。
+ * lead...視覚的に目立たせるときに使うスタイルです。
+ * textEmphasis...強調や重要性を示すときに使います。
+ * textAttention...注意や注目を引きたい場合に使います。
+ * textSecondary...副次的な意味合いを持たせる場合に使います。
+ * list...リストアイテムの左に役物などを表示します。
+ * link...テキストリンクのデフォルトスタイルです。
+ * linkMore...クリックを促すようなテキストリンクに使います。
+ * linkExternal...外部リンクであることを示す場合に使います。
+ * linkPdf...リンク先がPDFであることを示す場合に使います。
+ * linkDownload...ファイルをダウンロードするためのリンクであることを示す場合に使います。
+ * linkNote...注釈へのリンクです。`<sup>`タグの子要素として指定します。
+ * linkReturn...注釈から参照元に戻るためのリンクです。
+ * divider...`<hr>`のような区切り記号を使って、分割・グルーピングします。
+ * embed...Youtubeなどをレスポンシブ対応させます。
+ * label...インラインで表示するラベルコンポーネントです。
  * button...ボタンのデフォルトスタイルです。
+ * formInput...`<input>`のデフォルトスタイルです。
+ * formTextarea...`<textarea>`のデフォルトスタイルです。
+ * formSelect...`<select>`のデフォルトスタイルです。
+ * formCheckbox...`type="checkbox"`のデフォルトスタイルです。
+ * formRadio...`type="radio"`のデフォルトスタイルです。
  *
  * MOLECULES
+ * listInline...ボタンやラベル、テキストリンクなどを横並びにします。
+ * listMark...リストアイテムの左にアイコンを配置します。
+ * figure...キャプションをつけた画像オブジェクトです。
+ * ratio...アスペクト比を固定したまま伸縮させます。
+ * block...画像とテキストを縦に配置します。
  * table...`<table>`のベースとなるスタイルです。
+ * media...画像とテキストが横並びになるオブジェクトです。
+ * flag...画像とテキストが横並びになるオブジェクトです。垂直方向の指定ができます。
+ * breadcrumb...パンくずリストオブジェクトです。
+ * postSummary...ページへの画像リンクです。画像と見出しなどの概要を伴います。
+ * postFeature...ページへの画像リンクです。（`.m-postSummary`よりも）特に目立たせたい主要なページへの誘導に使います。
+ * buttonGroup...2つのボタンをグルーピングします。
  * searchForm...検索フォームコンポーネントです。
  *
  * ORGANISMS
+ * global
+ * header...グローバルヘッダーです。
+ * footer...グローバルフッターです。
+ * blog...ブログ内のスタイルです。
  *
- * TEMPLATE
+ * TEMPLATES
  * grid...汎用的なグリッドオブジェクトです。
+ * header...グローバルヘッダーのレイアウトを指定します。
  * content...コンテンツエリアのレイアウトを指定します。
+ * sidebar...サイドバーエリアのレイアウトを指定します。
+ * footer...グローバルフッターのレイアウトを指定します。
+ * wrapper...グローバルヘッダーやグローバルフッター、メインコンテンツやサイドバーといったサイトの基本となるレイアウトを指定します。
  *
- * PAGE
- * blog...ブログエリアのスタイルです。
+ * PAGES
  *
  * UTILITY
- * align...画像などを左右や中央に配置します。
- * col...レスポンシブに対応した`width`プロパティを指定する汎用クラスです。
+ * image...画像の汎用スタイルです。
+ * text...テキストのスタイルに関するスタイルです。
+ * display...`<br>`タグに指定をして、改行をブレイクポイントごとにコントロールします。
+ * col...レスポンシブに対応した`width`プロパティを指定します。
  */
 ```
 

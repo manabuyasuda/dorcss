@@ -1,0 +1,19 @@
+ /* #glb-blog
+   -------------------------------------------------------------------------- */
+.glb--blog {}
+
+.glb--blog__content h2 {}
+.glb--blog__content h3 {}
+.glb--blog__content h4 {}
+.glb--blog__content h5 {}
+.glb--blog__content h6 {}
+.glb--blog__content p {}
+.glb--blog__content ul,
+.glb--blog__content ol {}
+.glb--blog__content blockquote {}
+.glb--blog__content img {}
+.glb--blog__content code {}
+.glb--blog__content pre code {}
+.glb--blog__content > :last-child {
+  margin-bottom: 0;
+}
